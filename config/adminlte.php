@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'farmacia',
-    'title_prefix' => '',
+    'title' => '',
+    'title_prefix' => 'Farmacia Vichuquen | ',
     'title_postfix' => '',
 
     /*
@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => '<b>Farmacia</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/pills.png',
+    'logo' => '<p>Farmacia Vichuquen</p>',
+    'logo_img' => 'vendor/adminlte/dist/img/logo.jpeg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',

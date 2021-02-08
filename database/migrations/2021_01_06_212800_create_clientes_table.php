@@ -22,7 +22,7 @@ class CreateClientesTable extends Migration
             $table->string('direccion')->nullable();
             $table->string('comuna')->nullable();
             $table->string('telefono')->nullable();
-            $table->enum('sexo', ['Masculino', 'Femenino', 'Otro'])->nullable();
+            $table->enum('sexo', ['Masculino' => 'masculino', 'Femenino' => 'femenino', 'Otro' => 'otro'])->nullable();
             $table->date('fecha_nacimiento');
             $table->integer('edad')->nullable();
             $table->boolean('estado')->default(1);
