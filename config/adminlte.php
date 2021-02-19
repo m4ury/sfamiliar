@@ -15,7 +15,7 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => 'Farmacia Vichuquen | ',
+    'title_prefix' => 'Censo | ',
     'title_postfix' => '',
 
     /*
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Farmacia Vichuquen</b>',
+    'logo' => '<b>Censo</b>',
     'logo_img' => null,
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -69,7 +69,7 @@ return [
     'usermenu_header_class' => 'bg-info',
     'usermenu_image' => true,
     'usermenu_desc' => true,
-    'usermenu_profile_url' => false,
+    'usermenu_profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -192,7 +192,7 @@ return [
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => '/profile',
 
     /*
     |--------------------------------------------------------------------------
