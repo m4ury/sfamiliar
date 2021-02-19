@@ -1,26 +1,31 @@
 <?php
 
-namespace App;
+namespace app;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use illuminate\contracts\auth\mustverifyemail;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+//use illuminate\foundation\auth\user as authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use illuminate\notifications\notifiable;
 
-class User extends Authenticatable
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Notifiable;
+    use Authenticatable, CanResetPassword;
 
     /**
-     * The attributes that are mass assignable.
+     * the attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'rut', 'apellido_paterno', 'apellido_materno'
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * the attributes that should be hidden for arrays.
      *
      * @var array
      */
@@ -29,11 +34,22 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * the attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function adminlte_image()
+    {
+        return 'https://source.unsplash.com/random/300x300';
+        //return 'https://picsum.photos/300/300';
+    }
+
+    public function adminlte_desc()
+    {
+        return $this->type;
+    }
 }
