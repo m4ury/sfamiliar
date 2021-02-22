@@ -18,7 +18,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^2.0",
         "laravelcollective/html": "^6.2",
-        "laraveles/spanish": "^1.5"
+        "laraveles/spanish": "^1.5",
+        "salmanzafar/laravel-crud-generator": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

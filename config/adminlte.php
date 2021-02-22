@@ -228,30 +228,41 @@ return [
             'search' => true,
             'topnav' => true,
         ],
-        [
+        /*[
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+        ],*/
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => 'profile',
             'icon' => 'fas fa-fw fa-user',
         ],
-        [
+        /*[
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-        ],
+        ],*/
+        ['header' => 'Pacientes'],
         [
+            'text' => 'pacientes',
+            'route'  => 'pacientes.index',
+            'icon' => 'fas fa-fw fa-user-injured',
+        ],
+        ['header' => 'Fichas'],
+        [
+            'text' => 'fichas',
+            'route'  => 'fichas.index',
+            'icon' => 'fas fa-fw fa-address-book',
+        ],
+        ['header' => 'Controles'],
+        [
+            'text' => 'controles',
+            'route'  => 'controles.index',
+            'icon' => 'fas fa-fw fa-hospital-user',
+        ],
+        /*[
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
@@ -288,8 +299,8 @@ return [
                     'url'  => '#',
                 ],
             ],
-        ],
-        ['header' => 'labels'],
+        ],*/
+        /*['header' => 'labels'],
         [
             'text'       => 'important',
             'icon_color' => 'red',
@@ -304,7 +315,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ]*/
     ],
 
     /*
@@ -372,7 +383,7 @@ return [
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => 'vendor/select2/css/select2.min.css',
                 ],
             ],
