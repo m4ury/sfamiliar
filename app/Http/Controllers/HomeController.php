@@ -28,6 +28,7 @@ class HomeController extends Controller
         $totalMasculino = Paciente::where('sexo', '=', 'Masculino')->count();
         $totalFemenino = Paciente::where('sexo', '=', 'Femenino')->count();
 
+        //x sector
         $totalCeleste = Paciente::where('sector', '=', 'celeste')->count();
         $totalNaranjo = Paciente::where('sector', '=', 'naranjo')->count();
 

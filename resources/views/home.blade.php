@@ -26,6 +26,9 @@
                         <div class="col">
                             <canvas id="myPieChart"></canvas>
                         </div>
+                        <div class="col">
+                            <canvas id="myPieChart2"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,6 +53,27 @@
                         'rgba(255, 99, 132, 1)',
                         'rgba(54, 162, 235, 1)'
                         ],
+                    borderWidth: 1
+                }]
+            }
+        });
+    </script>
+    <script>
+        var ctx = document.getElementById('myPieChart2').getContext('2d');
+        var myPieChart2 = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Celeste', 'Naranjo'],
+                datasets: [{
+                    label: 'Q Pacientes por Sector',
+                    data: [{{$totalCeleste}}, {{$totalNaranjo}}],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
                     borderWidth: 1
                 }]
             }
