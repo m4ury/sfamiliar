@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Paciente;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $totalPacientes = Paciente::all('rut')->count();
+        $totalMasculino = Paciente::where('sexo', '=', 'Masculino')->count();
+        $totalFemenino = Paciente::where('sexo', '=', 'Femenino')->count();
+
+        $totalCeleste = Paciente::where('sector', '=', 'celeste')->count();
+        $totalNaranjo = Paciente::where('sector', '=', 'naranjo')->count();
+
+
+        return view('home', compact('totalPacientes', 'totalMasculino', 'totalFemenino', 'totalCeleste', 'totalNaranjo'));
     }
 }
