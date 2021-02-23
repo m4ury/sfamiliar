@@ -223,11 +223,11 @@ return [
     */
 
     'menu' => [
-        [
+        /*[
             'text' => 'search',
             'search' => true,
             'topnav' => true,
-        ],
+        ],*/
         /*[
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -250,11 +250,11 @@ return [
             'route'  => 'pacientes.index',
             'icon' => 'fas fa-fw fa-user-injured',
         ],
-        ['header' => 'Fichas'],
+        ['header' => 'Patologias'],
         [
-            'text' => 'fichas',
-            'route'  => 'fichas.index',
-            'icon' => 'fas fa-fw fa-address-book',
+            'text' => 'patologias',
+            'route'  => 'patologias.index',
+            'icon' => 'fas fa-fw fa-heartbeat',
         ],
         ['header' => 'Controles'],
         [

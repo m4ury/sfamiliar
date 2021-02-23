@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('pacientes', 'PacienteController'); 
 Route::apiResource('controls', 'ControlController'); 
 Route::apiResource('fichas', 'FichaController'); 
+Route::apiResource('patologias', 'PatologiaController'); 

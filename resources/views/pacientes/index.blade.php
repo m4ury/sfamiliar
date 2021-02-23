@@ -14,6 +14,12 @@
         @endif--}}
         <div class="page-header">
             <div class="form-group">
+                {!! Form::open(['route' => 'pacientes.index', 'method' => 'GET', 'class' => 'form-inline float-right pb-2'])
+                !!}
+                {{ Form::text('q', null, ['class' => 'form-control mx-1', 'placeholder' => 'Buscar'], isset($q) ? $q : '') }}
+                <button type="submit" class="btn btn-secondary form-control"><span><i
+                                class="fas fa-search"></i></span></button>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
@@ -30,7 +36,7 @@
             <tr>
                 <th>Rut</th>
                 <th>Nombre Completo</th>
-                {{--<th>Nº Ficha Clinica</th>--}}
+                <th>Nº Ficha Clinica</th>
                 <th>Edad</th>
                 <th>Sexo</th>
                 <th>Sector</th>
@@ -44,10 +50,10 @@
                 <tr>
                     <td><a href="{{ route('pacientes.show', $paciente->id) }}">{{ $paciente->rut }}</a></td>
                     <td>{{ $paciente->fullName() }}</td>
+                    <td>{{ $paciente->ficha }}</td>
                     <td>{{ $paciente->edad() }}</td>
                     <td>{{ $paciente->sexo }}</td>
-                    {{--<td>{{ $paciente->ficha()->numero }}</td>--}}
-                    <td>{{ $paciente->sector ? 'celeste' : '<span style="color:Mediumslateblue"><i class="fas fa-map-marker-alt "></i></span>' }}</td>
+                    <td>{{ $paciente->sector }}</td>
                     {{--<td>
                         <a class="btn bg-gradient-secondary btn-sm" data-toggle="tooltip" data-placement="bottom"
                            title="Editar"
@@ -56,11 +62,11 @@
             @endforeach
             </tbody>
         </table>
-        {{--{{ $pacientes->links() }}--}}
+        {{ $pacientes->appends(['q' => $q])->links() }}
     </div>
 @stop
-@section('js')
+{{--@section('js')
     <script>
         $("#pacientes").DataTable();
     </script>
-@endsection
+@endsection--}}
