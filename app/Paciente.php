@@ -1,0 +1,36 @@
+<?php
+
+namespace App;
+
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
+
+class Paciente extends Model
+{
+    protected $guarded = ['id'];
+    protected $fillable = ['rut', 'nombres', 'apellidoP', 'apellidoM', 'sexo', 'telefono', 'direccion', 'fecha_nacimiento', 'comuna'];
+
+    public function scopeSearch($query, $q)
+    {
+        if ($q)
+            return $query->where('rut', 'LIKE', "%$q%")
+                ->orWhere('nombres', 'LIKE', "%$q%")
+                ->orWhere('apellidoP', 'LIKE', "%$q%")
+                ->orWhere('ficha', 'LIKE', "%$q%")
+                ->orWhere('sexo', 'LIKE', "%$q%")
+                ->orWhere('sector', 'LIKE', "%$q%")
+                ->orWhere('apellidoM', 'LIKE', "%$q%");
+    }
+
+    public function fullName()
+    {
+        return ucfirst($this->nombres) . " " . ucfirst($this->apellidoP) . " " . ucfirst($this->apellidoM);
+    }
+
+    public function edad()
+    {
+        return Carbon::parse($this->fecha_nacimiento)->diff(Carbon::now())
+            ->format('%y años, %m meses');
+
+    }
+}
