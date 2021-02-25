@@ -5,8 +5,8 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-2 col-6">
+        <div class="row align-self-center">
+            <div class="col-lg col-6">
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
@@ -20,8 +20,10 @@
                                 class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <!-- ./col -->
-            <div class="col-lg-2 col-6">
+            <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-gradient-pink">
                     <div class="inner">
@@ -36,7 +38,7 @@
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-2 col-6">
+            <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-gradient-blue">
                     <div class="inner">
@@ -52,7 +54,7 @@
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-2 col-6">
+            <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-gradient-orange">
                     <div class="inner">
@@ -66,91 +68,75 @@
                                 class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-                <div class="col-lg-2 col-6">
-                    <div class="small-box bg-gradient-lightblue">
-                        <div class="inner">
-                            <h3>{{ $totalCeleste }}</h3>
-                            <p>Pacientes Sector Celeste</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-hospital-user"></i>
-                        </div>
-                        <a href="{{ url('/pacientes?q=celeste') }}" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-gradient-lightblue">
+                    <div class="inner">
+                        <h3>{{ $totalCeleste }}</h3>
+                        <p>Pacientes Sector Celeste</p>
                     </div>
+                    <div class="icon">
+                        <i class="fas fa-hospital-user"></i>
+                    </div>
+                    <a href="{{ url('/pacientes?q=celeste') }}" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
                 </div>
+            </div>
             <!-- ./col -->
         </div>
-    </div>
-    {{--<div class="card">
-        <div class="card-header">{{ __('Dashboard') }}</div>
+        <div class="row">
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-header border-0">
+                        <div class="d-flex justify-content-between">
+                            <h3 class="card-title">Pacientes por rango etareo</h3>
+                            {{--<a href="javascript:void(0);">View Report</a>--}}
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <p class="d-flex flex-column">
+                                <span class="text-bold text-lg">$18,230.00</span>
+                                <span>Sales Over Time</span>
+                            </p>
+                            <p class="ml-auto d-flex flex-column text-right">
+                    <span class="text-success">
+                      <i class="fas fa-arrow-up"></i> 33.1%
+                    </span>
+                                <span class="text-muted">Since last month</span>
+                            </p>
+                        </div>
+                        <!-- /.d-flex -->
 
-        <div class="card-body">
-            <div class="row">
-                <div class="col">
-                    <p>Total pacientes: {{ $totalPacientes  }}</p>
+                        <div class="position-relative mb-4">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="myChart" height="200" style="display: block; width: 759px; height: 200px;"
+                                    width="759" class="chartjs-render-monitor"></canvas>
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-end">
+                  <span class="mr-2">
+                    <i class="fas fa-square text-primary"></i> This year
+                  </span>
+
+                            <span>
+                    <i class="fas fa-square text-gray"></i> Last year
+                  </span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col">
-                    <p>Total Masculino: {{ $totalMasculino  }}</p>
-                </div>
-                <div class="col">
-                    <p>Total Femenino: {{ $totalFemenino  }}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <canvas id="myPieChart"></canvas>
-                </div>
-                <div class="col">
-                    <canvas id="myPieChart2"></canvas>
-                </div>
+                <!-- /.card -->
             </div>
         </div>
-    </div>--}}
+    </div>
 @endsection
 @section('js')
-    <script>
-        var ctx = document.getElementById('myPieChart').getContext('2d');
-        var myPieChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Mujeres', 'Hombres'],
-                datasets: [{
-                    label: 'Q Pacientes por Sexo',
-                    data: [{{$totalFemenino}}, {{$totalMasculino}}],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)'],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            }
-        });
-    </script>
-    <script>
-        var ctx = document.getElementById('myPieChart2').getContext('2d');
-        var myPieChart2 = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Celeste', 'Naranjo'],
-                datasets: [{
-                    label: 'Q Pacientes por Sector',
-                    data: [{{$totalCeleste}}, {{$totalNaranjo}}],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)'],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            }
-        });
-    </script>
     {{--<script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {

@@ -44,16 +44,22 @@
             </tr>
             </thead>
             <tbody>
-
             @foreach($pacientes as $paciente)
-
                 <tr>
                     <td><a href="{{ route('pacientes.show', $paciente->id) }}">{{ $paciente->rut }}</a></td>
                     <td>{{ $paciente->fullName() }}</td>
                     <td>{{ $paciente->ficha }}</td>
                     <td>{{ $paciente->edad() }}</td>
                     <td>{{ $paciente->sexo }}</td>
-                    <td>{{ $paciente->sector }}</td>
+                    @if($paciente->sector == 'celeste')
+                        <td><span class="mr-2">
+                    <i class="fas fa-square text-primary"></i></span> Celeste
+                        </td>
+                    @else($paciente->sector == 'naranjo')
+                        <td><span class="mr-2">
+                    <i class="fas fa-square text-orange"></i></span> Naranjo
+                        </td>
+                    @endif
                     {{--<td>
                         <a class="btn bg-gradient-secondary btn-sm" data-toggle="tooltip" data-placement="bottom"
                            title="Editar"
