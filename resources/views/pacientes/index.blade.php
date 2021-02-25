@@ -40,7 +40,7 @@
                 <th>Edad</th>
                 <th>Sexo</th>
                 <th>Sector</th>
-                {{--<th colspan="2" class="text-center">Acciones</th>--}}
+                <th colspan="2" class="text-center">Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -60,10 +60,10 @@
                     <i class="fas fa-square text-orange"></i></span> Naranjo
                         </td>
                     @endif
-                    {{--<td>
+                    <td>
                         <a class="btn bg-gradient-secondary btn-sm" data-toggle="tooltip" data-placement="bottom"
                            title="Editar"
-                           href="{{ route('pacientes.edit', $paciente->id) }}"><i class="fas fa-pen"></i></a></td>--}}
+                           href="{{ route('pacientes.edit', $paciente->id) }}"><i class="fas fa-pen"></i></a></td>
                 </tr>
             @endforeach
             </tbody>

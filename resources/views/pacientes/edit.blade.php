@@ -1,4 +1,6 @@
-@extends('layouts.master')
+@extends('adminlte::page')
+@section('title', 'editar-pacientes')
+
 @section('content')
     <div class="container">
         <div class="row justify-content-left">
@@ -6,7 +8,7 @@
                 <div class="card card-default">
                     <div class="card-header">Editando Paciente</div>
                     <div class="card-body">
-                        {{ Form::open(['action' => route('paciente.update', $paciente->id), 'method' => 'PUT', 'url' => 'paciente/'.$paciente->id, 'class' => 'form-horizontal']) }}
+                        {{ Form::open(['action' => route('pacientes.update', $paciente->id), 'method' => 'PUT', 'url' => 'pacientes/'.$paciente->id, 'class' => 'form-horizontal']) }}
                         <div class="form-group row">
                             {!! Form::label('rut', 'Rut', ['class' => 'col-sm-2 col-form-label']) !!}
                             <div class="col-sm-6">
@@ -14,7 +16,7 @@
                                 form-control-sm'.($errors->has('rut')
                                 ? ' is-invalid' :
                                 old('rut')), 'placeholder' =>
-                                '00000000-X']) !!}
+                                'Ej.:16000000-K']) !!}
                                 @if ($errors->has('rut'))
                                     <span class="invalid-feedback">
                                 <strong>{{ $errors->first('rut') }}</strong>
@@ -40,21 +42,21 @@
                         <div class="form-group row">
                             {!! Form::label('apellidos', 'Apellidos', ['class' => 'col-sm-2 col-form-label']) !!}
                             <div class="col-sm-5">
-                                {!! Form::text('apellido_paterno',$paciente->apellido_paterno, ['class' => 'form-control
-                                form-control-sm'.($errors->has('apellido_paterno') ? 'is-invalid' : ''), 'placeholder' => 'Apellido Paterno']) !!}
-                                @if ($errors->has('apellido_paterno'))
+                                {!! Form::text('apellidoP',$paciente->apellidoP, ['class' => 'form-control
+                                form-control-sm'.($errors->has('apellidoP') ? 'is-invalid' : ''), 'placeholder' => 'Apellido Paterno']) !!}
+                                @if ($errors->has('apellidoP'))
                                     <span class="invalid-feedback">
-                                <strong>{{ $errors->first('apellido_paterno') }}</strong>
+                                <strong>{{ $errors->first('apellidoP') }}</strong>
                             </span>
                                 @endif
                             </div>
                             <div class="col-sm-5">
-                                {!! Form::text('apellido_materno',$paciente->apellido_materno, ['class' => 'form-control
-                                form-control-sm'.($errors->has('apellido_materno') ? '
+                                {!! Form::text('apellidoM',$paciente->apellidoM, ['class' => 'form-control
+                                form-control-sm'.($errors->has('apellidoM') ? '
                                 is-invalid' : ''), 'placeholder' => 'Apellido Materno']) !!}
-                                @if ($errors->has('apellido_materno'))
+                                @if ($errors->has('apellidoM'))
                                     <span class="invalid-feedback">
-                                <strong>{{ $errors->first('apellido_materno') }}</strong>
+                                <strong>{{ $errors->first('apellidoM') }}</strong>
                             </span>
                                 @endif
                             </div>
@@ -66,19 +68,19 @@
                                 {!! Form::date('fecha_nacimiento',$paciente->fecha_nacimiento, ['class' => 'form-control
                                 form-control-sm']) !!}
                             </div>
-                           <!--  <div class="col-sm-5">
+                        <!--  <div class="col-sm-5">
                                 {!! Form::select('sexo', array('Femenino' => 'Femenino', 'Masculino' => 'Masculino', 'Otro' => 'Otro'), $paciente->sexo, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción...']) !!}
-                            </div> -->
+                                </div> -->
                         </div>
                         <div class="form-group row">
                             {!! Form::label('telefono', 'Télefono.', ['class' => 'col-sm-2 col-form-label']) !!}
                             <div class="col-sm-5">
                                 {!! Form::tel('telefono',$paciente->telefono, ['class' => 'form-control form-control-sm'.($errors->has('telefono') ? ' is-invalid' : ''), 'id' => 'phone', 'placeholder' => '12345678']) !!}
-                            @if ($errors->has('telefono'))
-                                <span class="invalid-feedback">
+                                @if ($errors->has('telefono'))
+                                    <span class="invalid-feedback">
                                     <strong>{{ $errors->first('telefono') }}</strong>
                                 </span>
-                            @endif
+                                @endif
                             </div>
                         </div>
                         <hr>
@@ -87,7 +89,7 @@
                                 {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-primary btn-sm btn-block']) }}
                             </div>
                             <div class="col">
-                                <a href="{{ route('paciente.index') }}" style="text-decoration:none">
+                                <a href="{{ route('pacientes.index') }}" style="text-decoration:none">
                                     {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block'] ) }}
                                 </a>
                             </div>

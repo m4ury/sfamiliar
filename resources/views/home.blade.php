@@ -1,7 +1,7 @@
 {{--@extends('layouts.app')--}}
 @extends('adminlte::page')
 
-@section('title', 'Home')
+@section('title', 'Dashboard')
 
 @section('content')
     <div class="container-fluid">
@@ -95,14 +95,14 @@
                     <div class="card-body">
                         <div class="d-flex">
                             <p class="d-flex flex-column">
-                                <span class="text-bold text-lg">$18,230.00</span>
-                                <span>Sales Over Time</span>
+                                <span class="text-bold text-lg">{{ $totalPacientes }}</span>
+                                <span>Total Pacientes</span>
                             </p>
                             <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
+                    {{--<span class="text-success">
                       <i class="fas fa-arrow-up"></i> 33.1%
-                    </span>
-                                <span class="text-muted">Since last month</span>
+                    </span>--}}
+                                {{--<span class="text-muted">Since last month</span>--}}
                             </p>
                         </div>
                         <!-- /.d-flex -->
@@ -122,11 +122,11 @@
 
                         <div class="d-flex flex-row justify-content-end">
                   <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This year
+                    <i class="fas fa-square text-primary"></i> Hombres
                   </span>
 
                             <span>
-                    <i class="fas fa-square text-gray"></i> Last year
+                    <i class="fas fa-square text-gray"></i> Mujeres
                   </span>
                         </div>
                     </div>
@@ -137,14 +137,14 @@
     </div>
 @endsection
 @section('js')
-    {{--<script>
+    <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['Entre 15 y 19', 'Entre 20 y 24', 'Entre 25 y 29', 'Entre 30 y 34', 'Entre 35 y 39', 'Entre 40 y 44', 'Entre 45 y 49', 'Entre 50 y 54', 'Entre 55 y 59', 'Entre 60 y 64', 'Entre 65 y 69', 'Entre 70 y 74', 'Entre 75 y 79', 'Entre 80 y Mas'],
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'q Pacientes',
                     data: [12, 19, 3, 5, 2, 3],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -175,5 +175,5 @@
                 }
             }
         });
-    </script>--}}
+    </script>
 @endsection
