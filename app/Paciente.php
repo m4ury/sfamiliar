@@ -29,8 +29,7 @@ class Paciente extends Model
 
     public function edad()
     {
-        return Carbon::parse($this->fecha_nacimiento)->diff(Carbon::now())
-            ->format('%y años, %m meses');
+        return Carbon::parse($this->fecha_nacimiento)->age;
 
     }
 }

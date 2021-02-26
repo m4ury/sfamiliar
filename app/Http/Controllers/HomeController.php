@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Paciente;
 use Illuminate\Support\Facades\App;
@@ -33,6 +34,7 @@ class HomeController extends Controller
         $totalCeleste = Paciente::where('sector', '=', 'celeste')->count();
         $totalNaranjo = Paciente::where('sector', '=', 'naranjo')->count();
 
+        $pacientes = Paciente::all();
 
         return view('home', compact('totalPacientes', 'totalMasculino', 'totalFemenino', 'totalCeleste', 'totalNaranjo'));
     }

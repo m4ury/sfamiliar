@@ -40,6 +40,7 @@
                 <th>Edad</th>
                 <th>Sexo</th>
                 <th>Sector</th>
+                <th>Grupo Etareo</th>
                 <th colspan="2" class="text-center">Acciones</th>
             </tr>
             </thead>
@@ -60,6 +61,51 @@
                     <i class="fas fa-square text-orange"></i></span> Naranjo
                         </td>
                     @endif
+                    <td>
+                        @switch($paciente->edad())
+                            @case($paciente->edad()>=15 && $paciente->edad()<= 19)
+                            {{ "Entre 15 y 19" }}
+                            @break
+                            @case($paciente->edad()>=20 && $paciente->edad()<= 24)
+                            {{ "Entre 20 y 24" }}
+                            @break
+                            @case($paciente->edad()>=25 && $paciente->edad()<= 29)
+                            {{ "Entre 25 y 29" }}
+                            @break
+                            @case($paciente->edad()>=30 && $paciente->edad()<= 34)
+                            {{ "Entre 30 y 34" }}
+                            @break
+                            @case($paciente->edad()>=35 && $paciente->edad()<= 39)
+                            {{ "Entre 35 y 39" }}
+                            @break
+                            @case($paciente->edad()>=40 && $paciente->edad()<= 44)
+                            {{ "Entre 40 y 44" }}
+                            @break
+                            @case($paciente->edad()>=45 && $paciente->edad()<= 49)
+                            {{ "Entre 45 y 49" }}
+                            @break
+                            @case($paciente->edad()>=50 && $paciente->edad()<= 54)
+                            {{ "Entre 50 y 54" }}
+                            @break
+                            @case($paciente->edad()>=55 && $paciente->edad()<= 59)
+                            {{ "Entre 55 y 59" }}
+                            @break
+                            @case($paciente->edad()>=60 && $paciente->edad()<= 64)
+                            {{ "Entre 60 y 64" }}
+                            @break
+                            @case($paciente->edad()>=65 && $paciente->edad()<= 69)
+                            {{ "Entre 65 y 69" }}
+                            @break
+                            @case($paciente->edad()>=70 && $paciente->edad()<= 74)
+                            {{ "Entre 70 y 74" }}
+                            @break
+                            @case($paciente->edad()>=75 && $paciente->edad()<= 79)
+                            {{ "Entre 75 y 79" }}
+                            @break
+                            @default
+                            {{ "80 y Màs" }}
+                        @endswitch
+                    </td>
                     <td>
                         <a class="btn bg-gradient-secondary btn-sm" data-toggle="tooltip" data-placement="bottom"
                            title="Editar"
