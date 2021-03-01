@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('controles', 'ControlController');
 
-    Route::resource('fichas', 'FichaController');
+    //Route::resource('fichas', 'FichaController');
 
     Route::get('/profile', 'UserController@profile')->name('profile');
    // Route::post('/profile', 'UserController@updateAvatar');
