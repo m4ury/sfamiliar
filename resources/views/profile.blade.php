@@ -13,12 +13,13 @@
                     <div class="card card-default">
                         <div class="card-header">Editando Perfil</div>
                         <div class="card-body">
-                            {{ Form::open(['action' => route('profile', $user->id ?? ''), 'method' => 'PUT', 'url' => 'profile/'.$user->id, 'class' => 'form-horizontal']) }}
-                            @section('POST')
+                            {!! Form::open(['action' => route('profile', $user->id ?? ''), 'method' => 'POST', 'url' => 'profile/'.$user->id ?? '', 'class' => 'form-horizontal']) !!}
+                            @csrf
+                            {{ method_field('PUT') }}
                             <div class="form-group row">
                                 {!! Form::label('nombres', 'Nombres', ['class' => 'col-sm-2 col-form-label']) !!}
                                 <div class="col-sm-10">
-                                    {!! Form::text('nombres', $user->name, ['class' => 'form-control
+                                    {!! Form::text('nombres', $user->name ?? '', ['class' => 'form-control
                                     form-control-sm'.($errors->has('name') ? '
                                     is-invalid' : old('name')),
                                     'placeholder' => 'Ingrese Nombres']) !!}
@@ -33,7 +34,7 @@
                             <div class="form-group row">
                                 {!! Form::label('apellidos', 'Apellidos', ['class' => 'col-sm-2 col-form-label']) !!}
                                 <div class="col-sm-5">
-                                    {!! Form::text('apellidoP',$user->apellido_paterno, ['class' => 'form-control
+                                    {!! Form::text('apellidoP',$user->apellido_paterno ?? '', ['class' => 'form-control
                                     form-control-sm'.($errors->has('apellido_paterno') ? 'is-invalid' : ''), 'placeholder' => 'Apellido Paterno']) !!}
                                     @if ($errors->has('apellido_paterno'))
                                         <span class="invalid-feedback">
@@ -42,7 +43,7 @@
                                     @endif
                                 </div>
                                 <div class="col-sm-5">
-                                    {!! Form::text('apellido_materno',$user->apellido_materno, ['class' => 'form-control
+                                    {!! Form::text('apellido_materno',$user->apellido_materno ?? '' , ['class' => 'form-control
                                     form-control-sm'.($errors->has('apellido_materno') ? '
                                     is-invalid' : ''), 'placeholder' => 'Apellido Materno']) !!}
                                     @if ($errors->has('apellido_materno'))
@@ -56,7 +57,7 @@
                             <div class="form-group row">
                                 {!! Form::label('email', 'Mail.', ['class' => 'col-sm-2 col-form-label']) !!}
                                 <div class="col-sm-5">
-                                    {!! Form::email('email',$user->email, ['class' => 'form-control form-control-sm'.($errors->has('email') ? ' is-invalid' : ''), 'id' => 'email', 'placeholder' => 'mail@ejemplo.com']) !!}
+                                    {!! Form::email('email',$user->email ?? '', ['class' => 'form-control form-control-sm'.($errors->has('email') ? ' is-invalid' : ''), 'id' => 'email', 'placeholder' => 'mail@ejemplo.com']) !!}
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
                                     <strong>{{ $errors->first('email') }}</strong>
@@ -80,5 +81,5 @@
                     </div>
                 </div>
             </div>
-@stop
+@endsection
 

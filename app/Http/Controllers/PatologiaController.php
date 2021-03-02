@@ -4,21 +4,33 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PatologiaRequest;
 use App\Patologia;
+use Illuminate\Http\Request;
 
 class PatologiaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $patologias = Patologia::latest()->get();
+        $q = $request->get('q');
 
-        return response(['data' => $patologias ], 200);
+        $patologias = Patologia::latest()
+            ->search($q)
+            ->paginate(10);
+
+        return view('patologias.index', compact('patologias', 'q'));
+    }
+
+    public function create()
+    {
+        return view('patologias.create');
+
     }
 
     public function store(PatologiaRequest $request)
     {
         $patologia = Patologia::create($request->all());
 
-        return response(['data' => $patologia ], 201);
+        return redirect()->route('patologias.index', compact('patologia'))->with('success', 'Nuevo Patologia ha sido creada con exito');
+
 
     }
 
@@ -27,6 +39,13 @@ class PatologiaController extends Controller
         $patologia = Patologia::findOrFail($id);
 
         return response(['data', $patologia ], 200);
+    }
+
+    public function edit($id)
+    {
+        $patologia = Patologia::findOrFail($id);
+
+        return view('patologias.edit', compact('patologia'));
     }
 
     public function update(PatologiaRequest $request, $id)

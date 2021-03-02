@@ -23,13 +23,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::resource('pacientes', 'PacienteController');
-
+    Route::resource('patologias', 'PatologiaController');
     Route::resource('controles', 'ControlController');
 
     //Route::resource('fichas', 'FichaController');
 
     Route::get('/profile', 'UserController@profile')->name('profile');
-    Route::post('profile/{user?}', 'UserController@updateProfile');
+    Route::put('profile/{user?}', 'UserController@updateProfile');
 
 
     /*//rutas para presupuestos
