@@ -19,10 +19,8 @@ class CreateControlsTable extends Migration
             $table->text('observacion')->nullable();
             $table->date('proximo_control')->nullable();
             $table->time('hora_proximoControl')->nullable();
-            $table->foreignId('user_id')->unsigned()->nullable();
-            $table->foreignId('paciente_id')->unsigned()->nullable();
-
-
+            $table->foreignId('user_id')->nullable();
+            $table->foreignId('paciente_id')->nullable();
             $table->timestamps();
         });
 

@@ -1,33 +1,84 @@
 @extends('adminlte::page')
-
+@section('title', 'perfil-edit')
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-md-offset-1">
-                @if(env('APP_ENV') == 'local')
-                    <img src="{{ asset('uploads/avatars') }}/{{ $user->avatar ?? asset('uploads/avatars/default.png') }}"
-                @else
-                    <img src="{{ secure_asset('uploads/avatars') }}/{{ $user->avatar ?? asset('uploads/avatars/default.png') }}"
-                         @endif
+            <div class="row mb-3">
+                    <img src="{{ Auth::user()->adminlte_image() }}"
                          style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px">
-                    <h2>Perfil de <strong>Dr(a). {{ Auth::user()->name .' '. Auth::user()->apellido_paterno}}</strong>
+                    <h2 class="py-5">Perfil de <strong> {{ Auth::user()->fullUserName() }}</strong>
                     </h2>
-                    {{--{!! Form::open(['action' => 'UserController@updateAvatar', 'method' => 'POST', 'files' => 'true']) !!}--}}
-                    <div class="input-group pt-3">
-                        <div class="custom-file">
-                            {!! Form::file('avatar', ['class' => 'custom-file-input', 'id' => 'inputGroupFile',
-                            'aria-describedby' => 'inputGroupFileAddon']) !!}
-                            {!! Form::label('avatar_label', 'Sube una imagen de perfil', ['class' => 'custom-file-label', 'for' =>
-                            'inputGroupFile']) !!}
-                        </div>
-                        <div class="input-group-append">
-                            {!! Form::submit('Enviar',['class' => 'btn btn-outline-secondary', 'id' => 'inputGroupFileAddon'])
-                            !!}
+            </div>
+            <div class="row justify-content-left">
+                <div class="col">
+                    <div class="card card-default">
+                        <div class="card-header">Editando Perfil</div>
+                        <div class="card-body">
+                            {{ Form::open(['action' => route('profile', $user->id ?? ''), 'method' => 'PUT', 'url' => 'profile/'.$user->id, 'class' => 'form-horizontal']) }}
+                            @section('POST')
+                            <div class="form-group row">
+                                {!! Form::label('nombres', 'Nombres', ['class' => 'col-sm-2 col-form-label']) !!}
+                                <div class="col-sm-10">
+                                    {!! Form::text('nombres', $user->name, ['class' => 'form-control
+                                    form-control-sm'.($errors->has('name') ? '
+                                    is-invalid' : old('name')),
+                                    'placeholder' => 'Ingrese Nombres']) !!}
+                                    @if ($errors->has('name'))
+                                        <span class="invalid-feedback">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                {!! Form::label('apellidos', 'Apellidos', ['class' => 'col-sm-2 col-form-label']) !!}
+                                <div class="col-sm-5">
+                                    {!! Form::text('apellidoP',$user->apellido_paterno, ['class' => 'form-control
+                                    form-control-sm'.($errors->has('apellido_paterno') ? 'is-invalid' : ''), 'placeholder' => 'Apellido Paterno']) !!}
+                                    @if ($errors->has('apellido_paterno'))
+                                        <span class="invalid-feedback">
+                                <strong>{{ $errors->first('apellido_paterno') }}</strong>
+                            </span>
+                                    @endif
+                                </div>
+                                <div class="col-sm-5">
+                                    {!! Form::text('apellido_materno',$user->apellido_materno, ['class' => 'form-control
+                                    form-control-sm'.($errors->has('apellido_materno') ? '
+                                    is-invalid' : ''), 'placeholder' => 'Apellido Materno']) !!}
+                                    @if ($errors->has('apellido_materno'))
+                                        <span class="invalid-feedback">
+                                <strong>{{ $errors->first('apellido_materno') }}</strong>
+                            </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                {!! Form::label('email', 'Mail.', ['class' => 'col-sm-2 col-form-label']) !!}
+                                <div class="col-sm-5">
+                                    {!! Form::email('email',$user->email, ['class' => 'form-control form-control-sm'.($errors->has('email') ? ' is-invalid' : ''), 'id' => 'email', 'placeholder' => 'mail@ejemplo.com']) !!}
+                                    @if ($errors->has('email'))
+                                        <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col">
+                                    {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-primary btn-sm btn-block']) }}
+                                </div>
+                                <div class="col">
+                                    <a href="{{ route('home') }}" style="text-decoration:none">
+                                        {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block'] ) }}
+                                    </a>
+                                </div>
+                            </div>
+                            {{ Form::close() }}
                         </div>
                     </div>
-                    {!! Form::close() !!}
+                </div>
             </div>
-        </div>
-    </div>
-@endsection
+@stop
 

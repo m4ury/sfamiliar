@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     //Route::resource('fichas', 'FichaController');
 
     Route::get('/profile', 'UserController@profile')->name('profile');
-   // Route::post('/profile', 'UserController@updateAvatar');
+    Route::post('profile/{user?}', 'UserController@updateProfile');
 
 
     /*//rutas para presupuestos

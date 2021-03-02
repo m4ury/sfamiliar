@@ -15,8 +15,8 @@ class CreatePatologiasTable extends Migration
     {
         Schema::create('patologias', function (Blueprint $table) {
             $table->id();
-            $table->nombre_patologia;
-            $table->descripcion_patologia;
+            $table->string('nombre_patologia')->unique();
+            $table->string('descripcion_patologia')->nullable();
             $table->timestamps();
         });
     }

@@ -14,7 +14,6 @@ class PacienteController extends Controller
 
         $pacientes = Paciente::latest()
             ->search($q)
-            /*->where('activo', '=', 1)*/
             ->paginate(10);
 
         return view('pacientes.index', compact('pacientes', 'q'));

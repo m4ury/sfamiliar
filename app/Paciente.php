@@ -32,7 +32,19 @@ class Paciente extends Model
         return Carbon::parse($this->fecha_nacimiento)->age;
 
     }
-    public function getGrupoAttribute(){
+
+    public function getGrupoAttribute()
+    {
         return Carbon::parse($this->fecha_nacimiento)->age;
+    }
+
+    public function controls()
+    {
+        return $this->hasMany(Control::class);
+    }
+
+    public function patologias()
+    {
+        return $this->belongsToMany(Patologia::class);
     }
 }

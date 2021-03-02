@@ -56,4 +56,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function adminlte_profile_url(){
         return 'profile';
     }
+
+    public function controls(){
+        return $this->$this->hasMany(Control::class);
+    }
+    public function fullUserName()
+    {
+        return ucfirst($this->name) . " " . ucfirst($this->apellido_paterno) . " " . ucfirst($this->apellido_materno);
+    }
 }
