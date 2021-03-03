@@ -11,7 +11,7 @@ class ControlController extends Controller
     {
         $controls = Control::latest()->get();
 
-        return response(['data' => $controls ], 200);
+        return view('controles.index',compact('controls'));
     }
 
     public function store(ControlRequest $request)
