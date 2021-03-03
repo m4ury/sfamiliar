@@ -8,7 +8,7 @@
                 <div class="card card-default">
                     <div class="card-header">Datos de la Patologia</div>
                     <div class="card-body">
-                        {{ Form::open(['action' => 'PatologiasController@store', 'method' => 'POST', 'class' => 'form-horizontal']) }}
+                        {{ Form::open(['action' => 'PatologiaController@store', 'method' => 'POST', 'class' => 'form-horizontal']) }}
                         @include('patologias.form')
                         <div class="row">
                             <div class="col">

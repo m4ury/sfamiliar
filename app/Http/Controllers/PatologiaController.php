@@ -21,7 +21,8 @@ class PatologiaController extends Controller
 
     public function create()
     {
-        return view('patologias.create');
+        $patologia = new Patologia;
+        return view('patologias.create', compact('patologia'));
 
     }
 
@@ -30,8 +31,6 @@ class PatologiaController extends Controller
         $patologia = Patologia::create($request->all());
 
         return redirect()->route('patologias.index', compact('patologia'))->with('success', 'Nuevo Patologia ha sido creada con exito');
-
-
     }
 
     public function show($id)

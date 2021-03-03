@@ -13,6 +13,8 @@ class PatologiaRequest extends FormRequest
 
     public function rules()
     {
-        return [];
+        return [
+            'nombre_patologia => required|unique:patologias|min:4|string',
+        ];
     }
 }
