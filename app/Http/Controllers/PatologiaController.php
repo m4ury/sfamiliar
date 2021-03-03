@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PatologiaRequest;
 use App\Patologia;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PatologiaController extends Controller
 {
@@ -29,8 +30,9 @@ class PatologiaController extends Controller
     public function store(PatologiaRequest $request)
     {
         $patologia = Patologia::create($request->all());
+        Alert::success('Nueva Patologia ha sido creada con exito');
 
-        return redirect()->route('patologias.index', compact('patologia'))->with('success', 'Nuevo Patologia ha sido creada con exito');
+        return redirect()->route('patologias.index');
     }
 
     public function show($id)
@@ -43,7 +45,6 @@ class PatologiaController extends Controller
     public function edit($id)
     {
         $patologia = Patologia::findOrFail($id);
-
         return view('patologias.edit', compact('patologia'));
     }
 
@@ -52,7 +53,10 @@ class PatologiaController extends Controller
         $patologia = Patologia::findOrFail($id);
         $patologia->update($request->all());
 
-        return response(['data' => $patologia ], 200);
+        Alert::success('Patologia ha sido actualizada');
+
+
+        return redirect()->route('patologias.index');
     }
 
     public function destroy($id)

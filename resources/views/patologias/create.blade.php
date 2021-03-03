@@ -12,10 +12,10 @@
                         @include('patologias.form')
                         <div class="row">
                             <div class="col">
-                                {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-primary btn-sm btn-block']) }}
+                                {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-primary btn-sm btn-block', 'id' => '']) }}
                             </div>
                             <div class="col">
-                                <a href="{{ url('pacientes') }}" style="text-decoration:none">
+                                <a href="{{ url('patologias') }}" style="text-decoration:none">
                                     {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block'] ) }}
                                 </a>
                             </div>
@@ -26,7 +26,6 @@
                             <script>
                                 $('#comuna, #sexo, #sector').select2();
                                 $("#migrante, #pueblo_originario").removeAttr("checked");
-                                /*$('#input1, #input2').iCheck('check');*/
                             </script>
                         @endsection
                     </div>
@@ -34,4 +33,4 @@
             </div>
         </div>
     </div>
-@stop
+@endsection

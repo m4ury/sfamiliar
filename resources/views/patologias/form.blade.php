@@ -13,11 +13,10 @@
 <div class="form-group row">
     {!! Form::label('descripcion_patologia', 'Descripcion', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-9">
-        {!! Form::text('descripcion_patologias', old('descripcion_patologia', $patologia->descripcion_patologia), ['class' => 'form-control form-control-sm', 'placeholder' => 'Ingrese descripcion']) !!}
+        {!! Form::text('descripcion_patologia', old('descripcion_patologia', $patologia->descripcion_patologia), ['class' => 'form-control form-control-sm', 'placeholder' => 'Ingrese descripcion']) !!}
     </div>
 </div>
 <hr>
-
 {{--<script>
 document.getElementById('phone').addEventListener('input', function (e) {
   var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
