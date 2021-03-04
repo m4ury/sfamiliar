@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PatologiaRequest;
 use App\Patologia;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -27,42 +28,47 @@ class PatologiaController extends Controller
 
     }
 
-    public function store(PatologiaRequest $request)
+    public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),
+            ['nombre_patologia' => 'required|unique:patologias|min:4|string']);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
         $patologia = Patologia::create($request->all());
-        Alert::success('Nueva Patologia ha sido creada con exito');
-
-        return redirect()->route('patologias.index');
+        return redirect('patologias')->withToastSuccess('Patologia Creada con Exito!');
     }
 
     public function show($id)
     {
         $patologia = Patologia::findOrFail($id);
 
-        return response(['data', $patologia ], 200);
+        return response(['data', $patologia], 200);
     }
 
     public function edit($id)
     {
         $patologia = Patologia::findOrFail($id);
+
         return view('patologias.edit', compact('patologia'));
     }
 
-    public function update(PatologiaRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $patologia = Patologia::findOrFail($id);
+        $validator = Validator::make($request->all(),
+            ['nombre_patologia' => 'required|unique:patologias|min:4|string']);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
         $patologia->update($request->all());
-
-        Alert::success('Patologia ha sido actualizada');
-
-
-        return redirect()->route('patologias.index');
+        return redirect('patologias')->withSuccess('Patologia Actualizada con Exito!');
     }
 
     public function destroy($id)
     {
         Patologia::destroy($id);
 
-        return response(['data' => null ], 204);
+        return response(['data' => null], 204);
     }
 }

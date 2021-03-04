@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PacienteRequest;
 use App\Paciente;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PacienteController extends Controller
 {
@@ -17,7 +18,6 @@ class PacienteController extends Controller
             ->paginate(10);
 
         return view('pacientes.index', compact('pacientes', 'q'));
-        //return response(['data' => $pacientes ], 200);
     }
 
     public function create()
@@ -26,13 +26,11 @@ class PacienteController extends Controller
 
     }
 
-
     public function store(PacienteRequest $request)
     {
         $paciente = Paciente::create($request->all());
-
-        return redirect()->route('pacientes.index', compact('paciente'))->with('success', 'Nuevo Paciente ha sido creado con exito');
-        //return response(['data' => $paciente ], 201);
+        Alert::toast('Nuevo Paciente ha sido creada con exito');
+        return redirect()->route('pacientes.index', compact('paciente'));
 
     }
 
