@@ -10,15 +10,11 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class PatologiaController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $q = $request->get('q');
+        $patologias = Patologia::all();
 
-        $patologias = Patologia::latest()
-            ->search($q)
-            ->paginate(10);
-
-        return view('patologias.index', compact('patologias', 'q'));
+        return view('patologias.index', compact('patologias'));
     }
 
     public function create()
@@ -30,8 +26,7 @@ class PatologiaController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),
-            ['nombre_patologia' => 'required|unique:patologias|min:4|string']);
+        $validator = Validator::make($request->all(), ['nombre_patologia' => 'required|unique:patologias|min:4|string']);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
@@ -57,7 +52,7 @@ class PatologiaController extends Controller
     {
         $patologia = Patologia::findOrFail($id);
         $validator = Validator::make($request->all(),
-            ['nombre_patologia' => 'required|unique:patologias|min:4|string']);
+            ['nombre_patologia' => 'required|string']);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }

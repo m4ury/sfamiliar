@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ControlRequest;
 use App\Control;
+use App\Paciente;
 
 class ControlController extends Controller
 {
@@ -14,11 +15,25 @@ class ControlController extends Controller
         return view('controles.index',compact('controls'));
     }
 
-    public function store(ControlRequest $request)
+    public function create($id)
     {
-        $control = Control::create($request->all());
+        $paciente = Paciente::findOrFail($id);
+        return view('controles.create', compact('paciente'));
+    }
 
-        return response(['data' => $control ], 201);
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'tipo_control' => 'required',
+            'peso_actual' => 'required',
+            'talla_actual' => 'required'
+        ]);
+        $control = new Control($request->except('_token'));
+        $control->user_id = Auth::user()->id;
+        $control->paciente_id = $request->paciente_id;
+        $mensaje->save();
+
+        return view('controles' . $request->paciente_id, compact('control'));
 
     }
 

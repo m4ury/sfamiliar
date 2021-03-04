@@ -3,10 +3,6 @@
 @section('title', 'patologias')
 
 @section('content')
-
-    <div class="col-md-12">
-
-    </div>
     <div class="col-sm-6 pb-3">
         <a class="btn bg-gradient-success btn-sm" title="Nueva patologia" href="{{ route('patologias.create') }}">
             <i class="fas fa-user-plus">
@@ -31,7 +27,9 @@
                     <td>
                         <a class="btn bg-gradient-secondary btn-sm" data-toggle="tooltip" data-placement="bottom"
                            title="Editar"
-                           href="{{ route('patologias.edit', $patologia->id) }}"><i class="fas fa-pen"></i></a></td>
+                           href="{{ route('patologias.edit', $patologia->id) }}"><i class="fas fa-pen"></i>
+                        </a>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

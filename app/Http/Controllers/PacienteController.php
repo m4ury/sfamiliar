@@ -5,19 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PacienteRequest;
 use App\Paciente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PacienteController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $q = $request->get('q');
+        $pacientes = Paciente::all();
 
-        $pacientes = Paciente::latest()
-            ->search($q)
-            ->paginate(10);
-
-        return view('pacientes.index', compact('pacientes', 'q'));
+        return view('pacientes.index', compact('pacientes'));
     }
 
     public function create()
@@ -37,8 +34,9 @@ class PacienteController extends Controller
     public function show($id)
     {
         $paciente = Paciente::findOrFail($id);
+        $controles = $paciente->controls()->latest()->get()->take(3);
 
-        return response(['data', $paciente], 200);
+        return view('pacientes.show', compact('paciente', 'controles'));
     }
 
     public function edit($id)
@@ -49,12 +47,21 @@ class PacienteController extends Controller
     }
 
 
-    public function update(PacienteRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $paciente = Paciente::findOrFail($id);
+
+        $validator = Validator::make($request->all(), [
+            'rut' => 'required|cl_rut',
+            'nombres' => 'required|string|min:3',
+            'apellidoP' => 'required|string|min:3',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
         $paciente->update($request->all());
 
-        return response(['data' => $paciente], 200);
+        return redirect('pacientes')->withToastSuccess('Paciente Actualizado con exito!');
     }
 
     public function destroy($id)

@@ -24,9 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware('auth')->group(function () {
     Route::resource('pacientes', 'PacienteController');
     Route::resource('patologias', 'PatologiaController');
-    Route::resource('controles', 'ControlController');
-
-    //Route::resource('fichas', 'FichaController');
+    Route::resource('controles', 'ControlController')->except('[index, create]');
+    Route::get('controles/{paciente?}', 'ControlController@index')->name('controles');
 
     Route::get('/profile', 'UserController@profile')->name('profile');
     Route::put('profile/{user?}', 'UserController@updateProfile');
@@ -40,10 +39,8 @@ Route::middleware('auth')->group(function () {
 
     //rutas para mensajes
     Route::resource('mensaje', 'MensajeController')->except('[index, create]');
-    Route::get('mensajes/{paciente?}', 'MensajeController@index')->name('mensajes');
-    Route::get('mensaje/create/{paciente?}', 'MensajeController@create')->name('mensaje.create');
 
-    Route::get('/perfil', 'UserController@perfil')->name('perfil');
+    Route::get('mensaje/create/{paciente?}', 'MensajeController@create')->name('mensaje.create');
 
     //ruta para exportar a excel
     Route::get('exports/pacientes', 'PacienteController@export')->name('exports.pacientes');
