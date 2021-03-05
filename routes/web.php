@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     //rutas para controles
     Route::resource('controles', 'ControlController')->except('[index, create]');
     Route::get('controles/{paciente?}', 'ControlController@index')->name('controles');
-    Route::get('controles/create/{paciente?}', 'ControlController@create')->name('controles.create');
+    Route::get('controles/create/{paciente}', 'ControlController@create')->name('controles.create');
 
     //rutas para perfil
     Route::get('/profile', 'UserController@profile')->name('profile');

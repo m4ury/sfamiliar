@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Control;
 use App\Paciente;
+use App\Patologia;
 use Illuminate\Http\Request;
 
 class ControlController extends Controller
@@ -22,8 +23,9 @@ class ControlController extends Controller
      */
     public function create($id)
     {
+        $patologias = Patologia::latest();
         $paciente = Paciente::findOrFail($id);
-        return view('controles.create', compact('paciente'));
+        return view('controles.create', compact('paciente', 'patologias'));
     }
 
 

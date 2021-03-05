@@ -1,25 +1,17 @@
-{<div class="form-group row">
+<div class="form-group row">
     {!! Form::label('tipo_control', 'Tipo Control', ['class' => 'col-sm-3 col-form-label']) !!}
-    <div class="col-sm-9">
-        {!! Form::select('tipo_control', old('nombre_patologia', $patologia->nombre_patologia), ['class' => 'form-control form-control-sm'.($errors->has('nombre_patologia') ? ' is-invalid' : ''), 'placeholder' =>
-        'Nombre Patologia']) !!}
-        @if ($errors->has('nombre_patologia'))
-            <span class="invalid-feedback">
-               <strong>{{ $errors->first('nombre_patologia') }}</strong>
-            </span>
-        @endif
+    <div class="col-sm-5">
+        {!! Form::select('tipo_control', ['Medico', 'Enfermera', 'Kinesiologo', 'Nutricionista'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione Tipo Control', 'id' => 'tipo']) !!}
     </div>
 </div>
-    <div class="form-group row">
-        {!! Form::label('descripcion_patologia', 'Descripcion', ['class' => 'col-sm-3 col-form-label']) !!}
-        <div class="col-sm-9">
-            {!! Form::text('descripcion_patologia', old('descripcion_patologia', $patologia->descripcion_patologia), ['class' => 'form-control form-control-sm', 'placeholder' => 'Ingrese descripcion']) !!}
-        </div>
+<div class="form-group row">
+    {!! Form::label('fecha_control', 'Fecha', ['class' => 'col-sm-3 col-form-label']) !!}
+    <div class="col-sm-9">
+        {!! Form::date('fecha_control', null, ['class' => 'form-control form-control-sm']) !!}
     </div>
-    <hr>--}}
-    {{--<script>
-    document.getElementById('phone').addEventListener('input', function (e) {
-      var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-      e.target.value = !x[2] ? x[1] : '(+56)'+ x[1] + x[2] + (x[3] ? ' ' + x[3] : '');
-    });
-    </script>--}}
+</div>
+<hr>
+@section('js')
+    <script>
+        $('#tipo').select2();
+@endsection
