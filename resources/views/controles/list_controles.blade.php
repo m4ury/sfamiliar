@@ -31,7 +31,6 @@
                     </thead>
                     <tbody>
                     @foreach($controles as $control)
-                        @if($control->status == 'pendiente')
                             <tr>
                                 <td>{{ $control->tipo_control }}</td>
                                 <td>{{ $control->created_at }}</td>
@@ -46,7 +45,6 @@
                                     </a>
                                 </td>
                             </tr>
-                        @endif
                     @endforeach
                     </tbody>
                 </table>

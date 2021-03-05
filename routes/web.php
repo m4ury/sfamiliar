@@ -23,13 +23,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::resource('pacientes', 'PacienteController');
-    Route::resource('patologias', 'PatologiaController');
+    Route::resource('patologias', 'PatologiaController')->except('[index, create]');
+    Route::get('patologias/{paciente?}', 'PatologiaController@index')->name('patologias');
+    Route::get('patologias/create/{paciente?}', 'PatologiaController@create')->name('patologias.create');
+
+    //rutas para controles
     Route::resource('controles', 'ControlController')->except('[index, create]');
     Route::get('controles/{paciente?}', 'ControlController@index')->name('controles');
+    Route::get('controles/create/{paciente?}', 'ControlController@create')->name('controles.create');
 
+    //rutas para perfil
     Route::get('/profile', 'UserController@profile')->name('profile');
     Route::put('profile/{user?}', 'UserController@updateProfile');
-
 
     /*//rutas para presupuestos
     Route::resource('presupuesto', 'PresupuestoController');
@@ -37,14 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::get('presupuestos/{paciente?}', 'PresupuestoController@presupuestoPcte')->name('presupuestos');
     Route::get('presupuesto/create/{paciente?}', 'PresupuestoController@create')->name('presupuesto.create');
 
-    //rutas para mensajes
-    Route::resource('mensaje', 'MensajeController')->except('[index, create]');
-
-    Route::get('mensaje/create/{paciente?}', 'MensajeController@create')->name('mensaje.create');
-
     //ruta para exportar a excel
     Route::get('exports/pacientes', 'PacienteController@export')->name('exports.pacientes');
-
 
     Route::resource('abono', 'AbonoController');
     Route::get('abonos/{paciente?}', 'AbonoController@abonoPcte')->name('abonos');

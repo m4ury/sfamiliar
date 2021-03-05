@@ -2,24 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ControlRequest;
 use App\Control;
 use App\Paciente;
+use Illuminate\Http\Request;
 
 class ControlController extends Controller
 {
     public function index()
     {
-        $controls = Control::latest()->get();
+        $controles = Control::latest()->get();
 
-        return view('controles.index',compact('controls'));
+        return view('controles.index',compact('controles'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create($id)
     {
         $paciente = Paciente::findOrFail($id);
         return view('controles.create', compact('paciente'));
     }
+
 
     public function store(Request $request)
     {
@@ -31,7 +37,7 @@ class ControlController extends Controller
         $control = new Control($request->except('_token'));
         $control->user_id = Auth::user()->id;
         $control->paciente_id = $request->paciente_id;
-        $mensaje->save();
+        $control->save();
 
         return view('controles' . $request->paciente_id, compact('control'));
 
@@ -44,7 +50,7 @@ class ControlController extends Controller
         return response(['data', $control ], 200);
     }
 
-    public function update(ControlRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $control = Control::findOrFail($id);
         $control->update($request->all());

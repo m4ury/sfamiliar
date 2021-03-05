@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'crear-control')
+@section('title', 'nuevo-control')
 
 @section('content')
     <div class="container">
@@ -15,7 +15,7 @@
                                 {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-primary btn-sm btn-block', 'id' => '']) }}
                             </div>
                             <div class="col">
-                                <a href="{{ url('controles') }}" style="text-decoration:none">
+                                <a href="{{ route('pacientes.show', $paciente->id) }}" style="text-decoration:none">
                                     {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block'] ) }}
                                 </a>
                             </div>
@@ -25,7 +25,6 @@
                         @section('js')
                             <script>
                                 $('#comuna, #sexo, #sector').select2();
-                                $("#migrante, #pueblo_originario").removeAttr("checked");
                             </script>
                         @endsection
                     </div>

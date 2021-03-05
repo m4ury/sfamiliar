@@ -6,14 +6,12 @@ use App\Http\Requests\PatologiaRequest;
 use App\Patologia;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class PatologiaController extends Controller
 {
     public function index()
     {
         $patologias = Patologia::all();
-
         return view('patologias.index', compact('patologias'));
     }
 
@@ -37,22 +35,19 @@ class PatologiaController extends Controller
     public function show($id)
     {
         $patologia = Patologia::findOrFail($id);
-
         return response(['data', $patologia], 200);
     }
 
     public function edit($id)
     {
         $patologia = Patologia::findOrFail($id);
-
         return view('patologias.edit', compact('patologia'));
     }
 
     public function update(Request $request, $id)
     {
         $patologia = Patologia::findOrFail($id);
-        $validator = Validator::make($request->all(),
-            ['nombre_patologia' => 'required|string']);
+        $validator = Validator::make($request->all(), ['nombre_patologia' => 'required|string']);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
@@ -63,7 +58,6 @@ class PatologiaController extends Controller
     public function destroy($id)
     {
         Patologia::destroy($id);
-
         return response(['data' => null], 204);
     }
 }
