@@ -6,6 +6,7 @@ use App\Control;
 use App\Paciente;
 use App\Patologia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ControlController extends Controller
 {
@@ -40,6 +41,8 @@ class ControlController extends Controller
         $control->user_id = Auth::user()->id;
         $control->paciente_id = $request->paciente_id;
         $control->save();
+
+        dd($request->all());
 
         return view('controles' . $request->paciente_id, compact('control'));
 

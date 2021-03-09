@@ -1,11 +1,10 @@
 @extends('adminlte::page')
 @section('title', 'nuevo-control')
-
 @section('content')
     <div class="container">
         <div class="row justify-content-left">
             <div class="col-sx-12 col-sm-12 col-lg-8">
-                <div class="card card-default">
+                <div class="card card-success card-outline">
                     <div class="card-header">Nuevo Control</div>
                     <div class="card-body">
                         {{ Form::open(['action' => 'ControlController@store', 'method' => 'POST', 'class' => 'form-horizontal']) }}

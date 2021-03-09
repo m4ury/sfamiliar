@@ -22,7 +22,6 @@
                     <tr>
                         <th>Tipo Control</th>
                         <th>Fecha</th>
-                        <th>Observacion</th>
                         <th>Peso</th>
                         <th>Talla</th>
                         <th>IMC</th>
@@ -33,8 +32,7 @@
                     @foreach($controles as $control)
                             <tr>
                                 <td>{{ $control->tipo_control }}</td>
-                                <td>{{ $control->created_at }}</td>
-                                <td>{{ $control->observacion }}</td>
+                                <td>{{ $control->fecha_control }}</td>
                                 <td>${{ $control->peso_actual }}</td>
                                 <td>${{ $control->talla_actual }}</td>
                                 <td>${{ $control->imc }}</td>

@@ -43,6 +43,9 @@
                     @endif
                     <td>
                         @switch($paciente->edad())
+                            @case($paciente->edad()<15)
+                            {{ "Menor de 15" }}
+                            @break
                             @case($paciente->edad()>=15 && $paciente->edad()<= 19)
                             {{ "Entre 15 y 19" }}
                             @break
@@ -83,7 +86,7 @@
                             {{ "Entre 75 y 79" }}
                             @break
                             @default
-                            {{ "80 y Màs" }}
+                            {{ "80 y Más" }}
                         @endswitch
                     </td>
                     <td>
@@ -100,6 +103,31 @@
 @stop
 @section('js')
     <script>
-        $("#pacientes").DataTable();
+        $("#pacientes").DataTable(
+            {
+                language:
+                    {
+                        "processing": "Procesando...",
+                        "lengthMenu": "Mostrar _MENU_ registros",
+                        "zeroRecords": "No se encontraron resultados",
+                        "emptyTable": "Ningún dato disponible en esta tabla",
+                        "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "search": "Buscar:",
+                        "infoThousands": ",",
+                        "loadingRecords": "Cargando...",
+                        "paginate": {
+                            "first": "Primero",
+                            "last": "Último",
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        },
+                        "aria": {
+                            "sortAscending": ": Activar para ordenar la columna de manera ascendente",
+                            "sortDescending": ": Activar para ordenar la columna de manera descendente"
+                        }
+                    }
+            });
     </script>
 @endsection
