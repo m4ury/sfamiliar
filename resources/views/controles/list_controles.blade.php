@@ -20,8 +20,9 @@
                 <table class="table table-hover table-md-responsive table-bordered">
                     <thead class="thead-light">
                     <tr>
-                        <th>Tipo Control</th>
+                        <th>Profesional</th>
                         <th>Fecha</th>
+                        <th>Presion arterial</th>
                         <th>Peso</th>
                         <th>Talla</th>
                         <th>IMC</th>
@@ -33,9 +34,10 @@
                             <tr>
                                 <td>{{ $control->tipo_control }}</td>
                                 <td>{{ $control->fecha_control }}</td>
-                                <td>${{ $control->peso_actual }}</td>
-                                <td>${{ $control->talla_actual }}</td>
-                                <td>${{ $control->imc }}</td>
+                                <td>{{ $control->presion_arterial }}</td>
+                                <td>{{ $control->peso_actual }}</td>
+                                <td>{{ $control->talla_actual }}</td>
+                                <td>{{ $control->imc }}</td>
                                 <td>
                                     <a class="btn bg-gradient-secondary btn-sm disabled" data-toggle="tooltip"
                                        data-placement="bottom" title="Editar"

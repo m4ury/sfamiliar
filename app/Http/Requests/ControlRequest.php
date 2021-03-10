@@ -13,6 +13,10 @@ class ControlRequest extends FormRequest
 
     public function rules()
     {
-        return [];
+        return [
+            'tipo_control' => 'required',
+            'peso_actual' => 'required|numeric|min:1',
+            'talla_actual' => 'required|numeric|min:1'
+        ];
     }
 }

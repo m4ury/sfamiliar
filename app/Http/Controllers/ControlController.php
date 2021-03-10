@@ -6,7 +6,9 @@ use App\Control;
 use App\Paciente;
 use App\Patologia;
 use Illuminate\Http\Request;
+use App\Http\Requests\ControlRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ControlController extends Controller
 {
@@ -14,7 +16,7 @@ class ControlController extends Controller
     {
         $controles = Control::latest()->get();
 
-        return view('controles.index',compact('controles'));
+        return view('controles.index', compact('controles'));
     }
 
     /**
@@ -30,29 +32,21 @@ class ControlController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(ControlRequest $request)
     {
-        $this->validate($request, [
-            'tipo_control' => 'required',
-            'peso_actual' => 'required',
-            'talla_actual' => 'required'
-        ]);
         $control = new Control($request->except('_token'));
         $control->user_id = Auth::user()->id;
         $control->paciente_id = $request->paciente_id;
         $control->save();
 
-        dd($request->all());
-
-        return view('controles' . $request->paciente_id, compact('control'));
-
+        return redirect('pacientes/' . $request->paciente_id)->withSuccess('Control creado con exito!');
     }
 
     public function show($id)
     {
         $control = Control::findOrFail($id);
 
-        return response(['data', $control ], 200);
+        return response(['data', $control], 200);
     }
 
     public function update(Request $request, $id)
@@ -60,13 +54,13 @@ class ControlController extends Controller
         $control = Control::findOrFail($id);
         $control->update($request->all());
 
-        return response(['data' => $control ], 200);
+        return response(['data' => $control], 200);
     }
 
     public function destroy($id)
     {
         Control::destroy($id);
 
-        return response(['data' => null ], 204);
+        return response(['data' => null], 204);
     }
 }

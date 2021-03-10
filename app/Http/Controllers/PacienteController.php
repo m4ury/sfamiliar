@@ -20,7 +20,6 @@ class PacienteController extends Controller
     public function create()
     {
         return view('pacientes.create');
-
     }
 
     public function store(PacienteRequest $request)
@@ -28,13 +27,12 @@ class PacienteController extends Controller
         $paciente = Paciente::create($request->all());
         Alert::toast('Nuevo Paciente ha sido creada con exito');
         return redirect()->route('pacientes.index', compact('paciente'));
-
     }
 
     public function show($id)
     {
         $paciente = Paciente::findOrFail($id);
-        $controles = $paciente->controls()->latest()->get()->take(3);
+        $controles = $paciente->controls()->latest('fecha_control')->get()->take(3);
 
         return view('pacientes.show', compact('paciente', 'controles'));
     }
