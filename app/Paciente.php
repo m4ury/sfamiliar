@@ -35,4 +35,13 @@ class Paciente extends Model
     {
         return $this->belongsToMany(Patologia::class);
     }
+
+    public function scopeSearch($query, $q)
+    {
+        if ($q)
+            return $query->where('rut', 'LIKE', "%$q%")
+                ->orWhere('nombres', 'LIKE', "%$q%")
+                ->orWhere('apellido_paterno', 'LIKE', "%$q%")
+                ->orWhere('apellido_materno', 'LIKE', "%$q%");
+    }
 }

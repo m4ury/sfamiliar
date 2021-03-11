@@ -44,8 +44,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function adminlte_image()
     {
-        return 'https://source.unsplash.com/random/300x300';
-        //return 'https://picsum.photos/300/300';
+        return 'https://picsum.photos/300/300';
+        /*'https://source.unsplash.com/random/300x300';*/
     }
 
     public function adminlte_desc()
@@ -60,7 +60,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function controls()
     {
-        return $this->$this->hasMany(Control::class);
+        return $this->hasMany(Control::class);
     }
 
     public function fullUserName()

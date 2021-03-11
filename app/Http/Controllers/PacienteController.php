@@ -10,9 +10,13 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class PacienteController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $pacientes = Paciente::all();
+        $q = $request->get('q');
+
+        $pacientes = Paciente::all()
+        ->search($q);
+
 
         return view('pacientes.index', compact('pacientes'));
     }
@@ -33,8 +37,9 @@ class PacienteController extends Controller
     {
         $paciente = Paciente::findOrFail($id);
         $controles = $paciente->controls()->latest('fecha_control')->get()->take(3);
-
-        return view('pacientes.show', compact('paciente', 'controles'));
+        $patologias = $paciente->patologias()->pluck('nombre_patologia');
+//dd($patologias);
+        return view('pacientes.show', compact('paciente', 'controles', 'patologias'));
     }
 
     public function edit($id)

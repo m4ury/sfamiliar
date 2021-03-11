@@ -9,6 +9,15 @@
                     <i class="fas fa-users-cog"></i>
                     Paciente
                 </h3>
+                <div class="col-sm">
+                    @if (\Request::is('pacientes/*'))
+                        <a class="btn bg-gradient-secondary btn-sm ml-4" title="Regresar"
+                           href="{{ route('pacientes.index') }}">
+                            <i class="fas fa-arrow-alt-circle-left"></i>
+                            Atras
+                        </a>
+                    @endif
+                </div>
             </div>
             <div class="card-body">
                 <h4>{{ $paciente->fullName() }}</h4>
@@ -38,9 +47,7 @@
                             </div>
                             <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"
                                  aria-labelledby="vert-tabs-patologias-tab">
-
-                               {{-- @include('pacientes.list_datos', $paciente)--}}
-                                {{--<a href="{{ route('datos', $paciente->id) }}"></a>--}}
+                               @include('patologias.list_patologias', $paciente)
                             </div>
                         </div>
                     </div>
