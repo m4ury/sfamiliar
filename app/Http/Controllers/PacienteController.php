@@ -14,11 +14,11 @@ class PacienteController extends Controller
     {
         $q = $request->get('q');
 
-        $pacientes = Paciente::all()
-        ->search($q);
+        $pacientes = Paciente::latest()
+            ->search($q)
+            ->get();
 
-
-        return view('pacientes.index', compact('pacientes'));
+        return view('pacientes.index', compact('pacientes', 'q'));
     }
 
     public function create()

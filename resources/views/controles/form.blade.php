@@ -65,6 +65,21 @@
             var imc = peso / (tallamts * tallamts);
             var imcF = imc.toFixed(2);
             $('#imc').val(imcF);
+            $('#imc_resultado').focus(function (){
+                var clasificacion;
+                if (imc < 20) {
+                    clasificacion = 'Bajo peso';
+                } else if (imc > 20 && imc < 28) {
+                    clasificacion = 'Normal';
+                } else if (imc > 28 && imc < 32) {
+                    clasificacion = 'Sobrepeso';
+                } else if (imc > 32 && imc < 37) {
+                    clasificacion = 'Obeso'
+                } else {
+                    clasificacion = 'Obesidad Morbida';
+                }
+                $('#imc_resultado').val(clasificacion);
+            })
         });
     </script>
 @endsection

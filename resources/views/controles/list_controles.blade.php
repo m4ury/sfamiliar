@@ -33,7 +33,7 @@
                     @foreach($controles as $control)
                             <tr>
                                 <td>{{ $control->tipo_control }}</td>
-                                <td>{{ $control->fecha_control }}</td>
+                                <td>{{ \Carbon\Carbon::parse($control->fecha_control)->format("d-m-Y") }}</td>
                                 <td>{{ $control->presion_arterial }}</td>
                                 <td>{{ $control->peso_actual }}</td>
                                 <td>{{ $control->talla_actual }}</td>
