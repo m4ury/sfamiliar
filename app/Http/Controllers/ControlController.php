@@ -14,7 +14,7 @@ class ControlController extends Controller
 {
     public function index()
     {
-        $controles = Control::latest()->get();
+        $controles = Control::with('paciente')->latest()->get();
 
         return view('controles.index', compact('controles'));
     }
