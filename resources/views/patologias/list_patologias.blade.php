@@ -15,7 +15,10 @@
             <div class="card-body">
                 @foreach($patologias as $patologia)
                     <ul class="list-group">
-                        <li class="list-group-item list-group-item-primary rounded-pill my-3 text-bold">{{ $patologia }}</li> {{--//como mejora visual color definido por base de datos segun patologia(proyecto)--}}
+                        <li class="list-group-item list-group-item-primary rounded-pill my-3 text-bold">
+                            {{ $patologia }}
+                        </li>
+                        {{--//como mejora visual color definido por base de datos segun patologia(proyecto)--}}
                     </ul>
                 @endforeach
             </div>

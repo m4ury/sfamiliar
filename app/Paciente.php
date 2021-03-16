@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Paciente extends Model
 {
     protected $guarded = ['id'];
-    protected $fillable = ['rut', 'nombres', 'apellidoP', 'apellidoM', 'sexo', 'telefono', 'direccion', 'fecha_nacimiento', 'comuna'];
+    protected $fillable = ['rut', 'nombres', 'apellidoP', 'apellidoM', 'sexo', 'telefono', 'direccion', 'fecha_nacimiento', 'comuna', 'migrante', 'pueblo_originario'];
 
     public function fullName()
     {

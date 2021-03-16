@@ -29,6 +29,8 @@ class PacienteController extends Controller
     public function store(PacienteRequest $request)
     {
         $paciente = Paciente::create($request->all());
+
+        /*dd($request->all());*/
         Alert::toast('Nuevo Paciente ha sido creada con exito');
         return redirect()->route('pacientes.index', compact('paciente'));
     }
