@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PacienteRequest;
 use App\Paciente;
+use App\subPatologias;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -31,17 +32,19 @@ class PacienteController extends Controller
         $paciente = Paciente::create($request->all());
 
         /*dd($request->all());*/
-        Alert::toast('Nuevo Paciente ha sido creada con exito');
+        Alert::success('Nuevo Paciente ha sido cread@ con exito');
         return redirect()->route('pacientes.index', compact('paciente'));
     }
 
     public function show($id)
     {
         $paciente = Paciente::findOrFail($id);
-        $controles = $paciente->controls()->latest('fecha_control')->get()->take(3);
-        $patologias = $paciente->patologias()->pluck('nombre_patologia');
+        /*$controles = $paciente->controls()->latest('fecha_control')->get()->take(3);
+        $patologias = $paciente->patologias()->get();
+        $sub = $patologias->join('subPatologias');*/
 
-        return view('pacientes.show', compact('paciente', 'controles', 'patologias'));
+        //dd($sub);
+        return view('pacientes.show', compact('paciente'));
     }
 
     public function edit($id)
@@ -66,7 +69,7 @@ class PacienteController extends Controller
         }
         $paciente->update($request->all());
 
-        return redirect('pacientes')->withToastSuccess('Paciente Actualizado con exito!');
+        return redirect('pacientes')->withSuccess('Paciente Actualizado con exito!');
     }
 
     public function destroy($id)

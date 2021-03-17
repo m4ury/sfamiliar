@@ -1,4 +1,4 @@
-@if($controles)
+@if($paciente->controls)
     <div class="col-sm-6 mb-2">
         <a class="btn bg-gradient-success btn-sm" title="Nuevo control"
            href="{{ route('controles.create', $paciente->id) }}">
@@ -30,7 +30,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($controles as $control)
+                    @foreach($paciente->controls as $control)
                             <tr>
                                 <td>{{ $control->tipo_control }}</td>
                                 <td>{{ \Carbon\Carbon::parse($control->fecha_control)->format("d-m-Y") }}</td>
