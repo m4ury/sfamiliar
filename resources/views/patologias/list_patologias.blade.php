@@ -17,17 +17,19 @@
                     <ul class="list-group">
                         <li class="list-group-item list-group-item my-3 text-bold ">
                             <a class="btn  btn-block btn-outline-primary" data-toggle="collapse"
-                               href="#{{ $patologia->nombre_patologia }}" role="button" aria-expanded="false"
-                               aria-controls="{{ $patologia->nombre_patologia }}">
+                               href="#{{ str_replace(' ', "_", $patologia->nombre_patologia)  }}" role="button" aria-expanded="false"
+                               aria-controls="{{ str_replace(' ', "_", $patologia->nombre_patologia) }}">
                                 {{ $patologia->nombre_patologia }}
                             </a>
                             @if($patologia->subPatologias->count() > 0)
-                                <div class="collapse" id="{{ $patologia->nombre_patologia }}">
+                                <div class="collapse" id="{{ str_replace(' ', "_", $patologia->nombre_patologia) }}">
+                                    @foreach($patologia->subPatologias as $sub)
                                     <div class="card card-body">
                                         <div class="row">
-                                            {{ $patologia->subPatologias->pluck('nombre_sub') }}
+                                            {{ $sub->nombre_sub .': '. $sub->valor}}
                                         </div>
                                     </div>
+                                        @endforeach
                                 </div>
                             @endif
                             {{--@endforeach--}}
