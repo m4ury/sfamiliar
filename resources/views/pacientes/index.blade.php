@@ -103,8 +103,15 @@
 @stop
 @section('js')
     <script>
-        $("#pacientes").DataTable(
+        let table = $("#pacientes").DataTable(
             {
+                dom: 'Bfrtip',
+                buttons: [
+                    'excel',
+                    'colvis',
+                    'print',
+                    'pdf'
+                ],
                 language:
                     {
                         "processing": "Procesando...",
@@ -127,7 +134,7 @@
                             "sortAscending": ": Activar para ordenar la columna de manera ascendente",
                             "sortDescending": ": Activar para ordenar la columna de manera descendente"
                         }
-                    }
+                    },
             });
     </script>
 @endsection

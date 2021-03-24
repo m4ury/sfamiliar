@@ -32,8 +32,6 @@
                                         @endforeach
                                 </div>
                             @endif
-                            {{--@endforeach--}}
-
                         </li>
                         {{--//como mejora visual color definido por base de datos segun patologia(proyecto)--}}
                     </ul>

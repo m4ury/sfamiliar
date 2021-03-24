@@ -79,6 +79,8 @@
                                         <p class="btn badge-pill bg-gradient-info">No hay datos...</p>
                                     @endif
 
+                                    {{--{{ $paciente->controls()->latest('fecha_control')->get('imc_resultado')->take(1) }}--}}
+
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="vert-tabs-controles" role="tabpanel"

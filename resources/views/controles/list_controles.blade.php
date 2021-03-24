@@ -26,6 +26,7 @@
                         <th>Peso</th>
                         <th>Talla</th>
                         <th>IMC</th>
+                        <th>Estado nutricional </th>
                         <th>Acciones</th>
                     </tr>
                     </thead>
@@ -38,6 +39,7 @@
                                 <td>{{ $control->peso_actual }}</td>
                                 <td>{{ $control->talla_actual }}</td>
                                 <td>{{ $control->imc }}</td>
+                                <td>{{ $control->imc_resultado }}</td>
                                 <td>
                                     <a class="btn bg-gradient-secondary btn-sm disabled" data-toggle="tooltip"
                                        data-placement="bottom" title="Editar"

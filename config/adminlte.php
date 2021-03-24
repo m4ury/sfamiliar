@@ -236,7 +236,7 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'profile',
+            'url' => 'profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         /*[
@@ -247,19 +247,19 @@ return [
         ['header' => 'Pacientes'],
         [
             'text' => 'pacientes',
-            'route'  => 'pacientes.index',
+            'route' => 'pacientes.index',
             'icon' => 'fas fa-fw fa-user-injured',
         ],
         ['header' => 'Patologias'],
         [
             'text' => 'patologias',
-            'route'  => 'patologias.index',
+            'route' => 'patologias.index',
             'icon' => 'fas fa-fw fa-heartbeat',
         ],
         ['header' => 'Controles'],
         [
             'text' => 'controles',
-            'route'  => 'controles.index',
+            'route' => 'controles.index',
             'icon' => 'fas fa-fw fa-hospital-user',
         ],
         /*[
@@ -372,7 +372,62 @@ return [
                     'location' => 'vendor/datatables/css/dataTables.bootstrap4.min.css',
                 ],
             ],
-        ],
+ /*       ],
+        'Datatables-plugins' => [
+            'active' => true,
+            'files' => [*/
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.bootstrap4.js
+',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/css/buttons.bootstrap4.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.print.js'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.colVis.js'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/jszip/jszip.js'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.html5.js'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.flash.js'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/dataTables.buttons.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/pdfmake/pdfmake.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/pdfmake/vfs_fonts.js',
+                ],
+            ],
         'Select2' => [
             'active' => true,
             'files' => [
@@ -424,6 +479,7 @@ return [
             ],
         ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------

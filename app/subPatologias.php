@@ -10,4 +10,8 @@ class subPatologias extends Model
     {
         return $this->belongsTo(Patologia::class);
     }
+
+    public function pacientes(){
+        return $this->belongsToMany(Paciente::class)->using(PacientePatologia::class)->withPivot('paciente_id');
+    }
 }
