@@ -97,6 +97,12 @@
                             <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"
                                  aria-labelledby="vert-tabs-patologias-tab">
                                 @include('patologias.list_patologias', $paciente)
+                                @if($paciente->patologias->count() > 0)
+                                    <a href="{{ route('pacientes.patologia', $paciente->id) }}"><span
+                                                class="text-bold">Ver Todas las patologias...</span></a>
+                                @else
+                                    <p class="text-muted">No hay Patologias aun... </p>
+                                @endif
                             </div>
                         </div>
                     </div>

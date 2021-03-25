@@ -1,12 +1,4 @@
-@if($paciente->patologias->count() >0)
-    {{--<div class="col-sm-6 mb-2">
-        --}}{{--<a class="btn bg-gradient-success btn-sm" title="Nuevo patologia"
-           href="{{ route('patologias.create', $paciente->id) }}">
-            <i class="fas fa-money-check-alt"></i>
-            Nuevo patologia
-        </a>--}}{{--
-
-    </div>--}}
+@if($paciente->patologias)
     <div class="col pb-2">
         <div class="card card-outline card-dark">
             <div class="card-header">

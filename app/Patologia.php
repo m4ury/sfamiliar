@@ -10,13 +10,8 @@ class Patologia extends Model
 
     public function pacientes()
     {
-        return $this->belongsToMany(Paciente::class);/*->using(PacientePatologia::class)->withPivot('paciente_id');*/
+        return $this->belongsToMany(Paciente::class);
     }
-
-    /*public function salaEra()
-    {
-        return $this->HasMany(salaEra::class);
-    }*/
 
     public function subPatologias()
     {

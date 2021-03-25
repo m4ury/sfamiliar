@@ -354,80 +354,90 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/datatables/js/jquery.dataTables.min.js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/datatables/js/dataTables.bootstrap4.min.js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-dt/js/dataTables.dataTables.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => true,
-                    'location' => 'vendor/datatables/css/dataTables.bootstrap4.min.css',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-dt/css/jquery.dataTables.min.css',
                 ],
-            ],
- /*       ],
-        'Datatables-plugins' => [
-            'active' => true,
-            'files' => [*/
                 [
                     'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.bootstrap4.js
-',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons/js/dataTables.buttons.min.js',
                 ],
                 [
-                    'type' => 'css',
-                    'asset' => true,
-                    'location' => 'vendor/datatables-plugins/buttons/css/buttons.bootstrap4.css',
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons/js/buttons.flash.min.js'
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.print.js'
+                    'location' => 'vendor/datatables-plugins/jszip/jszip.min.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.colVis.js'
+                    'location' => 'vendor/datatables-plugins/pdfmake/pdfmake.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/datatables-plugins/jszip/jszip.js'
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.html5.js'
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.flash.js'
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/datatables-plugins/buttons/js/dataTables.buttons.js',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/datatables-plugins/pdfmake/pdfmake.js',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => true,
+                    'asset' => false,
                     'location' => 'vendor/datatables-plugins/pdfmake/vfs_fonts.js',
                 ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons/js/buttons.html5.min.js'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons/js/buttons.print.min.js'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-autofill/js/dataTables.autoFill.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-autofill-dt/css/autoFill.dataTables.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-autofill-dt/js/autoFill.dataTables.min.js'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons/js/buttons.colVis.min.js'
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons-dt/css/buttons.dataTables.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons-dt/js/buttons.dataTables.min.js',
+                ],
             ],
+        ],
         'Select2' => [
             'active' => true,
             'files' => [
@@ -480,17 +490,16 @@ return [
         ],
     ],
 
+        /*
+        |--------------------------------------------------------------------------
+        | Livewire
+        |--------------------------------------------------------------------------
+        |
+        | Here we can enable the Livewire support.
+        |
+        | For detailed instructions you can look the livewire here:
+        | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/9.-Other-Configuration
+        */
 
-    /*
-    |--------------------------------------------------------------------------
-    | Livewire
-    |--------------------------------------------------------------------------
-    |
-    | Here we can enable the Livewire support.
-    |
-    | For detailed instructions you can look the livewire here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/9.-Other-Configuration
-    */
-
-    'livewire' => false,
-];
+        'livewire' => false,
+    ];

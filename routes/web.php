@@ -36,16 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', 'UserController@profile')->name('profile');
     Route::put('profile/{user?}', 'UserController@updateProfile');
 
-    /*//rutas para presupuestos
-    Route::resource('presupuesto', 'PresupuestoController');
-    Route::get('presupuesto/getpdf/{presupuesto}', 'PresupuestoController@getPdf')->name('presupuesto.getpdf');
-    Route::get('presupuestos/{paciente?}', 'PresupuestoController@presupuestoPcte')->name('presupuestos');
-    Route::get('presupuesto/create/{paciente?}', 'PresupuestoController@create')->name('presupuesto.create');
+    //rutas para paciente patologias
+    Route::resource('ppatologias', 'PacientePatologiaController');
+    Route::get('pacientes/patologia/{paciente?}', 'PacientePatologiaController@create')->name('pacientes.patologia');
 
     //ruta para exportar a excel
-    Route::get('exports/pacientes', 'PacienteController@export')->name('exports.pacientes');
-
-    Route::resource('abono', 'AbonoController');
-    Route::get('abonos/{paciente?}', 'AbonoController@abonoPcte')->name('abonos');
-    Route::get('abono/create/{paciente?}', 'AbonoController@create')->name('abono.create');*/
+    /*Route::get('exports/pacientes', 'PacienteController@export')->name('exports.pacientes');*/
 });

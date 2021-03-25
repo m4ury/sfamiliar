@@ -101,16 +101,17 @@
         </table>
     </div>
 @stop
+@section('plugins.Datatables', true)
 @section('js')
     <script>
-        let table = $("#pacientes").DataTable(
+        $("#pacientes").DataTable(
             {
                 dom: 'Bfrtip',
                 buttons: [
-                    'excel',
                     'colvis',
+                    'excel',
+                    'pdf',
                     'print',
-                    'pdf'
                 ],
                 language:
                     {

@@ -30,7 +30,6 @@ class PacienteController extends Controller
     public function store(PacienteRequest $request)
     {
         $paciente = Paciente::create($request->all());
-
         /*dd($request->all());*/
         Alert::success('Nuevo Paciente ha sido cread@ con exito');
         return redirect()->route('pacientes.index', compact('paciente'));
@@ -39,10 +38,6 @@ class PacienteController extends Controller
     public function show($id)
     {
         $paciente = Paciente::findOrFail($id);
-        /*$patologias = $paciente->patologias()->get();
-        $sub = $patologias->join('subPatologias');*/
-
-        //dd($sub);
         return view('pacientes.show', compact('paciente', 'controles'));
     }
 
