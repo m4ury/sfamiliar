@@ -88,19 +88,16 @@
                                 @include('controles.list_controles', $paciente)
                                 @if($paciente->controls->count() > 0)
                                     <a href="{{ route('controles', $paciente->id) }}"><span
-                                                class="text-bold">Ver Todos los controles...</span></a>
+                                            class="text-bold">Ver Todos los controles...</span></a>
                                 @else
                                     <p class="text-muted">No hay Controles aun, crea uno <i
-                                                class="far fa-laugh-wink fa-2x"></i></p>
+                                            class="far fa-laugh-wink fa-2x"></i></p>
                                 @endif
                             </div>
                             <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"
                                  aria-labelledby="vert-tabs-patologias-tab">
                                 @include('patologias.list_patologias', $paciente)
-                                @if($paciente->patologias->count() > 0)
-                                    <a href="{{ route('pacientes.patologia', $paciente->id) }}"><span
-                                                class="text-bold">Ver Todas las patologias...</span></a>
-                                @else
+                                @if($paciente->patologias->count() == 0)
                                     <p class="text-muted">No hay Patologias aun... </p>
                                 @endif
                             </div>

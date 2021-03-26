@@ -38,7 +38,7 @@ class PacienteController extends Controller
     public function show($id)
     {
         $paciente = Paciente::findOrFail($id);
-        return view('pacientes.show', compact('paciente', 'controles'));
+        return view('pacientes.show', compact('paciente'));
     }
 
     public function edit($id)

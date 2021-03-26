@@ -28,7 +28,7 @@ class ControlController extends Controller
     {
         //$patologias = Patologia::latest();
         $paciente = Paciente::findOrFail($id);
-        return view('controles.create', compact('paciente', 'patologias'));
+        return view('controles.create', compact('paciente'));
     }
 
 
