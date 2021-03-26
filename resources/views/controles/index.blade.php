@@ -23,7 +23,7 @@
             @foreach($controles as $control)
                 <tr>
                     <td>{{ $control->tipo_control }}</td>
-                    <td>{{ $control->paciente->fullName() }}</td>
+                    <td class="text-uppercase">{{ $control->paciente->fullName() }}</td>
                     <td>{{ $control->paciente->rut }}</td>
                     <td>{{ \Carbon\Carbon::parse($control->fecha_control)->format("d-m-Y") }}</td>
                     <td>{{ $control->presion_arterial }}</td>
@@ -41,10 +41,18 @@
         </table>
     </div>
 @stop
+@section('plugins.Datatables', true)
 @section('js')
     <script>
         $("#controles").DataTable(
             {
+                dom: 'Bfrtip',
+                buttons: [
+                    'colvis',
+                    'excel',
+                    'pdf',
+                    'print',
+                ],
                 language:
                     {
                         "processing": "Procesando...",

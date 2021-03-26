@@ -27,6 +27,7 @@
         "datatables.net-buttons-dt": "^1.7.0",
         "datatables.net-dt": "^1.10.24",
         "datatables.net-editor-dt": "^1.6.3",
+        "datatables.net-zf": "^1.10.24",
         "jszip": "^3.6.0",
         "pdfmake": "^0.1.70"
     }

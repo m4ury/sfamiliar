@@ -28,7 +28,7 @@
             @foreach($pacientes as $paciente)
                 <tr>
                     <td><a href="{{ route('pacientes.show', $paciente->id) }}">{{ $paciente->rut }}</a></td>
-                    <td>{{ $paciente->fullName() }}</td>
+                    <td class="text-uppercase">{{ $paciente->fullName() }}</td>
                     <td>{{ $paciente->ficha }}</td>
                     <td>{{ $paciente->edad() }}</td>
                     <td>{{ $paciente->sexo }}</td>

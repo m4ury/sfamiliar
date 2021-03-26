@@ -371,6 +371,16 @@ return [
                     'asset' => false,
                     'location' => '../node_modules/datatables.net-dt/css/jquery.dataTables.min.css',
                 ],
+                /*[
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-zf/js/dataTables.foundation.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-zf/css/dataTables.foundation.min.css',
+                ],*/
                 [
                     'type' => 'js',
                     'asset' => false,

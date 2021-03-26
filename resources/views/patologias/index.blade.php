@@ -36,10 +36,18 @@
         </table>
     </div>
 @stop
+@section('plugins.Datatables', true)
 @section('js')
     <script>
         $("#patologias").DataTable(
             {
+                dom: 'Bfrtip',
+                buttons: [
+                    'colvis',
+                    'excel',
+                    'pdf',
+                    'print',
+                ],
                 language:
                     {
                         "processing": "Procesando...",

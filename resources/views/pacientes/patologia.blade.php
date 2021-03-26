@@ -10,7 +10,8 @@
                         <div class="form-group row">
                             {!! Form::label('patologias', 'Patologia', ['class' => 'col-sm-3 col-form-label']) !!}
                             <div class="col-sm">
-                                {!! Form::select('patologia_id', $patologias, null, ['class' => 'form-control form-control-sm', 'id' => 'patologias', 'placeholder'=> "Seleccione Patologia"]) !!}
+                                {!! Form::select('patologia_id', $patologias, null, ['class' => 'form-control
+                                form-control-sm', 'id' => 'patologias', 'placeholder' => 'Seleccione una Patologia']) !!}
                             </div>
                         </div>
                         {!! Form::hidden('paciente_id', $paciente->id) !!}
