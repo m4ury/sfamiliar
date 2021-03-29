@@ -244,23 +244,28 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],*/
-        ['header' => 'Pacientes'],
+        //['header' => 'Pacientes'],
         [
-            'text' => 'pacientes',
+            'text' => 'Pacientes',
             'route' => 'pacientes.index',
             'icon' => 'fas fa-fw fa-user-injured',
         ],
-        ['header' => 'Patologias'],
+        //['header' => 'Patologias'],
         [
-            'text' => 'patologias',
+            'text' => 'Patologias',
             'route' => 'patologias.index',
             'icon' => 'fas fa-fw fa-heartbeat',
         ],
-        ['header' => 'Controles'],
+        //['header' => 'Controles'],
         [
-            'text' => 'controles',
+            'text' => 'Controles',
             'route' => 'controles.index',
             'icon' => 'fas fa-fw fa-hospital-user',
+        ],
+        [
+            'text' => 'Estadisticas',
+            'route' => 'estadisticas',
+            'icon' => 'fas fa-fw fa-file-alt',
         ],
         /*[
             'text'    => 'multilevel',
@@ -371,16 +376,6 @@ return [
                     'asset' => false,
                     'location' => '../node_modules/datatables.net-dt/css/jquery.dataTables.min.css',
                 ],
-                /*[
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-zf/js/dataTables.foundation.min.js',
-                ],
-                [
-                    'type' => 'css',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-zf/css/dataTables.foundation.min.css',
-                ],*/
                 [
                     'type' => 'js',
                     'asset' => false,

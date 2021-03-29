@@ -11,6 +11,6 @@ class PacienteSubPatologiaSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

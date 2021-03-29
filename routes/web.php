@@ -40,6 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('ppatologias', 'PacientePatologiaController');
     Route::get('pacientes/patologia/{paciente?}', 'PacientePatologiaController@create')->name('pacientes.patologia');
 
+    //rutas para estadisticas
+    Route::get('/estadisticas', 'EstadisticaController@index')->name('estadisticas');
+
     //ruta para exportar a excel
     /*Route::get('exports/pacientes', 'PacienteController@export')->name('exports.pacientes');*/
 });

@@ -41,18 +41,20 @@
                                     <p class="text-muted">{{ $paciente->telefono ? : 'Sin datos...'}}</p>
                                     <hr>
                                     <strong><i class="fas fa-heartbeat mr-1"></i> Riesgo Cardiovascular</strong>
-                                    <p class="text-muted">
+                                    <p class="text-uppercase text-muted">
                                         {{ $paciente->riesgo_cv ? : 'No se encontraron datos.' }}
                                     </p>
                                     <hr>
                                     <strong><i class="fas fa-disease mr-1"></i>Enfermedad Renal Cronica(ERC)</strong>
                                     <p class="text-muted">{{ $paciente->erc ? : 'No se encontraron datos.' }}</p>
-                                    @if($paciente->compensado > 0)
+                                    @if($paciente->compensado == 1)
                                     <strong><i class="fas fa-thumbs-up mr-1"></i>Compensado</strong>
-                                    <p class="btn rounded-pill bg-gradient-success">Compensado</P>
-                                    @elseif(!$paciente->compensado == 0)
-                                    <strong><i class="fas fa-thumbs-down mr-1"></i>Compensado</strong>
-                                    <p class="btn rounded-pill bg-gradient-danger">No Compensado</p>
+                                        <br>
+                                    <p class="btn rounded-pill bg-gradient-success">COMPENSADO</P>
+                                    @elseif($paciente->compensado == 2)
+                                    <strong><i class="fas fa-thumbs-down mr-1"></i>No Compensado</strong>
+                                        <br>
+                                    <p class="btn rounded-pill bg-gradient-danger">NO COMPENSADO</p>
                                     @else
                                     <strong><i class="fas fa-question-circle mr-1"></i>Compensado</strong>
                                     <br>

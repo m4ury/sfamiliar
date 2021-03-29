@@ -14,8 +14,8 @@ class AddCamposToPacientesTable extends Migration
     public function up()
     {
         Schema::table('pacientes', function (Blueprint $table) {
-                $table->enum('riesgo_cv', ['Bajo', 'Medio', 'Alto'])->nullable();
-                $table->enum('erc', ['sin', 'I', 'II', 'IIIA', 'IIIB', 'IV', 'V'])->nullable();
+                $table->enum('riesgo_cv', ['Bajo', 'Moderado', 'Alto'])->nullable();
+                $table->enum('erc', ['sin', 'I', 'II','IIA', 'III', 'IIIA', 'IIIB', 'IIIB-IV', 'IV', 'V'])->nullable();
                 $table->boolean('compensado')->default(0);
             });
     }
