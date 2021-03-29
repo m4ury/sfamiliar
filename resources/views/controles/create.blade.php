@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-left">
-        <div class="col-sx-12 col-sm-12 col-lg-8">
+        <div class="col-sx-12 col-sm-12 col">
             <div class="card card-success card-outline">
                 <div class="card-header"><label for="">Nuevo Control</label><input type="text" name="paciente"
                         value="{{ $paciente->fullName() }}" class="form-control" disabled></div>

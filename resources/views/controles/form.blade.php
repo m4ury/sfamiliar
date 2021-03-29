@@ -45,13 +45,20 @@
         {!! Form::textarea('observacion', null, ['class' => 'form-control form-control-sm','placeholder' => 'Ingrese observacion']) !!}
     </div>
 </div>
-<hr>
+
+@foreach($paciente->patologias as $patologia)
+    @if($patologia->nombre_patologia == 'HTA')
+        @include('partials.hta')
+    @endif
+@endforeach
+
 <div class="form-group row">
     {!! Form::label('proximo_control', 'Fecha prox. control',['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
         {!! Form::date('proximo_control', null, ['class' => 'form-control form-control-sm']) !!}
     </div>
 </div>
+
 @section('js')
     <script>
         $('#tipo').select2({
@@ -65,21 +72,22 @@
             var imc = peso / (tallamts * tallamts);
             var imcF = imc.toFixed(2);
             $('#imc').val(imcF);
-            $('#imc_resultado').focus(function (){
+            $('#imc_resultado').focus(function () {
                 var clasificacion;
-                if (imc < 20) {
+                if (imc < 18) {
                     clasificacion = 'Bajo peso';
-                } else if (imc > 20 && imc < 28) {
+                } else if (imc > 18 && imc < 25) {
                     clasificacion = 'Normal';
-                } else if (imc > 28 && imc < 32) {
+                } else if (imc > 25 && imc < 30) {
                     clasificacion = 'Sobrepeso';
-                } else if (imc > 32 && imc < 37) {
-                    clasificacion = 'Obeso'
+                } else if (imc > 30 && imc < 35) {
+                    clasificacion = 'Obeso';
                 } else {
                     clasificacion = 'Obesidad Morbida';
                 }
                 $('#imc_resultado').val(clasificacion);
             })
         });
+        $("#rac_vigente").removeAttr("checked");
     </script>
 @endsection

@@ -27,8 +27,11 @@ class ControlController extends Controller
     public function create($id)
     {
         //$patologias = Patologia::latest();
-        $paciente = Paciente::findOrFail($id);
-        return view('controles.create', compact('paciente'));
+
+        $paciente = Paciente::with('patologias')->findOrFail($id);
+        /*$pcteHta = $paciente->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id' )->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->search('hta');*/
+
+        return view('controles.create', compact('paciente', 'pcteHta'));
     }
 
 
@@ -38,9 +41,7 @@ class ControlController extends Controller
         $control->user_id = Auth::user()->id;
         $control->paciente_id = $request->paciente_id;
         $control->save();
-
         //dd($control);
-
         return redirect('pacientes/' . $request->paciente_id)->withSuccess('Control creado con exito!');
     }
 

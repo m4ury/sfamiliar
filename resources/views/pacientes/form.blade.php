@@ -78,11 +78,11 @@
 <div class="form-group row">
     <div class="col">
         {!! Form::label('pueblo_originario', 'Originario', ['class' => 'col-sm col-form-label']) !!}
-        {!! Form::checkbox('pueblo_originario', 1, ['class' => 'form-control form-control']) !!}
+        {!! Form::checkbox('pueblo_originario', 1, null ,['class' => 'form-control form-control']) !!}
     </div>
     <div class="col">
         {!! Form::label('migrante', 'Pob. Migrante', ['class' => 'col-sm col-form-label']) !!}
-        {!! Form::checkbox('migrante', 1, ['class' => 'form-control form-control']) !!}
+        {!! Form::checkbox('migrante', 1, null, ['class' => 'form-control form-control']) !!}
     </div>
 </div>
 <hr>
