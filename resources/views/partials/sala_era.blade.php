@@ -3,20 +3,20 @@
     <div class="form-group row my-2 ml-2">
         {!! Form::label('asmaClasif_label', 'ASMA CLASIF.', ['class' => 'col-sm col-form-label']) !!}
         <div class="col-sm-9">
-            {!! Form::select('asmaClasif', ['L' => 'Leve', 'M' => 'Moderado', 'S' => 'Severo'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción']) !!}
+            {!! Form::select('asmaClasif', ['Leve' => 'Leve', 'Moderado' => 'Moderado', 'Severo' => 'Severo'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción']) !!}
         </div>
     </div>
     <div class="form-group row my-2 ml-2">
         {!! Form::label('asmaControl_label', 'ASMA NIVEL DE CONTROL', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-9">
-            {!! Form::select('asmaControl', ['Controlado', 'Parcialmente Controlado', 'No Controlado', 'No Evaluado'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción']) !!}
+            {!! Form::select('asmaControl', ['Controlado' => 'Controlado', 'Parcialmente Controlado' => 'Parcialmente Controlado', 'No Controlado' =>'No Controlado', 'No Evaluado' => 'No Evaluado'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción']) !!}
         </div>
     </div>
 
     <div class="form-group row my-2 ml-2">
         {!! Form::label('epocClasif_label', 'EPOC CLASIF.', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-9">
-            {!! Form::select('epocClasif', ['A', 'B'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción']) !!}
+            {!! Form::select('epocClasif', ['A' => 'A', 'B' => 'B'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción']) !!}
         </div>
     </div>
     <div class="form-group row my-2 ml-2">

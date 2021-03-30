@@ -14,7 +14,7 @@ class ControlController extends Controller
 {
     public function index()
     {
-        $controles = Control::with('paciente')->latest()->get();
+        $controles = Control::with('paciente')->latest('fecha_control')->get();
 
         return view('controles.index', compact('controles'));
     }
@@ -37,6 +37,7 @@ class ControlController extends Controller
     public function store(ControlRequest $request)
     {
         $control = new Control($request->except('_token'));
+       // dd($request->all());
         $control->user_id = Auth::user()->id;
         $control->paciente_id = $request->paciente_id;
         $control->save();

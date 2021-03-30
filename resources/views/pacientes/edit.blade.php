@@ -83,7 +83,33 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-sm-5">
+                                {!! Form::label('pueblo_originario', 'Originario', ['class' => 'col-sm col-form-label']) !!}
+                                {!! Form::checkbox('pueblo_originario', old('pueblo_originario', $paciente->pueblo_originario), $paciente->pueblo_originario, ['class' => 'form-control form-control']) !!}
+                            </div>
+                            <div class="col-sm-5">
+                                {!! Form::label('migrante', 'Pob. Migrante', ['class' => 'col-sm col-form-label']) !!}
+                                {!! Form::checkbox('migrante', old('migrante', $paciente->migrante), 1, ['class' => 'form-control form-control']) !!}
+                            </div>
+                        </div>
                         <hr>
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                                {!! Form::label('riesgo_cv_label', 'Riesgo Cardiovascular', ['class' => 'col-sm-5 col-form-label']) !!}
+                                {!! Form::select('riesgo_cv', ['Bajo' => 'Bajo', 'Medio' => 'Medio', 'Alto' => 'Alto'], old('riesgo_cv', $paciente->riesgo_cv), ['class' => 'form-control-sm form-control-sm-4', 'placeholder' => 'Riesgo Cardiovascular']) !!}
+                            </div>
+                            <div class="col-sm-4">
+                                {!! Form::label('compensado_label', 'Compensado', ['class' => 'col-sm col-form-label']) !!}
+                                {!! Form::checkbox('compensado', old('compensado', $paciente->compensado), 1, ['class' => 'form-control form-control']) !!}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                                {!! Form::label('erc_label', 'Enf. Renal Crónica', ['class' => 'col-sm-5 col-form-label']) !!}
+                                {!! Form::select('erc', ['sin' => 'SIN', 'I' => 'I', 'II' => 'II','IIA' => 'IIA', 'III' => 'III', 'IIIA' => 'IIIA', 'IIIB' => 'IIIB', 'IIIB-IV' => 'IIIB-IV', 'IV' => 'IV', 'V' => 'V'], old('erc', $paciente->erc), ['class' => 'form-control-sm form-control-sm-4', 'placeholder' => 'ERC ']) !!}
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col">
                                 {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-primary btn-sm btn-block']) }}

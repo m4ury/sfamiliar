@@ -31,7 +31,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($paciente->controls as $control)
+                    @foreach($controles as $control)
+                       {{-- {{ dd($control) }}--}}
                             <tr>
                                 <td>{{ $control->tipo_control }}</td>
                                 <td>{{ \Carbon\Carbon::parse($control->fecha_control)->format("d-m-Y") }}</td>
