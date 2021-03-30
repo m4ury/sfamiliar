@@ -81,7 +81,7 @@
                             </tr>
                             <tr>
                                 <th nowrap="" colspan="2">NUMERO DE PERSONAS EN PSCV</th>
-                                //aca los datos ej.: td 3333
+
                             </tr>
                             </thead>
                         </table>

@@ -29,9 +29,8 @@ class ControlController extends Controller
         //$patologias = Patologia::latest();
 
         $paciente = Paciente::with('patologias')->findOrFail($id);
-        /*$pcteHta = $paciente->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id' )->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->search('hta');*/
 
-        return view('controles.create', compact('paciente', 'pcteHta'));
+        return view('controles.create', compact('paciente'));
     }
 
 
