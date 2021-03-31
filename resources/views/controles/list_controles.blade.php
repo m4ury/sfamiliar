@@ -27,7 +27,8 @@
                         <th>Talla</th>
                         <th>IMC</th>
                         <th>Estado nutricional </th>
-                        <th>Acciones</th>
+                        <th>Prox. Control</th>
+                        {{--<th>Acciones</th>--}}
                     </tr>
                     </thead>
                     <tbody>
@@ -41,12 +42,13 @@
                                 <td>{{ $control->talla_actual }}</td>
                                 <td>{{ $control->imc }}</td>
                                 <td>{{ $control->imc_resultado }}</td>
-                                <td>
+                                <td>{{ $control->proximo_control }}</td>
+                                {{--<td>
                                     <a class="btn bg-gradient-secondary btn-sm disabled" data-toggle="tooltip"
                                        data-placement="bottom" title="Editar"
                                     href="{{ route('controles.edit', $control->id) }}"><i class="fas fa-pen"></i>
                                     </a>
-                                </td>
+                                </td>--}}
                             </tr>
                     @endforeach
                     </tbody>

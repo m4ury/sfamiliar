@@ -53,7 +53,7 @@ class PacienteController extends Controller
     public function update(Request $request, $id)
     {
         $paciente = Paciente::findOrFail($id);
-
+        dd($request->all());
         $validator = Validator::make($request->all(), [
             'rut' => 'required|cl_rut',
             'nombres' => 'required|string|min:3',
@@ -63,11 +63,20 @@ class PacienteController extends Controller
             return back()->withErrors($validator)->withInput();
         }
         $paciente->update($request->all());
+        /*if (!$request->migrante) {
+            $paciente->migrante = 0;
+        } elseif (!$request->compensado) {
+            $paciente->compensado = 0;
+        } elseif (!$request->pueblo_originario) {
+            $paciente->pueblo_originario = 0;
+        }
+        $paciente->save();*/
 
-        return redirect('pacientes')->withSuccess('Paciente Actualizado con exito!');
+        return redirect('pacientes/' . $id)->withSuccess('Paciente Actualizado con exito!');
     }
 
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         Paciente::destroy($id);
 

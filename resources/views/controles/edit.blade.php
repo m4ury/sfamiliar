@@ -6,12 +6,12 @@
         <div class="row justify-content-left">
             <div class="col-sx-12 col-sm-12 col-lg-8">
                 <div class="card card-default">
-                    <div class="card-header">Editando patologia</div>
+                    <div class="card-header">Editando control</div>
                     <div class="card-body">
-                        {{ Form::open(['action' => route('patologias.update', $patologia->id), 'method' => 'POST', 'url' => 'patologias/'.$patologia->id, 'class' => 'form-horizontal']) }}
+                        {{ Form::open(['action' => route('controles.update', $$control->id), 'method' => 'POST', 'url' => 'controles/'.$controles->id, 'class' => 'form-horizontal']) }}
                         @csrf
                         @method('PATCH')
-                        @include('patologias.form')
+                        @include('controles.form')
                         {{--<div class="form-group row">
                             {!! Form::label('rut', 'Rut', ['class' => 'col-sm-2 col-form-label']) !!}
                             <div class="col-sm-6">

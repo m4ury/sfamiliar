@@ -7,13 +7,13 @@
         </div>
     </div>
     <div class="form-group row my-2 ml-2">
-        {!! Form::label('pa_menor14090label', 'P. Art. < 140/90', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
+        {!! Form::label('pa_menor14090label', 'Presion arterial < 140/90', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
         <div class="col-sm-9">
             {!! Form::checkbox('pa_menor_140_90', 1, null, ['class' => 'form-control my-2']) !!}
         </div>
     </div>
     <div class="form-group row my-2 ml-2">
-        {!! Form::label('pa_mayor160100label', 'P. Art. > 160/100', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
+        {!! Form::label('pa_mayor160100label', 'Presion arterial > 160/100', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
         <div class="col-sm-9">
             {!! Form::checkbox('pa_mayor_160_100', 1, null, ['class' => 'form-control my-2']) !!}
         </div>

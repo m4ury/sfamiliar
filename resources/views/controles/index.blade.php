@@ -32,7 +32,7 @@
                     <td>{{ $control->imc }}</td>
                     <td>{{$control->imc_resultado}}</td>
                     <td>
-                        <a class="btn bg-gradient-secondary btn-sm" data-toggle="tooltip" data-placement="bottom"
+                        <a class="btn bg-gradient-secondary btn-sm disabled" data-toggle="tooltip" data-placement="bottom"
                            title="Editar"
                            href="{{ route('controles.edit', $control->id) }}"><i class="fas fa-pen"></i></a></td>
                 </tr>

@@ -86,11 +86,11 @@
                         <div class="form-group row">
                             <div class="col-sm-5">
                                 {!! Form::label('pueblo_originario', 'Originario', ['class' => 'col-sm col-form-label']) !!}
-                                {!! Form::checkbox('pueblo_originario', old('pueblo_originario', $paciente->pueblo_originario), $paciente->pueblo_originario, ['class' => 'form-control form-control']) !!}
+                                {!! Form::checkbox('pueblo_originario', $paciente->compensado==1?true:0, $paciente->pueblo_originario == 1?true:0, ['class' => 'form-control form-control']) !!}
                             </div>
                             <div class="col-sm-5">
                                 {!! Form::label('migrante', 'Pob. Migrante', ['class' => 'col-sm col-form-label']) !!}
-                                {!! Form::checkbox('migrante', old('migrante', $paciente->migrante), 1, ['class' => 'form-control form-control']) !!}
+                                {!! Form::checkbox('migrante', $paciente->compensado==1?true:0, $paciente->migrante ==1?true:0, ['class' => 'form-control form-control']) !!}
                             </div>
                         </div>
                         <hr>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="col-sm-4">
                                 {!! Form::label('compensado_label', 'Compensado', ['class' => 'col-sm col-form-label']) !!}
-                                {!! Form::checkbox('compensado', old('compensado', $paciente->compensado), 1, ['class' => 'form-control form-control']) !!}
+                                {!! Form::checkbox('compensado', $paciente->compensado==1?true:0, $paciente->compensado==1?true:0, ['class' => 'form-control form-control']) !!}
                             </div>
                         </div>
                         <div class="form-group row">
@@ -115,7 +115,7 @@
                                 {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-primary btn-sm btn-block']) }}
                             </div>
                             <div class="col">
-                                <a href="{{ route('pacientes.index') }}" style="text-decoration:none">
+                                <a href="{{ url('pacientes', $paciente->id) }}" style="text-decoration:none">
                                     {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block'] ) }}
                                 </a>
                             </div>
