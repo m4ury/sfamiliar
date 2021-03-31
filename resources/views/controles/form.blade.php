@@ -22,7 +22,7 @@
 <div class="form-group row">
     {!! Form::label('peso_actual', 'Peso actual(Kg.)',['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::number('peso_actual', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Ejemplo: 88']) !!}
+        {!! Form::number('peso_actual', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Ejemplo: 88', 'step' => 'any']) !!}
     </div>
     {!! Form::label('talla_actual', 'Talla actual(Cms.)',['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">

@@ -36,11 +36,6 @@ class Paciente extends Model
         return $this->belongsToMany(Patologia::class);
     }
 
-    public function subPatologias()
-    {
-        return $this->belongsToMany(subPatologias::class);
-    }
-
     public function scopeSearch($query, $q)
     {
         if ($q)
