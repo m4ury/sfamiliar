@@ -49,9 +49,9 @@ class HomeController extends Controller
         $in2529 = $pacientes->whereBetween('grupo',[25, 29])->count();
         $in2024 = $pacientes->whereBetween('grupo',[20, 24])->count();
         $in1519 = $pacientes->whereBetween('grupo',[15, 19])->count();
-        $in1519Fem = $pacientes->whereBetween('grupo',[15, 19])->where('sexo', 'Femenino')->count();
+        //$in1519Fem = $pacientes->whereBetween('grupo',[15, 19])->where('sexo', 'Femenino')->count();
 
 
-        return view('home', compact('totalPacientes', 'totalMasculino', 'totalFemenino', 'totalCeleste', 'totalNaranjo', 'mas80', 'in7579', 'in7074', 'in6569', 'in6064', 'in5559', 'in5054', 'in4549', 'in4044', 'in3539', 'in3034', 'in2529', 'in2024', 'in1519', 'in1519Fem'));
+        return view('home', compact('totalPacientes', 'totalMasculino', 'totalFemenino', 'totalCeleste', 'totalNaranjo', 'mas80', 'in7579', 'in7074', 'in6569', 'in6064', 'in5559', 'in5054', 'in4549', 'in4044', 'in3539', 'in3034', 'in2529', 'in2024', 'in1519'));
     }
 }
