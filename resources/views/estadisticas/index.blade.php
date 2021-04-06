@@ -91,12 +91,21 @@
                                 </th>
                             <tr>
                                 <th>BAJO</th>
+                                <td>{{ $p_bajo }}</td>
+                                <td>{{ $p_bajoM }}</td>
+                                <td>{{ $p_bajoF }}</td>
                             </tr>
                             <tr>
                                 <th>MODERADO</th>
+                                <td>{{ $p_moderado }}</td>
+                                <td>{{ $p_moderadoM }}</td>
+                                <td>{{ $p_moderadoF }}</td>
                             </tr>
                             <tr>
                                 <th>ALTO</th>
+                                <td>{{ $p_alto }}</td>
+                                <td>{{ $p_altoM }}</td>
+                                <td>{{ $p_altoF }}</td>
                             </tr>
                             </tr>
                             <tr>
@@ -106,12 +115,15 @@
                                 </th>
                             <tr>
                                 <th>HIPERTENSOS</th>
+                                <td>{{ $hta }}</td>
                             </tr>
                             <tr>
                                 <th>DIABETICOS</th>
+                                <td>{{ $dm2 }}</td>
                             </tr>
                             <tr>
                                 <th>DISLIPIDEMICOS</th>
+                                <td>{{ $dlp }}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">TABAQUISMO MAYOR A 55 AÑOS</th>

@@ -12,16 +12,32 @@ class EstadisticaController extends Controller
     public function index()
     {
         $all = Paciente::all();
-        /*//hta todos
-        $hta = Patologia::join('paciente_patologia', 'paciente_patologia.patologia_id', 'patologias.id')
-            ->where('patologias.nombre_patologia', 'HTA')->count();
+        dd($all->join('patologias', 'patologias.id'));
+        /*{"id":1,"nombre_patologia":"HTA","descripcion_patologia":null,"created_at":"2021-03-04T16:36:29.000000Z","updated_at":"2021-03-04T16:36:29.000000Z","color":"danger","pivot":{"paciente_id":1,"patologia_id":1}},*/
+        //hta todos
+        $hta = DB::table('pacientes')->distinct('paciente_patologia.id', 'pacientes.rut')
+            ->where('patologias.nombre_patologia', '=', 'hta')
+            ->whereNotIn('patologias.nombre_patologia', ['dlp', 'dm2'])
+            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
+            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
+            ->count();
         //dm2 todos
-        $dm2 = Patologia::join('paciente_patologia', 'paciente_patologia.patologia_id', 'patologias.id')
-            ->where('patologias.nombre_patologia', 'DM2')->count();
+        $dm2 = DB::table('pacientes')->select('pacientes.rut')
+            /* DB::raw('SUM(distinct(paciente_patologia.paciente_id'))*/
+            ->where('patologias.nombre_patologia', '=', 'DM2')
+            ->distinct()
+            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
+            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
+            ->count('pacientes.rut');
 
         //dlp todos
-        $dlp = Patologia::join('paciente_patologia', 'paciente_patologia.patologia_id', 'patologias.id')
-            ->where('patologias.nombre_patologia', 'DLP')->count();*/
+        $dlp = DB::table('pacientes')->select('pacientes.rut',
+            DB::raw('SUM(distinct(paciente_patologia.paciente_id'))
+            ->where('patologias.nombre_patologia', '=', 'DLP')
+            ->distinct()
+            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
+            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
+            ->count('pacientes.rut');
 
         //pscv todos
         $total_pscv = DB::table('pacientes')->select(
@@ -34,7 +50,7 @@ class EstadisticaController extends Controller
 
         $m_pscv = DB::table('pacientes')->select(
             DB::raw('SUM(distinct(paciente_patologia.paciente_id'))
-            ->where('pacientes.sexo', '=', 'masculino')
+            ->where('pacientes.sexo', '=', 'Masculino')
             ->whereIn('patologias.nombre_patologia', ['HTA', 'DLP', 'DM2'])
             ->distinct()
             ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
@@ -44,33 +60,31 @@ class EstadisticaController extends Controller
 
         $f_pscv = DB::table('pacientes')->select(
             DB::raw('SUM(distinct(paciente_patologia.paciente_id'))
-            ->where('pacientes.sexo', '=', 'femenino')
+            ->where('pacientes.sexo', '=', 'Femenino')
             ->whereIn('patologias.nombre_patologia', ['HTA', 'DLP', 'DM2'])
             ->distinct()
             ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
             ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
             ->count('pacientes.rut');
 
-        /*//riesgo bajo todos
-        $p_bajo = Paciente::where('riesgo_cv', '=', 'bajo')->count();
+        //riesgo bajo todos
+        $p_bajo = $all->where('riesgo_cv', '=', 'Bajo')->count();
         //masculino
-        $p_bajoM = Paciente::where('riesgo_cv', '=', 'bajo')->where('sexo', '=', 'masculino')->count();
+        $p_bajoM = $all->where('riesgo_cv', '=', 'Bajo')->where('sexo', '=', 'Masculino')->count();
         //femenino
-        $p_bajoF = Paciente::where('riesgo_cv', '=', 'bajo')->where('sexo', '=', 'femenino')->count();
-
+        $p_bajoF = $all->where('riesgo_cv', '=', 'Bajo')->where('sexo', '=', 'Femenino')->count();
 
         //riesgo moderado todos
-        $p_moderado = Paciente::where('riesgo_cv', '=', 'moderado')->count();
+        $p_moderado = $all->where('riesgo_cv', '=', 'Medio')->count();
+        $p_moderadoM =  $all->where('riesgo_cv', '=', 'Medio')->where('sexo', '=', 'Masculino')->count();
+        $p_moderadoF = $all->where('riesgo_cv', '=', 'Medio')->where('sexo', '=', 'Femenino')->count();
 
         //riesgo alto todos
-        $p_alto = Paciente::where('riesgo_cv', '=', 'alto')->count();
+        $p_alto = $all->where('riesgo_cv', '=', 'Alto')->count();
+        $p_altoM = $all->where('riesgo_cv', '=', 'Alto')->where('sexo', '=', 'Masculino')->count();
+        $p_altoF = $all->where('riesgo_cv', '=', 'Alto')->where('sexo', '=', 'Femenino')->count();
 
-
-        $p_pscvM = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('patologias.nombre_patologia', ['dm2', 'hta', 'dlp'])->distinct()->count();
-
-        $p_pscvF = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->where('pacientes.sexo', '=', 'femenino')->where('patologias.nombre_patologia', '=', 'dm2')->orWhere('patologias.nombre_patologia', '=', 'hta')->orWhere('patologias.nombre_patologia', '=', 'dlp')->distinct()->count();*/
-
-        return view('estadisticas.index', compact('total_pscv', 'm_pscv', 'f_pscv')
+        return view('estadisticas.index', compact('total_pscv', 'm_pscv', 'f_pscv', 'p_bajo', 'p_moderado', 'p_alto', 'p_bajoM','p_bajoF', 'p_moderadoM', 'p_moderadoF', 'p_altoM', 'p_altoF', 'hta', 'dm2', 'dlp')
         );
     }
 }
