@@ -81,9 +81,9 @@
                             </tr>
                             <tr>
                                 <th nowrap="" colspan="2">NUMERO DE PERSONAS EN PSCV</th>
-                                <td class="text-bold">{{ $total_pscv }}</td>
-                                <td>{{ $masculino_pscv }}</td>
-                                <td>{{ $femenino_pscv }}</td>
+                                <td>{{ $total_pscv }}</td>
+                                <td>{{ $m_pscv }}</td>
+                                <td>{{ $f_pscv }}</td>
                             </tr>
                             </thead>
                         </table>

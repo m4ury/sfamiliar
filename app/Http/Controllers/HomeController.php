@@ -26,7 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //todos
         $totalPacientes = Paciente::all('rut')->count();
+
+        //x sexo
         $totalMasculino = Paciente::where('sexo', '=', 'Masculino')->count();
         $totalFemenino = Paciente::where('sexo', '=', 'Femenino')->count();
 
