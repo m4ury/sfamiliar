@@ -85,6 +85,67 @@
                                 <td>{{ $m_pscv }}</td>
                                 <td>{{ $f_pscv }}</td>
                             </tr>
+                            <tr>
+                                <th rowspan="4" style="vertical-align: middle">CLASIFICACION DEL RIESGO
+                                    CARDIOVASCULAR
+                                </th>
+                            <tr>
+                                <th>BAJO</th>
+                            </tr>
+                            <tr>
+                                <th>MODERADO</th>
+                            </tr>
+                            <tr>
+                                <th>ALTO</th>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <th rowspan="7" style="vertical-align: middle">PERSONAS BAJO CONTROL SEGÚN PATOLOGÍA Y
+                                    FACTORES DE RIESGO
+                                    (EXISTENCIA)
+                                </th>
+                            <tr>
+                                <th>HIPERTENSOS</th>
+                            </tr>
+                            <tr>
+                                <th>DIABETICOS</th>
+                            </tr>
+                            <tr>
+                                <th>DISLIPIDEMICOS</th>
+                            </tr>
+                            <tr>
+                                <th nowrap="">TABAQUISMO MAYOR A 55 AÑOS</th>
+                            </tr>
+                            <tr>
+                                <th nowrap="">ANTECEDENTES DE INFARTO AGUDO AL MIOCARDIO (IAM)</th>
+                            </tr>
+                            <tr>
+                                <th nowrap="">ANTECEDENTES DE ENF. CEREBRO VASCULAR</th>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <th rowspan="7" style="vertical-align: middle">DETECCIÓN Y PREVENCION DE LA PROGRESION
+                                    DE LA ENFERMEDAD RENAL CRÓNICA (ERC).
+                                </th>
+                            <tr>
+                                <th nowrap="">SIN ENFERMEDAD RENAL (S/ERC)</th>
+                            </tr>
+                            <tr>
+                                <th nowrap="">ETAPA G1 Y ETAPA G2 (VFG > 60 ml/min)</th>
+                            </tr>
+                            <tr>
+                                <th nowrap="">ETAPA G3a (VFG > 45 a 59 ml/min)</th>
+                            </tr>
+                            <tr>
+                                <th nowrap="">ETAPA G3b (VFG > 30 a 44 ml/min)</th>
+                            </tr>
+                            <tr>
+                                <th nowrap="">ETAPA G4 (VFG > 15 a 29 ml/min)</th>
+                            </tr>
+                            <tr>
+                                <th nowrap="">ETAPA G5 (VFG < 15 ml/min)</th>
+                            </tr>
+                            </tr>
                             </thead>
                         </table>
                     </div>
