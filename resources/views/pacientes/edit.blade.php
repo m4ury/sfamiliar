@@ -97,11 +97,11 @@
                         <div class="form-group row">
                             <div class="col-sm-8">
                                 {!! Form::label('riesgo_cv_label', 'Riesgo Cardiovascular', ['class' => 'col-sm-5 col-form-label']) !!}
-                                {!! Form::select('riesgo_cv', ['Bajo' => 'Bajo', 'Medio' => 'Medio', 'Alto' => 'Alto'], old('riesgo_cv', $paciente->riesgo_cv), ['class' => 'form-control-sm form-control-sm-4', 'placeholder' => 'Riesgo Cardiovascular']) !!}
+                                {!! Form::select('riesgo_cv', ['BAJO' => 'BAJO', 'MODERADO' => 'MODERADO', 'ALTO' => 'ALTO'], old('riesgo_cv', $paciente->riesgo_cv), ['class' => 'form-control-sm form-control-sm-4', 'placeholder' => 'SIN']) !!}
                             </div>
                             <div class="col-sm-4">
                                 {!! Form::label('compensado_label', 'Compensado', ['class' => 'col-sm col-form-label']) !!}
-                                {!! Form::checkbox('compensado', $paciente->compensado==1?true:0, $paciente->compensado==1?true:0, ['class' => 'form-control form-control']) !!}
+                                {!! Form::select('compensado', [1 => 'Compensado', 2 => 'Descompensado'], old('cmopensado', $paciente->compensado), ['class' => 'form-control form-control', 'placeholder' => 'Seleccione']) !!}
                             </div>
                         </div>
                         <div class="form-group row">

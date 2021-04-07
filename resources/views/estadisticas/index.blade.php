@@ -116,23 +116,39 @@
                             <tr>
                                 <th>HIPERTENSOS</th>
                                 <td>{{ $hta }}</td>
+                                <td>{{ $htaM }}</td>
+                                <td>{{ $htaF }}</td>
+
                             </tr>
                             <tr>
                                 <th>DIABETICOS</th>
                                 <td>{{ $dm2 }}</td>
+                                <td>{{ $dm2M }}</td>
+                                <td>{{ $dm2F }}</td>
                             </tr>
                             <tr>
                                 <th>DISLIPIDEMICOS</th>
                                 <td>{{ $dlp }}</td>
+                                <td>{{ $dlpM }}</td>
+                                <td>{{ $dlpF }}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">TABAQUISMO MAYOR A 55 AÑOS</th>
+                                <td disabled=""></td>
+                                <td disabled=""></td>
+                                <td disabled=""></td>
                             </tr>
                             <tr>
                                 <th nowrap="">ANTECEDENTES DE INFARTO AGUDO AL MIOCARDIO (IAM)</th>
+                                <td>{{ $iam }}</td>
+                                <td>{{ $iamM }}</td>
+                                <td>{{ $iamF }}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">ANTECEDENTES DE ENF. CEREBRO VASCULAR</th>
+                                <td>{{ $acv }}</td>
+                                <td>{{ $acvM }}</td>
+                                <td>{{ $acvF }}</td>
                             </tr>
                             </tr>
                             <tr>
@@ -141,21 +157,39 @@
                                 </th>
                             <tr>
                                 <th nowrap="">SIN ENFERMEDAD RENAL (S/ERC)</th>
+                                <td>{{ $s_erc }}</td>
+                                <td>{{ $s_ercM }}</td>
+                                <td>{{ $s_ercF }}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">ETAPA G1 Y ETAPA G2 (VFG > 60 ml/min)</th>
+                                <td>{{ $ercI_II }}</td>
+                                <td>{{ $ercI_IIM }}</td>
+                                <td>{{ $ercI_IIF }}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">ETAPA G3a (VFG > 45 a 59 ml/min)</th>
+                                <td>{{ $ercIIIa }}</td>
+                                <td>{{ $ercIIIaM }}</td>
+                                <td>{{ $ercIIIaF }}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">ETAPA G3b (VFG > 30 a 44 ml/min)</th>
+                                <td>{{ $ercIIIb }}</td>
+                                <td>{{ $ercIIIbM }}</td>
+                                <td>{{ $ercIIIbF }}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">ETAPA G4 (VFG > 15 a 29 ml/min)</th>
+                                <td>{{ $ercIV }}</td>
+                                <td>{{ $ercIVM }}</td>
+                                <td>{{ $ercIVF }}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">ETAPA G5 (VFG < 15 ml/min)</th>
+                                <td>{{ $ercV }}</td>
+                                <td>{{ $ercVM }}</td>
+                                <td>{{ $ercVF }}</td>
                             </tr>
                             </tr>
                             </thead>

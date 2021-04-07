@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Paciente extends Model
 {
     protected $guarded = ['id'];
-    protected $fillable = ['rut', 'nombres', 'apellidoP', 'apellidoM', 'sexo', 'telefono', 'direccion', 'fecha_nacimiento', 'comuna', 'migrante', 'pueblo_originario', 'compensado', 'riesgo_cv', 'erc' ];
+    protected $fillable = ['rut', 'nombres', 'apellidoP', 'apellidoM', 'sexo', 'telefono', 'direccion', 'fecha_nacimiento', 'comuna', 'migrante', 'pueblo_originario', 'compensado', 'riesgo_cv', 'erc'];
 
     public function fullName()
     {
@@ -41,5 +41,30 @@ class Paciente extends Model
         if ($q)
             return $query->where('sexo', 'LIKE', "%$q%")
                 ->orWhere('sector', 'LIKE', "%$q%");
+    }
+
+    public function rcv_bajo()
+    {
+        return $this->whereRiesgo_cv('BAJO');
+    }
+
+    public function rcv_mod()
+    {
+        return $this->whereRiesgo_cv('MODERADO');
+    }
+
+    public function rcv_alto()
+    {
+        return $this->whereRiesgo_cv('ALTO');
+    }
+
+    public function s_erc()
+    {
+        return $this->whereIn('riesgo_cv', ['ALTO', 'BAJO', 'MODERADO'])->whereErc('sin');
+    }
+
+    public function pscv()
+    {
+        return $this->whereIn('riesgo_cv', ['ALTO', 'BAJO', 'MODERADO']);
     }
 }

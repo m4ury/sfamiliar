@@ -13,8 +13,10 @@ class Patologia extends Model
         return $this->belongsToMany(Paciente::class);
     }
 
-    public function subPatologias()
+    /*public function subPatologias()
     {
         return $this->HasMany(subPatologias::class);
-    }
+    }*/
+
+
 }
