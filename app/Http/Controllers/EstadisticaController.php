@@ -12,7 +12,7 @@ class EstadisticaController extends Controller
     public function index()
     {
         $all = Paciente::all();
-        dd($all->join('patologias', 'patologias.id'));
+        //dd($all->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->join('paciente_patologia'));
         /*{"id":1,"nombre_patologia":"HTA","descripcion_patologia":null,"created_at":"2021-03-04T16:36:29.000000Z","updated_at":"2021-03-04T16:36:29.000000Z","color":"danger","pivot":{"paciente_id":1,"patologia_id":1}},*/
         //hta todos
         $hta = DB::table('pacientes')->distinct('paciente_patologia.id', 'pacientes.rut')

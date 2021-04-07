@@ -50,10 +50,10 @@ class ControlController extends Controller
         $control->user_id = Auth::user()->id;
         $control->paciente_id = $request->paciente_id;
         $control->save();
-        if ($request->hba1cMenor7Porcent == 1 & $request->ldlMenor100 == 1 & $request->pa_menor_140_90 == 1){
+        /*if ($request->hba1cMenor7Porcent == 1 & $request->ldlMenor100 == 1 & $request->pa_menor_140_90 == 1){
             $control->hba1c7Pa140_90Ldl100Menores = 1;
         }
-        $control->save();
+        $control->save();*/
         //dd($control);
         return redirect('pacientes/' . $request->paciente_id)->withSuccess('Control creado con exito!');
     }

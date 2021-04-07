@@ -53,7 +53,7 @@ class PacienteController extends Controller
     public function update(Request $request, $id)
     {
         $paciente = Paciente::findOrFail($id);
-        dd($request->all());
+        //dd($request->all());
         $validator = Validator::make($request->all(), [
             'rut' => 'required|cl_rut',
             'nombres' => 'required|string|min:3',
