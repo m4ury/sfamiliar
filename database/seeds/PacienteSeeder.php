@@ -13,7 +13,7 @@ class PacienteSeeder extends Seeder
      */
     public function run()
     {
-        /* $pacientes = [
+        $pacientes = [
             ['rut' => '4625241-1', 'nombres' => 'MARTA DEL CARMEN', 'apellidoP' => 'CONCHA', 'apellidoM' => 'BRAVO', 'ficha' => 214, 'fecha_nacimiento' => '1938/03/06', 'direccion' => 'CIRO BOETTO S/N', 'sector' => 'CELESTE', 'sexo' => 'Femenino', 'telefono' => '/ 977409512'],
             ['rut' => '4007581-K', 'nombres' => 'MARIA', 'apellidoP' => 'MONTERO', 'apellidoM' => 'MONTERO', 'ficha' => 221, 'fecha_nacimiento' => '1940/08/24', 'direccion' => 'CALLE HOSPITAL S/N', 'sector' => 'CELESTE', 'sexo' => 'Femenino', 'telefono' => '/ 87574642'],
             ['rut' => '3348299-K', 'nombres' => 'ADRIANA', 'apellidoP' => 'BRAVO', 'apellidoM' => 'FUENZALIDA', 'ficha' => 235, 'fecha_nacimiento' => '1932/10/11', 'direccion' => 'LUIS CRUZ MARTINEZ 362', 'sector' => 'CELESTE', 'sexo' => 'Femenino', 'telefono' => '995193423'],
@@ -1432,8 +1432,11 @@ class PacienteSeeder extends Seeder
             ['rut' => '8353999-2', 'nombres' => 'VIRGINIA', 'apellidoP' => 'REYES', 'apellidoM' => 'SILVA', 'ficha' => 31189, 'fecha_nacimiento' => '1944/05/25', 'direccion' => 'ELEAM', 'sector' => 'NARANJO', 'sexo' => 'Femenino', 'telefono' => '991291112'],
             ['rut' => '11787415-K', 'nombres' => 'MONICA', 'apellidoP' => 'CABRERA', 'apellidoM' => 'PEREZ', 'ficha' => 89, 'fecha_nacimiento' => '1971/04/29', 'direccion' => '0', 'sector' => 'CELESTE', 'sexo' => 'Femenino', 'telefono' => '982714501'],
             ['rut' => '16380925-7', 'nombres' => 'MACARENA', 'apellidoP' => 'CUEVAS', 'apellidoM' => 'MARQUEZ', 'ficha' => 29506, 'fecha_nacimiento' => '1986/05/02', 'direccion' => 'AV LAUTARO S/N', 'sector' => 'CELESTE', 'sexo' => 'Femenino', 'telefono' => '967298586'],
-        ];*/
-        $pacientes = [
+        ];
+        foreach ($pacientes as $paciente) {
+            Paciente::updateOrCreate($paciente);
+        }
+        /*$pacientes = [
                 array('id' => 1, 'riesgo_cv' => "ALTO", 'erc' => "SIN", 'compensado' => 1),
                 array('id' => 2, 'riesgo_cv' => "ALTO", 'erc' => "SIN", 'compensado' => 1),
                 array('id' => 3, 'riesgo_cv' => "ALTO", 'erc' => "II", 'compensado' => 1),
@@ -2544,9 +2547,9 @@ class PacienteSeeder extends Seeder
                 array('id' => 1394, 'riesgo_cv' => "ALTO", 'compensado' => 2),
                 array('id' => 1396, 'riesgo_cv' => "MODERADO", 'compensado' => 2),
                 array('id' => 1398, 'riesgo_cv' => "BAJO", 'compensado' => 2)
-        ];
-        foreach ($pacientes as $paciente) {
+        ];*/
+        /*foreach ($pacientes as $paciente) {
             Paciente::updateOrCreate(['id' => $paciente['id']], $paciente);
-        }
+        }*/
     }
 }

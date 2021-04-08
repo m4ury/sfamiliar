@@ -14,7 +14,6 @@ class PacienteController extends Controller
     public function index(Request $request)
     {
         $q = $request->get('q');
-
         $pacientes = Paciente::latest()
             ->search($q)
             ->get();
@@ -30,7 +29,6 @@ class PacienteController extends Controller
     public function store(PacienteRequest $request)
     {
         $paciente = Paciente::create($request->all());
-        /*dd($request->all());*/
         Alert::success('Nuevo Paciente ha sido cread@ con exito');
         return redirect()->route('pacientes.index', compact('paciente'));
     }
@@ -53,7 +51,6 @@ class PacienteController extends Controller
     public function update(Request $request, $id)
     {
         $paciente = Paciente::findOrFail($id);
-        //dd($request->all());
         $validator = Validator::make($request->all(), [
             'rut' => 'required|cl_rut',
             'nombres' => 'required|string|min:3',
@@ -63,14 +60,6 @@ class PacienteController extends Controller
             return back()->withErrors($validator)->withInput();
         }
         $paciente->update($request->all());
-        /*if (!$request->migrante) {
-            $paciente->migrante = 0;
-        } elseif (!$request->compensado) {
-            $paciente->compensado = 0;
-        } elseif (!$request->pueblo_originario) {
-            $paciente->pueblo_originario = 0;
-        }
-        $paciente->save();*/
 
         return redirect('pacientes/' . $id)->withSuccess('Paciente Actualizado con exito!');
     }
@@ -79,7 +68,6 @@ class PacienteController extends Controller
     function destroy($id)
     {
         Paciente::destroy($id);
-
         return response(['data' => null], 204);
     }
 }

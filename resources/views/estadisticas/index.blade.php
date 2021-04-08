@@ -84,6 +84,34 @@
                                 <td>{{ $total_pscv }}</td>
                                 <td>{{ $m_pscv }}</td>
                                 <td>{{ $f_pscv }}</td>
+                                <td>{{$pscv_1519M}}</td>
+                                <td>{{$pscv_1519F}}</td>
+                                <td>{{$pscv_2024M}}</td>
+                                <td>{{$pscv_2024F}}</td>
+                                <td>{{$pscv_2529M}}</td>
+                                <td>{{$pscv_2529F}}</td>
+                                <td>{{$pscv_3034M}}</td>
+                                <td>{{$pscv_3034F}}</td>
+                                <td>{{$pscv_3539M}}</td>
+                                <td>{{$pscv_3539F}}</td>
+                                <td>{{$pscv_4044M}}</td>
+                                <td>{{$pscv_4044F}}</td>
+                                <td>{{$pscv_4549M}}</td>
+                                <td>{{$pscv_4549F}}</td>
+                                <td>{{$pscv_5054M}}</td>
+                                <td>{{$pscv_5054F}}</td>
+                                <td>{{$pscv_5559M}}</td>
+                                <td>{{$pscv_5559F}}</td>
+                                <td>{{$pscv_6064M}}</td>
+                                <td>{{$pscv_6064F}}</td>
+                                <td>{{$pscv_6569M}}</td>
+                                <td>{{$pscv_6569F}}</td>
+                                <td>{{$pscv_7074M}}</td>
+                                <td>{{$pscv_7074F}}</td>
+                                <td>{{$pscv_7579M}}</td>
+                                <td>{{$pscv_7579F}}</td>
+                                <td>{{$pscv_80M}}</td>
+                                <td>{{$pscv_80F}}</td>
                             </tr>
                             <tr>
                                 <th rowspan="4" style="vertical-align: middle">CLASIFICACION DEL RIESGO
@@ -94,18 +122,102 @@
                                 <td>{{ $p_bajo }}</td>
                                 <td>{{ $p_bajoM }}</td>
                                 <td>{{ $p_bajoF }}</td>
+                                <td>{{$bajo_1519M}}</td>
+                                <td>{{$bajo_1519F}}</td>
+                                <td>{{$bajo_2024M}}</td>
+                                <td>{{$bajo_2024F}}</td>
+                                <td>{{$bajo_2529M}}</td>
+                                <td>{{$bajo_2529F}}</td>
+                                <td>{{$bajo_3034M}}</td>
+                                <td>{{$bajo_3034F}}</td>
+                                <td>{{$bajo_3539M}}</td>
+                                <td>{{$bajo_3539F}}</td>
+                                <td>{{$bajo_4044M}}</td>
+                                <td>{{$bajo_4044F}}</td>
+                                <td>{{$bajo_4549M}}</td>
+                                <td>{{$bajo_4549F}}</td>
+                                <td>{{$bajo_5054M}}</td>
+                                <td>{{$bajo_5054F}}</td>
+                                <td>{{$bajo_5559M}}</td>
+                                <td>{{$bajo_5559F}}</td>
+                                <td>{{$bajo_6064M}}</td>
+                                <td>{{$bajo_6064F}}</td>
+                                <td>{{$bajo_6569M}}</td>
+                                <td>{{$bajo_6569F}}</td>
+                                <td>{{$bajo_7074M}}</td>
+                                <td>{{$bajo_7074F}}</td>
+                                <td>{{$bajo_7579M}}</td>
+                                <td>{{$bajo_7579F}}</td>
+                                <td>{{$bajo_80M}}</td>
+                                <td>{{$bajo_80F}}</td>
                             </tr>
                             <tr>
                                 <th>MODERADO</th>
                                 <td>{{ $p_moderado }}</td>
                                 <td>{{ $p_moderadoM }}</td>
                                 <td>{{ $p_moderadoF }}</td>
+                                <td>{{$mod_1519M}}</td>
+                                <td>{{$mod_1519F}}</td>
+                                <td>{{$mod_2024M}}</td>
+                                <td>{{$mod_2024F}}</td>
+                                <td>{{$mod_2529M}}</td>
+                                <td>{{$mod_2529F}}</td>
+                                <td>{{$mod_3034M}}</td>
+                                <td>{{$mod_3034F}}</td>
+                                <td>{{$mod_3539M}}</td>
+                                <td>{{$mod_3539F}}</td>
+                                <td>{{$mod_4044M}}</td>
+                                <td>{{$mod_4044F}}</td>
+                                <td>{{$mod_4549M}}</td>
+                                <td>{{$mod_4549F}}</td>
+                                <td>{{$mod_5054M}}</td>
+                                <td>{{$mod_5054F}}</td>
+                                <td>{{$mod_5559M}}</td>
+                                <td>{{$mod_5559F}}</td>
+                                <td>{{$mod_6064M}}</td>
+                                <td>{{$mod_6064F}}</td>
+                                <td>{{$mod_6569M}}</td>
+                                <td>{{$mod_6569F}}</td>
+                                <td>{{$mod_7074M}}</td>
+                                <td>{{$mod_7074F}}</td>
+                                <td>{{$mod_7579M}}</td>
+                                <td>{{$mod_7579F}}</td>
+                                <td>{{$mod_80M}}</td>
+                                <td>{{$mod_80F}}</td>
                             </tr>
                             <tr>
                                 <th>ALTO</th>
                                 <td>{{ $p_alto }}</td>
                                 <td>{{ $p_altoM }}</td>
                                 <td>{{ $p_altoF }}</td>
+                                <td>{{$alto_1519M}}</td>
+                                <td>{{$alto_1519F}}</td>
+                                <td>{{$alto_2024M}}</td>
+                                <td>{{$alto_2024F}}</td>
+                                <td>{{$alto_2529M}}</td>
+                                <td>{{$alto_2529F}}</td>
+                                <td>{{$alto_3034M}}</td>
+                                <td>{{$alto_3034F}}</td>
+                                <td>{{$alto_3539M}}</td>
+                                <td>{{$alto_3539F}}</td>
+                                <td>{{$alto_4044M}}</td>
+                                <td>{{$alto_4044F}}</td>
+                                <td>{{$alto_4549M}}</td>
+                                <td>{{$alto_4549F}}</td>
+                                <td>{{$alto_5054M}}</td>
+                                <td>{{$alto_5054F}}</td>
+                                <td>{{$alto_5559M}}</td>
+                                <td>{{$alto_5559F}}</td>
+                                <td>{{$alto_6064M}}</td>
+                                <td>{{$alto_6064F}}</td>
+                                <td>{{$alto_6569M}}</td>
+                                <td>{{$alto_6569F}}</td>
+                                <td>{{$alto_7074M}}</td>
+                                <td>{{$alto_7074F}}</td>
+                                <td>{{$alto_7579M}}</td>
+                                <td>{{$alto_7579F}}</td>
+                                <td>{{$alto_80M}}</td>
+                                <td>{{$alto_80F}}</td>
                             </tr>
                             </tr>
                             <tr>

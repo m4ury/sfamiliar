@@ -12,7 +12,6 @@ class PacientePatologiaController extends Controller
 {
     public function create($id)
     {
-        //$patologias = Patologia::latest();
         $paciente = Paciente::findOrFail($id);
         $patologias = Patologia::orderBy('nombre_patologia', 'ASC')->pluck('nombre_patologia', 'id');
         return view('pacientes.patologia', compact('paciente', 'patologias'));
@@ -20,18 +19,9 @@ class PacientePatologiaController extends Controller
 
     public function store(Request $request)
     {
-        /*$validator = Validator::make($request->all(), [
-            'paciente_id' => 'distinct',
-        ]);
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }*/
         $paciente_patolog = PacientePatologia::create($request->all());
         $paciente_patolog->paciente_id = $request->paciente_id;
         $paciente_patolog->patologia_id = $request->patologia_id;
-
         $paciente_patolog->save();
         return redirect('pacientes/' . $request->paciente_id)->withSuccess('Patologia añadida con exito!');
     }

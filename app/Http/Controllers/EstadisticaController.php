@@ -12,7 +12,6 @@ class EstadisticaController extends Controller
     public function index()
     {
         $all = new Paciente();
-        /*dd($all->s_erc());*/
         //hta todos
         $hta = DB::table('pacientes')
             ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
@@ -29,6 +28,7 @@ class EstadisticaController extends Controller
             ->where('patologias.nombre_patologia', '=', 'hta')
             ->where('pacientes.sexo', '=', 'femenino')
             ->count();
+
         //hta hombres
         $htaM = DB::table('pacientes')
             ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
@@ -130,6 +130,7 @@ class EstadisticaController extends Controller
             ->where('patologias.nombre_patologia', '=', 'antecedente acv')
             ->where('pacientes.sexo', '=', 'femenino')
             ->count();
+
         //acv hombres
         $acvM = DB::table('pacientes')
             ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
@@ -163,52 +164,140 @@ class EstadisticaController extends Controller
         $ercV = $all->pscv()->where('erc', 'V')->count();
         $ercVM = $all->pscv()->where('erc', 'V')->where('sexo', 'Masculino')->count();
         $ercVF = $all->pscv()->where('erc', 'V')->where('sexo', 'Femenino')->count();
+
         //pscv todos
         $total_pscv = $all->pscv()->count();
-            /*DB::table('pacientes')->select(
-            DB::raw('SUM(distinct(paciente_patologia.paciente_id'))
-            ->whereIn('patologias.nombre_patologia', ['HTA', 'DLP', 'DM2'])
-            ->distinct()
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->count('pacientes.rut');*/
-
-        $m_pscv = $all->pscv()->where('sexo', 'Masculino')->count();/*DB::table('pacientes')->select(
-            DB::raw('SUM(distinct(paciente_patologia.paciente_id'))
-            ->where('pacientes.sexo', '=', 'Masculino')
-            ->whereIn('patologias.nombre_patologia', ['HTA', 'DLP', 'DM2'])
-            ->distinct()
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->count('pacientes.rut');*/
+        $m_pscv = $all->pscv()->where('sexo', 'Masculino')->count();
         $f_pscv = $all->pscv()->where('sexo', 'Femenino')->count();
-            /*DB::table('pacientes')->select(
-            DB::raw('SUM(distinct(paciente_patologia.paciente_id'))
-            ->where('pacientes.sexo', '=', 'Femenino')
-            ->whereIn('patologias.nombre_patologia', ['HTA', 'DLP', 'DM2'])
-            ->distinct()
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->count('pacientes.rut');*/
+        $pscv_1519M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[15, 19])->where('sexo', 'Masculino')->count();
+        $pscv_1519F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[15, 19])->where('sexo', 'Femenino')->count();
+        $pscv_2024M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[20, 24])->where('sexo', 'Masculino')->count();
+        $pscv_2024F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[20, 24])->where('sexo', 'Femenino')->count();
+        $pscv_2529M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[25, 29])->where('sexo', 'Masculino')->count();
+        $pscv_2529F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[25, 29])->where('sexo', 'Femenino')->count();
+        $pscv_3034M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[30, 34])->where('sexo', 'Masculino')->count();
+        $pscv_3034F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[30, 34])->where('sexo', 'Femenino')->count();
+        $pscv_3539M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[35, 39])->where('sexo', 'Masculino')->count();
+        $pscv_3539F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[35, 39])->where('sexo', 'Femenino')->count();
+        $pscv_4044M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[40, 44])->where('sexo', 'Masculino')->count();
+        $pscv_4044F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[40, 44])->where('sexo', 'Femenino')->count();
+        $pscv_4549M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[45, 49])->where('sexo', 'Masculino')->count();
+        $pscv_4549F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[45, 49])->where('sexo', 'Femenino')->count();
+        $pscv_5054M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[50, 54])->where('sexo', 'Masculino')->count();
+        $pscv_5054F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[50, 54])->where('sexo', 'Femenino')->count();
+        $pscv_5559M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[55, 59])->where('sexo', 'Masculino')->count();
+        $pscv_5559F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[55, 59])->where('sexo', 'Femenino')->count();
+        $pscv_6064M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[60, 64])->where('sexo', 'Masculino')->count();
+        $pscv_6064F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[60, 64])->where('sexo', 'Femenino')->count();
+        $pscv_6569M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[65, 69])->where('sexo', 'Masculino')->count();
+        $pscv_6569F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[65, 69])->where('sexo', 'Femenino')->count();
+        $pscv_7074M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[70, 74])->where('sexo', 'Masculino')->count();
+        $pscv_7074F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[70, 74])->where('sexo', 'Femenino')->count();
+        $pscv_7579M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[75, 79])->where('sexo', 'Masculino')->count();
+        $pscv_7579F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->whereBetween('grupo',[75, 79])->where('sexo', 'Femenino')->count();
+        $pscv_80M = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->where('grupo', '>=', 80)->where('sexo', 'Masculino')->count();
+        $pscv_80F = Paciente::all()->whereIn('riesgo_cv', ['Alto', 'Bajo', 'Moderado'])->where('grupo','>=', 80)->where('sexo', 'Femenino')->count();
 
         //riesgo bajo todos
         $p_bajo = $all->rcv_bajo()->count();
-        //masculino
         $p_bajoM = $all->rcv_bajo()->where('sexo', '=', 'Masculino')->count();
-        //femenino
         $p_bajoF = $all->rcv_bajo()->where('sexo', '=', 'Femenino')->count();
+        $bajo_1519M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[15, 19])->where('sexo', 'Masculino')->count();
+        $bajo_1519F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[15, 19])->where('sexo', 'Femenino')->count();
+        $bajo_2024M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[20, 24])->where('sexo', 'Masculino')->count();
+        $bajo_2024F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[20, 24])->where('sexo', 'Femenino')->count();
+        $bajo_2529M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[25, 29])->where('sexo', 'Masculino')->count();
+        $bajo_2529F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[25, 29])->where('sexo', 'Femenino')->count();
+        $bajo_3034M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[30, 34])->where('sexo', 'Masculino')->count();
+        $bajo_3034F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[30, 34])->where('sexo', 'Femenino')->count();
+        $bajo_3539M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[35, 39])->where('sexo', 'Masculino')->count();
+        $bajo_3539F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[35, 39])->where('sexo', 'Femenino')->count();
+        $bajo_4044M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[40, 44])->where('sexo', 'Masculino')->count();
+        $bajo_4044F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[40, 44])->where('sexo', 'Femenino')->count();
+        $bajo_4549M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[45, 49])->where('sexo', 'Masculino')->count();
+        $bajo_4549F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[45, 49])->where('sexo', 'Femenino')->count();
+        $bajo_5054M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[50, 54])->where('sexo', 'Masculino')->count();
+        $bajo_5054F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[50, 54])->where('sexo', 'Femenino')->count();
+        $bajo_5559M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[55, 59])->where('sexo', 'Masculino')->count();
+        $bajo_5559F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[55, 59])->where('sexo', 'Femenino')->count();
+        $bajo_6064M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[60, 64])->where('sexo', 'Masculino')->count();
+        $bajo_6064F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[60, 64])->where('sexo', 'Femenino')->count();
+        $bajo_6569M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[65, 69])->where('sexo', 'Masculino')->count();
+        $bajo_6569F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[65, 69])->where('sexo', 'Femenino')->count();
+        $bajo_7074M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[70, 74])->where('sexo', 'Masculino')->count();
+        $bajo_7074F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[70, 74])->where('sexo', 'Femenino')->count();
+        $bajo_7579M = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[75, 79])->where('sexo', 'Masculino')->count();
+        $bajo_7579F = Paciente::all()->where('riesgo_cv', 'Bajo')->whereBetween('grupo',[75, 79])->where('sexo', 'Femenino')->count();
+        $bajo_80M = Paciente::all()->where('riesgo_cv', 'Bajo')->where('grupo', '>=', 80)->where('sexo', 'Masculino')->count();
+        $bajo_80F = Paciente::all()->where('riesgo_cv', 'Bajo')->where('grupo','>=', 80)->where('sexo', 'Femenino')->count();
 
         //riesgo moderado todos
         $p_moderado = $all->rcv_mod()->count();
         $p_moderadoM = $all->rcv_mod()->where('sexo', '=', 'Masculino')->count();
         $p_moderadoF = $all->rcv_mod()->where('sexo', '=', 'Femenino')->count();
+        $mod_1519M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[15, 19])->where('sexo', 'Masculino')->count();
+        $mod_1519F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[15, 19])->where('sexo', 'Femenino')->count();
+        $mod_2024M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[20, 24])->where('sexo', 'Masculino')->count();
+        $mod_2024F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[20, 24])->where('sexo', 'Femenino')->count();
+        $mod_2529M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[25, 29])->where('sexo', 'Masculino')->count();
+        $mod_2529F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[25, 29])->where('sexo', 'Femenino')->count();
+        $mod_3034M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[30, 34])->where('sexo', 'Masculino')->count();
+        $mod_3034F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[30, 34])->where('sexo', 'Femenino')->count();
+        $mod_3539M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[35, 39])->where('sexo', 'Masculino')->count();
+        $mod_3539F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[35, 39])->where('sexo', 'Femenino')->count();
+        $mod_4044M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[40, 44])->where('sexo', 'Masculino')->count();
+        $mod_4044F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[40, 44])->where('sexo', 'Femenino')->count();
+        $mod_4549M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[45, 49])->where('sexo', 'Masculino')->count();
+        $mod_4549F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[45, 49])->where('sexo', 'Femenino')->count();
+        $mod_5054M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[50, 54])->where('sexo', 'Masculino')->count();
+        $mod_5054F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[50, 54])->where('sexo', 'Femenino')->count();
+        $mod_5559M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[55, 59])->where('sexo', 'Masculino')->count();
+        $mod_5559F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[55, 59])->where('sexo', 'Femenino')->count();
+        $mod_6064M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[60, 64])->where('sexo', 'Masculino')->count();
+        $mod_6064F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[60, 64])->where('sexo', 'Femenino')->count();
+        $mod_6569M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[65, 69])->where('sexo', 'Masculino')->count();
+        $mod_6569F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[65, 69])->where('sexo', 'Femenino')->count();
+        $mod_7074M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[70, 74])->where('sexo', 'Masculino')->count();
+        $mod_7074F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[70, 74])->where('sexo', 'Femenino')->count();
+        $mod_7579M = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[75, 79])->where('sexo', 'Masculino')->count();
+        $mod_7579F = Paciente::all()->where('riesgo_cv', 'Moderado')->whereBetween('grupo',[75, 79])->where('sexo', 'Femenino')->count();
+        $mod_80M = Paciente::all()->where('riesgo_cv', 'Moderado')->where('grupo', '>=', 80)->where('sexo', 'Masculino')->count();
+        $mod_80F = Paciente::all()->where('riesgo_cv', 'Moderado')->where('grupo','>=', 80)->where('sexo', 'Femenino')->count();
 
         //riesgo alto todos
         $p_alto = $all->rcv_alto()->count();
         $p_altoM = $all->rcv_alto()->where('sexo', '=', 'Masculino')->count();
         $p_altoF = $all->rcv_alto()->where('sexo', '=', 'Femenino')->count();
+        $alto_1519M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[15, 19])->where('sexo', 'Masculino')->count();
+        $alto_1519F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[15, 19])->where('sexo', 'Femenino')->count();
+        $alto_2024M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[20, 24])->where('sexo', 'Masculino')->count();
+        $alto_2024F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[20, 24])->where('sexo', 'Femenino')->count();
+        $alto_2529M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[25, 29])->where('sexo', 'Masculino')->count();
+        $alto_2529F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[25, 29])->where('sexo', 'Femenino')->count();
+        $alto_3034M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[30, 34])->where('sexo', 'Masculino')->count();
+        $alto_3034F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[30, 34])->where('sexo', 'Femenino')->count();
+        $alto_3539M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[35, 39])->where('sexo', 'Masculino')->count();
+        $alto_3539F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[35, 39])->where('sexo', 'Femenino')->count();
+        $alto_4044M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[40, 44])->where('sexo', 'Masculino')->count();
+        $alto_4044F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[40, 44])->where('sexo', 'Femenino')->count();
+        $alto_4549M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[45, 49])->where('sexo', 'Masculino')->count();
+        $alto_4549F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[45, 49])->where('sexo', 'Femenino')->count();
+        $alto_5054M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[50, 54])->where('sexo', 'Masculino')->count();
+        $alto_5054F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[50, 54])->where('sexo', 'Femenino')->count();
+        $alto_5559M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[55, 59])->where('sexo', 'Masculino')->count();
+        $alto_5559F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[55, 59])->where('sexo', 'Femenino')->count();
+        $alto_6064M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[60, 64])->where('sexo', 'Masculino')->count();
+        $alto_6064F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[60, 64])->where('sexo', 'Femenino')->count();
+        $alto_6569M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[65, 69])->where('sexo', 'Masculino')->count();
+        $alto_6569F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[65, 69])->where('sexo', 'Femenino')->count();
+        $alto_7074M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[70, 74])->where('sexo', 'Masculino')->count();
+        $alto_7074F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[70, 74])->where('sexo', 'Femenino')->count();
+        $alto_7579M = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[75, 79])->where('sexo', 'Masculino')->count();
+        $alto_7579F = Paciente::all()->where('riesgo_cv', 'Alto')->whereBetween('grupo',[75, 79])->where('sexo', 'Femenino')->count();
+        $alto_80M = Paciente::all()->where('riesgo_cv', 'Alto')->where('grupo', '>=', 80)->where('sexo', 'Masculino')->count();
+        $alto_80F = Paciente::all()->where('riesgo_cv', 'Alto')->where('grupo','>=', 80)->where('sexo', 'Femenino')->count();
 
-        return view('estadisticas.index', compact('all','total_pscv', 'm_pscv', 'f_pscv', 'p_bajo', 'p_moderado', 'p_alto', 'p_bajoM', 'p_bajoF', 'p_moderadoM', 'p_moderadoF', 'p_altoM', 'p_altoF', 'hta', 'dm2', 'dlp', 'htaF', 'htaM', 'dm2M', 'dm2F', 'dlpM', 'dlpF', 'iam', 'iamM', 'iamF', 'acv', 'acvF', 'acvM', 's_erc', 's_ercM', 's_ercF', 'ercI_II', 'ercI_IIF', 'ercI_IIM', 'ercIIIa', 'ercIIIaF', 'ercIIIaM','ercIIIb', 'ercIIIbF', 'ercIIIbM', 'ercIV', 'ercIVF', 'ercIVM', 'ercV', 'ercVF', 'ercVM')
+        return view('estadisticas.index', compact('all', 'total_pscv', 'm_pscv', 'f_pscv', 'p_bajo', 'p_moderado', 'p_alto', 'p_bajoM', 'p_bajoF', 'p_moderadoM', 'p_moderadoF', 'p_altoM', 'p_altoF', 'hta', 'dm2', 'dlp', 'htaF', 'htaM', 'dm2M', 'dm2F', 'dlpM', 'dlpF', 'iam', 'iamM', 'iamF', 'acv', 'acvF', 'acvM', 's_erc', 's_ercM', 's_ercF', 'ercI_II', 'ercI_IIF', 'ercI_IIM', 'ercIIIa', 'ercIIIaF', 'ercIIIaM', 'ercIIIb', 'ercIIIbF', 'ercIIIbM', 'ercIV', 'ercIVF', 'ercIVM', 'ercV', 'ercVF', 'ercVM', 'pscv_1519M', 'pscv_1519F', 'pscv_2024M', 'pscv_2024F', 'pscv_2529M', 'pscv_2529F', 'pscv_3034M', 'pscv_3034F', 'pscv_3539M', 'pscv_3539F', 'pscv_4044M', 'pscv_4044F', 'pscv_4549M', 'pscv_4549F', 'pscv_5054M', 'pscv_5054F', 'pscv_5559M', 'pscv_5559F', 'pscv_6064M', 'pscv_6064F', 'pscv_6569M', 'pscv_6569F', 'pscv_7074M', 'pscv_7074F', 'pscv_7579M', 'pscv_7579F', 'pscv_80M', 'pscv_80F', 'bajo_1519M', 'bajo_1519F', 'bajo_2024M', 'bajo_2024F', 'bajo_2529M', 'bajo_2529F', 'bajo_3034M', 'bajo_3034F', 'bajo_3539M', 'bajo_3539F', 'bajo_4044M', 'bajo_4044F', 'bajo_4549M', 'bajo_4549F', 'bajo_5054M', 'bajo_5054F', 'bajo_5559M', 'bajo_5559F', 'bajo_6064M', 'bajo_6064F', 'bajo_6569M', 'bajo_6569F', 'bajo_7074M', 'bajo_7074F', 'bajo_7579M', 'bajo_7579F', 'bajo_80M', 'bajo_80F','mod_1519M', 'mod_1519F', 'mod_2024M', 'mod_2024F', 'mod_2529M', 'mod_2529F', 'mod_3034M', 'mod_3034F', 'mod_3539M', 'mod_3539F', 'mod_4044M', 'mod_4044F', 'mod_4549M', 'mod_4549F', 'mod_5054M', 'mod_5054F', 'mod_5559M', 'mod_5559F', 'mod_6064M', 'mod_6064F', 'mod_6569M', 'mod_6569F', 'mod_7074M', 'mod_7074F', 'mod_7579M', 'mod_7579F', 'mod_80M', 'mod_80F', 'alto_1519M', 'alto_1519F', 'alto_2024M', 'alto_2024F', 'alto_2529M', 'alto_2529F', 'alto_3034M', 'alto_3034F', 'alto_3539M', 'alto_3539F', 'alto_4044M', 'alto_4044F', 'alto_4549M', 'alto_4549F', 'alto_5054M', 'alto_5054F', 'alto_5559M', 'alto_5559F', 'alto_6064M', 'alto_6064F', 'alto_6569M', 'alto_6569F', 'alto_7074M', 'alto_7074F', 'alto_7579M', 'alto_7579F', 'alto_80M', 'alto_80F')
         );
     }
 }
