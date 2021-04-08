@@ -1,5 +1,5 @@
 @extends('adminlte::auth.auth-page', ['auth_type' => 'login'])
-
+@section('title', 'Login')
 @section('adminlte_css_pre')
     <link rel="stylesheet" href="{{ asset('vendor/icheck-bootstrap/icheck-bootstrap.min.css') }}">
 @stop
@@ -27,7 +27,7 @@
         {{-- rut field --}}
         <div class="input-group mb-3">
             <input type="rut" name="rut" class="form-control {{ $errors->has('rut') ? 'is-invalid' : '' }}"
-                   value="{{ old('rut') }}" placeholder="{{ __('Rut Ej.: 16.000.000-K') }}" autofocus>
+                   value="{{ old('rut') }}" placeholder="{{ __('Rut Ej.: 16000000-K') }}" autofocus>
             <div class="input-group-append">
                 <div class="input-group-text">
                     <span class="fas fa-fingerprint text-light"></span>
