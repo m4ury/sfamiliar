@@ -236,8 +236,8 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url' => 'profile',
-            'icon' => 'fas fa-fw fa-user',
+            'route' => 'perfil',
+            'icon' => 'fas fa-fw fa-user text-cyan',
         ],
         /*[
             'text' => 'change_password',
@@ -248,24 +248,24 @@ return [
         [
             'text' => 'Pacientes',
             'route' => 'pacientes.index',
-            'icon' => 'fas fa-fw fa-user-injured',
+            'icon' => 'fas fa-fw fa-user-injured text-yellow',
         ],
         //['header' => 'Patologias'],
         [
             'text' => 'Patologias',
             'route' => 'patologias.index',
-            'icon' => 'fas fa-fw fa-heartbeat',
+            'icon' => 'fas fa-fw fa-heartbeat text-danger',
         ],
         //['header' => 'Controles'],
         [
             'text' => 'Controles',
             'route' => 'controles.index',
-            'icon' => 'fas fa-fw fa-hospital-user',
+            'icon' => 'fas fa-fw fa-hospital-user text-info',
         ],
         [
             'text' => 'Estadisticas',
             'route' => 'estadisticas',
-            'icon' => 'fas fa-fw fa-file-alt',
+            'icon' => 'fas fa-fw fa-file-alt text-primary',
         ],
         /*[
             'text'    => 'multilevel',

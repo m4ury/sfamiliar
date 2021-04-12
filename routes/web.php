@@ -33,8 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::get('controles/create/{paciente?}', 'ControlController@create')->name('controles.create');
 
     //rutas para perfil
-    Route::get('/profile', 'UserController@profile')->name('profile');
-    Route::put('profile/{user?}', 'UserController@updateProfile');
+    Route::get('/perfil', 'UserController@profile')->name('perfil');
+    Route::put('perfil', 'UserController@updateProfile');
 
     //rutas para paciente patologias
     Route::resource('ppatologias', 'PacientePatologiaController');

@@ -13,7 +13,7 @@
                     <div class="card card-default">
                         <div class="card-header">Editando Perfil</div>
                         <div class="card-body">
-                            {!! Form::open(['action' => route('profile', $user->id ?? ''), 'method' => 'POST', 'url' => 'profile/'.$user->id ?? '', 'class' => 'form-horizontal']) !!}
+                            {!! Form::open(['action' => 'UserController@updateProfile', 'method' => 'POST', 'class' => 'form-horizontal']) !!}
                             @csrf
                             {{ method_field('PUT') }}
                             <div class="form-group row">
@@ -34,7 +34,7 @@
                             <div class="form-group row">
                                 {!! Form::label('apellidos', 'Apellidos', ['class' => 'col-sm-2 col-form-label']) !!}
                                 <div class="col-sm-5">
-                                    {!! Form::text('apellidoP',$user->apellido_paterno ?? '', ['class' => 'form-control
+                                    {!! Form::text('apellido_paterno',$user->apellido_paterno ?? '', ['class' => 'form-control
                                     form-control-sm'.($errors->has('apellido_paterno') ? 'is-invalid' : ''), 'placeholder' => 'Apellido Paterno']) !!}
                                     @if ($errors->has('apellido_paterno'))
                                         <span class="invalid-feedback">
