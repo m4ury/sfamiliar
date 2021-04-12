@@ -8,7 +8,7 @@
             <div class="card card-primary card-outline">
                 <div class="card-header">
                     <h3 class="card-title text-bold">
-                        REM-P4. POBLACION EN CONTROLPROGRAMA DE SALUD CARDIOVASCULAR (PSCV)
+                        REM-P4. POBLACION EN CONTROL PROGRAMA DE SALUD CARDIOVASCULAR (PSCV)
                     </h3>
                 </div>
                 <div class="card-body">

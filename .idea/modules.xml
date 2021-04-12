@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/censo-app.iml" filepath="$PROJECT_DIR$/.idea/censo-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/farmacia.iml" filepath="$PROJECT_DIR$/.idea/farmacia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../reveal.js/.idea/reveal.js.iml" filepath="$PROJECT_DIR$/../reveal.js/.idea/reveal.js.iml" />
     </modules>
   </component>
 </project>
