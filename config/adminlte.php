@@ -257,11 +257,11 @@ return [
             'icon' => 'fas fa-fw fa-heartbeat text-danger',
         ],
         //['header' => 'Controles'],
-        [
+        /*[
             'text' => 'Controles',
-            'route' => 'controles.index',
+            'route' => 'controles-all',
             'icon' => 'fas fa-fw fa-hospital-user text-info',
-        ],
+        ],*/
         [
             'text' => 'Estadisticas',
             'route' => 'estadisticas',
@@ -466,6 +466,16 @@ return [
                     'asset' => true,
                     'location' => 'vendor/chart.js/Chart.bundle.min.js',
                 ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/chart.js/Chart.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/chart.js/Chart.min.css',
+                ]
             ],
         ],
         'Sweetalert2' => [
@@ -474,8 +484,18 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/sweetalert2/sweetalert2.min.js',
+                    'location' => 'vendor/sweetalert2/sweetalert2.all.min.js',
                 ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.min.js',
+                ]
             ],
         ],
         'Pace' => [
@@ -495,16 +515,16 @@ return [
         ],
     ],
 
-        /*
-        |--------------------------------------------------------------------------
-        | Livewire
-        |--------------------------------------------------------------------------
-        |
-        | Here we can enable the Livewire support.
-        |
-        | For detailed instructions you can look the livewire here:
-        | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/9.-Other-Configuration
-        */
+    /*
+    |--------------------------------------------------------------------------
+    | Livewire
+    |--------------------------------------------------------------------------
+    |
+    | Here we can enable the Livewire support.
+    |
+    | For detailed instructions you can look the livewire here:
+    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/9.-Other-Configuration
+    */
 
-        'livewire' => false,
-    ];
+    'livewire' => false,
+];

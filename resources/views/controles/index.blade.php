@@ -41,7 +41,7 @@
         </table>
     </div>
 @stop
-@section('plugins.Datatables', true)
+@section('plugins.Datatables', true)*9
 @section('js')
     <script>
         $("#controles").DataTable(

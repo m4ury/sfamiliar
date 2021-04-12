@@ -230,7 +230,34 @@
                                 <td>{{ $hta }}</td>
                                 <td>{{ $htaM }}</td>
                                 <td>{{ $htaF }}</td>
-
+                                <td>{{$hta_1519M}}</td>
+                                <td>{{$hta_1519F}}</td>
+                                <td>{{$hta_2024M}}</td>
+                                <td>{{$hta_2024F}}</td>
+                                <td>{{$hta_2529M}}</td>
+                                <td>{{$hta_2529F}}</td>
+                                <td>{{$hta_3034M}}</td>
+                                <td>{{$hta_3034F}}</td>
+                                <td>{{$hta_3539M}}</td>
+                                <td>{{$hta_3539F}}</td>
+                                <td>{{$hta_4044M}}</td>
+                                <td>{{$hta_4044F}}</td>
+                                <td>{{$hta_4549M}}</td>
+                                <td>{{$hta_4549F}}</td>
+                                <td>{{$hta_5054M}}</td>
+                                <td>{{$hta_5054F}}</td>
+                                <td>{{$hta_5559M}}</td>
+                                <td>{{$hta_5559F}}</td>
+                                <td>{{$hta_6064M}}</td>
+                                <td>{{$hta_6064F}}</td>
+                                <td>{{$hta_6569M}}</td>
+                                <td>{{$hta_6569F}}</td>
+                                <td>{{$hta_7074M}}</td>
+                                <td>{{$hta_7074F}}</td>
+                                <td>{{$hta_7579M}}</td>
+                                <td>{{$hta_7579F}}</td>
+                                <td>{{$hta_80M}}</td>
+                                <td>{{$hta_80F}}</td>
                             </tr>
                             <tr>
                                 <th>DIABETICOS</th>

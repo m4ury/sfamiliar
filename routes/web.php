@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
 
     //rutas para controles
     Route::resource('controles', 'ControlController')->except('[index, create]');
+    Route::get('controles-all', 'ControlController@index')->name('controles-all');
     Route::get('controles/pcte/{paciente?}', 'ControlController@controlsPcte')->name('controles');
     Route::get('controles/create/{paciente?}', 'ControlController@create')->name('controles.create');
 

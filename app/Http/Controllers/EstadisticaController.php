@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\PacientePatologias;
 use App\Patologia;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use App\Paciente;
 
@@ -13,132 +14,60 @@ class EstadisticaController extends Controller
     {
         $all = new Paciente();
         //hta todos
-        $hta = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'hta')
-            ->count();
+        $hta = $all->hta()->count();
+        $htaF = $all->hta()->where('pacientes.sexo', '=', 'femenino')->count();
+        $hta_1519F = Paciente::all()->whereBetween('grupo',[15, 19])->where('sexo', 'Femenino');
 
-        //hta mujeres
-        $htaF = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'hta')
-            ->where('pacientes.sexo', '=', 'femenino')
-            ->count();
+        dd($hta_1519F);
+        $hta_2024F = $all->hta()->whereBetween('grupo',[20, 24])->where('sexo', 'Femenino')->count();
+        $hta_2529F = $all->hta()->whereBetween('grupo',[25, 29])->where('sexo', 'Femenino')->count();
+        $hta_3034F = $all->hta()->whereBetween('grupo',[30, 34])->where('sexo', 'Femenino')->count();
+        $hta_3539F = $all->hta()->whereBetween('grupo',[35, 39])->where('sexo', 'Femenino')->count();
+        $hta_4044F = $all->hta()->whereBetween('grupo',[40, 44])->where('sexo', 'Femenino')->count();
+        $hta_4549F = $all->hta()->whereBetween('grupo',[45, 49])->where('sexo', 'Femenino')->count();
+        $hta_5054F = $all->hta()->whereBetween('grupo',[50, 54])->where('sexo', 'Femenino')->count();
+        $hta_5559F = $all->hta()->whereBetween('grupo',[55, 59])->where('sexo', 'Femenino')->count();
+        $hta_6064F = $all->hta()->whereBetween('grupo',[60, 64])->where('sexo', 'Femenino')->count();
+        $hta_6569F = $all->hta()->whereBetween('grupo',[65, 69])->where('sexo', 'Femenino')->count();
+        $hta_7074F = $all->hta()->whereBetween('grupo',[70, 74])->where('sexo', 'Femenino')->count();
+        $hta_7579F = $all->hta()->whereBetween('grupo',[75, 79])->where('sexo', 'Femenino')->count();
+        $hta_80F = $all->hta()->whereBetween('grupo', '>=', 80)->where('sexo', 'Femenino')->count();
 
-        //hta hombres
-        $htaM = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'hta')
-            ->where('pacientes.sexo', '=', 'masculino')
-            ->count();
-
+        $htaM = $all->hta()->where('pacientes.sexo', '=', 'masculino')->count();
+        $hta_1519M = $all->hta()->whereBetween('grupo',[15, 19])->where('sexo', 'Masculino')->count();
+        $hta_2024M = $all->hta()->whereBetween('grupo',[20, 24])->where('sexo', 'Masculino')->count();
+        $hta_2529M = $all->hta()->whereBetween('grupo',[25, 29])->where('sexo', 'Masculino')->count();
+        $hta_3034M = $all->hta()->whereBetween('grupo',[30, 34])->where('sexo', 'Masculino')->count();
+        $hta_3539M = $all->hta()->whereBetween('grupo',[35, 39])->where('sexo', 'Masculino')->count();
+        $hta_4044M = $all->hta()->whereBetween('grupo',[40, 44])->where('sexo', 'Masculino')->count();
+        $hta_4549M = $all->hta()->whereBetween('grupo',[45, 49])->where('sexo', 'Masculino')->count();
+        $hta_5054M = $all->hta()->whereBetween('grupo',[50, 54])->where('sexo', 'Masculino')->count();
+        $hta_5559M = $all->hta()->whereBetween('grupo',[55, 59])->where('sexo', 'Masculino')->count();
+        $hta_6064M = $all->hta()->whereBetween('grupo',[60, 64])->where('sexo', 'Masculino')->count();
+        $hta_6569M = $all->hta()->whereBetween('grupo',[65, 69])->where('sexo', 'Masculino')->count();
+        $hta_7074M = $all->hta()->whereBetween('grupo',[70, 74])->where('sexo', 'Masculino')->count();
+        $hta_7579M = $all->hta()->whereBetween('grupo',[75, 79])->where('sexo', 'Masculino')->count();
+        $hta_80M = $all->hta()->whereBetween('grupo', '>=', 80)->where('sexo', 'Masculino')->count();
         //dm2 todos
-        $dm2 = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'dm2')
-            ->count();
-
-        //dm2 mujeres
-        $dm2F = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'dm2')
-            ->where('pacientes.sexo', '=', 'femenino')->count();
-
-        //dm2 hombres
-        $dm2M = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'dm2')
-            ->where('pacientes.sexo', '=', 'masculino')->count();
+        $dm2 = $all->dm2()->count();
+        $dm2F = $all->dm2()->where('pacientes.sexo', '=', 'femenino')->count();
+        $dm2M = $all->dm2()->where('pacientes.sexo', '=', 'masculino')->count();
 
 
         //dlp todos
-        $dlp = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'dlp')
-            ->count();
-
-        //dlp mujeres
-        $dlpF = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'dlp')
-            ->where('pacientes.sexo', '=', 'femenino')
-            ->count();
-
-        //dlp hombres
-        $dlpM = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'dlp')
-            ->where('pacientes.sexo', '=', 'masculino')
-            ->count();
+        $dlp = $all->dlp()->count();
+        $dlpF = $all->dlp()->where('pacientes.sexo', '=', 'femenino')->count();
+        $dlpM = $all->dlp()->where('pacientes.sexo', '=', 'masculino')->count();
 
         //iam todos
-        $iam = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'antecedente iam')
-            ->count();
-
-        //iam mujeres
-        $iamF = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'antecedente iam')
-            ->where('pacientes.sexo', '=', 'femenino')
-            ->count();
-        //iam hombres
-        $iamM = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'antecedente iam')
-            ->where('pacientes.sexo', '=', 'masculino')
-            ->count();
+        $iam = $all->iam()->count();
+        $iamF = $all->iam()->where('pacientes.sexo', '=', 'femenino')->count();
+        $iamM = $all->iam()->where('pacientes.sexo', '=', 'masculino')->count();
 
         //acv todos
-        $acv = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'antecedente acv')
-            ->count();
-
-        //acv mujeres
-        $acvF = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'antecedente acv')
-            ->where('pacientes.sexo', '=', 'femenino')
-            ->count();
-
-        //acv hombres
-        $acvM = DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'antecedente acv')
-            ->where('pacientes.sexo', '=', 'masculino')
-            ->count();
+        $acv = $all->acv()->count();
+        $acvF = $all->acv()->where('pacientes.sexo', '=', 'femenino')->count();
+        $acvM = $all->acv()->where('pacientes.sexo', '=', 'masculino')->count();
 
         //erc
         $s_erc = $all->s_erc()->count();
@@ -297,7 +226,7 @@ class EstadisticaController extends Controller
         $alto_80M = Paciente::all()->where('riesgo_cv', 'ALTO')->where('grupo', '>=', 80)->where('sexo', 'Masculino')->count();
         $alto_80F = Paciente::all()->where('riesgo_cv', 'ALTO')->where('grupo','>=', 80)->where('sexo', 'Femenino')->count();
 
-        return view('estadisticas.index', compact('all', 'total_pscv', 'm_pscv', 'f_pscv', 'p_bajo', 'p_moderado', 'p_alto', 'p_bajoM', 'p_bajoF', 'p_moderadoM', 'p_moderadoF', 'p_altoM', 'p_altoF', 'hta', 'dm2', 'dlp', 'htaF', 'htaM', 'dm2M', 'dm2F', 'dlpM', 'dlpF', 'iam', 'iamM', 'iamF', 'acv', 'acvF', 'acvM', 's_erc', 's_ercM', 's_ercF', 'ercI_II', 'ercI_IIF', 'ercI_IIM', 'ercIIIa', 'ercIIIaF', 'ercIIIaM', 'ercIIIb', 'ercIIIbF', 'ercIIIbM', 'ercIV', 'ercIVF', 'ercIVM', 'ercV', 'ercVF', 'ercVM', 'pscv_1519M', 'pscv_1519F', 'pscv_2024M', 'pscv_2024F', 'pscv_2529M', 'pscv_2529F', 'pscv_3034M', 'pscv_3034F', 'pscv_3539M', 'pscv_3539F', 'pscv_4044M', 'pscv_4044F', 'pscv_4549M', 'pscv_4549F', 'pscv_5054M', 'pscv_5054F', 'pscv_5559M', 'pscv_5559F', 'pscv_6064M', 'pscv_6064F', 'pscv_6569M', 'pscv_6569F', 'pscv_7074M', 'pscv_7074F', 'pscv_7579M', 'pscv_7579F', 'pscv_80M', 'pscv_80F', 'bajo_1519M', 'bajo_1519F', 'bajo_2024M', 'bajo_2024F', 'bajo_2529M', 'bajo_2529F', 'bajo_3034M', 'bajo_3034F', 'bajo_3539M', 'bajo_3539F', 'bajo_4044M', 'bajo_4044F', 'bajo_4549M', 'bajo_4549F', 'bajo_5054M', 'bajo_5054F', 'bajo_5559M', 'bajo_5559F', 'bajo_6064M', 'bajo_6064F', 'bajo_6569M', 'bajo_6569F', 'bajo_7074M', 'bajo_7074F', 'bajo_7579M', 'bajo_7579F', 'bajo_80M', 'bajo_80F','mod_1519M', 'mod_1519F', 'mod_2024M', 'mod_2024F', 'mod_2529M', 'mod_2529F', 'mod_3034M', 'mod_3034F', 'mod_3539M', 'mod_3539F', 'mod_4044M', 'mod_4044F', 'mod_4549M', 'mod_4549F', 'mod_5054M', 'mod_5054F', 'mod_5559M', 'mod_5559F', 'mod_6064M', 'mod_6064F', 'mod_6569M', 'mod_6569F', 'mod_7074M', 'mod_7074F', 'mod_7579M', 'mod_7579F', 'mod_80M', 'mod_80F', 'alto_1519M', 'alto_1519F', 'alto_2024M', 'alto_2024F', 'alto_2529M', 'alto_2529F', 'alto_3034M', 'alto_3034F', 'alto_3539M', 'alto_3539F', 'alto_4044M', 'alto_4044F', 'alto_4549M', 'alto_4549F', 'alto_5054M', 'alto_5054F', 'alto_5559M', 'alto_5559F', 'alto_6064M', 'alto_6064F', 'alto_6569M', 'alto_6569F', 'alto_7074M', 'alto_7074F', 'alto_7579M', 'alto_7579F', 'alto_80M', 'alto_80F')
+        return view('estadisticas.index', compact('all', 'total_pscv', 'm_pscv', 'f_pscv', 'p_bajo', 'p_moderado', 'p_alto', 'p_bajoM', 'p_bajoF', 'p_moderadoM', 'p_moderadoF', 'p_altoM', 'p_altoF', 'hta', 'dm2', 'dlp', 'htaF', 'htaM', 'dm2M', 'dm2F', 'dlpM', 'dlpF', 'iam', 'iamM', 'iamF', 'acv', 'acvF', 'acvM', 's_erc', 's_ercM', 's_ercF', 'ercI_II', 'ercI_IIF', 'ercI_IIM', 'ercIIIa', 'ercIIIaF', 'ercIIIaM', 'ercIIIb', 'ercIIIbF', 'ercIIIbM', 'ercIV', 'ercIVF', 'ercIVM', 'ercV', 'ercVF', 'ercVM', 'pscv_1519M', 'pscv_1519F', 'pscv_2024M', 'pscv_2024F', 'pscv_2529M', 'pscv_2529F', 'pscv_3034M', 'pscv_3034F', 'pscv_3539M', 'pscv_3539F', 'pscv_4044M', 'pscv_4044F', 'pscv_4549M', 'pscv_4549F', 'pscv_5054M', 'pscv_5054F', 'pscv_5559M', 'pscv_5559F', 'pscv_6064M', 'pscv_6064F', 'pscv_6569M', 'pscv_6569F', 'pscv_7074M', 'pscv_7074F', 'pscv_7579M', 'pscv_7579F', 'pscv_80M', 'pscv_80F', 'bajo_1519M', 'bajo_1519F', 'bajo_2024M', 'bajo_2024F', 'bajo_2529M', 'bajo_2529F', 'bajo_3034M', 'bajo_3034F', 'bajo_3539M', 'bajo_3539F', 'bajo_4044M', 'bajo_4044F', 'bajo_4549M', 'bajo_4549F', 'bajo_5054M', 'bajo_5054F', 'bajo_5559M', 'bajo_5559F', 'bajo_6064M', 'bajo_6064F', 'bajo_6569M', 'bajo_6569F', 'bajo_7074M', 'bajo_7074F', 'bajo_7579M', 'bajo_7579F', 'bajo_80M', 'bajo_80F','mod_1519M', 'mod_1519F', 'mod_2024M', 'mod_2024F', 'mod_2529M', 'mod_2529F', 'mod_3034M', 'mod_3034F', 'mod_3539M', 'mod_3539F', 'mod_4044M', 'mod_4044F', 'mod_4549M', 'mod_4549F', 'mod_5054M', 'mod_5054F', 'mod_5559M', 'mod_5559F', 'mod_6064M', 'mod_6064F', 'mod_6569M', 'mod_6569F', 'mod_7074M', 'mod_7074F', 'mod_7579M', 'mod_7579F', 'mod_80M', 'mod_80F', 'alto_1519M', 'alto_1519F', 'alto_2024M', 'alto_2024F', 'alto_2529M', 'alto_2529F', 'alto_3034M', 'alto_3034F', 'alto_3539M', 'alto_3539F', 'alto_4044M', 'alto_4044F', 'alto_4549M', 'alto_4549F', 'alto_5054M', 'alto_5054F', 'alto_5559M', 'alto_5559F', 'alto_6064M', 'alto_6064F', 'alto_6569M', 'alto_6569F', 'alto_7074M', 'alto_7074F', 'alto_7579M', 'alto_7579F', 'alto_80M', 'alto_80F', 'hta_1519M','hta_1519F', 'hta_2024M', 'hta_2024F', 'hta_2529M', 'hta_2529F', 'hta_3034M', 'hta_3034F', 'hta_3539M', 'hta_3539F', 'hta_4044M', 'hta_4044F', 'hta_4549M', 'hta_4549F', 'hta_5054M', 'hta_5054F', 'hta_5559M', 'hta_5559F', 'hta_6064M', 'hta_6064F', 'hta_6569M', 'hta_6569F', 'hta_7074M', 'hta_7074F', 'hta_7579M', 'hta_7579F', 'hta_80M', 'hta_80F')
         );
     }
 }

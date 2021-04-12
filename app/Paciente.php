@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Paciente extends Model
 {
@@ -63,8 +64,58 @@ class Paciente extends Model
         return $this->whereIn('riesgo_cv', ['ALTO', 'BAJO', 'MODERADO'])->whereErc('sin');
     }
 
+    public function ercI_II()
+    {
+        return $this->pscv()->whereIn('erc', ['I', 'II']);
+    }
+
     public function pscv()
     {
         return $this->whereIn('riesgo_cv', ['ALTO', 'BAJO', 'MODERADO']);
     }
+
+    public function hta()
+    {
+        return DB::table('pacientes')
+            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
+            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
+            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
+            ->where('patologias.nombre_patologia', '=', 'hta');
+    }
+
+    public function dm2()
+    {
+        return DB::table('pacientes')
+            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
+            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
+            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
+            ->where('patologias.nombre_patologia', '=', 'dm2');
+    }
+
+    public function dlp()
+    {
+        return DB::table('pacientes')
+            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
+            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
+            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
+            ->where('patologias.nombre_patologia', '=', 'dlp');
+    }
+
+    public function iam()
+    {
+        return DB::table('pacientes')
+            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
+            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
+            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
+            ->where('patologias.nombre_patologia', '=', 'antecedente iam');
+    }
+    public function acv()
+    {
+        return DB::table('pacientes')
+            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
+            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
+            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
+            ->where('patologias.nombre_patologia', '=', 'antecedente acv');
+    }
+
 }

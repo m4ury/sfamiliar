@@ -14,7 +14,7 @@ class ControlController extends Controller
 {
     public function index()
     {
-        $controles = Control::latest('fecha_control')->get();
+        $controles = Control::all();
 
         return view('controles.index', compact('controles'));
     }
