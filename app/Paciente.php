@@ -19,7 +19,6 @@ class Paciente extends Model
     public function edad()
     {
         return Carbon::parse($this->fecha_nacimiento)->age;
-
     }
 
     public function getGrupoAttribute()
@@ -74,7 +73,7 @@ class Paciente extends Model
         return $this->whereIn('riesgo_cv', ['ALTO', 'BAJO', 'MODERADO']);
     }
 
-    public function hta()
+    static public function hta()
     {
         return DB::table('pacientes')
             ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
@@ -118,4 +117,65 @@ class Paciente extends Model
             ->where('patologias.nombre_patologia', '=', 'antecedente acv');
     }
 
+    public function in1519()
+    {
+        DB::table('pacientes')
+            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
+            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
+            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
+            ->where('patologias.nombre_patologia', '=', 'hta')
+            ->whereBetween('grupo', [15, 19]);
+    }
+    public function in2024()
+    {
+        $this->whereBetween('grupo', [20, 24]);
+    }
+    public function in2529()
+    {
+        $this->whereBetween('grupo', [25, 29]);
+    }
+    public function in3034()
+    {
+        $this->whereBetween('grupo', [30, 34]);
+    }
+    public function in3539()
+    {
+        $this->whereBetween('grupo', [35, 39]);
+    }
+    public function in4044()
+    {
+        $this->whereBetween('grupo', [40, 44]);
+    }
+    public function in4549()
+    {
+        $this->whereBetween('grupo', [45, 49]);
+    }
+    public function in5054()
+    {
+        $this->whereBetween('grupo', [50, 54]);
+    }
+    public function in5559()
+    {
+        $this->whereBetween('grupo', [55, 59]);
+    }
+    public function in6064()
+    {
+        $this->whereBetween('grupo', [60, 64]);
+    }
+    public function in6569()
+    {
+        $this->whereBetween('grupo', [65, 69]);
+    }
+    public function in7074()
+    {
+        $this->whereBetween('grupo', [70, 74]);
+    }
+    public function in7579()
+    {
+        $this->whereBetween('grupo', [75, 79]);
+    }
+    public function in80()
+    {
+        $this->where('grupo' >= 80);
+    }
 }

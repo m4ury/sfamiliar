@@ -3,21 +3,21 @@
 @section('title', 'estadisticas')
 
 @section('content')
-    <div class="row justify-content-center">
-        <div class="col">
-            <div class="card card-primary card-outline">
-                <div class="card-header">
-                    <h3 class="card-title text-bold">
-                        REM-P4. POBLACION EN CONTROL PROGRAMA DE SALUD CARDIOVASCULAR (PSCV)
-                    </h3>
-                </div>
-                <div class="card-body">
-                    <div class="col-md-12 table-responsive">
-                        <h4 class="card-title text-bold mb-3">
-                            SECCION A: PROGRAMA SALUD CARDIOVASCULAR (PSCV)
-                        </h4>
-                        <table id="pscv" class="table table-md-responsive table-bordered">
-                            <thead>
+<div class="row justify-content-center">
+    <div class="col">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title text-bold">
+                    REM-P4. POBLACION EN CONTROL PROGRAMA DE SALUD CARDIOVASCULAR (PSCV)
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="col-md-12 table-responsive">
+                    <h4 class="card-title text-bold mb-3">
+                        SECCION A: PROGRAMA SALUD CARDIOVASCULAR (PSCV)
+                    </h4>
+                    <table id="pscv" class="table table-md-responsive table-bordered">
+                        <thead>
                             <tr>
                                 <th class="text-center" colspan="2" rowspan="3">CONCEPTO</th>
                                 <th class="text-center" colspan="3" rowspan="2">TOTAL</th>
@@ -230,7 +230,7 @@
                                 <td>{{ $hta }}</td>
                                 <td>{{ $htaM }}</td>
                                 <td>{{ $htaF }}</td>
-                                <td>{{$hta_1519M}}</td>
+                                <td>{{$hta_1519F}}</td>
                                 <td>{{$hta_1519F}}</td>
                                 <td>{{$hta_2024M}}</td>
                                 <td>{{$hta_2024F}}</td>
@@ -325,17 +325,16 @@
                                 <td>{{ $ercIVF }}</td>
                             </tr>
                             <tr>
-                                <th nowrap="">ETAPA G5 (VFG < 15 ml/min)</th>
-                                <td>{{ $ercV }}</td>
+                                <th nowrap="">ETAPA G5 (VFG < 15 ml/min) </th> <td>{{ $ercV }}</td>
                                 <td>{{ $ercVM }}</td>
                                 <td>{{ $ercVF }}</td>
                             </tr>
                             </tr>
-                            </thead>
-                        </table>
-                    </div>
+                        </thead>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection
