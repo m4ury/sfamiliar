@@ -73,10 +73,9 @@ class Paciente extends Model
         return $this->whereIn('riesgo_cv', ['ALTO', 'BAJO', 'MODERADO']);
     }
 
-    static public function hta()
+    public function hta()
     {
-        return DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
+        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
             ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
             ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
             ->where('patologias.nombre_patologia', '=', 'hta');
@@ -119,12 +118,7 @@ class Paciente extends Model
 
     public function in1519()
     {
-        DB::table('pacientes')
-            ->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'hta')
-            ->whereBetween('grupo', [15, 19]);
+        return $this->get()->whereBetween('grupo', [15, 19]);
     }
     public function in2024()
     {

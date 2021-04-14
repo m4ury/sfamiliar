@@ -17,16 +17,15 @@ class EstadisticaController extends Controller
         $all = new Paciente;
         //hta todos
 
-        $hta_1519M = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')->get('rut')->whereBetween('grupo', [15, 19])->where('sexo', 'masculino')->where('nombre_patologia', 'hta')->count();
-        dd($hta_1519M);
+        //$hta_1519M = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->where('sexo', 'masculino')->where('nombre_patologia', 'hta')->get()->whereBetween('grupo', [15, 19])->count();
+        //dd($hta_1519M);
 
         $hta = $all->hta()->count();
         $htaF = $all->hta()->where('pacientes.sexo', '=', 'femenino')->count();
-        $htaM = $all->hta()->where('pacientes.sexo', '=', 'masculino')->count();
 
-        $hta_1519F = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->distinct()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Femenino')->where('nombre_patologia', 'hta')->count('rut');
-        $hta_2024F = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('riesgo_cv', ['BAJO', 'MODERADO', 'ALTO'])->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->count('nombre_patologia', 'hta');
-        $hta_2529F = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('riesgo_cv', ['BAJO', 'MODERADO', 'ALTO'])->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->count('nombre_patologia', 'hta');
+        $hta_1519F = $all->hta()->get()->whereBetween('grupo', [15, 19])->where('sexo', '=', 'Femenino')->count();
+        $hta_2024F = $all->hta()->get()->whereBetween('grupo', [20, 24])->where('sexo', '=', 'Femenino')->count();
+        $hta_2529F = $all->hta()->get()->whereBetween('grupo', [25, 29])->where('sexo', '=', 'Femenino')->count();
         $hta_3034F = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('riesgo_cv', ['BAJO', 'MODERADO', 'ALTO'])->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->count('nombre_patologia', 'hta');
         $hta_3539F = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('riesgo_cv', ['BAJO', 'MODERADO', 'ALTO'])->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->count('nombre_patologia', 'hta');
         $hta_4044F = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('riesgo_cv', ['BAJO', 'MODERADO', 'ALTO'])->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->count('nombre_patologia', 'hta');
@@ -39,9 +38,8 @@ class EstadisticaController extends Controller
         $hta_7579F = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('riesgo_cv', ['BAJO', 'MODERADO', 'ALTO'])->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->count('nombre_patologia', 'hta');
         $hta_80F = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('riesgo_cv', ['BAJO', 'MODERADO', 'ALTO'])->distinct()->get()->where('grupo' >= 80)->where('sexo', 'Femenino')->count('nombre_patologia', 'hta');
 
-        $htaM = $all->hta()->where('pacientes.sexo', '=', 'masculino')->count();
-        $hta_1519M =
-        //Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')->get('rut')->whereBetween('grupo', [15, 19])->where('sexo', 'masculino')->where('nombre_patologia', 'hta')->count();
+        $htaM = $all->hta()->where('pacientes.sexo', '=', 'Masculino')->count();
+        $hta_1519M = $all->hta()->get()->whereBetween('grupo', [15, 19])->where('sexo', '=', 'Masculino')->count();
         $hta_2024M = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('riesgo_cv', ['BAJO', 'MODERADO', 'ALTO'])->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->count('nombre_patologia', 'hta');
         $hta_2529M = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('riesgo_cv', ['BAJO', 'MODERADO', 'ALTO'])->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->count('nombre_patologia', 'hta');
         $hta_3034M = Paciente::join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('riesgo_cv', ['BAJO', 'MODERADO', 'ALTO'])->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->count('nombre_patologia', 'hta');
@@ -59,7 +57,6 @@ class EstadisticaController extends Controller
         $dm2 = $all->dm2()->count();
         $dm2F = $all->dm2()->where('pacientes.sexo', '=', 'femenino')->count();
         $dm2M = $all->dm2()->where('pacientes.sexo', '=', 'masculino')->count();
-
 
         //dlp todos
         $dlp = $all->dlp()->count();

@@ -230,7 +230,7 @@
                                 <td>{{ $hta }}</td>
                                 <td>{{ $htaM }}</td>
                                 <td>{{ $htaF }}</td>
-                                <td>{{$hta_1519F}}</td>
+                                <td>{{$hta_1519M}}</td>
                                 <td>{{$hta_1519F}}</td>
                                 <td>{{$hta_2024M}}</td>
                                 <td>{{$hta_2024F}}</td>
