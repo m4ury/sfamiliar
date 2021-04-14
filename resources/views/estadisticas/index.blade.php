@@ -264,30 +264,170 @@
                                 <td>{{ $dm2 }}</td>
                                 <td>{{ $dm2M }}</td>
                                 <td>{{ $dm2F }}</td>
+                                <td>{{$dm2_1519M}}</td>
+                                <td>{{$dm2_1519F}}</td>
+                                <td>{{$dm2_2024M}}</td>
+                                <td>{{$dm2_2024F}}</td>
+                                <td>{{$dm2_2529M}}</td>
+                                <td>{{$dm2_2529F}}</td>
+                                <td>{{$dm2_3034M}}</td>
+                                <td>{{$dm2_3034F}}</td>
+                                <td>{{$dm2_3539M}}</td>
+                                <td>{{$dm2_3539F}}</td>
+                                <td>{{$dm2_4044M}}</td>
+                                <td>{{$dm2_4044F}}</td>
+                                <td>{{$dm2_4549M}}</td>
+                                <td>{{$dm2_4549F}}</td>
+                                <td>{{$dm2_5054M}}</td>
+                                <td>{{$dm2_5054F}}</td>
+                                <td>{{$dm2_5559M}}</td>
+                                <td>{{$dm2_5559F}}</td>
+                                <td>{{$dm2_6064M}}</td>
+                                <td>{{$dm2_6064F}}</td>
+                                <td>{{$dm2_6569M}}</td>
+                                <td>{{$dm2_6569F}}</td>
+                                <td>{{$dm2_7074M}}</td>
+                                <td>{{$dm2_7074F}}</td>
+                                <td>{{$dm2_7579M}}</td>
+                                <td>{{$dm2_7579F}}</td>
+                                <td>{{$dm2_80M}}</td>
+                                <td>{{$dm2_80F}}</td>
                             </tr>
                             <tr>
                                 <th>DISLIPIDEMICOS</th>
                                 <td>{{ $dlp }}</td>
                                 <td>{{ $dlpM }}</td>
                                 <td>{{ $dlpF }}</td>
+                                <td>{{$dlp_1519M}}</td>
+                                <td>{{$dlp_1519F}}</td>
+                                <td>{{$dlp_2024M}}</td>
+                                <td>{{$dlp_2024F}}</td>
+                                <td>{{$dlp_2529M}}</td>
+                                <td>{{$dlp_2529F}}</td>
+                                <td>{{$dlp_3034M}}</td>
+                                <td>{{$dlp_3034F}}</td>
+                                <td>{{$dlp_3539M}}</td>
+                                <td>{{$dlp_3539F}}</td>
+                                <td>{{$dlp_4044M}}</td>
+                                <td>{{$dlp_4044F}}</td>
+                                <td>{{$dlp_4549M}}</td>
+                                <td>{{$dlp_4549F}}</td>
+                                <td>{{$dlp_5054M}}</td>
+                                <td>{{$dlp_5054F}}</td>
+                                <td>{{$dlp_5559M}}</td>
+                                <td>{{$dlp_5559F}}</td>
+                                <td>{{$dlp_6064M}}</td>
+                                <td>{{$dlp_6064F}}</td>
+                                <td>{{$dlp_6569M}}</td>
+                                <td>{{$dlp_6569F}}</td>
+                                <td>{{$dlp_7074M}}</td>
+                                <td>{{$dlp_7074F}}</td>
+                                <td>{{$dlp_7579M}}</td>
+                                <td>{{$dlp_7579F}}</td>
+                                <td>{{$dlp_80M}}</td>
+                                <td>{{$dlp_80F}}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">TABAQUISMO MAYOR A 55 AÑOS</th>
-                                <td disabled=""></td>
-                                <td disabled=""></td>
-                                <td disabled=""></td>
+                                <td>{{ $tbq }}</td>
+                                <td>{{ $tbqM }}</td>
+                                <td>{{ $tbqF }}</td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td class="bg-gradient-gray"></td>
+                                <td>{{$tbq_5559M}}</td>
+                                <td>{{$tbq_5559F}}</td>
+                                <td>{{$tbq_6064M}}</td>
+                                <td>{{$tbq_6064F}}</td>
+                                <td>{{$tbq_6569M}}</td>
+                                <td>{{$tbq_6569F}}</td>
+                                <td>{{$tbq_7074M}}</td>
+                                <td>{{$tbq_7074F}}</td>
+                                <td>{{$tbq_7579M}}</td>
+                                <td>{{$tbq_7579F}}</td>
+                                <td>{{$tbq_80M}}</td>
+                                <td>{{$tbq_80F}}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">ANTECEDENTES DE INFARTO AGUDO AL MIOCARDIO (IAM)</th>
                                 <td>{{ $iam }}</td>
                                 <td>{{ $iamM }}</td>
                                 <td>{{ $iamF }}</td>
+                                <td>{{$iam_1519M}}</td>
+                                <td>{{$iam_1519F}}</td>
+                                <td>{{$iam_2024M}}</td>
+                                <td>{{$iam_2024F}}</td>
+                                <td>{{$iam_2529M}}</td>
+                                <td>{{$iam_2529F}}</td>
+                                <td>{{$iam_3034M}}</td>
+                                <td>{{$iam_3034F}}</td>
+                                <td>{{$iam_3539M}}</td>
+                                <td>{{$iam_3539F}}</td>
+                                <td>{{$iam_4044M}}</td>
+                                <td>{{$iam_4044F}}</td>
+                                <td>{{$iam_4549M}}</td>
+                                <td>{{$iam_4549F}}</td>
+                                <td>{{$iam_5054M}}</td>
+                                <td>{{$iam_5054F}}</td>
+                                <td>{{$iam_5559M}}</td>
+                                <td>{{$iam_5559F}}</td>
+                                <td>{{$iam_6064M}}</td>
+                                <td>{{$iam_6064F}}</td>
+                                <td>{{$iam_6569M}}</td>
+                                <td>{{$iam_6569F}}</td>
+                                <td>{{$iam_7074M}}</td>
+                                <td>{{$iam_7074F}}</td>
+                                <td>{{$iam_7579M}}</td>
+                                <td>{{$iam_7579F}}</td>
+                                <td>{{$iam_80M}}</td>
+                                <td>{{$iam_80F}}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">ANTECEDENTES DE ENF. CEREBRO VASCULAR</th>
                                 <td>{{ $acv }}</td>
                                 <td>{{ $acvM }}</td>
                                 <td>{{ $acvF }}</td>
+                                <td>{{$acv_1519M}}</td>
+                                <td>{{$acv_1519F}}</td>
+                                <td>{{$acv_2024M}}</td>
+                                <td>{{$acv_2024F}}</td>
+                                <td>{{$acv_2529M}}</td>
+                                <td>{{$acv_2529F}}</td>
+                                <td>{{$acv_3034M}}</td>
+                                <td>{{$acv_3034F}}</td>
+                                <td>{{$acv_3539M}}</td>
+                                <td>{{$acv_3539F}}</td>
+                                <td>{{$acv_4044M}}</td>
+                                <td>{{$acv_4044F}}</td>
+                                <td>{{$acv_4549M}}</td>
+                                <td>{{$acv_4549F}}</td>
+                                <td>{{$acv_5054M}}</td>
+                                <td>{{$acv_5054F}}</td>
+                                <td>{{$acv_5559M}}</td>
+                                <td>{{$acv_5559F}}</td>
+                                <td>{{$acv_6064M}}</td>
+                                <td>{{$acv_6064F}}</td>
+                                <td>{{$acv_6569M}}</td>
+                                <td>{{$acv_6569F}}</td>
+                                <td>{{$acv_7074M}}</td>
+                                <td>{{$acv_7074F}}</td>
+                                <td>{{$acv_7579M}}</td>
+                                <td>{{$acv_7579F}}</td>
+                                <td>{{$acv_80M}}</td>
+                                <td>{{$acv_80F}}</td>
                             </tr>
                             </tr>
                             <tr>

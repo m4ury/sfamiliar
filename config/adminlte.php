@@ -192,7 +192,7 @@ return [
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => '/profile',
+    'profile_url' => '/perfil',
 
     /*
     |--------------------------------------------------------------------------
@@ -233,12 +233,12 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],*/
-        ['header' => 'account_settings'],
+        /*['header' => 'account_settings'],
         [
             'text' => 'profile',
             'route' => 'perfil',
             'icon' => 'fas fa-fw fa-user text-cyan',
-        ],
+        ],*/
         /*[
             'text' => 'change_password',
             'url'  => 'admin/settings',
@@ -255,6 +255,7 @@ return [
             'text' => 'Patologias',
             'route' => 'patologias.index',
             'icon' => 'fas fa-fw fa-heartbeat text-danger',
+            'can' => 'ver-patologias'
         ],
         //['header' => 'Controles'],
         /*[
@@ -265,7 +266,8 @@ return [
         [
             'text' => 'Estadisticas',
             'route' => 'estadisticas',
-            'icon' => 'fas fa-fw fa-file-alt text-primary',
+            'icon' => 'fas fa-fw fa-file-alt text-white',
+            'can' => 'estadisticas'
         ],
         /*[
             'text'    => 'multilevel',

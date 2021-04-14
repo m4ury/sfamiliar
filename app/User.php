@@ -55,7 +55,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function adminlte_profile_url()
     {
-        return 'profile';
+        return 'perfil';
     }
 
     public function controls()
@@ -67,4 +67,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return ucfirst($this->name) . " " . ucfirst($this->apellido_paterno) . " " . ucfirst($this->apellido_materno);
     }
+
+    function isAdmin(){
+        return $this->type === 'admin';
+
+    }
+
 }
