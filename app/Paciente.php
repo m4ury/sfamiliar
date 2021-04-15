@@ -68,6 +68,26 @@ class Paciente extends Model
         return $this->pscv()->whereIn('erc', ['I', 'II']);
     }
 
+    public function ercIIIa()
+    {
+        return $this->pscv()->whereErc('IIIA');
+    }
+
+    public function ercIIIb()
+    {
+        return $this->pscv()->whereErc('IIIB');
+    }
+
+    public function ercIV()
+    {
+        return $this->pscv()->whereErc('IV');
+    }
+
+    public function ercV()
+    {
+        return $this->pscv()->whereErc('V');
+    }
+
     public function pscv()
     {
         return $this->whereIn('riesgo_cv', ['ALTO', 'BAJO', 'MODERADO']);

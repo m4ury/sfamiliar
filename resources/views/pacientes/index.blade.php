@@ -21,7 +21,6 @@
                 <th>Sexo</th>
                 <th>Sector</th>
                 <th>Grupo Etareo</th>
-                <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -89,12 +88,12 @@
                             {{ "80 y Más" }}
                         @endswitch
                     </td>
-                    <td>
+                    {{--<td>
                         <a class="btn bg-gradient-secondary btn-sm" data-toggle="tooltip" data-placement="bottom"
                            title="Editar"
                            href="{{ route('pacientes.edit', $paciente->id) }}"><i class="fas fa-pen"></i>
                         </a>
-                    </td>
+                    </td>--}}
                 </tr>
             @endforeach
             </tbody>
