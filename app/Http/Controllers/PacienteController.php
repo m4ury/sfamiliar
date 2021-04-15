@@ -50,18 +50,19 @@ class PacienteController extends Controller
 
     public function update(Request $request, $id)
     {
-        $paciente = Paciente::findOrFail($id);
+
         $validator = Validator::make($request->all(), [
-            'rut' => 'required|cl_rut',
-            'nombres' => 'required|string|min:3',
-            'apellidoP' => 'required|string|min:3',
+            'rut' => 'cl_rut',
+            'nombres' => 'string|min:3',
+            'apellidoP' => 'string|min:3',
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
+        $paciente = Paciente::findOrFail($id);
         $paciente->update($request->all());
 
-        return redirect('pacientes/' . $id)->withSuccess('Paciente Actualizado con exito!');
+        return redirect('pacientes/'.$id)->withSuccess('Paciente Actualizado con exito!');
     }
 
     public

@@ -439,12 +439,68 @@
                                 <td>{{ $s_erc }}</td>
                                 <td>{{ $s_ercM }}</td>
                                 <td>{{ $s_ercF }}</td>
+                                <td>{{$s_erc_1519M}}</td>
+                                <td>{{$s_erc_1519F}}</td>
+                                <td>{{$s_erc_2024M}}</td>
+                                <td>{{$s_erc_2024F}}</td>
+                                <td>{{$s_erc_2529M}}</td>
+                                <td>{{$s_erc_2529F}}</td>
+                                <td>{{$s_erc_3034M}}</td>
+                                <td>{{$s_erc_3034F}}</td>
+                                <td>{{$s_erc_3539M}}</td>
+                                <td>{{$s_erc_3539F}}</td>
+                                <td>{{$s_erc_4044M}}</td>
+                                <td>{{$s_erc_4044F}}</td>
+                                <td>{{$s_erc_4549M}}</td>
+                                <td>{{$s_erc_4549F}}</td>
+                                <td>{{$s_erc_5054M}}</td>
+                                <td>{{$s_erc_5054F}}</td>
+                                <td>{{$s_erc_5559M}}</td>
+                                <td>{{$s_erc_5559F}}</td>
+                                <td>{{$s_erc_6064M}}</td>
+                                <td>{{$s_erc_6064F}}</td>
+                                <td>{{$s_erc_6569M}}</td>
+                                <td>{{$s_erc_6569F}}</td>
+                                <td>{{$s_erc_7074M}}</td>
+                                <td>{{$s_erc_7074F}}</td>
+                                <td>{{$s_erc_7579M}}</td>
+                                <td>{{$s_erc_7579F}}</td>
+                                <td>{{$s_erc_80M}}</td>
+                                <td>{{$s_erc_80F}}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">ETAPA G1 Y ETAPA G2 (VFG > 60 ml/min)</th>
                                 <td>{{ $ercI_II }}</td>
                                 <td>{{ $ercI_IIM }}</td>
                                 <td>{{ $ercI_IIF }}</td>
+                                <td>{{$ercI_II_1519M}}</td>
+                                <td>{{$ercI_II_1519F}}</td>
+                                <td>{{$ercI_II_2024M}}</td>
+                                <td>{{$ercI_II_2024F}}</td>
+                                <td>{{$ercI_II_2529M}}</td>
+                                <td>{{$ercI_II_2529F}}</td>
+                                <td>{{$ercI_II_3034M}}</td>
+                                <td>{{$ercI_II_3034F}}</td>
+                                <td>{{$ercI_II_3539M}}</td>
+                                <td>{{$ercI_II_3539F}}</td>
+                                <td>{{$ercI_II_4044M}}</td>
+                                <td>{{$ercI_II_4044F}}</td>
+                                <td>{{$ercI_II_4549M}}</td>
+                                <td>{{$ercI_II_4549F}}</td>
+                                <td>{{$ercI_II_5054M}}</td>
+                                <td>{{$ercI_II_5054F}}</td>
+                                <td>{{$ercI_II_5559M}}</td>
+                                <td>{{$ercI_II_5559F}}</td>
+                                <td>{{$ercI_II_6064M}}</td>
+                                <td>{{$ercI_II_6064F}}</td>
+                                <td>{{$ercI_II_6569M}}</td>
+                                <td>{{$ercI_II_6569F}}</td>
+                                <td>{{$ercI_II_7074M}}</td>
+                                <td>{{$ercI_II_7074F}}</td>
+                                <td>{{$ercI_II_7579M}}</td>
+                                <td>{{$ercI_II_7579F}}</td>
+                                <td>{{$ercI_II_80M}}</td>
+                                <td>{{$ercI_II_80F}}</td>
                             </tr>
                             <tr>
                                 <th nowrap="">ETAPA G3a (VFG > 45 a 59 ml/min)</th>

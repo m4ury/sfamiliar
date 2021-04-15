@@ -8,7 +8,8 @@
                 <div class="card card-default">
                     <div class="card-header">Editando Paciente</div>
                     <div class="card-body">
-                        {{ Form::open(['action' => route('pacientes.update', $paciente->id), 'method' => 'PUT', 'url' => 'pacientes/'.$paciente->id, 'class' => 'form-horizontal']) }}
+                        {{ Form::open(['action' => 'PacienteController@update', 'method' => 'POST', 'url' => 'pacientes/'.$paciente->id, 'class' => 'form-horizontal']) }}
+                        @method('PUT')
                         <div class="form-group row">
                             {!! Form::label('rut', 'Rut', ['class' => 'col-sm-2 col-form-label']) !!}
                             <div class="col-sm-6">
