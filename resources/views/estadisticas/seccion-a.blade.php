@@ -3,13 +3,19 @@
 @section('title', 'Seccion A')
 
 @section('content')
-<div class="row justify-content-center">
-    <div class="col">
-        <div class="card card-primary card-outline">
-            <div class="card-body">
-                <div class="col-md-12 table-responsive">
-                    <table id="pscv" class="table table-md-responsive table-bordered">
-                        <thead>
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="card card-primary card-outline">
+                <div class="card-body">
+                    <div class="row">
+                        <h4 class="card-title text-bold mb-3">
+                            SECCIÓN A: PROGRAMA SALUD CARDIOVASCULAR
+                            (PSCV)
+                            <h4/>
+                    </div>
+                    <div class="col-md-12 table-responsive">
+                        <table id="pscv" class="table table-md-responsive table-bordered">
+                            <thead>
                             <tr>
                                 <th class="text-center" colspan="2" rowspan="3">CONCEPTO</th>
                                 <th class="text-center" colspan="3" rowspan="2">TOTAL</th>
@@ -597,7 +603,8 @@
                                 <td>{{$ercIV_80F}}</td>
                             </tr>
                             <tr>
-                                <th nowrap="">ETAPA G5 (VFG < 15 ml/min) </th> <td>{{ $ercV }}</td>
+                                <th nowrap="">ETAPA G5 (VFG < 15 ml/min)</th>
+                                <td>{{ $ercV }}</td>
                                 <td>{{ $ercVM }}</td>
                                 <td>{{ $ercVF }}</td>
                                 <td>{{$ercV_1519M}}</td>
@@ -630,11 +637,11 @@
                                 <td>{{$ercV_80F}}</td>
                             </tr>
                             </tr>
-                        </thead>
-                    </table>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

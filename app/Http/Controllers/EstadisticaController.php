@@ -577,4 +577,9 @@ class EstadisticaController extends Controller
     {
         return view('estadisticas.seccion-b');
     }
+
+    public function seccionC()
+    {
+        return view('estadisticas.seccion-c');
+    }
 }
