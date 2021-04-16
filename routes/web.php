@@ -43,6 +43,10 @@ Route::middleware('auth')->group(function () {
 
     //rutas para estadisticas
     Route::get('/estadisticas', 'EstadisticaController@index')->name('estadisticas');
+    Route::get('/estadisticas.seccion-a', 'EstadisticaController@seccionA')->name('estadisticas.seccion-a');
+    Route::get('/estadisticas.seccion-b', 'EstadisticaController@seccionB')->name('estadisticas.seccion-b');
+    Route::get('/estadisticas.seccion-c', 'EstadisticaController@seccionC')->name('estadisticas.seccion-c');
+
 
     //ruta para exportar a excel
     /*Route::get('exports/pacientes', 'PacienteController@export')->name('exports.pacientes');*/

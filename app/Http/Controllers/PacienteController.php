@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PacienteRequest;
 use App\Paciente;
-use App\subPatologias;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -43,7 +42,6 @@ class PacienteController extends Controller
     public function edit($id)
     {
         $paciente = Paciente::findOrFail($id);
-
         return view('pacientes.edit', compact('paciente'));
     }
 
@@ -62,7 +60,7 @@ class PacienteController extends Controller
         $paciente = Paciente::findOrFail($id);
         $paciente->update($request->all());
 
-        return redirect('pacientes/'.$id)->withSuccess('Paciente Actualizado con exito!');
+        return redirect('pacientes/' . $id)->withSuccess('Paciente Actualizado con exito!');
     }
 
     public
