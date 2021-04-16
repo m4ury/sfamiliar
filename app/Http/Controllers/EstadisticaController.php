@@ -575,6 +575,7 @@ class EstadisticaController extends Controller
 
     public function seccionB()
     {
+
         return view('estadisticas.seccion-b');
     }
 

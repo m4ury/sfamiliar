@@ -32,7 +32,8 @@ class ControlController extends Controller
     public function create($id)
     {
         $paciente = Paciente::with('patologias')->findOrFail($id);
-        return view('controles.create', compact('paciente'));
+        $pacientes = new Paciente;
+        return view('controles.create', compact('paciente', 'pacientes'));
     }
 
 
