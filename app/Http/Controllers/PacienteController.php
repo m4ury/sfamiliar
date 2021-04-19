@@ -53,6 +53,7 @@ class PacienteController extends Controller
             'rut' => 'cl_rut',
             'nombres' => 'string|min:3',
             'apellidoP' => 'string|min:3',
+            'direccion' => 'string|min:4|required'
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();

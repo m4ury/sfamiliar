@@ -6,8 +6,7 @@
             {!! Form::checkbox('rac_vigente', 1, null, ['class' => 'form-control my-2']) !!}
         </div>
     </div>
-    @if($paciente->where('grupo', '>', 79))
-       {{-- {{dd($paciente->where('grupo', '>', 79))}}--}}
+    @if($paciente->grupo > 79)
         <div class="form-group row my-2 ml-2">
             {!! Form::label('pa_menor15090label', 'Presion arterial < 150/90', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
             <div class="col-sm-9">

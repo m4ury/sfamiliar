@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Estadistica;
 use App\Paciente;
+use App\Control;
 
 class EstadisticaController extends Controller
 {
@@ -575,6 +576,9 @@ class EstadisticaController extends Controller
 
     public function seccionB()
     {
+        $control = new Control;
+        $pa140_90 = $control->with('paciente')->where('pa_menor_140_90', '=', 1)->latest()->count();
+        dd($pa140_90);
 
         return view('estadisticas.seccion-b');
     }

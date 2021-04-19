@@ -62,7 +62,6 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group row">
                             {!! Form::label('fecha_nacimiento', 'Fecha Nac.', ['class' => 'col-sm-2 col-form-label']) !!}
                             <div class="col-sm-5">
@@ -71,7 +70,7 @@
                             </div>
                         <!--  <div class="col-sm-5">
                                 {!! Form::select('sexo', array('Femenino' => 'Femenino', 'Masculino' => 'Masculino', 'Otro' => 'Otro'), $paciente->sexo, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción...']) !!}
-                                </div> -->
+                            </div> -->
                         </div>
                         <div class="form-group row">
                             {!! Form::label('telefono', 'Télefono.', ['class' => 'col-sm-2 col-form-label']) !!}
@@ -86,12 +85,12 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-5">
-                                {!! Form::label('pueblo_originario', 'Originario', ['class' => 'col-sm col-form-label']) !!}
-                                {!! Form::checkbox('pueblo_originario', $paciente->compensado==1?true:0, $paciente->pueblo_originario == 1?true:0, ['class' => 'form-control form-control']) !!}
+                                {!! Form::label('pueblo_originario_label', 'Originario', ['class' => 'col-sm col-form-label']) !!}
+                                {!! Form::checkbox('pueblo_originario', 1, old('pueblo_originario', $paciente->pueblo_originario) ,['class' => 'form-control form-control']) !!}
                             </div>
                             <div class="col-sm-5">
                                 {!! Form::label('migrante', 'Pob. Migrante', ['class' => 'col-sm col-form-label']) !!}
-                                {!! Form::checkbox('migrante', $paciente->compensado==1?true:0, $paciente->migrante ==1?true:0, ['class' => 'form-control form-control']) !!}
+                                {!! Form::checkbox('migrante', 1, old('migrante', $paciente->migrante),['class' => 'form-control form-control']) !!}
                             </div>
                         </div>
                         <hr>

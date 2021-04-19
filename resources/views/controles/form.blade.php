@@ -73,6 +73,8 @@
 
 @section('js')
     <script>
+
+        $("#Enfermera").hide();
         $('#tipo').select2({
             theme: "classic",
             width: '100%',
@@ -101,5 +103,13 @@
             })
         });
         $("#rac_vigente").removeAttr("checked");
+
+        $('select').change(function () {
+            if ($(this).val() != "Enfermera") {
+                $("#Enfermera").hide();
+            } else if ($(this).val() == "Enfermera") {
+                $('#Enfermera').show()
+            }
+        })
     </script>
 @endsection
