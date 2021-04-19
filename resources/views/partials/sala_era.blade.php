@@ -1,4 +1,4 @@
-<div class="card card-success card-outline mb-3">
+<div class="card card-success card-outline mb-3" id="Kine">
     <div class="card-header text-bold text-success">SALA ERA</div>
     <div class="form-group row my-2 ml-2">
         {!! Form::label('asmaClasif_label', 'ASMA clasif.', ['class' => 'col-sm col-form-label']) !!}
@@ -25,11 +25,21 @@
             {!! Form::select('epocControl', ['Logra Control', 'No Logra Control', 'No Evaluado'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción']) !!}
         </div>
     </div>
+    <div class="form-group row my-2 ml-2">
+        {!! Form::label('otras_enf_label', 'Otras Enf. respiratorias cronicas', ['class' => 'col-sm-3 col-form-label']) !!}
+        <div class="col-sm-9">
+            {!! Form::select('otras_enf', ['Otras respiratorias cronicas', 'Oxigeno dependiente', 'Asistencia ventilatoria no invasiva o invasiva', 'Fibrosis quistica'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción']) !!}
+        </div>
+    </div>
 
     <div class="form-group row my-2 ml-2">
-        {!! Form::label('espirometrialabel', 'Espirometria vigente (menor a 1 año)', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
-        <div class="col-sm-9">
-            {!! Form::checkbox('espirometriaVigente', 1, null, ['class' => 'form-control my-2']) !!}
+        {!! Form::label('espirometrialabel', 'Espirometria vigente (Menor un año)', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
+        <div class="col-sm-3">
+            {!! Form::checkbox('espirometriaVigente', 1, null, ['class' => 'form-control my-2 espirometria']) !!}
+        </div>
+        {!! Form::label('espirometrialabel', 'Espirometria NO vigente', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
+        <div class="col-sm-3">
+            {!! Form::checkbox('espirometriaVigente', 2, null, ['class' => 'form-control my-2 espirometria']) !!}
         </div>
     </div>
 </div>

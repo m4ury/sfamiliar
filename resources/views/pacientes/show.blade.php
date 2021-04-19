@@ -12,7 +12,7 @@
             </div>
             <div class="card-body">
                 <div class="form-group row">
-                    <h4 class="col-sm-2 col-form">{{ $paciente->fullName() }}</h4>
+                    <h4 class="col-sm-2 col-form text-nowrap">{{ $paciente->fullName() }}</h4>
                     <div class="col-sm text-right">
                         <a class="btn bg-gradient-primary btn-sm" title="Editar"
                            href="{{ route('pacientes.edit', $paciente->id) }}"> Editar Paciente <i class="fas fa-pen mx-2"></i>

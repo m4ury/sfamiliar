@@ -73,8 +73,7 @@
 
 @section('js')
     <script>
-
-        $("#Enfermera").hide();
+        $('#Enfermera, #Kine, #Medico').hide();
         $('#tipo').select2({
             theme: "classic",
             width: '100%',
@@ -104,12 +103,64 @@
         });
         $("#rac_vigente").removeAttr("checked");
 
-        $('select').change(function () {
-            if ($(this).val() != "Enfermera") {
-                $("#Enfermera").hide();
-            } else if ($(this).val() == "Enfermera") {
-                $('#Enfermera').show()
+        $('#tipo').change(function () {
+            var selection = $('#tipo').val();
+            $('#Enfermera, #Kine, #Medico').hide();
+            switch (selection) {
+                case 'Enfermera':
+                    $('#Enfermera').show();
+                    $('#Kine').hide();
+                    break;
+                case 'Kinesiologo':
+                    $('#Kine').show();
+                    break;
+                case 'Medico':
+                    $('#Enfermera').hide();
+                    $('#Kine, #Medico').show();
+                    break;
             }
-        })
+        });
+        $('input.espirometria').on('change', function() {
+            $('input.espirometria').not(this).prop('checked', false);
+        });
+        $('input.rac-vigente').on('change', function() {
+            $('input.rac-vigente').not(this).prop('checked', false);
+        });
+        $('input.pa_14090').on('change', function() {
+            $('input.pa_14090').not(this).prop('checked', false);
+        });
+        $('input.pa_160100').on('change', function() {
+            $('input.pa_160100').not(this).prop('checked', false);
+        });
+        $('input.estatinas').on('change', function() {
+            $('input.estatinas').not(this).prop('checked', false);
+        });
+        $('input.check').on('change', function() {
+            $('input.check').not(this).prop('checked', false);
+        });
+        $('input.check1').on('change', function() {
+            $('input.check1').not(this).prop('checked', false);
+        });
+        $('input.check2').on('change', function() {
+            $('input.check2').not(this).prop('checked', false);
+        });
+        $('input.check3').on('change', function() {
+            $('input.check3').not(this).prop('checked', false);
+        });
+        $('input.check4').on('change', function() {
+            $('input.check4').not(this).prop('checked', false);
+        });
+        $('input.check5').on('change', function() {
+            $('input.check5').not(this).prop('checked', false);
+        });
+        $('input.check6').on('change', function() {
+            $('input.check6').not(this).prop('checked', false);
+        });
+        $('input.check7').on('change', function() {
+            $('input.check7').not(this).prop('checked', false);
+        });
+        $('input.check8').on('change', function() {
+            $('input.check8').not(this).prop('checked', false);
+        });
     </script>
 @endsection

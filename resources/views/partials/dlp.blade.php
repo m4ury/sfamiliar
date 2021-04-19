@@ -1,4 +1,4 @@
-<div class="card card-purple card-outline mb-3">
+<div class="card card-purple card-outline mb-3" id="Medico">
     <div class="card-header text-bold text-purple">DISLIPIDEMIA</div>
     <div class="form-group row my-2 ml-2">
         {!! Form::label('ldl_label', 'LDL', ['class' => 'col-sm col-form-label px-3']) !!}

@@ -19,7 +19,7 @@ class Control extends Model
     }
 
     public function pa140(){
-        return $this->with('paciente')->get();
+        return $this->with('paciente')->latest('fecha_control')->get();
     }
 
 }

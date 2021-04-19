@@ -12,8 +12,8 @@
                         @method('PUT')
                         <div class="form-group row">
                             {!! Form::label('rut', 'Rut', ['class' => 'col-sm-2 col-form-label']) !!}
-                            <div class="col-sm-6">
-                                {!! Form::text('rut', $paciente->rut, ['class' => 'form-control
+                            <div class="col-sm-5">
+                                {!! Form::text('rut', old('rut')?:$paciente->rut, ['class' => 'form-control
                                 form-control-sm'.($errors->has('rut')
                                 ? ' is-invalid' :
                                 old('rut')), 'placeholder' =>
@@ -22,6 +22,15 @@
                                     <span class="invalid-feedback">
                                 <strong>{{ $errors->first('rut') }}</strong>
                             </span>
+                                @endif
+                            </div>
+                            <div class="col-sm-5">
+                                {!! Form::number('ficha',$paciente->ficha, ['class' => 'form-control form-control-sm'.($errors->has('ficha')
+                                ? ' is-invalid' : old('ficha')), 'placeholder' => 'Nº Ficha']) !!}
+                                @if ($errors->has('ficha'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('ficha') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                         </div>
@@ -70,7 +79,7 @@
                             </div>
                         <!--  <div class="col-sm-5">
                                 {!! Form::select('sexo', array('Femenino' => 'Femenino', 'Masculino' => 'Masculino', 'Otro' => 'Otro'), $paciente->sexo, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción...']) !!}
-                            </div> -->
+                                </div> -->
                         </div>
                         <div class="form-group row">
                             {!! Form::label('telefono', 'Télefono.', ['class' => 'col-sm-2 col-form-label']) !!}

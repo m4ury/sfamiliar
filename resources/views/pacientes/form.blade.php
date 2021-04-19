@@ -1,12 +1,21 @@
 {{ Form::open(['action' => 'PacienteController@store', 'method' => 'POST', 'class' => 'form-horizontal']) }}
 <div class="form-group row">
     {!! Form::label('rut', 'Rut', ['class' => 'col-sm-2 col-form-label']) !!}
-    <div class="col-sm-6">
+    <div class="col-sm-5">
         {!! Form::text('rut', null, ['class' => 'form-control form-control-sm'.($errors->has('rut') ? ' is-invalid' : ''), 'placeholder' =>
         'Ej.: 16000000-K']) !!}
         @if ($errors->has('rut'))
             <span class="invalid-feedback">
                <strong>{{ $errors->first('rut') }}</strong>
+            </span>
+        @endif
+    </div>
+    <div class="col-sm-5">
+        {!! Form::number('ficha',null, ['class' => 'form-control form-control-sm'.($errors->has('ficha') ? '
+        is-invalid' : ''), 'placeholder' => 'Nº Ficha']) !!}
+        @if ($errors->has('ficha'))
+            <span class="invalid-feedback">
+               <strong>{{ $errors->first('ficha') }}</strong>
             </span>
         @endif
     </div>
@@ -18,8 +27,8 @@
     'placeholder' => 'Ingrese Nombres']) !!}
         @if ($errors->has('nombres'))
             <span class="invalid-feedback">
-                          <strong>{{ $errors->first('nombres') }}</strong>
-                        </span>
+                <strong>{{ $errors->first('nombres') }}</strong>
+            </span>
         @endif
     </div>
 </div>

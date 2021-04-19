@@ -27,9 +27,9 @@ class PacienteController extends Controller
 
     public function store(PacienteRequest $request)
     {
-        $paciente = Paciente::create($request->all());
+        Paciente::create($request->all());
         Alert::success('Nuevo Paciente ha sido cread@ con exito');
-        return redirect()->route('pacientes.index', compact('paciente'));
+        return redirect('pacientes')->withSuccess('Paciente Creado con exito!');
     }
 
     public function show($id)
@@ -48,12 +48,11 @@ class PacienteController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $validator = Validator::make($request->all(), [
             'rut' => 'cl_rut',
             'nombres' => 'string|min:3',
             'apellidoP' => 'string|min:3',
-            'direccion' => 'string|min:4|required'
+            'ficha' => 'unique:pacientes',
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();

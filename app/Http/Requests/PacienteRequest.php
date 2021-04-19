@@ -17,6 +17,8 @@ class PacienteRequest extends FormRequest
             'rut' => 'required|unique:pacientes|cl_rut',
             'nombres' => 'required|string|min:3',
             'apellidoP' => 'required|string|min:3',
+            'direccion' => 'required|string|min:3',
+            'ficha' => 'unique:pacientes'
         ];
     }
 }

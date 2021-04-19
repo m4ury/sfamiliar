@@ -577,7 +577,7 @@ class EstadisticaController extends Controller
     public function seccionB()
     {
         $control = new Control;
-        $pa140_90 = $control->with('paciente')->where('pa_menor_140_90', '=', 1)->latest()->count();
+        $pa140_90 = $control->with('paciente')->where('pa_menor_140_90', '=', 1)->latest('fecha_control')->count();
         dd($pa140_90);
 
         return view('estadisticas.seccion-b');

@@ -88,12 +88,6 @@
                             {{ "80 y Más" }}
                         @endswitch
                     </td>
-                    {{--<td>
-                        <a class="btn bg-gradient-secondary btn-sm" data-toggle="tooltip" data-placement="bottom"
-                           title="Editar"
-                           href="{{ route('pacientes.edit', $paciente->id) }}"><i class="fas fa-pen"></i>
-                        </a>
-                    </td>--}}
                 </tr>
             @endforeach
             </tbody>
