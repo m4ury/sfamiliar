@@ -142,7 +142,33 @@ class Paciente extends Model
     public function pa140(){
         return $this->join('controls', 'controls.paciente_id', 'pacientes.id')
             ->where('controls.pa_menor_140_90', '=', 1)
-            ->distinct('controls.fecha_control', 'pacientes.id', 'controls.paciente_id', 'controls.pa_menor_140_90')
+            ->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))
+            ->latest('controls.fecha_control');
+    }
+    public function pa150(){
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')
+            ->where('controls.pa_menor_150_90', '=', 1)
+            ->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))
+            ->latest('controls.fecha_control');
+    }
+    public function hbac17(){
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')
+            ->where('controls.hba1cMenor7Porcent', '=', 1)
+            ->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))
+            ->latest('controls.fecha_control');
+    }
+    public function hbac18(){
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')
+            ->where('controls.hba1cMenor8Porcent', '=', 1)
+            ->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))
+            ->latest('controls.fecha_control');
+    }
+    public function hbac17Pa140Ldl100(){
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')
+            ->where('controls.pa_menor_140_90', '=', 1)
+            ->where('controls.hba1cMenor7Porcent', '=', 1)
+            ->where('controls.ldlMenor100', '=', 1)
+            ->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))
             ->latest('controls.fecha_control');
     }
 }

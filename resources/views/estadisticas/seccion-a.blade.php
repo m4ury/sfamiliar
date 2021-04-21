@@ -7,6 +7,10 @@
         <div class="card card-primary card-outline">
             <div class="card-body">
                 <h4 class="card-title text-bold mb-3">
+                    <a class="mx-3" href="{{ url('estadisticas') }}" title="Atras">
+                        <i class="fas fa-arrow-alt-circle-left" style="font-size: x-large"></i>
+                        Volver
+                    </a>
                     SECCIÓN A: PROGRAMA SALUD CARDIOVASCULAR
                     (PSCV)
                 </h4>
@@ -112,6 +116,7 @@
                             <th rowspan="4" style="vertical-align: middle">CLASIFICACION DEL RIESGO
                                 CARDIOVASCULAR
                             </th>
+                        <tr>
                             <th>BAJO</th>
                             <td>{{ $p_bajo }}</td>
                             <td>{{ $p_bajoM }}</td>

@@ -7,11 +7,15 @@
         <div class="card card-primary card-outline">
             <div class="card-body">
                 <h4 class="card-title text-bold mb-3">
+                    <a class="mx-3" href="{{ url('estadisticas') }}" title="Atras">
+                        <i class="fas fa-arrow-alt-circle-left" style="font-size: x-large"></i>
+                        Volver
+                    </a>
                     SECCIÓN C: VARIABLES DE SEGUIMIENTO DEL PSCV AL CORTE
                 </h4>
                 <div class="col-md-12 table-responsive">
                     <table class="table table-md-responsive table-bordered">
-                        <tr>
+                        <thead>
                         <tr>
                             <th class="text-center" colspan="2" rowspan="4">VARIABLES</th>
                             <th class="text-center" rowspan="3">TOTAL</th>
@@ -23,7 +27,6 @@
                             <th nowrap="">65 Y mas</th>
                             <th>Hombres</th>
                             <th>Mujeres</th>
-                        </tr>
                         </tr>
                         </thead>
                     </table>

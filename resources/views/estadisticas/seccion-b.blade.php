@@ -7,6 +7,10 @@
         <div class="card card-primary card-outline">
             <div class="card-body">
                 <h4 class="card-title text-bold mb-3">
+                    <a class="mx-3" href="{{ url('estadisticas') }}" title="Atras">
+                        <i class="fas fa-arrow-alt-circle-left" style="font-size: x-large"></i>
+                        Volver
+                    </a>
                     SECCIÓN B: METAS DE COMPENSACIÓN
                 </h4>
                 <div class="col-md-12 table-responsive">
@@ -107,42 +111,42 @@
                             <td>{{$pa140_7074F}}</td>
                             <td>{{$pa140_7579M}}</td>
                             <td>{{$pa140_7579F}}</td>
-                            <td>{{$pa140_80M}}</td>
-                            <td>{{$pa140_80F}}</td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
                         </tr>
                         <tr>
                             <th>PA < 150/90 mmHg</th>
-                            {{--<td>{{ $p_alto }}</td>
-                            <td>{{ $p_altoM }}</td>
-                            <td>{{ $p_altoF }}</td>
-                            <td>{{$alto_1519M}}</td>
-                            <td>{{$alto_1519F}}</td>
-                            <td>{{$alto_2024M}}</td>
-                            <td>{{$alto_2024F}}</td>
-                            <td>{{$alto_2529M}}</td>
-                            <td>{{$alto_2529F}}</td>
-                            <td>{{$alto_3034M}}</td>
-                            <td>{{$alto_3034F}}</td>
-                            <td>{{$alto_3539M}}</td>
-                            <td>{{$alto_3539F}}</td>
-                            <td>{{$alto_4044M}}</td>
-                            <td>{{$alto_4044F}}</td>
-                            <td>{{$alto_4549M}}</td>
-                            <td>{{$alto_4549F}}</td>
-                            <td>{{$alto_5054M}}</td>
-                            <td>{{$alto_5054F}}</td>
-                            <td>{{$alto_5559M}}</td>
-                            <td>{{$alto_5559F}}</td>
-                            <td>{{$alto_6064M}}</td>
-                            <td>{{$alto_6064F}}</td>
-                            <td>{{$alto_6569M}}</td>
-                            <td>{{$alto_6569F}}</td>
-                            <td>{{$alto_7074M}}</td>
-                            <td>{{$alto_7074F}}</td>
-                            <td>{{$alto_7579M}}</td>
-                            <td>{{$alto_7579F}}</td>
-                            <td>{{$alto_80M}}</td>
-                            <td>{{$alto_80F}}</td>--}}
+                            <td>{{ $pa150 }}</td>
+                            <td>{{ $pa150M }}</td>
+                            <td>{{ $pa150F }}</td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td>{{ $pa150M }}</td>
+                            <td>{{ $pa150F }}</td>
                         </tr>
                         <tr>
                         <th rowspan="5" style="vertical-align: middle">PERSONAS BAJO CONTROL POR DIABETES
@@ -150,105 +154,105 @@
                         </th>
                         <tr>
                             <th>HbA1C < 7%</th>
-                            {{--<td>{{ $hta }}</td>
-                            <td>{{ $htaM }}</td>
-                            <td>{{ $htaF }}</td>
-                            <td>{{$hta_1519M}}</td>
-                            <td>{{$hta_1519F}}</td>
-                            <td>{{$hta_2024M}}</td>
-                            <td>{{$hta_2024F}}</td>
-                            <td>{{$hta_2529M}}</td>
-                            <td>{{$hta_2529F}}</td>
-                            <td>{{$hta_3034M}}</td>
-                            <td>{{$hta_3034F}}</td>
-                            <td>{{$hta_3539M}}</td>
-                            <td>{{$hta_3539F}}</td>
-                            <td>{{$hta_4044M}}</td>
-                            <td>{{$hta_4044F}}</td>
-                            <td>{{$hta_4549M}}</td>
-                            <td>{{$hta_4549F}}</td>
-                            <td>{{$hta_5054M}}</td>
-                            <td>{{$hta_5054F}}</td>
-                            <td>{{$hta_5559M}}</td>
-                            <td>{{$hta_5559F}}</td>
-                            <td>{{$hta_6064M}}</td>
-                            <td>{{$hta_6064F}}</td>
-                            <td>{{$hta_6569M}}</td>
-                            <td>{{$hta_6569F}}</td>
-                            <td>{{$hta_7074M}}</td>
-                            <td>{{$hta_7074F}}</td>
-                            <td>{{$hta_7579M}}</td>
-                            <td>{{$hta_7579F}}</td>
-                            <td>{{$hta_80M}}</td>
-                            <td>{{$hta_80F}}</td>--}}
+                            <td>{{ $hbac17 }}</td>
+                            <td>{{ $hbac17M }}</td>
+                            <td>{{ $hbac17F }}</td>
+                            <td>{{$hbac17_1519M}}</td>
+                            <td>{{$hbac17_1519F}}</td>
+                            <td>{{$hbac17_2024M}}</td>
+                            <td>{{$hbac17_2024F}}</td>
+                            <td>{{$hbac17_2529M}}</td>
+                            <td>{{$hbac17_2529F}}</td>
+                            <td>{{$hbac17_3034M}}</td>
+                            <td>{{$hbac17_3034F}}</td>
+                            <td>{{$hbac17_3539M}}</td>
+                            <td>{{$hbac17_3539F}}</td>
+                            <td>{{$hbac17_4044M}}</td>
+                            <td>{{$hbac17_4044F}}</td>
+                            <td>{{$hbac17_4549M}}</td>
+                            <td>{{$hbac17_4549F}}</td>
+                            <td>{{$hbac17_5054M}}</td>
+                            <td>{{$hbac17_5054F}}</td>
+                            <td>{{$hbac17_5559M}}</td>
+                            <td>{{$hbac17_5559F}}</td>
+                            <td>{{$hbac17_6064M}}</td>
+                            <td>{{$hbac17_6064F}}</td>
+                            <td>{{$hbac17_6569M}}</td>
+                            <td>{{$hbac17_6569F}}</td>
+                            <td>{{$hbac17_7074M}}</td>
+                            <td>{{$hbac17_7074F}}</td>
+                            <td>{{$hbac17_7579M}}</td>
+                            <td>{{$hbac17_7579F}}</td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
                         </tr>
                         <tr>
                             <th>HbA1C < 8%</th>
-                            {{--<td>{{ $dm2 }}</td>
-                            <td>{{ $dm2M }}</td>
-                            <td>{{ $dm2F }}</td>
-                            <td>{{$dm2_1519M}}</td>
-                            <td>{{$dm2_1519F}}</td>
-                            <td>{{$dm2_2024M}}</td>
-                            <td>{{$dm2_2024F}}</td>
-                            <td>{{$dm2_2529M}}</td>
-                            <td>{{$dm2_2529F}}</td>
-                            <td>{{$dm2_3034M}}</td>
-                            <td>{{$dm2_3034F}}</td>
-                            <td>{{$dm2_3539M}}</td>
-                            <td>{{$dm2_3539F}}</td>
-                            <td>{{$dm2_4044M}}</td>
-                            <td>{{$dm2_4044F}}</td>
-                            <td>{{$dm2_4549M}}</td>
-                            <td>{{$dm2_4549F}}</td>
-                            <td>{{$dm2_5054M}}</td>
-                            <td>{{$dm2_5054F}}</td>
-                            <td>{{$dm2_5559M}}</td>
-                            <td>{{$dm2_5559F}}</td>
-                            <td>{{$dm2_6064M}}</td>
-                            <td>{{$dm2_6064F}}</td>
-                            <td>{{$dm2_6569M}}</td>
-                            <td>{{$dm2_6569F}}</td>
-                            <td>{{$dm2_7074M}}</td>
-                            <td>{{$dm2_7074F}}</td>
-                            <td>{{$dm2_7579M}}</td>
-                            <td>{{$dm2_7579F}}</td>
-                            <td>{{$dm2_80M}}</td>
-                            <td>{{$dm2_80F}}</td>--}}
+                            <td>{{ $hbac18 }}</td>
+                            <td>{{ $hbac18M }}</td>
+                            <td>{{ $hbac18F }}</td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td>{{ $hbac18M }}</td>
+                            <td>{{ $hbac18F }}</td>
                         </tr>
                         <tr>
                         <th>HbA1C < 7% - PA < 140/90mmHg y Colesterol LDL < 100 mg/dl</th>
-                            {{--<td>{{ $dlp }}</td>
-                            <td>{{ $dlpM }}</td>
-                            <td>{{ $dlpF }}</td>
-                            <td>{{$dlp_1519M}}</td>
-                            <td>{{$dlp_1519F}}</td>
-                            <td>{{$dlp_2024M}}</td>
-                            <td>{{$dlp_2024F}}</td>
-                            <td>{{$dlp_2529M}}</td>
-                            <td>{{$dlp_2529F}}</td>
-                            <td>{{$dlp_3034M}}</td>
-                            <td>{{$dlp_3034F}}</td>
-                            <td>{{$dlp_3539M}}</td>
-                            <td>{{$dlp_3539F}}</td>
-                            <td>{{$dlp_4044M}}</td>
-                            <td>{{$dlp_4044F}}</td>
-                            <td>{{$dlp_4549M}}</td>
-                            <td>{{$dlp_4549F}}</td>
-                            <td>{{$dlp_5054M}}</td>
-                            <td>{{$dlp_5054F}}</td>
-                            <td>{{$dlp_5559M}}</td>
-                            <td>{{$dlp_5559F}}</td>
-                            <td>{{$dlp_6064M}}</td>
-                            <td>{{$dlp_6064F}}</td>
-                            <td>{{$dlp_6569M}}</td>
-                            <td>{{$dlp_6569F}}</td>
-                            <td>{{$dlp_7074M}}</td>
-                            <td>{{$dlp_7074F}}</td>
-                            <td>{{$dlp_7579M}}</td>
-                            <td>{{$dlp_7579F}}</td>
-                            <td>{{$dlp_80M}}</td>
-                            <td>{{$dlp_80F}}</td>--}}
+                            <td>{{ $hbac17Pa140Ldl100 }}</td>
+                            <td>{{ $hbac17Pa140Ldl100M }}</td>
+                            <td>{{ $hbac17Pa140Ldl100F }}</td>
+                            <td>{{$hbac17Pa140Ldl100_1519M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_1519F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_2024M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_2024F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_2529M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_2529F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_3034M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_3034F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_3539M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_3539F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_4044M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_4044F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_4549M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_4549F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_5054M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_5054F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_5559M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_5559F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_6064M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_6064F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_6569M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_6569F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_7074M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_7074F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_7579M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_7579F}}</td>
+                            <td>{{$hbac17Pa140Ldl100_80M}}</td>
+                            <td>{{$hbac17Pa140Ldl100_80F}}</td>
                         </tr>
                         <tr>
                         <th nowrap="">COLESTEROL LDL < 100 mg/dL</th>
