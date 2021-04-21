@@ -138,4 +138,11 @@ class Paciente extends Model
             ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
             ->where('patologias.nombre_patologia', '=', 'tabaquismo');
     }
+
+    public function pa140(){
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')
+            ->where('controls.pa_menor_140_90', '=', 1)
+            ->distinct('controls.fecha_control', 'pacientes.id', 'controls.paciente_id', 'controls.pa_menor_140_90')
+            ->latest('controls.fecha_control');
+    }
 }

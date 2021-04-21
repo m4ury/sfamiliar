@@ -78,37 +78,37 @@
                             </th>
                         <tr>
                             <th>PA < 140/90 mmHg</th>
-                            {{--<td>{{ $p_moderado }}</td>
-                            <td>{{ $p_moderadoM }}</td>
-                            <td>{{ $p_moderadoF }}</td>
-                            <td>{{$mod_1519M}}</td>
-                            <td>{{$mod_1519F}}</td>
-                            <td>{{$mod_2024M}}</td>
-                            <td>{{$mod_2024F}}</td>
-                            <td>{{$mod_2529M}}</td>
-                            <td>{{$mod_2529F}}</td>
-                            <td>{{$mod_3034M}}</td>
-                            <td>{{$mod_3034F}}</td>
-                            <td>{{$mod_3539M}}</td>
-                            <td>{{$mod_3539F}}</td>
-                            <td>{{$mod_4044M}}</td>
-                            <td>{{$mod_4044F}}</td>
-                            <td>{{$mod_4549M}}</td>
-                            <td>{{$mod_4549F}}</td>
-                            <td>{{$mod_5054M}}</td>
-                            <td>{{$mod_5054F}}</td>
-                            <td>{{$mod_5559M}}</td>
-                            <td>{{$mod_5559F}}</td>
-                            <td>{{$mod_6064M}}</td>
-                            <td>{{$mod_6064F}}</td>
-                            <td>{{$mod_6569M}}</td>
-                            <td>{{$mod_6569F}}</td>
-                            <td>{{$mod_7074M}}</td>
-                            <td>{{$mod_7074F}}</td>
-                            <td>{{$mod_7579M}}</td>
-                            <td>{{$mod_7579F}}</td>
-                            <td>{{$mod_80M}}</td>
-                            <td>{{$mod_80F}}</td>--}}
+                            <td>{{ $pa140_90 }}</td>
+                            <td>{{ $pa140_90M }}</td>
+                            <td>{{ $pa140_90F }}</td>
+                            <td>{{$pa140_1519M}}</td>
+                            <td>{{$pa140_1519F}}</td>
+                            <td>{{$pa140_2024M}}</td>
+                            <td>{{$pa140_2024F}}</td>
+                            <td>{{$pa140_2529M}}</td>
+                            <td>{{$pa140_2529F}}</td>
+                            <td>{{$pa140_3034M}}</td>
+                            <td>{{$pa140_3034F}}</td>
+                            <td>{{$pa140_3539M}}</td>
+                            <td>{{$pa140_3539F}}</td>
+                            <td>{{$pa140_4044M}}</td>
+                            <td>{{$pa140_4044F}}</td>
+                            <td>{{$pa140_4549M}}</td>
+                            <td>{{$pa140_4549F}}</td>
+                            <td>{{$pa140_5054M}}</td>
+                            <td>{{$pa140_5054F}}</td>
+                            <td>{{$pa140_5559M}}</td>
+                            <td>{{$pa140_5559F}}</td>
+                            <td>{{$pa140_6064M}}</td>
+                            <td>{{$pa140_6064F}}</td>
+                            <td>{{$pa140_6569M}}</td>
+                            <td>{{$pa140_6569F}}</td>
+                            <td>{{$pa140_7074M}}</td>
+                            <td>{{$pa140_7074F}}</td>
+                            <td>{{$pa140_7579M}}</td>
+                            <td>{{$pa140_7579F}}</td>
+                            <td>{{$pa140_80M}}</td>
+                            <td>{{$pa140_80F}}</td>
                         </tr>
                         <tr>
                             <th>PA < 150/90 mmHg</th>

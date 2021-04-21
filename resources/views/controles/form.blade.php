@@ -162,5 +162,14 @@
         $('input.check8').on('change', function() {
             $('input.check8').not(this).prop('checked', false);
         });
+        $('input.check9').on('change', function() {
+            $('input.check9').not(this).prop('checked', false);
+        });
+        $('input.check10').on('change', function() {
+            $('input.check10').not(this).prop('checked', false);
+        });
+        $('input.check11').on('change', function() {
+            $('input.check11').not(this).prop('checked', false);
+        });
     </script>
 @endsection

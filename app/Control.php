@@ -18,8 +18,4 @@ class Control extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function pa140(){
-        return $this->with('paciente')->latest('fecha_control')->get();
-    }
-
 }

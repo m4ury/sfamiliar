@@ -66,25 +66,41 @@
     <div class="form-group row my-2 ml-2">
         {!! Form::label('ecgVigente_label', 'ECG Vigente (1 año)', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('ecgVigente', 1, null, ['class' => 'form-control my-2']) !!}
+            {!! Form::checkbox('ecgVigente', 1, null, ['class' => 'form-control my-2 check5']) !!}
+        </div>
+        {!! Form::label('ecgVigente_label', 'ECG NO Vigente', ['class' => 'col-sm-3 col-form-label']) !!}
+        <div class="col-sm-3">
+            {!! Form::checkbox('ecgVigente', 2, null, ['class' => 'form-control my-2 check5']) !!}
         </div>
     </div>
     <div class="form-group row my-2 ml-2">
-        {!! Form::label('usoInsulina_label', 'Uso Insulina', ['class' => 'col-sm-3 col-form-label']) !!}
+        {!! Form::label('usoInsulina_label', 'Uso Insulina SI', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('usoInsulina', 1, null, ['class' => 'form-control my-2']) !!}
+            {!! Form::checkbox('usoInsulina', 1, null, ['class' => 'form-control my-2 check6']) !!}
+        </div>
+        {!! Form::label('usoInsulina_label', 'Uso Insulina NO', ['class' => 'col-sm-3 col-form-label']) !!}
+        <div class="col-sm-3">
+            {!! Form::checkbox('usoInsulina', 2, null, ['class' => 'form-control my-2 check6']) !!}
         </div>
     </div>
     <div class="form-group row my-2 ml-2">
-        {!! Form::label('usoIecaAraII_label', 'Uso IECA/ARA II', ['class' => 'col-sm-3 col-form-label']) !!}
+        {!! Form::label('usoIecaAraII_label', 'Uso IECA/ARA II SI', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('usoIecaAraII', 1, null, ['class' => 'form-control my-2']) !!}
+            {!! Form::checkbox('usoIecaAraII', 1, null, ['class' => 'form-control my-2 check7']) !!}
+        </div>
+        {!! Form::label('usoIecaAraII_label', 'Uso IECA/ARA II NO', ['class' => 'col-sm-3 col-form-label']) !!}
+        <div class="col-sm-3">
+            {!! Form::checkbox('usoIecaAraII', 2, null, ['class' => 'form-control my-2 check7']) !!}
         </div>
     </div>
     <div class="form-group row my-2 ml-2">
         {!! Form::label('ldlVigente_label', 'LDL Vigente', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('ldlVigente', 1, null, ['class' => 'form-control my-2']) !!}
+            {!! Form::checkbox('ldlVigente', 1, null, ['class' => 'form-control my-2 check8']) !!}
+        </div>
+        {!! Form::label('ldlVigente_label', 'LDL NO Vigente', ['class' => 'col-sm-3 col-form-label']) !!}
+        <div class="col-sm-3">
+            {!! Form::checkbox('ldlVigente', 2, null, ['class' => 'form-control my-2 check8']) !!}
         </div>
     </div>
 </div>
@@ -92,19 +108,31 @@
     <div class="form-group row my-2 ml-2">
         {!! Form::label('fondoOjoVigente_label', 'Fondo de ojo Vigente (1 año)', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('fondoOjoVigente', 1, null, ['class' => 'form-control my-2']) !!}
+            {!! Form::checkbox('fondoOjoVigente', 1, null, ['class' => 'form-control my-2 check9']) !!}
+        </div>
+        {!! Form::label('fondoOjoVigente_label', 'Fondo de ojo NO Vigente', ['class' => 'col-sm-3 col-form-label']) !!}
+        <div class="col-sm-3">
+            {!! Form::checkbox('fondoOjoVigente', 2, null, ['class' => 'form-control my-2 check9']) !!}
         </div>
     </div>
     <div class="form-group row my-2 ml-2">
         {!! Form::label('amputacionPieDiabetico_label', 'Amputacion Pie diabetico', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('amputacionPieDiabetico', 1, null, ['class' => 'form-control my-2']) !!}
+            {!! Form::checkbox('amputacionPieDiabetico', 1, null, ['class' => 'form-control my-2 check10']) !!}
+        </div>
+        {!! Form::label('amputacionPieDiabetico_label', 'NO Amputacion Pie diabetico', ['class' => 'col-sm-3 col-form-label']) !!}
+        <div class="col-sm-3">
+            {!! Form::checkbox('amputacionPieDiabetico', 2, null, ['class' => 'form-control my-2 check10']) !!}
         </div>
     </div>
     <div class="form-group row my-2 ml-2">
         {!! Form::label('controlPodologico_alDia_label', 'Control Podologico al dia', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('controlPodologico_alDia', 1, null, ['class' => 'form-control my-2']) !!}
+            {!! Form::checkbox('controlPodologico_alDia', 1, null, ['class' => 'form-control my-2 check11']) !!}
+        </div>
+        {!! Form::label('controlPodologico_alDia_label', 'Control Podologico NO al dia', ['class' => 'col-sm-3 col-form-label']) !!}
+        <div class="col-sm-3">
+            {!! Form::checkbox('controlPodologico_alDia', 2, null, ['class' => 'form-control my-2 check11']) !!}
         </div>
     </div>
     <div class="form-group row my-2 ml-2">
