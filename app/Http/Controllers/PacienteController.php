@@ -52,7 +52,6 @@ class PacienteController extends Controller
             'rut' => 'cl_rut',
             'nombres' => 'string|min:3',
             'apellidoP' => 'string|min:3',
-            'ficha' => 'unique:pacientes',
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();

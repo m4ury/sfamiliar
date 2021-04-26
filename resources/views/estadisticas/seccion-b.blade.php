@@ -256,37 +256,37 @@
                         </tr>
                         <tr>
                         <th nowrap="">COLESTEROL LDL < 100 mg/dL</th>
-                            {{--<td>{{ $tbq }}</td>
-                            <td>{{ $tbqM }}</td>
-                            <td>{{ $tbqF }}</td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td class="bg-gradient-gray"></td>
-                            <td>{{$tbq_5559M}}</td>
-                            <td>{{$tbq_5559F}}</td>
-                            <td>{{$tbq_6064M}}</td>
-                            <td>{{$tbq_6064F}}</td>
-                            <td>{{$tbq_6569M}}</td>
-                            <td>{{$tbq_6569F}}</td>
-                            <td>{{$tbq_7074M}}</td>
-                            <td>{{$tbq_7074F}}</td>
-                            <td>{{$tbq_7579M}}</td>
-                            <td>{{$tbq_7579F}}</td>
-                            <td>{{$tbq_80M}}</td>
-                            <td>{{$tbq_80F}}</td>--}}
+                            <td>{{ $ldl100 }}</td>
+                            <td>{{ $ldl100M }}</td>
+                            <td>{{ $ldl100F }}</td>
+                            <td>{{$ldl100_1519M}}</td>
+                            <td>{{$ldl100_1519F}}</td>
+                            <td>{{$ldl100_2024M}}</td>
+                            <td>{{$ldl100_2024F}}</td>
+                            <td>{{$ldl100_2529M}}</td>
+                            <td>{{$ldl100_2529F}}</td>
+                            <td>{{$ldl100_3034M}}</td>
+                            <td>{{$ldl100_3034F}}</td>
+                            <td>{{$ldl100_3539M}}</td>
+                            <td>{{$ldl100_3539F}}</td>
+                            <td>{{$ldl100_4044M}}</td>
+                            <td>{{$ldl100_4044F}}</td>
+                            <td>{{$ldl100_4549M}}</td>
+                            <td>{{$ldl100_4549F}}</td>
+                            <td>{{$ldl100_5054M}}</td>
+                            <td>{{$ldl100_5054F}}</td>
+                            <td>{{$ldl100_5559M}}</td>
+                            <td>{{$ldl100_5559F}}</td>
+                            <td>{{$ldl100_6064M}}</td>
+                            <td>{{$ldl100_6064F}}</td>
+                            <td>{{$ldl100_6569M}}</td>
+                            <td>{{$ldl100_6569F}}</td>
+                            <td>{{$ldl100_7074M}}</td>
+                            <td>{{$ldl100_7074F}}</td>
+                            <td>{{$ldl100_7579M}}</td>
+                            <td>{{$ldl100_7579F}}</td>
+                            <td>{{$ldl100_80M}}</td>
+                            <td>{{$ldl100_80F}}</td>
                         </tr>
                         <tr>
                             <th rowspan="2" style="vertical-align: middle">PERSONAS BAJO CONTROL con

@@ -37,9 +37,7 @@ class Paciente extends Model
 
     public function scopeSearch($query, $q)
     {
-        if ($q)
-            return $query->where('sexo', 'LIKE', "%$q%")
-                ->orWhere('sector', 'LIKE', "%$q%");
+        if ($q) return $query->where('sexo', 'LIKE', "%$q%")->orWhere('sector', 'LIKE', "%$q%");
     }
 
     public function rcv_bajo()
@@ -94,81 +92,61 @@ class Paciente extends Model
 
     public function hta()
     {
-        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'hta');
+        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')->where('patologias.nombre_patologia', '=', 'hta');
     }
 
     public function dm2()
     {
-        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'dm2');
+        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')->where('patologias.nombre_patologia', '=', 'dm2');
     }
 
     public function dlp()
     {
-        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'dlp');
+        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')->where('patologias.nombre_patologia', '=', 'dlp');
     }
 
     public function iam()
     {
-        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'antecedente iam');
+        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')->where('patologias.nombre_patologia', '=', 'antecedente iam');
     }
+
     public function acv()
     {
-        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'antecedente acv');
+        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')->where('patologias.nombre_patologia', '=', 'antecedente acv');
     }
 
     public function tbq()
     {
-        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
-            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
-            ->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')
-            ->where('patologias.nombre_patologia', '=', 'tabaquismo');
+        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')->where('patologias.nombre_patologia', '=', 'tabaquismo');
     }
 
-    public function pa140(){
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')
-            ->where('controls.pa_menor_140_90', '=', 1)
-            ->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))
-            ->latest('controls.fecha_control');
+    public function pa140()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.pa_menor_140_90', '=', 1)->latest(max(['controls.fecha_control']));
     }
-    public function pa150(){
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')
-            ->where('controls.pa_menor_150_90', '=', 1)
-            ->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))
-            ->latest('controls.fecha_control');
+
+    public function pa150()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.pa_menor_150_90', '=', 1)->latest(max('pacientes.rut','controls.fecha_control'));
     }
-    public function hbac17(){
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')
-            ->where('controls.hba1cMenor7Porcent', '=', 1)
-            ->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))
-            ->latest('controls.fecha_control');
+
+    public function hbac17()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.hba1cMenor7Porcent', '=', 1)->where('controls.last','=',1)->latest('controls.fecha_control');
     }
-    public function hbac18(){
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')
-            ->where('controls.hba1cMenor8Porcent', '=', 1)
-            ->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))
-            ->latest('controls.fecha_control');
+
+    public function hbac18()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.hba1cMenor8Porcent', '=', 1)->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))->latest('controls.fecha_control');
     }
-    public function hbac17Pa140Ldl100(){
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')
-            ->where('controls.pa_menor_140_90', '=', 1)
-            ->where('controls.hba1cMenor7Porcent', '=', 1)
-            ->where('controls.ldlMenor100', '=', 1)
-            ->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))
-            ->latest('controls.fecha_control');
+
+    public function hbac17Pa140Ldl100()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.pa_menor_140_90', '=', 1)->where('controls.hba1cMenor7Porcent', '=', 1)->where('controls.ldlMenor100', '=', 1)->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))->latest('controls.fecha_control');
+    }
+
+    public function ldl100()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.ldlMenor100', '=', 1)->distinct(max('controls.fecha_control', 'controls.paciente_id', 'pacientes.id'))->latest('controls.fecha_control');
     }
 }

@@ -258,11 +258,12 @@ return [
             'can' => 'ver-patologias'
         ],
         //['header' => 'Controles'],
-        /*[
+        [
             'text' => 'Controles',
             'route' => 'controles-all',
             'icon' => 'fas fa-fw fa-hospital-user text-info',
-        ],*/
+            'can' => 'controles-all'
+        ],
         [
             'text' => 'Estadisticas',
             'route' => 'estadisticas',
@@ -483,11 +484,11 @@ return [
         'Sweetalert2' => [
             'active' => true,
             'files' => [
-                [
+                /*[
                     'type' => 'js',
                     'asset' => true,
                     'location' => 'vendor/sweetalert2/sweetalert2.all.min.js',
-                ],
+                ],*/
                 [
                     'type' => 'css',
                     'asset' => true,

@@ -38,5 +38,12 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+
+        Gate::define('controles-all', function ($user){
+            if ($user->type == 'admin' || $user->type == 'enfermera'){
+                return true;
+            }
+            return false;
+        });
     }
 }

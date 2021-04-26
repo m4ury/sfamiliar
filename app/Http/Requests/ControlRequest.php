@@ -15,8 +15,9 @@ class ControlRequest extends FormRequest
     {
         return [
             'tipo_control' => 'required',
+            'fecha_control' => 'required',
             'peso_actual' => 'required|numeric|min:1',
-            'talla_actual' => 'required|numeric|min:1'
+            'talla_actual' => 'required|numeric|min:1',
         ];
     }
 }
