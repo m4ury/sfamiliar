@@ -578,10 +578,9 @@ class EstadisticaController extends Controller
     public function seccionB()
     {
         $pacientes = new Paciente;
-        //dd($pacientes->pa140()->limit(1));
-        //pa 140 90
-        $pa140_90 = $pacientes->pa140()->get()->where('grupo', '>', 14)->count();
-        
+
+        $pa140_90 = $pacientes->pa140()->get()->where('grupo', '>', 14)->count(distinct('controls.fecha_control', 'controls.paciente_id'));
+
         $pa140_90M = $pacientes->pa140()->get()->where('grupo', '>', 14)->where('sexo', 'Masculino')->count();
         $pa140OriginM = $pacientes->pa140()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
         $pa140_1519M = $pacientes->pa140()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Masculino')->count();
@@ -613,18 +612,18 @@ class EstadisticaController extends Controller
         $pa140_6569F = $pacientes->pa140()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->count();
         $pa140_7074F = $pacientes->pa140()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->count();
         $pa140_7579F = $pacientes->pa140()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->count();
-        
+
         //pa 150 90 +80
         $pa150 = $pacientes->pa150()->get()->where('grupo', '>', 79)->count();
         $pa150M = $pacientes->pa150()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
         $pa150OriginM = $pacientes->pa150()->where('pacientes.sexo', '=', 'masculino')->where('pueblo_originario', '=', 1)->count();
-        
+
         $pa150F = $pacientes->pa150()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->count();
         $pa150OriginF = $pacientes->pa150()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
-        
+
         //hba1c 7%
         $hbac17 = $pacientes->hbac17()->get()->where('grupo', '>', 14)->count();
-        
+
         $hbac17M = $pacientes->hbac17()->get()->where('grupo', '>', 14)->where('sexo', 'Masculino')->count();
         $hbac17OriginM = $pacientes->hbac17()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
         $hbac17_1519M = $pacientes->hbac17()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Masculino')->count();

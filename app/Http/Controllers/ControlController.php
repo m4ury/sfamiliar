@@ -57,12 +57,12 @@ class ControlController extends Controller
     {
         $control = Control::findOrFail($id);
         $control->update($request->all());
-        return response(['data' => $control], 200);
+        return redirect('controles-all')->withSuccess('Control actualizado con exito!');
     }
 
     public function destroy($id)
     {
         Control::destroy($id);
-        return response(['data' => null], 204);
+        return redirect('controles-all')->withErrors('Control eliminado con exito!');
     }
 }

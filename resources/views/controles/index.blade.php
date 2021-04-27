@@ -17,6 +17,7 @@
                 <th>IMC</th>
                 <th>Est. Nutricional</th>
                 <th>Observacion</th>
+                <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -32,11 +33,13 @@
                     <td>{{ $control->imc }}</td>
                     <td>{{$control->imc_resultado}}</td>
                     <td>{{$control->pluck('fecha_control')->last()}}</td>
-                    {{--<td>
-                        <a class="btn bg-gradient-secondary btn-sm disabled" data-toggle="tooltip"
-                           data-placement="bottom"
-                           title="Editar"
-                           href="{{ route('controles.edit', $control->id) }}"><i class="fas fa-pen"></i></a></td>--}}
+                    {!! Form::open(['route' => ['controles.destroy', $control->id], 'method' => 'DELETE']) !!}
+                    <td><a class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top"
+                           title="Editar" href="{{ url('controles/'.$control->id.'/edit') }}"><i
+                                class="fas fa-pen"></i></a>
+                        {!! Form::button('<i class="fas fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => 'Eliminar','onclick'=>'return confirm("seguro desea eliminar esta Patologia?")'] ) !!}
+                        {!! Form::close() !!}
+                    </td>
                 </tr>
             @endforeach
             </tbody>

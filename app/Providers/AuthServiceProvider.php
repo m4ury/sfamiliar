@@ -40,7 +40,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('controles-all', function ($user){
-            if ($user->type == 'admin' || $user->type == 'enfermera'){
+            if ($user->type == 'admin'){
                 return true;
             }
             return false;
