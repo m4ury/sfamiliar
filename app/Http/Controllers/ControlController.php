@@ -53,6 +53,14 @@ class ControlController extends Controller
         return response(['data', $control], 200);
     }
 
+
+    public function edit($id)
+    {
+        $control = Control::findOrFail($id);
+        return view('controles.edit', compact('control'));
+    }
+    
+    
     public function update(Request $request, $id)
     {
         $control = Control::findOrFail($id);

@@ -294,71 +294,71 @@
                                 Enfermedad Cardiovascular (ECV)
                             </th>
                             <th nowrap="">En tratamiento con Acido Acetilsalicílico</th>
-                            {{--<td>{{ $s_erc }}</td>
-                            <td>{{ $s_ercM }}</td>
-                            <td>{{ $s_ercF }}</td>
-                            <td>{{$s_erc_1519M}}</td>
-                            <td>{{$s_erc_1519F}}</td>
-                            <td>{{$s_erc_2024M}}</td>
-                            <td>{{$s_erc_2024F}}</td>
-                            <td>{{$s_erc_2529M}}</td>
-                            <td>{{$s_erc_2529F}}</td>
-                            <td>{{$s_erc_3034M}}</td>
-                            <td>{{$s_erc_3034F}}</td>
-                            <td>{{$s_erc_3539M}}</td>
-                            <td>{{$s_erc_3539F}}</td>
-                            <td>{{$s_erc_4044M}}</td>
-                            <td>{{$s_erc_4044F}}</td>
-                            <td>{{$s_erc_4549M}}</td>
-                            <td>{{$s_erc_4549F}}</td>
-                            <td>{{$s_erc_5054M}}</td>
-                            <td>{{$s_erc_5054F}}</td>
-                            <td>{{$s_erc_5559M}}</td>
-                            <td>{{$s_erc_5559F}}</td>
-                            <td>{{$s_erc_6064M}}</td>
-                            <td>{{$s_erc_6064F}}</td>
-                            <td>{{$s_erc_6569M}}</td>
-                            <td>{{$s_erc_6569F}}</td>
-                            <td>{{$s_erc_7074M}}</td>
-                            <td>{{$s_erc_7074F}}</td>
-                            <td>{{$s_erc_7579M}}</td>
-                            <td>{{$s_erc_7579F}}</td>
-                            <td>{{$s_erc_80M}}</td>
-                            <td>{{$s_erc_80F}}</td>--}}
+                            <td>{{ $aspirinas }}</td>
+                            <td>{{ $aspirinasM }}</td>
+                            <td>{{ $aspirinasF }}</td>
+                            <td>{{$aspirinas_1519M}}</td>
+                            <td>{{$aspirinas_1519F}}</td>
+                            <td>{{$aspirinas_2024M}}</td>
+                            <td>{{$aspirinas_2024F}}</td>
+                            <td>{{$aspirinas_2529M}}</td>
+                            <td>{{$aspirinas_2529F}}</td>
+                            <td>{{$aspirinas_3034M}}</td>
+                            <td>{{$aspirinas_3034F}}</td>
+                            <td>{{$aspirinas_3539M}}</td>
+                            <td>{{$aspirinas_3539F}}</td>
+                            <td>{{$aspirinas_4044M}}</td>
+                            <td>{{$aspirinas_4044F}}</td>
+                            <td>{{$aspirinas_4549M}}</td>
+                            <td>{{$aspirinas_4549F}}</td>
+                            <td>{{$aspirinas_5054M}}</td>
+                            <td>{{$aspirinas_5054F}}</td>
+                            <td>{{$aspirinas_5559M}}</td>
+                            <td>{{$aspirinas_5559F}}</td>
+                            <td>{{$aspirinas_6064M}}</td>
+                            <td>{{$aspirinas_6064F}}</td>
+                            <td>{{$aspirinas_6569M}}</td>
+                            <td>{{$aspirinas_6569F}}</td>
+                            <td>{{$aspirinas_7074M}}</td>
+                            <td>{{$aspirinas_7074F}}</td>
+                            <td>{{$aspirinas_7579M}}</td>
+                            <td>{{$aspirinas_7579F}}</td>
+                            <td>{{$aspirinas_80M}}</td>
+                            <td>{{$aspirinas_80F}}</td>
                         </tr>
                         <tr>
                             <th nowrap="">En tratamiento con Estatina</th>
-                            {{--<td>{{ $ercI_II }}</td>
-                            <td>{{ $ercI_IIM }}</td>
-                            <td>{{ $ercI_IIF }}</td>
-                            <td>{{$ercI_II_1519M}}</td>
-                            <td>{{$ercI_II_1519F}}</td>
-                            <td>{{$ercI_II_2024M}}</td>
-                            <td>{{$ercI_II_2024F}}</td>
-                            <td>{{$ercI_II_2529M}}</td>
-                            <td>{{$ercI_II_2529F}}</td>
-                            <td>{{$ercI_II_3034M}}</td>
-                            <td>{{$ercI_II_3034F}}</td>
-                            <td>{{$ercI_II_3539M}}</td>
-                            <td>{{$ercI_II_3539F}}</td>
-                            <td>{{$ercI_II_4044M}}</td>
-                            <td>{{$ercI_II_4044F}}</td>
-                            <td>{{$ercI_II_4549M}}</td>
-                            <td>{{$ercI_II_4549F}}</td>
-                            <td>{{$ercI_II_5054M}}</td>
-                            <td>{{$ercI_II_5054F}}</td>
-                            <td>{{$ercI_II_5559M}}</td>
-                            <td>{{$ercI_II_5559F}}</td>
-                            <td>{{$ercI_II_6064M}}</td>
-                            <td>{{$ercI_II_6064F}}</td>
-                            <td>{{$ercI_II_6569M}}</td>
-                            <td>{{$ercI_II_6569F}}</td>
-                            <td>{{$ercI_II_7074M}}</td>
-                            <td>{{$ercI_II_7074F}}</td>
-                            <td>{{$ercI_II_7579M}}</td>
-                            <td>{{$ercI_II_7579F}}</td>
-                            <td>{{$ercI_II_80M}}</td>
-                            <td>{{$ercI_II_80F}}</td>--}}
+                            <td>{{ $estatinas }}</td>
+                            <td>{{ $estatinasM }}</td>
+                            <td>{{ $estatinasF }}</td>
+                            <td>{{$estatinas_1519M}}</td>
+                            <td>{{$estatinas_1519F}}</td>
+                            <td>{{$estatinas_2024M}}</td>
+                            <td>{{$estatinas_2024F}}</td>
+                            <td>{{$estatinas_2529M}}</td>
+                            <td>{{$estatinas_2529F}}</td>
+                            <td>{{$estatinas_3034M}}</td>
+                            <td>{{$estatinas_3034F}}</td>
+                            <td>{{$estatinas_3539M}}</td>
+                            <td>{{$estatinas_3539F}}</td>
+                            <td>{{$estatinas_4044M}}</td>
+                            <td>{{$estatinas_4044F}}</td>
+                            <td>{{$estatinas_4549M}}</td>
+                            <td>{{$estatinas_4549F}}</td>
+                            <td>{{$estatinas_5054M}}</td>
+                            <td>{{$estatinas_5054F}}</td>
+                            <td>{{$estatinas_5559M}}</td>
+                            <td>{{$estatinas_5559F}}</td>
+                            <td>{{$estatinas_6064M}}</td>
+                            <td>{{$estatinas_6064F}}</td>
+                            <td>{{$estatinas_6569M}}</td>
+                            <td>{{$estatinas_6569F}}</td>
+                            <td>{{$estatinas_7074M}}</td>
+                            <td>{{$estatinas_7074F}}</td>
+                            <td>{{$estatinas_7579M}}</td>
+                            <td>{{$estatinas_7579F}}</td>
+                            <td>{{$estatinas_80M}}</td>
+                            <td>{{$estatinas_80F}}</td>
                         </tr>
                         </thead>
                     </table>

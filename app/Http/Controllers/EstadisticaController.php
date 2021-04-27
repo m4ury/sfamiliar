@@ -579,7 +579,7 @@ class EstadisticaController extends Controller
     {
         $pacientes = new Paciente;
 
-        $pa140_90 = $pacientes->pa140()->get()->where('grupo', '>', 14)->count(distinct('controls.fecha_control', 'controls.paciente_id'));
+        $pa140_90 = $pacientes->pa140()->get()->where('grupo', '>', 14)->count();
 
         $pa140_90M = $pacientes->pa140()->get()->where('grupo', '>', 14)->where('sexo', 'Masculino')->count();
         $pa140OriginM = $pacientes->pa140()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
@@ -737,12 +737,88 @@ class EstadisticaController extends Controller
         $ldl100_7579M = $pacientes->ldl100()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->count();
         $ldl100_80M = $pacientes->ldl100()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
 
+
+        $estatinas = $pacientes->estatinas()->count();
+        $estatinasF = $pacientes->estatinas()->where('pacientes.sexo', '=', 'femenino')->count();
+        $estatinasOriginF = $pacientes->estatinas()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $estatinas_1519F = $pacientes->estatinas()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Femenino')->count();
+        $estatinas_2024F = $pacientes->estatinas()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->count();
+        $estatinas_2529F = $pacientes->estatinas()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->count();
+        $estatinas_3034F = $pacientes->estatinas()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->count();
+        $estatinas_3539F = $pacientes->estatinas()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->count();
+        $estatinas_4044F = $pacientes->estatinas()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->count();
+        $estatinas_4549F = $pacientes->estatinas()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->count();
+        $estatinas_5054F = $pacientes->estatinas()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->count();
+        $estatinas_5559F = $pacientes->estatinas()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->count();
+        $estatinas_6064F = $pacientes->estatinas()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->count();
+        $estatinas_6569F = $pacientes->estatinas()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->count();
+        $estatinas_7074F = $pacientes->estatinas()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->count();
+        $estatinas_7579F = $pacientes->estatinas()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->count();
+        $estatinas_80F = $pacientes->estatinas()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->count();
+
+        $estatinasM = $pacientes->estatinas()->where('pacientes.sexo', '=', 'Masculino')->count();
+        $estatinasOriginM = $pacientes->estatinas()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $estatinas_1519M = $pacientes->estatinas()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Masculino')->count();
+        $estatinas_2024M = $pacientes->estatinas()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->count();
+        $estatinas_2529M = $pacientes->estatinas()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->count();
+        $estatinas_3034M = $pacientes->estatinas()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->count();
+        $estatinas_3539M = $pacientes->estatinas()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->count();
+        $estatinas_4044M = $pacientes->estatinas()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->count();
+        $estatinas_4549M = $pacientes->estatinas()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->count();
+        $estatinas_5054M = $pacientes->estatinas()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->count();
+        $estatinas_5559M = $pacientes->estatinas()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->count();
+        $estatinas_6064M = $pacientes->estatinas()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->count();
+        $estatinas_6569M = $pacientes->estatinas()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->count();
+        $estatinas_7074M = $pacientes->estatinas()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->count();
+        $estatinas_7579M = $pacientes->estatinas()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->count();
+        $estatinas_80M = $pacientes->estatinas()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
+
+
+        $aspirinas = $pacientes->aspirinas()->count();
+        $aspirinasF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'femenino')->count();
+        $aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $aspirinas_1519F = $pacientes->aspirinas()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Femenino')->count();
+        $aspirinas_2024F = $pacientes->aspirinas()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->count();
+        $aspirinas_2529F = $pacientes->aspirinas()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->count();
+        $aspirinas_3034F = $pacientes->aspirinas()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->count();
+        $aspirinas_3539F = $pacientes->aspirinas()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->count();
+        $aspirinas_4044F = $pacientes->aspirinas()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->count();
+        $aspirinas_4549F = $pacientes->aspirinas()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->count();
+        $aspirinas_5054F = $pacientes->aspirinas()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->count();
+        $aspirinas_5559F = $pacientes->aspirinas()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->count();
+        $aspirinas_6064F = $pacientes->aspirinas()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->count();
+        $aspirinas_6569F = $pacientes->aspirinas()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->count();
+        $aspirinas_7074F = $pacientes->aspirinas()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->count();
+        $aspirinas_7579F = $pacientes->aspirinas()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->count();
+        $aspirinas_80F = $pacientes->aspirinas()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->count();
+
+        $aspirinasM = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'Masculino')->count();
+        $aspirinasOriginM = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $aspirinas_1519M = $pacientes->aspirinas()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Masculino')->count();
+        $aspirinas_2024M = $pacientes->aspirinas()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->count();
+        $aspirinas_2529M = $pacientes->aspirinas()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->count();
+        $aspirinas_3034M = $pacientes->aspirinas()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->count();
+        $aspirinas_3539M = $pacientes->aspirinas()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->count();
+        $aspirinas_4044M = $pacientes->aspirinas()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->count();
+        $aspirinas_4549M = $pacientes->aspirinas()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->count();
+        $aspirinas_5054M = $pacientes->aspirinas()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->count();
+        $aspirinas_5559M = $pacientes->aspirinas()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->count();
+        $aspirinas_6064M = $pacientes->aspirinas()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->count();
+        $aspirinas_6569M = $pacientes->aspirinas()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->count();
+        $aspirinas_7074M = $pacientes->aspirinas()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->count();
+        $aspirinas_7579M = $pacientes->aspirinas()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->count();
+        $aspirinas_80M = $pacientes->aspirinas()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
+        
+        
+
         return view('estadisticas.seccion-b', compact('pa140_90', 'pa140_90M', 'pa140_90F', 'pa140_1519M', 'pa140_1519F', 'pa140_2024M', 'pa140_2024F', 'pa140_2529M', 'pa140_2529F', 'pa140_3034M', 'pa140_3034F', 'pa140_3539M', 'pa140_3539F', 'pa140_4044M', 'pa140_4044F', 'pa140_4549M', 'pa140_4549F', 'pa140_5054M', 'pa140_5054F', 'pa140_5559M', 'pa140_5559F', 'pa140_6064M', 'pa140_6064F', 'pa140_6569M', 'pa140_6569F', 'pa140_7074M', 'pa140_7074F', 'pa140_7579M', 'pa140_7579F',
             'pa150', 'pa150M', 'pa150F',
             'hbac17', 'hbac17M', 'hbac17F', 'hbac17_1519M', 'hbac17_1519F', 'hbac17_2024M', 'hbac17_2024F', 'hbac17_2529M', 'hbac17_2529F', 'hbac17_3034M', 'hbac17_3034F', 'hbac17_3539M', 'hbac17_3539F', 'hbac17_4044M', 'hbac17_4044F', 'hbac17_4549M', 'hbac17_4549F', 'hbac17_5054M', 'hbac17_5054F', 'hbac17_5559M', 'hbac17_5559F', 'hbac17_6064M', 'hbac17_6064F', 'hbac17_6569M', 'hbac17_6569F', 'hbac17_7074M', 'hbac17_7074F', 'hbac17_7579M', 'hbac17_7579F',
             'hbac18', 'hbac18M', 'hbac18F',
             'hbac17Pa140Ldl100', 'hbac17Pa140Ldl100M', 'hbac17Pa140Ldl100F', 'hbac17Pa140Ldl100_1519M', 'hbac17Pa140Ldl100_1519F', 'hbac17Pa140Ldl100_2024M', 'hbac17Pa140Ldl100_2024F', 'hbac17Pa140Ldl100_2529M', 'hbac17Pa140Ldl100_2529F', 'hbac17Pa140Ldl100_3034M', 'hbac17Pa140Ldl100_3034F', 'hbac17Pa140Ldl100_3539M', 'hbac17Pa140Ldl100_3539F', 'hbac17Pa140Ldl100_4044M', 'hbac17Pa140Ldl100_4044F', 'hbac17Pa140Ldl100_4549M', 'hbac17Pa140Ldl100_4549F', 'hbac17Pa140Ldl100_5054M', 'hbac17Pa140Ldl100_5054F', 'hbac17Pa140Ldl100_5559M', 'hbac17Pa140Ldl100_5559F', 'hbac17Pa140Ldl100_6064M', 'hbac17Pa140Ldl100_6064F', 'hbac17Pa140Ldl100_6569M', 'hbac17Pa140Ldl100_6569F', 'hbac17Pa140Ldl100_7074M', 'hbac17Pa140Ldl100_7074F', 'hbac17Pa140Ldl100_7579M', 'hbac17Pa140Ldl100_7579F', 'hbac17Pa140Ldl100_80M', 'hbac17Pa140Ldl100_80F',
-            'ldl100', 'ldl100M', 'ldl100F', 'ldl100_1519M', 'ldl100_1519F', 'ldl100_2024M', 'ldl100_2024F', 'ldl100_2529M', 'ldl100_2529F', 'ldl100_3034M', 'ldl100_3034F', 'ldl100_3539M', 'ldl100_3539F', 'ldl100_4044M', 'ldl100_4044F', 'ldl100_4549M', 'ldl100_4549F', 'ldl100_5054M', 'ldl100_5054F', 'ldl100_5559M', 'ldl100_5559F', 'ldl100_6064M', 'ldl100_6064F', 'ldl100_6569M', 'ldl100_6569F', 'ldl100_7074M', 'ldl100_7074F', 'ldl100_7579M', 'ldl100_7579F', 'ldl100_80M', 'ldl100_80F'));
+            'ldl100', 'ldl100M', 'ldl100F', 'ldl100_1519M', 'ldl100_1519F', 'ldl100_2024M', 'ldl100_2024F', 'ldl100_2529M', 'ldl100_2529F', 'ldl100_3034M', 'ldl100_3034F', 'ldl100_3539M', 'ldl100_3539F', 'ldl100_4044M', 'ldl100_4044F', 'ldl100_4549M', 'ldl100_4549F', 'ldl100_5054M', 'ldl100_5054F', 'ldl100_5559M', 'ldl100_5559F', 'ldl100_6064M', 'ldl100_6064F', 'ldl100_6569M', 'ldl100_6569F', 'ldl100_7074M', 'ldl100_7074F', 'ldl100_7579M', 'ldl100_7579F', 'ldl100_80M', 'ldl100_80F',
+            'aspirinas', 'aspirinasM', 'aspirinasF', 'aspirinas_1519M', 'aspirinas_1519F', 'aspirinas_2024M', 'aspirinas_2024F', 'aspirinas_2529M', 'aspirinas_2529F', 'aspirinas_3034M', 'aspirinas_3034F', 'aspirinas_3539M', 'aspirinas_3539F', 'aspirinas_4044M', 'aspirinas_4044F', 'aspirinas_4549M', 'aspirinas_4549F', 'aspirinas_5054M', 'aspirinas_5054F', 'aspirinas_5559M', 'aspirinas_5559F', 'aspirinas_6064M', 'aspirinas_6064F', 'aspirinas_6569M', 'aspirinas_6569F', 'aspirinas_7074M', 'aspirinas_7074F', 'aspirinas_7579M', 'aspirinas_7579F', 'aspirinas_80M', 'aspirinas_80F',
+            'estatinas', 'estatinasM', 'estatinasF', 'estatinas_1519M', 'estatinas_1519F', 'estatinas_2024M', 'estatinas_2024F', 'estatinas_2529M', 'estatinas_2529F', 'estatinas_3034M', 'estatinas_3034F', 'estatinas_3539M', 'estatinas_3539F', 'estatinas_4044M', 'estatinas_4044F', 'estatinas_4549M', 'estatinas_4549F', 'estatinas_5054M', 'estatinas_5054F', 'estatinas_5559M', 'estatinas_5559F', 'estatinas_6064M', 'estatinas_6064F', 'estatinas_6569M', 'estatinas_6569F', 'estatinas_7074M', 'estatinas_7074F', 'estatinas_7579M', 'estatinas_7579F', 'estatinas_80M', 'estatinas_80F'));
     }
 
     public function seccionC()

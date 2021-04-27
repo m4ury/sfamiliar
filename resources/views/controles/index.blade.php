@@ -16,7 +16,7 @@
                 <th>Talla</th>
                 <th>IMC</th>
                 <th>Est. Nutricional</th>
-                <th>Observacion</th>
+                <th>Ultimo Control</th>
                 <th>Acciones</th>
             </tr>
             </thead>
@@ -32,12 +32,17 @@
                     <td>{{ $control->talla_actual }}</td>
                     <td>{{ $control->imc }}</td>
                     <td>{{$control->imc_resultado}}</td>
-                    <td>{{$control->pluck('fecha_control')->last()}}</td>
+                    
+                    @if($control->last == 1)
+                        <td class="text-center"><i class="fas fa-check-circle text-green"></i></td>
+                        @else
+                        <td class="text-center"><i class="fas fa-times-circle text-danger"></i></td>
+                    @endif
                     {!! Form::open(['route' => ['controles.destroy', $control->id], 'method' => 'DELETE']) !!}
                     <td><a class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top"
                            title="Editar" href="{{ url('controles/'.$control->id.'/edit') }}"><i
                                 class="fas fa-pen"></i></a>
-                        {!! Form::button('<i class="fas fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => 'Eliminar','onclick'=>'return confirm("seguro desea eliminar esta Patologia?")'] ) !!}
+                        {!! Form::button('<i class="fas fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => 'Eliminar','onclick'=>'return confirm("seguro desea eliminar esta Control?")'] ) !!}
                         {!! Form::close() !!}
                     </td>
                 </tr>

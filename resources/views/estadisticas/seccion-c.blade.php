@@ -17,8 +17,8 @@
                     <table class="table table-md-responsive table-bordered">
                         <thead>
                         <tr>
-                            <th class="text-center" colspan="2" rowspan="4">VARIABLES</th>
-                            <th class="text-center" rowspan="3">TOTAL</th>
+                            <th class="text-center" colspan="2" rowspan="2">VARIABLES</th>
+                            <th class="text-center" rowspan="2">TOTAL</th>
                             <th class="text-center" colspan="2">EDAD (en años)</th>
                             <th colspan="2">SEXO</th>
                         </tr>
@@ -28,6 +28,15 @@
                             <th>Hombres</th>
                             <th>Mujeres</th>
                         </tr>
+                        <tr>
+                            <th class="text-left" colspan="7">PERSONAS DIABETICAS EN PSCV</th>
+                        </tr>
+<tr>
+    <th colspan="2">CON RAZON ALBÚMINA CREATININA (RAC),VIGENTE</th>
+    <td>
+        0
+    </td>
+</tr>
                         </thead>
                     </table>
                 </div>
