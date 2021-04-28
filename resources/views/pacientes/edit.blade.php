@@ -116,7 +116,7 @@
                         <div class="form-group row">
                             <div class="col-sm-8">
                                 {!! Form::label('erc_label', 'Enf. Renal Crónica', ['class' => 'col-sm-5 col-form-label']) !!}
-                                {!! Form::select('erc', ['sin' => 'SIN', 'I' => 'I', 'II' => 'II','IIA' => 'IIA', 'III' => 'III', 'IIIA' => 'IIIA', 'IIIB' => 'IIIB', 'IV' => 'IV', 'V' => 'V'], old('erc', $paciente->erc), ['class' => 'form-control-sm form-control-sm-4', 'placeholder' => 'Seleccione']) !!}
+                                {!! Form::select('erc', ['SIN' => 'SIN', 'I' => 'I', 'II' => 'II', 'IIIA' => 'IIIA', 'IIIB' => 'IIIB', 'IV' => 'IV', 'V' => 'V'], old('erc', $paciente->erc), ['class' => 'form-control-sm form-control-sm-4', 'placeholder' => 'Seleccione']) !!}
                             </div>
                         </div>
                         <div class="row">

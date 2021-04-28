@@ -39,6 +39,8 @@ class Paciente extends Model
     {
         if ($q) return $query->where('sexo', 'LIKE', "%$q%")->orWhere('sector', 'LIKE', "%$q%");
     }
+    
+    //seccion A
 
     public function rcv_bajo()
     {
@@ -119,6 +121,8 @@ class Paciente extends Model
     {
         return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')->where('patologias.nombre_patologia', '=', 'tabaquismo');
     }
+    
+    //seccion B
 
     public function pa140()
     {
@@ -160,6 +164,8 @@ class Paciente extends Model
         return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.estatinas', '=', 1)->latest('controls.fecha_control');
     }
 
+    //seccion C
+    
     public function racVigente()
     {
         return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.racVigente', '=', 1)->latest('controls.fecha_control');
