@@ -10,54 +10,104 @@
                 <ul class="list-group">
                     <li class="list-group-item list-group-item my-3 text-bold ">
                         <p class="btn btn-block badge-pill bg-gradient-{{ $patologia->color }}">
-                            {{ $patologia->nombre_patologia }}</p>
-
-                        @if($patologia->nombre_patologia == 'HTA' or $patologia->nombre_patologia == 'DM2' )
-                            <hr>
-                            <div class="col">
-                                @if(Carbon\Carbon::parse($paciente->racVigente)->diffInYears(\Carbon\Carbon::now()) < 1)
-                                    <strong><i class="fas fa-check-double text-success mr-1"></i> RAC Vigente </strong>
-                                    <br>
-                                    <p class="btn rounded-pill bg-gradient-success">fecha
-                                        Vigente {{ $paciente->racVigente }}</P>
-                                @elseif(Carbon\Carbon::parse($paciente->racVigente)->diffInYears(\Carbon\Carbon::now()) < 1)
-                                    <strong><i class="fas fa-thumbs-down text-danger mr-1"></i>RAC Vigente</strong>
-                                    <br>
-                                    <p class="btn rounded-pill bg-gradient-danger">
-                                        fecha {{ $paciente->racVigente }}</p>
-                                @else
-                                    <strong><i class="fas fa-question-circle mr-1"></i>RAC Vigente</strong>
-                                    <br>
-                                    <p class="btn badge-pill bg-gradient-info">No hay datos...</p>
-                                    <br>
-                                @endif
-                                @endif
-                            </div>
-                            @if($patologia->nombre_patologia == 'DM2' )
-                                <hr>
-                                <div class="col">
-                                    @if(Carbon\Carbon::parse($paciente->vfgVigente)->diffInYears(\Carbon\Carbon::now()) < 1)
-                                        <strong><i class="fas fa-check-double text-success mr-1"></i> VFG Vigente
+                            {{ $patologia->nombre_patologia }}
+                        </p>
+                        {{-- Hipertensos--}}
+                    @if($patologia->nombre_patologia == 'HTA' or $patologia->nombre_patologia == 'DM2')
+                        {{-- RAC vigente--}}
+                            <div class="form-group row">
+                                @if(Carbon\Carbon::parse($paciente->racVigente)->diffInYears(\Carbon\Carbon::now()) <= 1)
+                                    <div class="col sm-3">
+                                        <strong><i class="fas fa-check-double text-success mr-1"></i> RAC Vigente
                                         </strong>
-
+                                        <br>
                                         <p class="btn rounded-pill bg-gradient-success">fecha
-                                            Vigente {{ $paciente->vfgVigente }}</P>
-                                    @elseif(Carbon\Carbon::parse($paciente->vfgVigente)->diffInYears(\Carbon\Carbon::now()) < 1)
-                                        <strong><i class="fas fa-thumbs-down text-danger mr-1"></i>VFG
-                                            Vigente</strong>
+                                            Vigente {{ $paciente->racVigente }}</P>
+                                    </div>
+                                @elseif(Carbon\Carbon::parse($paciente->racVigente)->diffInYears(\Carbon\Carbon::now()) > 1)
+                                    <div class="col sm-3">
+                                        <strong><i class="fas fa-thumbs-down text-danger mr-1"></i>RAC Vigente: NO</strong>
                                         <br>
                                         <p class="btn rounded-pill bg-gradient-danger">
+                                            fecha {{ $paciente->racVigente }}</p>
+                                    </div>
+                                @else
+                                    <div class="col-sm-3">
+                                        <strong><i class="fas fa-question-circle mr-1"></i>RAC Vigente</strong>
+                                        <p class="btn badge-pill bg-gradient-info ml-3">No hay datos...</p>
+                                    </div>
+                                @endif
+                            </div>
+                        @endif
+                        {{-- Diabeticos--}}
+                        @if($patologia->nombre_patologia == 'DM2')
+                            <div class="form-group row">
+                                {{--Vfg--}}
+                            @if(Carbon\Carbon::parse($paciente->vfgVigente)->diffInYears(\Carbon\Carbon::now()) < 1)
+                                    <div class="col-sm-3">
+                                        <strong><i class="fas fa-check-double text-success mr-1"></i> VFG Vigente
+                                        </strong>
+                                        <p class="btn rounded-pill bg-gradient-success">fecha
+                                            Vigente {{ $paciente->vfgVigente }}</P>
+                                    </div>
+                                @elseif(Carbon\Carbon::parse($paciente->vfgVigente)->diffInYears(\Carbon\Carbon::now()) < 1)
+                                    <div class="col-sm-3">
+                                        <strong><i class="fas fa-thumbs-down text-danger mr-1"></i>VFG
+                                            Vigente</strong>
+                                        <p class="btn rounded-pill bg-gradient-danger">
                                             fecha {{ $paciente->vfgVigente }}</p>
-                                    @else
+                                    </div>
+                                @else
+                                    <div class="col-sm-3">
                                         <strong><i class="fas fa-question-circle mr-1"></i>VFG Vigente</strong>
-                                        <br>
-                                        <p class="btn badge-pill bg-gradient-info">No hay datos...</p>
+                                        <p class="btn badge-pill bg-gradient-info ml-3">No hay datos...</p>
+                                    </div>
+                                @endif
+                                {{--fondo de ojo--}}
+                                    @if(Carbon\Carbon::parse($paciente->fondoOjoVigente)->diffInYears(\Carbon\Carbon::now()) < 1)
+                                        <div class="col-sm-4">
+                                            <strong><i class="fas fa-check-double text-success mr-1"></i> Fondo Ojo Vigente
+                                            </strong>
+                                            <p class="btn rounded-pill bg-gradient-success">fecha
+                                                Vigente {{ $paciente->fondoOjoVigente }}</P>
+                                        </div>
+                                    @elseif(Carbon\Carbon::parse($paciente->fondoOjoVigente)->diffInYears(\Carbon\Carbon::now()) < 1)
+                                        <div class="col-sm-4">
+                                            <strong><i class="fas fa-thumbs-down text-danger mr-1"></i>Fondo Ojo Vigente</strong>
+                                            <p class="btn rounded-pill bg-gradient-danger">
+                                                fecha {{ $paciente->fondoOjoVigente }}</p>
+                                        </div>
+                                    @else
+                                        <div class="col-sm-4">
+                                            <strong><i class="fas fa-question-circle mr-1"></i>Fondo Ojo Vigente</strong>
+                                            <p class="btn badge-pill bg-gradient-info ml-3">No hay datos...</p>
+                                        </div>
                                     @endif
+                                    {{--electrocardiograma--}}
+                                    @if(Carbon\Carbon::parse($paciente->ecgVigente)->diffInYears(\Carbon\Carbon::now()) < 1)
+                                        <div class="col-sm-3">
+                                            <strong><i class="fas fa-check-double text-success mr-1"></i> ECG Vigente
+                                            </strong>
+                                            <p class="btn rounded-pill bg-gradient-success">fecha
+                                                Vigente {{ $paciente->ecgVigente }}</P>
+                                        </div>
+                                    @elseif(Carbon\Carbon::parse($paciente->ecgVigente)->diffInYears(\Carbon\Carbon::now()) < 1)
+                                        <div class="col-sm-3">
+                                            <strong><i class="fas fa-thumbs-down text-danger mr-1"></i>ECG Vigente</strong>
+                                            <p class="btn rounded-pill bg-gradient-danger">
+                                                fecha {{ $paciente->ecgVigente }}</p>
+                                        </div>
+                                    @else
+                                        <div class="col-sm-3">
+                                            <strong><i class="fas fa-question-circle mr-1"></i>ECG Vigente</strong>
+                                            <p class="btn badge-pill bg-gradient-info ml-3">No hay datos...</p>
+                                        </div>
                                     @endif
-                                </div>
-                                @endforeach
+                            </div>
+                        @endif
                     </li>
                 </ul>
+            @endforeach
         </div>
     </div>
 @endif
