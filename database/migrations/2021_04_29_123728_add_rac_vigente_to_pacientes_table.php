@@ -14,13 +14,13 @@ class AddRacVigenteToPacientesTable extends Migration
     public function up()
     {
         Schema::table('pacientes', function (Blueprint $table) {
-            $table->date('racVigente');
-            $table->date('vfgVigente');
-            $table->date('fondoOjoVigente');
-            $table->date('ecgVigente');
-            $table->date('controlPodologico_alDia');
-            $table->date('espirometriaVigente');
-            $table->date('ldlVigente');
+            $table->date('racVigente')->nullable();
+            $table->date('vfgVigente')->nullable();
+            $table->date('fondoOjoVigente')->nullable();
+            $table->date('ecgVigente')->nullable();
+            $table->date('controlPodologico_alDia')->nullable();
+            $table->date('espirometriaVigente')->nullable();
+            $table->date('ldlVigente')->nullable();
         });
     }
 

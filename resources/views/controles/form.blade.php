@@ -82,8 +82,8 @@
     @if($patologia->nombre_patologia == 'DLP')
         @include('partials.dlp')
     @endif
-    @if($patologia->nombre_patologia == 'ANTECEDENTE IAM' || $patologia->nombre_patologia == 'ANTECEDENTE ACV')
-        @include('partials.acv_iam')
+    @if($patologia->nombre_patologia = 'ANTECEDENTE IAM' or $patologia->nombre_patologia = 'ANTECEDENTE ACV')
+        @includeIf('partials.acv_iam')
     @endif
     @if($patologia->nombre_patologia == 'SALA ERA')
         @include('partials.sala_era')
