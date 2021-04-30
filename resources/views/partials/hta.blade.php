@@ -1,6 +1,6 @@
 <div class="card card-danger card-outline mb-3" id="Medico">
     <div class="card-header text-bold text-red">HIPERTENSION ARTERIAL</div>
-    <div class="form-group row my-2 ml-2">
+    {{--<div class="form-group row my-2 ml-2">
         {!! Form::label('rac_vigente_label', 'RAC (Vigente)', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
             {!! Form::checkbox('rac_vigente', 1, null, ['class' => 'form-control my-2 rac-vigente']) !!}
@@ -9,7 +9,7 @@
         <div class="col-sm-3">
             {!! Form::checkbox('rac_vigente', 2, null, ['class' => 'form-control my-2 rac-vigente']) !!}
         </div>
-    </div>
+    </div>--}}
     @if($paciente->grupo > 79)
         <div class="form-group row my-2 ml-2">
             {!! Form::label('pa_menor15090label', 'Presion arterial < 150/90 SI', ['class' => 'col-sm-3 col-form-label text-bold']) !!}

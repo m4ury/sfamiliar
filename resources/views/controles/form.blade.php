@@ -78,17 +78,13 @@
 @foreach($paciente->patologias as $patologia)
     @if($patologia->nombre_patologia == 'HTA')
         @include('partials.hta')
-    @endif
-    @if($patologia->nombre_patologia == 'DLP')
+    @elseif($patologia->nombre_patologia == 'DLP')
         @include('partials.dlp')
-    @endif
-    @if($patologia->nombre_patologia = 'ANTECEDENTE IAM' or $patologia->nombre_patologia = 'ANTECEDENTE ACV')
-        @includeIf('partials.acv_iam')
-    @endif
-    @if($patologia->nombre_patologia == 'SALA ERA')
+    @elseif($patologia->nombre_patologia == 'ANTECEDENTE IAM' || $patologia->nombre_patologia == 'ANTECEDENTE ACV')
+        @include('partials.acv_iam')
+    @elseif($patologia->nombre_patologia == 'SALA ERA')
         @include('partials.sala_era')
-    @endif
-    @if($patologia->nombre_patologia == 'DM2')
+    @elseif($patologia->nombre_patologia == 'DM2')
         @include('partials.dm2')
     @endif
 @endforeach
@@ -103,7 +99,7 @@
 @section('js')
     <script>
         $('#Enfermera, #Kine, #Medico').hide();
-        $('#tipo').select2({
+        $('#tipo, #prox-tipo').select2({
             theme: "classic",
             width: '100%',
         });

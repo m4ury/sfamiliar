@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <div class="form-group row my-2 ml-2">
+    {{--<div class="form-group row my-2 ml-2">
         {!! Form::label('espirometrialabel', 'Espirometria vigente (Menor un año)', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
         <div class="col-sm-3">
             {!! Form::checkbox('espirometriaVigente', 1, null, ['class' => 'form-control my-2 espirometria']) !!}
@@ -41,5 +41,5 @@
         <div class="col-sm-3">
             {!! Form::checkbox('espirometriaVigente', 2, null, ['class' => 'form-control my-2 espirometria']) !!}
         </div>
-    </div>
+    </div>--}}
 </div>
