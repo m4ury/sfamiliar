@@ -18,6 +18,8 @@ class ControlRequest extends FormRequest
             'fecha_control' => 'required',
             'peso_actual' => 'required|numeric|min:1',
             'talla_actual' => 'required|numeric|min:1',
+            'proximo_control' => 'required|after:fecha_control',
+            'prox_tipo' => 'required'
         ];
     }
 }

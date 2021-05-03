@@ -90,16 +90,30 @@
 @endforeach
 
 <div class="form-group row">
-    {!! Form::label('proximo_control', 'Fecha prox. control',['class' => 'col-sm-3 col-form-label']) !!}
+    {!! Form::label('proximo_control_label', 'Fecha prox. control',['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::date('proximo_control', null, ['class' => 'form-control form-control-sm']) !!}
+        {!! Form::date('proximo_control', null, ['class' => 'form-control form-control-sm'.($errors->has('proximo_control') ? ' is-invalid' : '')]) !!}
+        @if ($errors->has('proximo_control'))
+            <span class="invalid-feedback">
+                <strong>{{ $errors->first('proximo_control') }}</strong>
+            </span>
+        @endif
+    </div>
+    {!! Form::label('prox_tipo_label', 'Profesional prox. Control',['class' => 'col-sm-3 col-form-label']) !!}
+    <div class="col-sm-3">
+        {!! Form::select('prox_tipo', ['Medico'=> 'Medico', 'Enfermera' => 'Enfermera', 'Kinesiologo' => 'Kinesiologo', 'Nutricionista' => 'Nutricionista'], null, ['class' => 'form-control form-control-sm'.($errors->has('prox_tipo') ? ' is-invalid' : ''), 'id' => 'prox_tipo', 'placeholder'=> "Seleccione Profesional"]) !!}
+        @if ($errors->has('prox_tipo'))
+            <span class="invalid-feedback">
+                <strong>{{ $errors->first('prox_tipo') }}</strong>
+            </span>
+        @endif
     </div>
 </div>
 
 @section('js')
     <script>
         $('#Enfermera, #Kine, #Medico').hide();
-        $('#tipo, #prox-tipo').select2({
+        $('#tipo, #prox_tipo').select2({
             theme: "classic",
             width: '100%',
         });
@@ -144,12 +158,6 @@
                     $('#Kine, #Medico').show();
                     break;
             }
-        });
-        $('input.espirometria').on('change', function () {
-            $('input.espirometria').not(this).prop('checked', false);
-        });
-        $('input.rac-vigente').on('change', function () {
-            $('input.rac-vigente').not(this).prop('checked', false);
         });
         $('input.pa_14090').on('change', function () {
             $('input.pa_14090').not(this).prop('checked', false);

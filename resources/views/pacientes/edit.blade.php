@@ -79,7 +79,7 @@
                             </div>
                         <!--  <div class="col-sm-5">
                                 {!! Form::select('sexo', array('Femenino' => 'Femenino', 'Masculino' => 'Masculino', 'Otro' => 'Otro'), $paciente->sexo, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción...']) !!}
-                                </div> -->
+                            </div> -->
                         </div>
                         <div class="form-group row">
                             {!! Form::label('telefono', 'Télefono.', ['class' => 'col-sm-2 col-form-label']) !!}
@@ -104,27 +104,77 @@
                         </div>
                         <hr>
                         <div class="form-group row">
-                            <div class="col-sm-8">
-                                {!! Form::label('riesgo_cv_label', 'Riesgo Cardiovascular', ['class' => 'col-sm-5 col-form-label']) !!}
-                                {!! Form::select('riesgo_cv', ['BAJO' => 'BAJO', 'MODERADO' => 'MODERADO', 'ALTO' => 'ALTO'], old('riesgo_cv', $paciente->riesgo_cv), ['class' => 'form-control-sm form-control-sm-4', 'placeholder' => 'Seleccione']) !!}
+                            {!! Form::label('riesgo_cv_label', 'Riesgo Cardiovascular', ['class' => 'col-sm-3 col-form-label']) !!}
+                            <div class="col-sm-3">
+                                {!! Form::select('riesgo_cv', ['BAJO' => 'BAJO', 'MODERADO' => 'MODERADO', 'ALTO' => 'ALTO'], old('riesgo_cv', $paciente->riesgo_cv), ['class' => 'form-control', 'placeholder' => 'Seleccione']) !!}
                             </div>
-                            <div class="col-sm-4">
-                                {!! Form::label('compensado_label', 'Compensado', ['class' => 'col-sm col-form-label']) !!}
-                                {!! Form::select('compensado', [1 => 'Compensado', 2 => 'Descompensado'], old('cmopensado', $paciente->compensado), ['class' => 'form-control form-control', 'placeholder' => 'Seleccione']) !!}
+                            {!! Form::label('erc_label', 'Enf. Renal Crónica', ['class' => 'col-sm-3 col-form-label']) !!}
+                            <div class="col-sm-3">
+                                {!! Form::select('erc', ['SIN' => 'SIN', 'I' => 'I', 'II' => 'II', 'IIIA' => 'IIIA', 'IIIB' => 'IIIB', 'IV' => 'IV', 'V' => 'V'], old('erc', $paciente->erc), ['class' => 'form-control form-control', 'placeholder' => 'Seleccione']) !!}
                             </div>
                         </div>
+
                         <div class="form-group row">
-                            <div class="col-sm-8">
-                                {!! Form::label('erc_label', 'Enf. Renal Crónica', ['class' => 'col-sm-5 col-form-label']) !!}
-                                {!! Form::select('erc', ['SIN' => 'SIN', 'I' => 'I', 'II' => 'II', 'IIIA' => 'IIIA', 'IIIB' => 'IIIB', 'IV' => 'IV', 'V' => 'V'], old('erc', $paciente->erc), ['class' => 'form-control-sm form-control-sm-4', 'placeholder' => 'Seleccione']) !!}
+                            {!! Form::label('compensado_label', 'Compensado', ['class' => 'col-sm-3 col-form-label']) !!}
+                            <div class="col-sm-3">
+                                {!! Form::select('compensado', [1 => 'Compensado', 2 => 'Descompensado'], old('cmopensado', $paciente->compensado), ['class' => 'form-control', 'placeholder' => 'Seleccione']) !!}
                             </div>
                         </div>
+                        @foreach($paciente->patologias as $patologia)
+                            @if($patologia->nombre_patologia == 'HTA')
+                                <div class="form-group row card card-danger card-outline">
+                                    <div class="card-header text-bold text-red">HIPERTENSION ARTERIAL</div>
+                                    <div class="card-body row form-group">
+                                        {!! Form::label('rac_vigente_label', 'CON RAZON ALBÚMINA CREATININA (RAC)', ['class' => 'col-sm-6 col-form-label']) !!}
+                                        <div class="col-sm-6">
+                                            {!! Form::date('racVigente', old('racVigente', $paciente->racVigente), ['class' => 'form-control']) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                @elseif($patologia->nombre_patologia == 'DM2')
+                                    <div class="form-group row card card-primary card-outline">
+                                        <div class="card-header text-bold text-primary">DIABETES MELITUS</div>
+                                        <div class="card-body row form-group">
+                                            {!! Form::label('vfg_vigente_label', 'CON VELOCIDAD DE FILTRACIÓN GLOMERULAR (VFG)', ['class' => 'col-sm-6 col-form-label']) !!}
+                                            <div class="col-sm-6">
+                                                {!! Form::date('vfgVigente', old('vfgVigente', $paciente->vfgVigente), ['class' => 'form-control']) !!}
+                                            </div>
+                                        </div>
+                                        <div class="card-body row form-group">
+                                            {!! Form::label('fondoOjoVigente_label', 'CON FONDO DE OJO', ['class' => 'col-sm-6 col-form-label']) !!}
+                                            <div class="col-sm-6">
+                                                {!! Form::date('fondoOjoVigente', old('fondoOjoVigente', $paciente->fondoOjoVigente), ['class' => 'form-control']) !!}
+                                            </div>
+                                        </div>
+                                        <div class="card-body row form-group">
+                                            {!! Form::label('ecgVigente_label', 'CON ECG', ['class' => 'col-sm-6 col-form-label']) !!}
+                                            <div class="col-sm-6">
+                                                {!! Form::date('ecgVigente', old('ecgVigente', $paciente->ecgVigente), ['class' => 'form-control']) !!}
+                                            </div>
+                                        </div>
+                                        <div class="card-body row form-group">
+                                            {!! Form::label('ldlVigente_label', 'CON UN EXÁMEN DE COLESTEROL LDL', ['class' => 'col-sm-6 col-form-label']) !!}
+                                            <div class="col-sm-6">
+                                                {!! Form::date('ldlVigente', old('ldlVigente', $paciente->ldlVigente), ['class' => 'form-control']) !!}
+                                            </div>
+                                        </div>
+                                        <div class="card-body row form-group">
+                                            {!! Form::label('ldlVigente_label', 'CON UN EXÁMEN DE COLESTEROL LDL', ['class' => 'col-sm-6 col-form-label']) !!}
+                                            <div class="col-sm-6">
+                                                {!! Form::date('ldlVigente', old('ldlVigente', $paciente->ldlVigente), ['class' => 'form-control']) !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                            @endif
+                        @endforeach
+
                         <div class="row">
                             <div class="col">
                                 {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-primary btn-sm btn-block']) }}
                             </div>
                             <div class="col">
-                                <a href="{{ url('pacientes', $paciente->id) }}" style="text-decoration:none">
+                                <a href="{{ url('pacientes', $paciente->id) }}"
+                                   style="text-decoration:none">
                                     {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block'] ) }}
                                 </a>
                             </div>

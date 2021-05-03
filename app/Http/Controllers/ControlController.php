@@ -39,6 +39,7 @@ class ControlController extends Controller
 
     public function store(ControlRequest $request)
     {
+        //dd($request->all());
         $control = new Control($request->except('_token'));
         $control->user_id = Auth::user()->id;
         $control->paciente_id = $request->paciente_id;
@@ -59,8 +60,8 @@ class ControlController extends Controller
         $control = Control::findOrFail($id);
         return view('controles.edit', compact('control'));
     }
-    
-    
+
+
     public function update(Request $request, $id)
     {
         $control = Control::findOrFail($id);

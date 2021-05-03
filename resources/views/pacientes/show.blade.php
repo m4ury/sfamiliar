@@ -31,7 +31,7 @@
                                aria-selected="false">Controles</a>
                             <a class="nav-link" id="vert-tabs-patologias-tab" data-toggle="pill"
                                href="#vert-tabs-patologias" role="tab" aria-controls="vert-tabs-patologias"
-                               aria-selected="false">Patologias</a>
+                               aria-selected="false">Diagnosticos</a>
                         </div>
                     </div>
                     <div class="col-7 col-sm-9">
@@ -62,7 +62,7 @@
                                     <strong><i class="fas fa-disease mr-1"></i>Enfermedad Renal
                                         Cronica(ERC)</strong>
                                     <br>
-                                    <p class="btn badge-pill bg-gradient-info px-5">{{ $paciente->erc ? : 'No se encontraron datos.' }}</p>
+                                    <p class="btn badge-pill bg-gradient-info">{{ $paciente->erc ? : 'No se encontraron datos.' }}</p>
                                     <hr>
                                     @if($paciente->compensado == 1)
                                         <strong><i class="fas fa-thumbs-up mr-1"></i>Compensado</strong>
