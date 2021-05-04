@@ -213,8 +213,8 @@
                         </div>
                     </div>
                     @elseif($patologia->nombre_patologia == 'ANTECEDENTE IAM' or $patologia->nombre_patologia == 'ANTECEDENTE ACV')
-                    <div class="form-group row card card-danger card-outline">
-                        <div class="card-header text-bold text-secondary">ANTECEDENTE ENFERMEDAD CARDIOVASCULAR / INFARTO AL MIOCARDIO</div>
+                    <div class="form-group row card card-info card-outline">
+                        <div class="card-header text-bold text-info">CON ANTECEDENTE DE ATAQUE CEREBRO VASCULAR / INFARTO AL MIOCARDIO</div>
                         <div class="card-body row form-group">
                             {!! Form::label('usoAspirinas_label', 'EN TRATAMIENTO CON ACIDO ACETILSALICILICO', ['class' =>
                             'col-sm-3 col-form-label']) !!}
