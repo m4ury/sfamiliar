@@ -126,89 +126,88 @@ class Paciente extends Model
 
     public function pa140()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.pa_menor_140_90', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.pa_menor_140_90', '=', 1)->latest('controls.fecha_control');
     }
 
     public function pa150()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.pa_menor_150_90', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.pa_menor_150_90', '=', 1)->latest('controls.fecha_control');
     }
 
     public function hbac17()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.hba1cMenor7Porcent', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.hba1cMenor7Porcent', '=', 1)->latest('controls.fecha_control');
     }
 
     public function hbac18()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.hba1cMenor8Porcent', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.hba1cMenor8Porcent', '=', 1)->latest('controls.fecha_control');
     }
 
     public function hbac17Pa140Ldl100()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.pa_menor_140_90', '=', 1)->where('controls.hba1cMenor7Porcent', '=', 1)->where('controls.ldlMenor100', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.pa_menor_140_90', '=', 1)->where('controls.hba1cMenor7Porcent', '=', 1)->where('controls.ldlMenor100', '=', 1)->latest('controls.fecha_control');
     }
 
     public function ldl100()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.ldlMenor100', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.ldlMenor100', '=', 1)->latest('controls.fecha_control');
     }
 
     public function aspirinas()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.aspirinas', '=', 1)->latest('controls.fecha_control');
+        return $this->where('usoAspirinas', '=', 1);
     }
 
     public function estatinas()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.estatinas', '=', 1)->latest('controls.fecha_control');
+        return $this->where('usoEstatinas', '=', 1);
     }
 
     //seccion C
 
     public function racVigente()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.racVigente', '=', 1)->latest('controls.fecha_control');
+        return $this->where(Carbon::parse('racVigente')->diffInDays(Carbon::now()) <= 365);
     }
 
     public function vfgVigente()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.vfgVigente', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.vfgVigente', '=', 1)->latest('controls.fecha_control');
     }
 
     public function fondoOjoVigente()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.fondoOjoVigente', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.fondoOjoVigente', '=', 1)->latest('controls.fecha_control');
     }
 
     public function controlPodologico_alDia()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.controlPodologico_alDia', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.controlPodologico_alDia', '=', 1)->latest('controls.fecha_control');
     }
 
     public function ecgVigente()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.ecgVigente', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.ecgVigente', '=', 1)->latest('controls.fecha_control');
     }
 
     public function usoInsulina()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.usoInsulina', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.usoInsulina', '=', 1)->latest('controls.fecha_control');
     }
 
     public function hba1cMayorIgual9Porcent()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.hba1cMayorIgual9Porcent', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.hba1cMayorIgual9Porcent', '=', 1)->latest('controls.fecha_control');
     }
 
     public function usoIecaAraII()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.usoIecaAraII', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.usoIecaAraII', '=', 1)->latest('controls.fecha_control');
     }
 
     public function ldlVigente()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last','=',1)->where('controls.ldlVigente', '=', 1)->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.ldlVigente', '=', 1)->latest('controls.fecha_control');
     }
-
 }

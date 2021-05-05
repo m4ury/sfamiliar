@@ -74,15 +74,15 @@
     </div>
     {!! Form::label('imc_resultado', 'Estado Nutricional',['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::text('imc_resultado', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Est.
-        Nutricional.']) !!}
+        {!! Form::text('imc_resultado', null, ['class' => 'form-control form-control-sm',
+        'placeholder' => 'Est. Nutricional.']) !!}
     </div>
 </div>
 <div class="form-group row">
-    {!! Form::label('observacion', 'Observacion',['class' => 'col-sm-3 col-form-label']) !!}
+    {!! Form::label('observacion', 'Observación',['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm">
-        {!! Form::textarea('observacion', null, ['class' => 'form-control form-control-sm','placeholder' => 'Ingrese
-        observacion']) !!}
+        {!! Form::textarea('observacion', null, ['class' => 'form-control form-control-sm',
+        'placeholder' => 'Ingrese observación']) !!}
     </div>
 </div>
 

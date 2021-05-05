@@ -6,7 +6,7 @@
     <div class="row justify-content-left">
         <div class="col-sx-12 col-sm-12 col-lg-8">
             <div class="card card-default">
-                <div class="card-header">Editando Paciente</div>
+                <div class="card-header"><i class="fas fa-user-edit mr-1"></i>Editando Paciente</div>
                 <div class="card-body">
                     {{ Form::open(['action' => 'PacienteController@update', 'method' => 'POST', 'url' => 'pacientes/'.$paciente->id, 'class' => 'form-horizontal']) }}
                     @method('PUT')
@@ -212,11 +212,14 @@
                             </div>
                         </div>
                     </div>
-                    @elseif($patologia->nombre_patologia == 'ANTECEDENTE IAM' or $patologia->nombre_patologia == 'ANTECEDENTE ACV')
+                    @elseif($patologia->nombre_patologia == 'ANTECEDENTE IAM' or $patologia->nombre_patologia ==
+                    'ANTECEDENTE ACV')
                     <div class="form-group row card card-info card-outline">
-                        <div class="card-header text-bold text-info">CON ANTECEDENTE DE ATAQUE CEREBRO VASCULAR / INFARTO AL MIOCARDIO</div>
+                        <div class="card-header text-bold text-info">CON ANTECEDENTE DE ATAQUE CEREBRO VASCULAR /
+                            INFARTO AL MIOCARDIO</div>
                         <div class="card-body row form-group">
-                            {!! Form::label('usoAspirinas_label', 'EN TRATAMIENTO CON ACIDO ACETILSALICILICO', ['class' =>
+                            {!! Form::label('usoAspirinas_label', 'EN TRATAMIENTO CON ACIDO ACETILSALICILICO', ['class'
+                            =>
                             'col-sm-3 col-form-label']) !!}
                             <div class="col-sm-3">
                                 {!! Form::checkbox('usoAspirinas', 1, old('usoAspirinas',
