@@ -168,32 +168,36 @@ class Paciente extends Model
 
     public function racVigente()
     {
-        return $this->where(Carbon::parse('racVigente')->diffInDays(Carbon::now()) <= 365);
+        return $this->where('racVigente', '!=', '000/00/00');
     }
 
     public function vfgVigente()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.vfgVigente', '=', 1)->latest('controls.fecha_control');
+        return $this->where('vfgVigente', '!=', '000/00/00');
     }
 
     public function fondoOjoVigente()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.fondoOjoVigente', '=', 1)->latest('controls.fecha_control');
+        return $this->where('fondoOjoVigente', '!=', '000/00/00');
     }
 
     public function controlPodologico_alDia()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.controlPodologico_alDia', '=', 1)->latest('controls.fecha_control');
+        return $this->where('controlPodologico_alDia', '!=', '000/00/00');
     }
 
     public function ecgVigente()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.ecgVigente', '=', 1)->latest('controls.fecha_control');
+        return $this->where('ecgVigente', '!=', '000/00/00');
     }
 
     public function usoInsulina()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.usoInsulina', '=', 1)->latest('controls.fecha_control');
+        return $this->where('usoInsulina', '=', 1);
+    }
+    
+    public function insulinaHba1C(){
+        return $this->hba1cMayorIgual9Porcent()->where('usoInsulina', '=', 1);
     }
 
     public function hba1cMayorIgual9Porcent()
@@ -203,11 +207,11 @@ class Paciente extends Model
 
     public function usoIecaAraII()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.usoIecaAraII', '=', 1)->latest('controls.fecha_control');
+        return $this->where('usoIecaAraII', '=', 1);
     }
 
     public function ldlVigente()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.ldlVigente', '=', 1)->latest('controls.fecha_control');
+        return $this->where('ldlVigente', '!=', '000/00/00');
     }
 }

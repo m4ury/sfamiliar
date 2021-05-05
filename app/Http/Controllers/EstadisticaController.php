@@ -569,10 +569,7 @@ class EstadisticaController extends Controller
         $alto_80M = $all->rcv_alto()->get()->where('grupo', '>=', 80)->where('sexo', 'Masculino')->count();
         $alto_80F = $all->rcv_alto()->get()->where('grupo', '>=', 80)->where('sexo', 'Femenino')->count();
 
-        return view(
-            'estadisticas.seccion-a',
-            compact('all', 'total_pscv', 'm_pscv', 'f_pscv', 'p_bajo', 'p_moderado', 'p_alto', 'p_bajoM', 'p_bajoF', 'p_moderadoM', 'p_moderadoF', 'p_altoM', 'p_altoF', 'hta', 'dm2', 'dlp', 'htaF', 'htaM', 'dm2M', 'dm2F', 'dlpM', 'dlpF', 'tbq', 'tbqM', 'tbqF', 'iam', 'iamM', 'iamF', 'acv', 'acvF', 'acvM', 's_erc', 's_ercM', 's_ercF', 'ercI_II', 'ercI_IIF', 'ercI_IIM', 'ercIIIa', 'ercIIIaF', 'ercIIIaM', 'ercIIIb', 'ercIIIbF', 'ercIIIbM', 'ercIV', 'ercIVF', 'ercIVM', 'ercV', 'ercVF', 'ercVM', 'pscv_1519M', 'pscv_1519F', 'pscv_2024M', 'pscv_2024F', 'pscv_2529M', 'pscv_2529F', 'pscv_3034M', 'pscv_3034F', 'pscv_3539M', 'pscv_3539F', 'pscv_4044M', 'pscv_4044F', 'pscv_4549M', 'pscv_4549F', 'pscv_5054M', 'pscv_5054F', 'pscv_5559M', 'pscv_5559F', 'pscv_6064M', 'pscv_6064F', 'pscv_6569M', 'pscv_6569F', 'pscv_7074M', 'pscv_7074F', 'pscv_7579M', 'pscv_7579F', 'pscv_80M', 'pscv_80F', 'bajo_1519M', 'bajo_1519F', 'bajo_2024M', 'bajo_2024F', 'bajo_2529M', 'bajo_2529F', 'bajo_3034M', 'bajo_3034F', 'bajo_3539M', 'bajo_3539F', 'bajo_4044M', 'bajo_4044F', 'bajo_4549M', 'bajo_4549F', 'bajo_5054M', 'bajo_5054F', 'bajo_5559M', 'bajo_5559F', 'bajo_6064M', 'bajo_6064F', 'bajo_6569M', 'bajo_6569F', 'bajo_7074M', 'bajo_7074F', 'bajo_7579M', 'bajo_7579F', 'bajo_80M', 'bajo_80F', 'mod_1519M', 'mod_1519F', 'mod_2024M', 'mod_2024F', 'mod_2529M', 'mod_2529F', 'mod_3034M', 'mod_3034F', 'mod_3539M', 'mod_3539F', 'mod_4044M', 'mod_4044F', 'mod_4549M', 'mod_4549F', 'mod_5054M', 'mod_5054F', 'mod_5559M', 'mod_5559F', 'mod_6064M', 'mod_6064F', 'mod_6569M', 'mod_6569F', 'mod_7074M', 'mod_7074F', 'mod_7579M', 'mod_7579F', 'mod_80M', 'mod_80F', 'alto_1519M', 'alto_1519F', 'alto_2024M', 'alto_2024F', 'alto_2529M', 'alto_2529F', 'alto_3034M', 'alto_3034F', 'alto_3539M', 'alto_3539F', 'alto_4044M', 'alto_4044F', 'alto_4549M', 'alto_4549F', 'alto_5054M', 'alto_5054F', 'alto_5559M', 'alto_5559F', 'alto_6064M', 'alto_6064F', 'alto_6569M', 'alto_6569F', 'alto_7074M', 'alto_7074F', 'alto_7579M', 'alto_7579F', 'alto_80M', 'alto_80F', 'hta_1519M', 'hta_1519F', 'hta_2024M', 'hta_2024F', 'hta_2529M', 'hta_2529F', 'hta_3034M', 'hta_3034F', 'hta_3539M', 'hta_3539F', 'hta_4044M', 'hta_4044F', 'hta_4549M', 'hta_4549F', 'hta_5054M', 'hta_5054F', 'hta_5559M', 'hta_5559F', 'hta_6064M', 'hta_6064F', 'hta_6569M', 'hta_6569F', 'hta_7074M', 'hta_7074F', 'hta_7579M', 'hta_7579F', 'hta_80M', 'hta_80F', 'dm2_1519M', 'dm2_1519F', 'dm2_2024M', 'dm2_2024F', 'dm2_2529M', 'dm2_2529F', 'dm2_3034M', 'dm2_3034F', 'dm2_3539M', 'dm2_3539F', 'dm2_4044M', 'dm2_4044F', 'dm2_4549M', 'dm2_4549F', 'dm2_5054M', 'dm2_5054F', 'dm2_5559M', 'dm2_5559F', 'dm2_6064M', 'dm2_6064F', 'dm2_6569M', 'dm2_6569F', 'dm2_7074M', 'dm2_7074F', 'dm2_7579M', 'dm2_7579F', 'dm2_80M', 'dm2_80F', 'dlp_1519M', 'dlp_1519F', 'dlp_2024M', 'dlp_2024F', 'dlp_2529M', 'dlp_2529F', 'dlp_3034M', 'dlp_3034F', 'dlp_3539M', 'dlp_3539F', 'dlp_4044M', 'dlp_4044F', 'dlp_4549M', 'dlp_4549F', 'dlp_5054M', 'dlp_5054F', 'dlp_5559M', 'dlp_5559F', 'dlp_6064M', 'dlp_6064F', 'dlp_6569M', 'dlp_6569F', 'dlp_7074M', 'dlp_7074F', 'dlp_7579M', 'dlp_7579F', 'dlp_80M', 'dlp_80F', 'tbq_5559M', 'tbq_5559F', 'tbq_6064M', 'tbq_6064F', 'tbq_6569M', 'tbq_6569F', 'tbq_7074M', 'tbq_7074F', 'tbq_7579M', 'tbq_7579F', 'tbq_80M', 'tbq_80F', 'iam_1519M', 'iam_1519F', 'iam_2024M', 'iam_2024F', 'iam_2529M', 'iam_2529F', 'iam_3034M', 'iam_3034F', 'iam_3539M', 'iam_3539F', 'iam_4044M', 'iam_4044F', 'iam_4549M', 'iam_4549F', 'iam_5054M', 'iam_5054F', 'iam_5559M', 'iam_5559F', 'iam_6064M', 'iam_6064F', 'iam_6569M', 'iam_6569F', 'iam_7074M', 'iam_7074F', 'iam_7579M', 'iam_7579F', 'iam_80M', 'iam_80F', 'acv_1519M', 'acv_1519F', 'acv_2024M', 'acv_2024F', 'acv_2529M', 'acv_2529F', 'acv_3034M', 'acv_3034F', 'acv_3539M', 'acv_3539F', 'acv_4044M', 'acv_4044F', 'acv_4549M', 'acv_4549F', 'acv_5054M', 'acv_5054F', 'acv_5559M', 'acv_5559F', 'acv_6064M', 'acv_6064F', 'acv_6569M', 'acv_6569F', 'acv_7074M', 'acv_7074F', 'acv_7579M', 'acv_7579F', 'acv_80M', 'acv_80F', 's_erc_1519M', 's_erc_1519F', 's_erc_2024M', 's_erc_2024F', 's_erc_2529M', 's_erc_2529F', 's_erc_3034M', 's_erc_3034F', 's_erc_3539M', 's_erc_3539F', 's_erc_4044M', 's_erc_4044F', 's_erc_4549M', 's_erc_4549F', 's_erc_5054M', 's_erc_5054F', 's_erc_5559M', 's_erc_5559F', 's_erc_6064M', 's_erc_6064F', 's_erc_6569M', 's_erc_6569F', 's_erc_7074M', 's_erc_7074F', 's_erc_7579M', 's_erc_7579F', 's_erc_80M', 's_erc_80F', 'ercI_II_1519M', 'ercI_II_1519F', 'ercI_II_2024M', 'ercI_II_2024F', 'ercI_II_2529M', 'ercI_II_2529F', 'ercI_II_3034M', 'ercI_II_3034F', 'ercI_II_3539M', 'ercI_II_3539F', 'ercI_II_4044M', 'ercI_II_4044F', 'ercI_II_4549M', 'ercI_II_4549F', 'ercI_II_5054M', 'ercI_II_5054F', 'ercI_II_5559M', 'ercI_II_5559F', 'ercI_II_6064M', 'ercI_II_6064F', 'ercI_II_6569M', 'ercI_II_6569F', 'ercI_II_7074M', 'ercI_II_7074F', 'ercI_II_7579M', 'ercI_II_7579F', 'ercI_II_80M', 'ercI_II_80F', 'ercIIIa_1519M', 'ercIIIa_1519F', 'ercIIIa_2024M', 'ercIIIa_2024F', 'ercIIIa_2529M', 'ercIIIa_2529F', 'ercIIIa_3034M', 'ercIIIa_3034F', 'ercIIIa_3539M', 'ercIIIa_3539F', 'ercIIIa_4044M', 'ercIIIa_4044F', 'ercIIIa_4549M', 'ercIIIa_4549F', 'ercIIIa_5054M', 'ercIIIa_5054F', 'ercIIIa_5559M', 'ercIIIa_5559F', 'ercIIIa_6064M', 'ercIIIa_6064F', 'ercIIIa_6569M', 'ercIIIa_6569F', 'ercIIIa_7074M', 'ercIIIa_7074F', 'ercIIIa_7579M', 'ercIIIa_7579F', 'ercIIIa_80M', 'ercIIIa_80F', 'ercIIIb_1519M', 'ercIIIb_1519F', 'ercIIIb_2024M', 'ercIIIb_2024F', 'ercIIIb_2529M', 'ercIIIb_2529F', 'ercIIIb_3034M', 'ercIIIb_3034F', 'ercIIIb_3539M', 'ercIIIb_3539F', 'ercIIIb_4044M', 'ercIIIb_4044F', 'ercIIIb_4549M', 'ercIIIb_4549F', 'ercIIIb_5054M', 'ercIIIb_5054F', 'ercIIIb_5559M', 'ercIIIb_5559F', 'ercIIIb_6064M', 'ercIIIb_6064F', 'ercIIIb_6569M', 'ercIIIb_6569F', 'ercIIIb_7074M', 'ercIIIb_7074F', 'ercIIIb_7579M', 'ercIIIb_7579F', 'ercIIIb_80M', 'ercIIIb_80F', 'ercIV_1519M', 'ercIV_1519F', 'ercIV_2024M', 'ercIV_2024F', 'ercIV_2529M', 'ercIV_2529F', 'ercIV_3034M', 'ercIV_3034F', 'ercIV_3539M', 'ercIV_3539F', 'ercIV_4044M', 'ercIV_4044F', 'ercIV_4549M', 'ercIV_4549F', 'ercIV_5054M', 'ercIV_5054F', 'ercIV_5559M', 'ercIV_5559F', 'ercIV_6064M', 'ercIV_6064F', 'ercIV_6569M', 'ercIV_6569F', 'ercIV_7074M', 'ercIV_7074F', 'ercIV_7579M', 'ercIV_7579F', 'ercIV_80M', 'ercIV_80F', 'ercV_1519M', 'ercV_1519F', 'ercV_2024M', 'ercV_2024F', 'ercV_2529M', 'ercV_2529F', 'ercV_3034M', 'ercV_3034F', 'ercV_3539M', 'ercV_3539F', 'ercV_4044M', 'ercV_4044F', 'ercV_4549M', 'ercV_4549F', 'ercV_5054M', 'ercV_5054F', 'ercV_5559M', 'ercV_5559F', 'ercV_6064M', 'ercV_6064F', 'ercV_6569M', 'ercV_6569F', 'ercV_7074M', 'ercV_7074F', 'ercV_7579M', 'ercV_7579F', 'ercV_80M', 'ercV_80F')
-        );
+        return view('estadisticas.seccion-a', compact('all', 'total_pscv', 'm_pscv', 'f_pscv', 'p_bajo', 'p_moderado', 'p_alto', 'p_bajoM', 'p_bajoF', 'p_moderadoM', 'p_moderadoF', 'p_altoM', 'p_altoF', 'hta', 'dm2', 'dlp', 'htaF', 'htaM', 'dm2M', 'dm2F', 'dlpM', 'dlpF', 'tbq', 'tbqM', 'tbqF', 'iam', 'iamM', 'iamF', 'acv', 'acvF', 'acvM', 's_erc', 's_ercM', 's_ercF', 'ercI_II', 'ercI_IIF', 'ercI_IIM', 'ercIIIa', 'ercIIIaF', 'ercIIIaM', 'ercIIIb', 'ercIIIbF', 'ercIIIbM', 'ercIV', 'ercIVF', 'ercIVM', 'ercV', 'ercVF', 'ercVM', 'pscv_1519M', 'pscv_1519F', 'pscv_2024M', 'pscv_2024F', 'pscv_2529M', 'pscv_2529F', 'pscv_3034M', 'pscv_3034F', 'pscv_3539M', 'pscv_3539F', 'pscv_4044M', 'pscv_4044F', 'pscv_4549M', 'pscv_4549F', 'pscv_5054M', 'pscv_5054F', 'pscv_5559M', 'pscv_5559F', 'pscv_6064M', 'pscv_6064F', 'pscv_6569M', 'pscv_6569F', 'pscv_7074M', 'pscv_7074F', 'pscv_7579M', 'pscv_7579F', 'pscv_80M', 'pscv_80F', 'bajo_1519M', 'bajo_1519F', 'bajo_2024M', 'bajo_2024F', 'bajo_2529M', 'bajo_2529F', 'bajo_3034M', 'bajo_3034F', 'bajo_3539M', 'bajo_3539F', 'bajo_4044M', 'bajo_4044F', 'bajo_4549M', 'bajo_4549F', 'bajo_5054M', 'bajo_5054F', 'bajo_5559M', 'bajo_5559F', 'bajo_6064M', 'bajo_6064F', 'bajo_6569M', 'bajo_6569F', 'bajo_7074M', 'bajo_7074F', 'bajo_7579M', 'bajo_7579F', 'bajo_80M', 'bajo_80F', 'mod_1519M', 'mod_1519F', 'mod_2024M', 'mod_2024F', 'mod_2529M', 'mod_2529F', 'mod_3034M', 'mod_3034F', 'mod_3539M', 'mod_3539F', 'mod_4044M', 'mod_4044F', 'mod_4549M', 'mod_4549F', 'mod_5054M', 'mod_5054F', 'mod_5559M', 'mod_5559F', 'mod_6064M', 'mod_6064F', 'mod_6569M', 'mod_6569F', 'mod_7074M', 'mod_7074F', 'mod_7579M', 'mod_7579F', 'mod_80M', 'mod_80F', 'alto_1519M', 'alto_1519F', 'alto_2024M', 'alto_2024F', 'alto_2529M', 'alto_2529F', 'alto_3034M', 'alto_3034F', 'alto_3539M', 'alto_3539F', 'alto_4044M', 'alto_4044F', 'alto_4549M', 'alto_4549F', 'alto_5054M', 'alto_5054F', 'alto_5559M', 'alto_5559F', 'alto_6064M', 'alto_6064F', 'alto_6569M', 'alto_6569F', 'alto_7074M', 'alto_7074F', 'alto_7579M', 'alto_7579F', 'alto_80M', 'alto_80F', 'hta_1519M', 'hta_1519F', 'hta_2024M', 'hta_2024F', 'hta_2529M', 'hta_2529F', 'hta_3034M', 'hta_3034F', 'hta_3539M', 'hta_3539F', 'hta_4044M', 'hta_4044F', 'hta_4549M', 'hta_4549F', 'hta_5054M', 'hta_5054F', 'hta_5559M', 'hta_5559F', 'hta_6064M', 'hta_6064F', 'hta_6569M', 'hta_6569F', 'hta_7074M', 'hta_7074F', 'hta_7579M', 'hta_7579F', 'hta_80M', 'hta_80F', 'dm2_1519M', 'dm2_1519F', 'dm2_2024M', 'dm2_2024F', 'dm2_2529M', 'dm2_2529F', 'dm2_3034M', 'dm2_3034F', 'dm2_3539M', 'dm2_3539F', 'dm2_4044M', 'dm2_4044F', 'dm2_4549M', 'dm2_4549F', 'dm2_5054M', 'dm2_5054F', 'dm2_5559M', 'dm2_5559F', 'dm2_6064M', 'dm2_6064F', 'dm2_6569M', 'dm2_6569F', 'dm2_7074M', 'dm2_7074F', 'dm2_7579M', 'dm2_7579F', 'dm2_80M', 'dm2_80F', 'dlp_1519M', 'dlp_1519F', 'dlp_2024M', 'dlp_2024F', 'dlp_2529M', 'dlp_2529F', 'dlp_3034M', 'dlp_3034F', 'dlp_3539M', 'dlp_3539F', 'dlp_4044M', 'dlp_4044F', 'dlp_4549M', 'dlp_4549F', 'dlp_5054M', 'dlp_5054F', 'dlp_5559M', 'dlp_5559F', 'dlp_6064M', 'dlp_6064F', 'dlp_6569M', 'dlp_6569F', 'dlp_7074M', 'dlp_7074F', 'dlp_7579M', 'dlp_7579F', 'dlp_80M', 'dlp_80F', 'tbq_5559M', 'tbq_5559F', 'tbq_6064M', 'tbq_6064F', 'tbq_6569M', 'tbq_6569F', 'tbq_7074M', 'tbq_7074F', 'tbq_7579M', 'tbq_7579F', 'tbq_80M', 'tbq_80F', 'iam_1519M', 'iam_1519F', 'iam_2024M', 'iam_2024F', 'iam_2529M', 'iam_2529F', 'iam_3034M', 'iam_3034F', 'iam_3539M', 'iam_3539F', 'iam_4044M', 'iam_4044F', 'iam_4549M', 'iam_4549F', 'iam_5054M', 'iam_5054F', 'iam_5559M', 'iam_5559F', 'iam_6064M', 'iam_6064F', 'iam_6569M', 'iam_6569F', 'iam_7074M', 'iam_7074F', 'iam_7579M', 'iam_7579F', 'iam_80M', 'iam_80F', 'acv_1519M', 'acv_1519F', 'acv_2024M', 'acv_2024F', 'acv_2529M', 'acv_2529F', 'acv_3034M', 'acv_3034F', 'acv_3539M', 'acv_3539F', 'acv_4044M', 'acv_4044F', 'acv_4549M', 'acv_4549F', 'acv_5054M', 'acv_5054F', 'acv_5559M', 'acv_5559F', 'acv_6064M', 'acv_6064F', 'acv_6569M', 'acv_6569F', 'acv_7074M', 'acv_7074F', 'acv_7579M', 'acv_7579F', 'acv_80M', 'acv_80F', 's_erc_1519M', 's_erc_1519F', 's_erc_2024M', 's_erc_2024F', 's_erc_2529M', 's_erc_2529F', 's_erc_3034M', 's_erc_3034F', 's_erc_3539M', 's_erc_3539F', 's_erc_4044M', 's_erc_4044F', 's_erc_4549M', 's_erc_4549F', 's_erc_5054M', 's_erc_5054F', 's_erc_5559M', 's_erc_5559F', 's_erc_6064M', 's_erc_6064F', 's_erc_6569M', 's_erc_6569F', 's_erc_7074M', 's_erc_7074F', 's_erc_7579M', 's_erc_7579F', 's_erc_80M', 's_erc_80F', 'ercI_II_1519M', 'ercI_II_1519F', 'ercI_II_2024M', 'ercI_II_2024F', 'ercI_II_2529M', 'ercI_II_2529F', 'ercI_II_3034M', 'ercI_II_3034F', 'ercI_II_3539M', 'ercI_II_3539F', 'ercI_II_4044M', 'ercI_II_4044F', 'ercI_II_4549M', 'ercI_II_4549F', 'ercI_II_5054M', 'ercI_II_5054F', 'ercI_II_5559M', 'ercI_II_5559F', 'ercI_II_6064M', 'ercI_II_6064F', 'ercI_II_6569M', 'ercI_II_6569F', 'ercI_II_7074M', 'ercI_II_7074F', 'ercI_II_7579M', 'ercI_II_7579F', 'ercI_II_80M', 'ercI_II_80F', 'ercIIIa_1519M', 'ercIIIa_1519F', 'ercIIIa_2024M', 'ercIIIa_2024F', 'ercIIIa_2529M', 'ercIIIa_2529F', 'ercIIIa_3034M', 'ercIIIa_3034F', 'ercIIIa_3539M', 'ercIIIa_3539F', 'ercIIIa_4044M', 'ercIIIa_4044F', 'ercIIIa_4549M', 'ercIIIa_4549F', 'ercIIIa_5054M', 'ercIIIa_5054F', 'ercIIIa_5559M', 'ercIIIa_5559F', 'ercIIIa_6064M', 'ercIIIa_6064F', 'ercIIIa_6569M', 'ercIIIa_6569F', 'ercIIIa_7074M', 'ercIIIa_7074F', 'ercIIIa_7579M', 'ercIIIa_7579F', 'ercIIIa_80M', 'ercIIIa_80F', 'ercIIIb_1519M', 'ercIIIb_1519F', 'ercIIIb_2024M', 'ercIIIb_2024F', 'ercIIIb_2529M', 'ercIIIb_2529F', 'ercIIIb_3034M', 'ercIIIb_3034F', 'ercIIIb_3539M', 'ercIIIb_3539F', 'ercIIIb_4044M', 'ercIIIb_4044F', 'ercIIIb_4549M', 'ercIIIb_4549F', 'ercIIIb_5054M', 'ercIIIb_5054F', 'ercIIIb_5559M', 'ercIIIb_5559F', 'ercIIIb_6064M', 'ercIIIb_6064F', 'ercIIIb_6569M', 'ercIIIb_6569F', 'ercIIIb_7074M', 'ercIIIb_7074F', 'ercIIIb_7579M', 'ercIIIb_7579F', 'ercIIIb_80M', 'ercIIIb_80F', 'ercIV_1519M', 'ercIV_1519F', 'ercIV_2024M', 'ercIV_2024F', 'ercIV_2529M', 'ercIV_2529F', 'ercIV_3034M', 'ercIV_3034F', 'ercIV_3539M', 'ercIV_3539F', 'ercIV_4044M', 'ercIV_4044F', 'ercIV_4549M', 'ercIV_4549F', 'ercIV_5054M', 'ercIV_5054F', 'ercIV_5559M', 'ercIV_5559F', 'ercIV_6064M', 'ercIV_6064F', 'ercIV_6569M', 'ercIV_6569F', 'ercIV_7074M', 'ercIV_7074F', 'ercIV_7579M', 'ercIV_7579F', 'ercIV_80M', 'ercIV_80F', 'ercV_1519M', 'ercV_1519F', 'ercV_2024M', 'ercV_2024F', 'ercV_2529M', 'ercV_2529F', 'ercV_3034M', 'ercV_3034F', 'ercV_3539M', 'ercV_3539F', 'ercV_4044M', 'ercV_4044F', 'ercV_4549M', 'ercV_4549F', 'ercV_5054M', 'ercV_5054F', 'ercV_5559M', 'ercV_5559F', 'ercV_6064M', 'ercV_6064F', 'ercV_6569M', 'ercV_6569F', 'ercV_7074M', 'ercV_7074F', 'ercV_7579M', 'ercV_7579F', 'ercV_80M', 'ercV_80F'));
     }
 
     public function seccionB()
@@ -810,239 +807,76 @@ class EstadisticaController extends Controller
         $aspirinas_80M = $pacientes->aspirinas()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
 
 
-
-        return view('estadisticas.seccion-b', compact(
-            'pa140_90',
-            'pa140_90M',
-            'pa140_90F',
-            'pa140_1519M',
-            'pa140_1519F',
-            'pa140_2024M',
-            'pa140_2024F',
-            'pa140_2529M',
-            'pa140_2529F',
-            'pa140_3034M',
-            'pa140_3034F',
-            'pa140_3539M',
-            'pa140_3539F',
-            'pa140_4044M',
-            'pa140_4044F',
-            'pa140_4549M',
-            'pa140_4549F',
-            'pa140_5054M',
-            'pa140_5054F',
-            'pa140_5559M',
-            'pa140_5559F',
-            'pa140_6064M',
-            'pa140_6064F',
-            'pa140_6569M',
-            'pa140_6569F',
-            'pa140_7074M',
-            'pa140_7074F',
-            'pa140_7579M',
-            'pa140_7579F',
-            'pa150',
-            'pa150M',
-            'pa150F',
-            'hbac17',
-            'hbac17M',
-            'hbac17F',
-            'hbac17_1519M',
-            'hbac17_1519F',
-            'hbac17_2024M',
-            'hbac17_2024F',
-            'hbac17_2529M',
-            'hbac17_2529F',
-            'hbac17_3034M',
-            'hbac17_3034F',
-            'hbac17_3539M',
-            'hbac17_3539F',
-            'hbac17_4044M',
-            'hbac17_4044F',
-            'hbac17_4549M',
-            'hbac17_4549F',
-            'hbac17_5054M',
-            'hbac17_5054F',
-            'hbac17_5559M',
-            'hbac17_5559F',
-            'hbac17_6064M',
-            'hbac17_6064F',
-            'hbac17_6569M',
-            'hbac17_6569F',
-            'hbac17_7074M',
-            'hbac17_7074F',
-            'hbac17_7579M',
-            'hbac17_7579F',
-            'hbac18',
-            'hbac18M',
-            'hbac18F',
-            'hbac17Pa140Ldl100',
-            'hbac17Pa140Ldl100M',
-            'hbac17Pa140Ldl100F',
-            'hbac17Pa140Ldl100_1519M',
-            'hbac17Pa140Ldl100_1519F',
-            'hbac17Pa140Ldl100_2024M',
-            'hbac17Pa140Ldl100_2024F',
-            'hbac17Pa140Ldl100_2529M',
-            'hbac17Pa140Ldl100_2529F',
-            'hbac17Pa140Ldl100_3034M',
-            'hbac17Pa140Ldl100_3034F',
-            'hbac17Pa140Ldl100_3539M',
-            'hbac17Pa140Ldl100_3539F',
-            'hbac17Pa140Ldl100_4044M',
-            'hbac17Pa140Ldl100_4044F',
-            'hbac17Pa140Ldl100_4549M',
-            'hbac17Pa140Ldl100_4549F',
-            'hbac17Pa140Ldl100_5054M',
-            'hbac17Pa140Ldl100_5054F',
-            'hbac17Pa140Ldl100_5559M',
-            'hbac17Pa140Ldl100_5559F',
-            'hbac17Pa140Ldl100_6064M',
-            'hbac17Pa140Ldl100_6064F',
-            'hbac17Pa140Ldl100_6569M',
-            'hbac17Pa140Ldl100_6569F',
-            'hbac17Pa140Ldl100_7074M',
-            'hbac17Pa140Ldl100_7074F',
-            'hbac17Pa140Ldl100_7579M',
-            'hbac17Pa140Ldl100_7579F',
-            'hbac17Pa140Ldl100_80M',
-            'hbac17Pa140Ldl100_80F',
-            'ldl100',
-            'ldl100M',
-            'ldl100F',
-            'ldl100_1519M',
-            'ldl100_1519F',
-            'ldl100_2024M',
-            'ldl100_2024F',
-            'ldl100_2529M',
-            'ldl100_2529F',
-            'ldl100_3034M',
-            'ldl100_3034F',
-            'ldl100_3539M',
-            'ldl100_3539F',
-            'ldl100_4044M',
-            'ldl100_4044F',
-            'ldl100_4549M',
-            'ldl100_4549F',
-            'ldl100_5054M',
-            'ldl100_5054F',
-            'ldl100_5559M',
-            'ldl100_5559F',
-            'ldl100_6064M',
-            'ldl100_6064F',
-            'ldl100_6569M',
-            'ldl100_6569F',
-            'ldl100_7074M',
-            'ldl100_7074F',
-            'ldl100_7579M',
-            'ldl100_7579F',
-            'ldl100_80M',
-            'ldl100_80F',
-            'aspirinas',
-            'aspirinasM',
-            'aspirinasF',
-            'aspirinas_1519M',
-            'aspirinas_1519F',
-            'aspirinas_2024M',
-            'aspirinas_2024F',
-            'aspirinas_2529M',
-            'aspirinas_2529F',
-            'aspirinas_3034M',
-            'aspirinas_3034F',
-            'aspirinas_3539M',
-            'aspirinas_3539F',
-            'aspirinas_4044M',
-            'aspirinas_4044F',
-            'aspirinas_4549M',
-            'aspirinas_4549F',
-            'aspirinas_5054M',
-            'aspirinas_5054F',
-            'aspirinas_5559M',
-            'aspirinas_5559F',
-            'aspirinas_6064M',
-            'aspirinas_6064F',
-            'aspirinas_6569M',
-            'aspirinas_6569F',
-            'aspirinas_7074M',
-            'aspirinas_7074F',
-            'aspirinas_7579M',
-            'aspirinas_7579F',
-            'aspirinas_80M',
-            'aspirinas_80F',
-            'estatinas',
-            'estatinasM',
-            'estatinasF',
-            'estatinas_1519M',
-            'estatinas_1519F',
-            'estatinas_2024M',
-            'estatinas_2024F',
-            'estatinas_2529M',
-            'estatinas_2529F',
-            'estatinas_3034M',
-            'estatinas_3034F',
-            'estatinas_3539M',
-            'estatinas_3539F',
-            'estatinas_4044M',
-            'estatinas_4044F',
-            'estatinas_4549M',
-            'estatinas_4549F',
-            'estatinas_5054M',
-            'estatinas_5054F',
-            'estatinas_5559M',
-            'estatinas_5559F',
-            'estatinas_6064M',
-            'estatinas_6064F',
-            'estatinas_6569M',
-            'estatinas_6569F',
-            'estatinas_7074M',
-            'estatinas_7074F',
-            'estatinas_7579M',
-            'estatinas_7579F',
-            'estatinas_80M',
-            'estatinas_80F'
-        ));
+        return view('estadisticas.seccion-b', compact('pa140_90', 'pa140_90M', 'pa140_90F', 'pa140_1519M', 'pa140_1519F', 'pa140_2024M', 'pa140_2024F', 'pa140_2529M', 'pa140_2529F', 'pa140_3034M', 'pa140_3034F', 'pa140_3539M', 'pa140_3539F', 'pa140_4044M', 'pa140_4044F', 'pa140_4549M', 'pa140_4549F', 'pa140_5054M', 'pa140_5054F', 'pa140_5559M', 'pa140_5559F', 'pa140_6064M', 'pa140_6064F', 'pa140_6569M', 'pa140_6569F', 'pa140_7074M', 'pa140_7074F', 'pa140_7579M', 'pa140_7579F', 'pa150', 'pa150M', 'pa150F', 'hbac17', 'hbac17M', 'hbac17F', 'hbac17_1519M', 'hbac17_1519F', 'hbac17_2024M', 'hbac17_2024F', 'hbac17_2529M', 'hbac17_2529F', 'hbac17_3034M', 'hbac17_3034F', 'hbac17_3539M', 'hbac17_3539F', 'hbac17_4044M', 'hbac17_4044F', 'hbac17_4549M', 'hbac17_4549F', 'hbac17_5054M', 'hbac17_5054F', 'hbac17_5559M', 'hbac17_5559F', 'hbac17_6064M', 'hbac17_6064F', 'hbac17_6569M', 'hbac17_6569F', 'hbac17_7074M', 'hbac17_7074F', 'hbac17_7579M', 'hbac17_7579F', 'hbac18', 'hbac18M', 'hbac18F', 'hbac17Pa140Ldl100', 'hbac17Pa140Ldl100M', 'hbac17Pa140Ldl100F', 'hbac17Pa140Ldl100_1519M', 'hbac17Pa140Ldl100_1519F', 'hbac17Pa140Ldl100_2024M', 'hbac17Pa140Ldl100_2024F', 'hbac17Pa140Ldl100_2529M', 'hbac17Pa140Ldl100_2529F', 'hbac17Pa140Ldl100_3034M', 'hbac17Pa140Ldl100_3034F', 'hbac17Pa140Ldl100_3539M', 'hbac17Pa140Ldl100_3539F', 'hbac17Pa140Ldl100_4044M', 'hbac17Pa140Ldl100_4044F', 'hbac17Pa140Ldl100_4549M', 'hbac17Pa140Ldl100_4549F', 'hbac17Pa140Ldl100_5054M', 'hbac17Pa140Ldl100_5054F', 'hbac17Pa140Ldl100_5559M', 'hbac17Pa140Ldl100_5559F', 'hbac17Pa140Ldl100_6064M', 'hbac17Pa140Ldl100_6064F', 'hbac17Pa140Ldl100_6569M', 'hbac17Pa140Ldl100_6569F', 'hbac17Pa140Ldl100_7074M', 'hbac17Pa140Ldl100_7074F', 'hbac17Pa140Ldl100_7579M', 'hbac17Pa140Ldl100_7579F', 'hbac17Pa140Ldl100_80M', 'hbac17Pa140Ldl100_80F', 'ldl100', 'ldl100M', 'ldl100F', 'ldl100_1519M', 'ldl100_1519F', 'ldl100_2024M', 'ldl100_2024F', 'ldl100_2529M', 'ldl100_2529F', 'ldl100_3034M', 'ldl100_3034F', 'ldl100_3539M', 'ldl100_3539F', 'ldl100_4044M', 'ldl100_4044F', 'ldl100_4549M', 'ldl100_4549F', 'ldl100_5054M', 'ldl100_5054F', 'ldl100_5559M', 'ldl100_5559F', 'ldl100_6064M', 'ldl100_6064F', 'ldl100_6569M', 'ldl100_6569F', 'ldl100_7074M', 'ldl100_7074F', 'ldl100_7579M', 'ldl100_7579F', 'ldl100_80M', 'ldl100_80F', 'aspirinas', 'aspirinasM', 'aspirinasF', 'aspirinas_1519M', 'aspirinas_1519F', 'aspirinas_2024M', 'aspirinas_2024F', 'aspirinas_2529M', 'aspirinas_2529F', 'aspirinas_3034M', 'aspirinas_3034F', 'aspirinas_3539M', 'aspirinas_3539F', 'aspirinas_4044M', 'aspirinas_4044F', 'aspirinas_4549M', 'aspirinas_4549F', 'aspirinas_5054M', 'aspirinas_5054F', 'aspirinas_5559M', 'aspirinas_5559F', 'aspirinas_6064M', 'aspirinas_6064F', 'aspirinas_6569M', 'aspirinas_6569F', 'aspirinas_7074M', 'aspirinas_7074F', 'aspirinas_7579M', 'aspirinas_7579F', 'aspirinas_80M', 'aspirinas_80F', 'estatinas', 'estatinasM', 'estatinasF', 'estatinas_1519M', 'estatinas_1519F', 'estatinas_2024M', 'estatinas_2024F', 'estatinas_2529M', 'estatinas_2529F', 'estatinas_3034M', 'estatinas_3034F', 'estatinas_3539M', 'estatinas_3539F', 'estatinas_4044M', 'estatinas_4044F', 'estatinas_4549M', 'estatinas_4549F', 'estatinas_5054M', 'estatinas_5054F', 'estatinas_5559M', 'estatinas_5559F', 'estatinas_6064M', 'estatinas_6064F', 'estatinas_6569M', 'estatinas_6569F', 'estatinas_7074M', 'estatinas_7074F', 'estatinas_7579M', 'estatinas_7579F', 'estatinas_80M', 'estatinas_80F'));
     }
 
     public function seccionC()
     {
         $pacientes = new Paciente;
 
+        //racVigente
         $racVigente = $pacientes->racVigente()->count();
-        dd($racVigente);
-        $racVigenteF = $pacientes->racVigente()->where('pacientes.sexo', '=', 'femenino')->count();
-        $racVigenteOriginF = $pacientes->racVigente()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
-        $racVigente_1519F = $pacientes->racVigente()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Femenino')->count();
-        $racVigente_2024F = $pacientes->racVigente()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->count();
-        $racVigente_2529F = $pacientes->racVigente()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->count();
-        $racVigente_3034F = $pacientes->racVigente()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->count();
-        $racVigente_3539F = $pacientes->racVigente()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->count();
-        $racVigente_4044F = $pacientes->racVigente()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->count();
-        $racVigente_4549F = $pacientes->racVigente()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->count();
-        $racVigente_5054F = $pacientes->racVigente()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->count();
-        $racVigente_5559F = $pacientes->racVigente()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->count();
-        $racVigente_6064F = $pacientes->racVigente()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->count();
-        $racVigente_6569F = $pacientes->racVigente()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->count();
-        $racVigente_7074F = $pacientes->racVigente()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->count();
-        $racVigente_7579F = $pacientes->racVigente()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->count();
-        $racVigente_80F = $pacientes->racVigente()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->count();
+        $racVigente_1564 = $pacientes->racVigente()->get()->whereBetween('grupo', [15, 64])->count();
+        $racVigente_65 = $pacientes->racVigente()->get()->where('grupo', '>', 64)->count();
+        $racVigenteF = $pacientes->racVigente()->where('sexo', 'Femenino')->count();
+        $racVigenteM = $pacientes->racVigente()->where('sexo', 'Masculino')->count();
 
-        $racVigenteM = $pacientes->racVigente()->where('pacientes.sexo', '=', 'Masculino')->count();
-        $racVigenteOriginM = $pacientes->racVigente()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
-        $racVigente_1519M = $pacientes->racVigente()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Masculino')->count();
-        $racVigente_2024M = $pacientes->racVigente()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->count();
-        $racVigente_2529M = $pacientes->racVigente()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->count();
-        $racVigente_3034M = $pacientes->racVigente()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->count();
-        $racVigente_3539M = $pacientes->racVigente()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->count();
-        $racVigente_4044M = $pacientes->racVigente()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->count();
-        $racVigente_4549M = $pacientes->racVigente()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->count();
-        $racVigente_5054M = $pacientes->racVigente()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->count();
-        $racVigente_5559M = $pacientes->racVigente()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->count();
-        $racVigente_6064M = $pacientes->racVigente()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->count();
-        $racVigente_6569M = $pacientes->racVigente()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->count();
-        $racVigente_7074M = $pacientes->racVigente()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->count();
-        $racVigente_7579M = $pacientes->racVigente()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->count();
-        $racVigente_80M = $pacientes->racVigente()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
+        //vfgVigente
+        $vfgVigente = $pacientes->vfgVigente()->count();
+        $vfgVigente_1564 = $pacientes->vfgVigente()->get()->whereBetween('grupo', [15, 64])->count();
+        $vfgVigente_65 = $pacientes->vfgVigente()->get()->where('grupo', '>', 64)->count();
+        $vfgVigenteF = $pacientes->vfgVigente()->where('sexo', 'Femenino')->count();
+        $vfgVigenteM = $pacientes->vfgVigente()->where('sexo', 'Masculino')->count();
 
-        return view('estadisticas.seccion-c');
+        //fondo de ojo Vigente
+        $fondoOjoVigente = $pacientes->fondoOjoVigente()->count();
+        $fondoOjoVigente_1564 = $pacientes->fondoOjoVigente()->get()->whereBetween('grupo', [15, 64])->count();
+        $fondoOjoVigente_65 = $pacientes->fondoOjoVigente()->get()->where('grupo', '>', 64)->count();
+        $fondoOjoVigenteF = $pacientes->fondoOjoVigente()->where('sexo', 'Femenino')->count();
+        $fondoOjoVigenteM = $pacientes->fondoOjoVigente()->where('sexo', 'Masculino')->count();
+
+        //control podologico al dia
+        $controlPodologico_alDia = $pacientes->controlPodologico_alDia()->count();
+        $controlPodologico_alDia_1564 = $pacientes->controlPodologico_alDia()->get()->whereBetween('grupo', [15, 64])->count();
+        $controlPodologico_alDia_65 = $pacientes->controlPodologico_alDia()->get()->where('grupo', '>', 64)->count();
+        $controlPodologico_alDiaF = $pacientes->controlPodologico_alDia()->where('sexo', 'Femenino')->count();
+        $controlPodologico_alDiaM = $pacientes->controlPodologico_alDia()->where('sexo', 'Masculino')->count();
+
+        //ecgVigente
+        $ecgVigente = $pacientes->ecgVigente()->count();
+        $ecgVigente_1564 = $pacientes->ecgVigente()->get()->whereBetween('grupo', [15, 64])->count();
+        $ecgVigente_65 = $pacientes->ecgVigente()->get()->where('grupo', '>', 64)->count();
+        $ecgVigenteF = $pacientes->ecgVigente()->where('sexo', 'Femenino')->count();
+        $ecgVigenteM = $pacientes->ecgVigente()->where('sexo', 'Masculino')->count();
+
+        //usoInsulina
+        $usoInsulina = $pacientes->usoInsulina()->count();
+        $usoInsulina_1564 = $pacientes->usoInsulina()->get()->whereBetween('grupo', [15, 64])->count();
+        $usoInsulina_65 = $pacientes->usoInsulina()->get()->where('grupo', '>', 64)->count();
+        $usoInsulinaF = $pacientes->usoInsulina()->where('sexo', 'Femenino')->count();
+        $usoInsulinaM = $pacientes->usoInsulina()->where('sexo', 'Masculino')->count();
+
+        //insulinaHb1C
+        $insulinaHba1C = $pacientes->insulinaHba1C()->count();
+        $insulinaHba1C_1564 = $pacientes->insulinaHba1C()->get()->whereBetween('grupo', [15, 64])->count();
+        $insulinaHba1C_65 = $pacientes->insulinaHba1C()->get()->where('grupo', '>', 64)->count();
+        $insulinaHba1CF = $pacientes->insulinaHba1C()->where('sexo', 'Femenino')->count();
+        $insulinaHba1CM = $pacientes->insulinaHba1C()->where('sexo', 'Masculino')->count();
+
+        //hba1cMayorIgual9Porcent Hba1C
+        $hba1cMayorIgual9Porcent = $pacientes->hba1cMayorIgual9Porcent()->count();
+        $hba1cMayorIgual9Porcent_1564 = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [15, 64])->count();
+        $hba1cMayorIgual9Porcent_65 = $pacientes->hba1cMayorIgual9Porcent()->get()->where('grupo', '>', 64)->count();
+        $hba1cMayorIgual9PorcentF = $pacientes->hba1cMayorIgual9Porcent()->where('sexo', 'Femenino')->count();
+        $hba1cMayorIgual9PorcentM = $pacientes->hba1cMayorIgual9Porcent()->where('sexo', 'Masculino')->count();
+
+        //usoIecaAraII
+        $usoIecaAraII = $pacientes->usoIecaAraII()->count();
+        $usoIecaAraII_1564 = $pacientes->usoIecaAraII()->get()->whereBetween('grupo', [15, 64])->count();
+        $usoIecaAraII_65 = $pacientes->usoIecaAraII()->get()->where('grupo', '>', 64)->count();
+        $usoIecaAraIIF = $pacientes->usoIecaAraII()->where('sexo', 'Femenino')->count();
+        $usoIecaAraIIM = $pacientes->usoIecaAraII()->where('sexo', 'Masculino')->count();
+
+        return view('estadisticas.seccion-c', compact('racVigente', 'racVigente_1564', 'racVigente_65', 'racVigenteM', 'racVigenteF', 'vfgVigente', 'vfgVigente_1564', 'vfgVigente_65', 'vfgVigenteM', 'vfgVigenteF', 'fondoOjoVigente', 'fondoOjoVigente_1564', 'fondoOjoVigente_65', 'fondoOjoVigenteM', 'fondoOjoVigenteF', 'controlPodologico_alDia', 'controlPodologico_alDia_1564', 'controlPodologico_alDia_65', 'controlPodologico_alDiaM', 'controlPodologico_alDiaF', 'ecgVigente', 'ecgVigente_1564', 'ecgVigente_65', 'ecgVigenteM', 'ecgVigenteF', 'usoInsulina', 'usoInsulina_1564', 'usoInsulina_65', 'usoInsulinaM', 'usoInsulinaF', 'insulinaHba1C', 'insulinaHba1C_1564', 'insulinaHba1C_65', 'insulinaHba1CM', 'insulinaHba1CF', 'hba1cMayorIgual9Porcent', 'hba1cMayorIgual9Porcent_1564', 'hba1cMayorIgual9Porcent_65', 'hba1cMayorIgual9PorcentM', 'hba1cMayorIgual9PorcentF', 'usoIecaAraII', 'usoIecaAraII_1564', 'usoIecaAraII_65', 'usoIecaAraIIM', 'usoIecaAraIIF'));
     }
 }

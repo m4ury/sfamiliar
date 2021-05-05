@@ -31,12 +31,168 @@
                         <tr>
                             <th class="text-left" colspan="7">PERSONAS DIABETICAS EN PSCV</th>
                         </tr>
-<tr>
-    <th colspan="2">CON RAZON ALBÚMINA CREATININA (RAC),VIGENTE</th>
-    <td>
-        0
-    </td>
-</tr>
+                        <tr>
+                            <th colspan="2">CON RAZON ALBÚMINA CREATININA (RAC),VIGENTE</th>
+                            <td>
+                                {{ $racVigente }}
+                            </td>
+                            <td>
+                                {{ $racVigente_1564 }}
+                            </td>
+                            <td>
+                                {{ $racVigente_65 }}
+                            </td>
+                            <td>
+                                {{ $racVigenteM }}
+                            </td>
+                            <td>
+                                {{ $racVigenteF }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">CON VELOCIDAD DE FILTRACIÓN GLOMERULAR (VFG), VIGENTE</th>
+                            <td>
+                                {{ $vfgVigente }}
+                            </td>
+                            <td>
+                                {{ $vfgVigente_1564 }}
+                            </td>
+                            <td>
+                                {{ $vfgVigente_65 }}
+                            </td>
+                            <td>
+                                {{ $vfgVigenteM }}
+                            </td>
+                            <td>
+                                {{ $vfgVigenteF }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">CON FONDO DE OJO, VIGENTE</th>
+                            <td>
+                                {{ $fondoOjoVigente }}
+                            </td>
+                            <td>
+                                {{ $fondoOjoVigente_1564 }}
+                            </td>
+                            <td>
+                                {{ $fondoOjoVigente_65 }}
+                            </td>
+                            <td>
+                                {{ $fondoOjoVigenteM }}
+                            </td>
+                            <td>
+                                {{ $fondoOjoVigenteF }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">CON ATENCIÓN PODOLÓGICA VIGENTE</th>
+                            <td>
+                                {{ $controlPodologico_alDia }}
+                            </td>
+                            <td>
+                                {{ $controlPodologico_alDia_1564 }}
+                            </td>
+                            <td>
+                                {{ $controlPodologico_alDia_65 }}
+                            </td>
+                            <td>
+                                {{ $controlPodologico_alDiaM }}
+                            </td>
+                            <td>
+                                {{ $controlPodologico_alDiaF }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">CON ECG VIGENTE</th>
+                            <td>
+                                {{ $ecgVigente }}
+                            </td>
+                            <td>
+                                {{ $ecgVigente_1564 }}
+                            </td>
+                            <td>
+                                {{ $ecgVigente_65 }}
+                            </td>
+                            <td>
+                                {{ $ecgVigenteM }}
+                            </td>
+                            <td>
+                                {{ $ecgVigenteF }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">EN TRATAMIENTO CON INSULINA</th>
+                            <td>
+                                {{ $usoInsulina }}
+                            </td>
+                            <td>
+                                {{ $usoInsulina_1564 }}
+                            </td>
+                            <td>
+                                {{ $usoInsulina_65 }}
+                            </td>
+                            <td>
+                                {{ $usoInsulinaM }}
+                            </td>
+                            <td>
+                                {{ $usoInsulinaF }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">EN  TRATAMIENTO CON INSULINA QUE LOGRA META CON  HbA1C SEGÚN EDAD</th>
+                            <td>
+                                {{ $insulinaHba1C }}
+                            </td>
+                            <td>
+                                {{ $insulinaHba1C_1564 }}
+                            </td>
+                            <td>
+                                {{ $insulinaHba1C_65 }}
+                            </td>
+                            <td>
+                                {{ $insulinaHba1CM }}
+                            </td>
+                            <td>
+                                {{ $insulinaHba1CF }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">CON HbA1C >= 9 %</th>
+                            <td>
+                                {{ $hba1cMayorIgual9Porcent }}
+                            </td>
+                            <td>
+                                {{ $hba1cMayorIgual9Porcent_1564 }}
+                            </td>
+                            <td>
+                                {{ $hba1cMayorIgual9Porcent_65 }}
+                            </td>
+                            <td>
+                                {{ $hba1cMayorIgual9PorcentM }}
+                            </td>
+                            <td>
+                                {{ $hba1cMayorIgual9PorcentF }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">EN TRATAMIENTO CON IECA O ARA II.</th>
+                            <td>
+                                {{ $usoIecaAraII }}
+                            </td>
+                            <td>
+                                {{ $usoIecaAraII_1564 }}
+                            </td>
+                            <td>
+                                {{ $usoIecaAraII_65 }}
+                            </td>
+                            <td>
+                                {{ $usoIecaAraIIM }}
+                            </td>
+                            <td>
+                                {{ $usoIecaAraIIF }}
+                            </td>
+                        </tr>
                         </thead>
                     </table>
                 </div>
