@@ -877,6 +877,13 @@ class EstadisticaController extends Controller
         $usoIecaAraIIF = $pacientes->usoIecaAraII()->where('sexo', 'Femenino')->count();
         $usoIecaAraIIM = $pacientes->usoIecaAraII()->where('sexo', 'Masculino')->count();
 
-        return view('estadisticas.seccion-c', compact('racVigente', 'racVigente_1564', 'racVigente_65', 'racVigenteM', 'racVigenteF', 'vfgVigente', 'vfgVigente_1564', 'vfgVigente_65', 'vfgVigenteM', 'vfgVigenteF', 'fondoOjoVigente', 'fondoOjoVigente_1564', 'fondoOjoVigente_65', 'fondoOjoVigenteM', 'fondoOjoVigenteF', 'controlPodologico_alDia', 'controlPodologico_alDia_1564', 'controlPodologico_alDia_65', 'controlPodologico_alDiaM', 'controlPodologico_alDiaF', 'ecgVigente', 'ecgVigente_1564', 'ecgVigente_65', 'ecgVigenteM', 'ecgVigenteF', 'usoInsulina', 'usoInsulina_1564', 'usoInsulina_65', 'usoInsulinaM', 'usoInsulinaF', 'insulinaHba1C', 'insulinaHba1C_1564', 'insulinaHba1C_65', 'insulinaHba1CM', 'insulinaHba1CF', 'hba1cMayorIgual9Porcent', 'hba1cMayorIgual9Porcent_1564', 'hba1cMayorIgual9Porcent_65', 'hba1cMayorIgual9PorcentM', 'hba1cMayorIgual9PorcentF', 'usoIecaAraII', 'usoIecaAraII_1564', 'usoIecaAraII_65', 'usoIecaAraIIM', 'usoIecaAraIIF'));
+        //ldlVigente
+        $ldlVigente = $pacientes->ldlVigente()->count();
+        $ldlVigente_1564 = $pacientes->ldlVigente()->get()->whereBetween('grupo', [15, 64])->count();
+        $ldlVigente_65 = $pacientes->ldlVigente()->get()->where('grupo', '>', 64)->count();
+        $ldlVigenteF = $pacientes->ldlVigente()->where('sexo', 'Femenino')->count();
+        $ldlVigenteM = $pacientes->ldlVigente()->where('sexo', 'Masculino')->count();
+
+        return view('estadisticas.seccion-c', compact('racVigente', 'racVigente_1564', 'racVigente_65', 'racVigenteM', 'racVigenteF', 'vfgVigente', 'vfgVigente_1564', 'vfgVigente_65', 'vfgVigenteM', 'vfgVigenteF', 'fondoOjoVigente', 'fondoOjoVigente_1564', 'fondoOjoVigente_65', 'fondoOjoVigenteM', 'fondoOjoVigenteF', 'controlPodologico_alDia', 'controlPodologico_alDia_1564', 'controlPodologico_alDia_65', 'controlPodologico_alDiaM', 'controlPodologico_alDiaF', 'ecgVigente', 'ecgVigente_1564', 'ecgVigente_65', 'ecgVigenteM', 'ecgVigenteF', 'usoInsulina', 'usoInsulina_1564', 'usoInsulina_65', 'usoInsulinaM', 'usoInsulinaF', 'insulinaHba1C', 'insulinaHba1C_1564', 'insulinaHba1C_65', 'insulinaHba1CM', 'insulinaHba1CF', 'hba1cMayorIgual9Porcent', 'hba1cMayorIgual9Porcent_1564', 'hba1cMayorIgual9Porcent_65', 'hba1cMayorIgual9PorcentM', 'hba1cMayorIgual9PorcentF', 'usoIecaAraII', 'usoIecaAraII_1564', 'usoIecaAraII_65', 'usoIecaAraIIM', 'usoIecaAraIIF', 'ldlVigente', 'ldlVigente_1564', 'ldlVigente_65', 'ldlVigenteM', 'ldlVigenteF'));
     }
 }

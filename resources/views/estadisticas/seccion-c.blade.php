@@ -193,8 +193,172 @@
                                 {{ $usoIecaAraIIF }}
                             </td>
                         </tr>
+                        <tr>
+                            <th colspan="2">CON UN EXÁMEN DE COLESTEROL LDL VIGENTE.</th>
+                            <td>
+                                {{ $ldlVigente }}
+                            </td>
+                            <td>
+                                {{ $ldlVigente_1564 }}
+                            </td>
+                            <td>
+                                {{ $ldlVigente_65 }}
+                            </td>
+                            <td>
+                                {{ $ldlVigenteM }}
+                            </td>
+                            <td>
+                                {{ $ldlVigenteF }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th rowspan="5" style="vertical-align: middle">
+                                CON *EVALUACIÓN VIGENTE DEL PIE SEGÚN PAUTA DE ESTIMACION DEL RIESGO DE ULCERACION EN PERSONAS CON DIABETES
+                            </th>
+                            <tr>
+                                <th nowrap="">Riesgo Bajo</th>
+                                <td>99</td>
+                                <td>99</td>
+                                <td>99</td>
+                                <td>99</td>
+                                <td>99</td>
+                            </tr>
+                            <tr>
+                                <th nowrap="">Riesgo Moderado</th>
+                                <td>99</td>
+                                <td>99</td>
+                                <td>99</td>
+                                <td>99</td>
+                                <td>99</td>
+                            </tr>
+                            <tr>
+                                <th nowrap="">Riesgo Alto</th>
+                                <td>99</td>
+                                <td>99</td>
+                                <td>99</td>
+                                <td>99</td>
+                                <td>99</td>
+                            </tr>
+                            <tr>
+                                <th nowrap="">Riesgo Maximo</th>
+                                <td>99</td>
+                                <td>99</td>
+                                <td>99</td>
+                                <td>99</td>
+                                <td>99</td>
+                            </tr>
+                        </tr>
+                        <tr>
+                            <th rowspan="3" style="vertical-align: middle">
+                                CON ÚLCERAS ACTIVAS DE PIE TRATADAS CON CURACIÓN
+                            </th>
+                            <tr>
+                                <th nowrap="">Curación Convencional</th>
+                                <td>89</td>
+                                <td>89</td>
+                                <td>89</td>
+                                <td>89</td>
+                                <td>89</td>
+                            </tr>
+                            <tr>
+                                <th nowrap="">Curación Avanzada</th>
+                                <td>79</td>
+                                <td>79</td>
+                                <td>79</td>
+                                <td>79</td>
+                                <td>79</td>
+                            </tr>
+                        </tr>
+                        <tr>
+                            <th nowrap="" colspan="2">CON AMPUTACIÓN POR PIE DIABÉTICO</th>
+                            <td>55</td>
+                            <td>55</td>
+                            <td>55</td>
+                            <td>55</td>
+                            <td>55</td>
+                        </tr>
+                        <tr>
+                            <th nowrap="" colspan="2">CON DIAGNOSTICO ASOCIADO DE HIPERTENSION ARTERIAL</th>
+                            <td>55</td>
+                            <td>55</td>
+                            <td>55</td>
+                            <td>55</td>
+                            <td>55</td>
+                        </tr>
+                        <tr>
+                            <th nowrap="" colspan="2">CON ANTECEDENTE DE ATAQUE CEREBRO VASCULAR</th>
+                            <td>55</td>
+                            <td>55</td>
+                            <td>55</td>
+                            <td>55</td>
+                            <td>55</td>
+                        </tr>
+                        <tr>
+                            <th nowrap="" colspan="2">CON ANTECEDENTES DE INFARTO AGUDO AL MIOCARDIO</th>
+                            <td>55</td>
+                            <td>55</td>
+                            <td>55</td>
+                            <td>55</td>
+                            <td>55</td>
+                        </tr>
+                        <tr>
+                            <th colspan="7" class="text-left">PERSONAS HIPERTENSAS EN PSCV</th>
+                        </tr>
+                        <tr>
+                            <th nowrap="" colspan="2">CON RAZON ALBÚMINA CREATININA (RAC),VIGENTE</th>
+                            <td>33</td>
+                            <td>33</td>
+                            <td>33</td>
+                            <td>33</td>
+                            <td>33</td>
+                        </tr>
+                        <tr>
+                            <th nowrap="" colspan="2">CON PRESIÓN ARTERIAL igual o Mayor 160/100 mmHg</th>
+                            <td>22</td>
+                            <td>22</td>
+                            <td>22</td>
+                            <td>22</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <th colspan="7" class="text-left">TODAS LAS PERSONAS EN PSCV</th>
+                        </tr>
+                        <tr>
+                            <th nowrap="" colspan="2">SOBREPESO: IMC entre 25 y 29.9 <65</th>
+                            <td>33</td>
+                            <td>33</td>
+                            <td>33</td>
+                            <td>33</td>
+                            <td>33</td>
+                        </tr>
+                        <tr>
+                            <th nowrap="" colspan="2">SOBREPESO: IMC entre 28 y 31.9 >65</th>
+                            <td>22</td>
+                            <td>22</td>
+                            <td>22</td>
+                            <td>22</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <th nowrap="" colspan="2">OBESIDAD IMC igual o Mayor a 30KG/M2 <65</th>
+                            <td>33</td>
+                            <td>33</td>
+                            <td>33</td>
+                            <td>33</td>
+                            <td>33</td>
+                        </tr>
+                        <tr>
+                            <th nowrap="" colspan="2">**OBESIDAD: IMC igual o Mayor a 32KG/M2 >65</th>
+                            <td>22</td>
+                            <td>22</td>
+                            <td>22</td>
+                            <td>22</td>
+                            <td>22</td>
+                        </tr>
                         </thead>
                     </table>
+                    <p class="text-muted">NOTA (*): La vigencia de la evaluación del pie diabetico es de 12 meses.</p>
+                    <p class="text-muted">**Considerar en adultos mayores (65 años y más) un IMC igual o mayor a 32G/M2</p>
                 </div>
             </div>
         </div>

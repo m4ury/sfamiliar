@@ -195,7 +195,7 @@ class Paciente extends Model
     {
         return $this->where('usoInsulina', '=', 1);
     }
-    
+
     public function insulinaHba1C(){
         return $this->hba1cMayorIgual9Porcent()->where('usoInsulina', '=', 1);
     }
