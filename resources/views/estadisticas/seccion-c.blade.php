@@ -29,7 +29,7 @@
                             <th>Mujeres</th>
                         </tr>
                         <tr>
-                            <th class="text-left" colspan="7">PERSONAS DIABETICAS EN PSCV</th>
+                            <th class="text-left bg-gradient-gray" colspan="7">PERSONAS DIABETICAS EN PSCV</th>
                         </tr>
                         <tr>
                             <th colspan="2">CON RAZON ALBÚMINA CREATININA (RAC),VIGENTE</th>
@@ -217,35 +217,75 @@
                             </th>
                             <tr>
                                 <th nowrap="">Riesgo Bajo</th>
-                                <td>99</td>
-                                <td>99</td>
-                                <td>99</td>
-                                <td>99</td>
-                                <td>99</td>
+                            <td>
+                                {{ $evaluacionPie_bajo }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_bajo_1564 }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_bajo_65 }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_bajoM }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_bajoF }}
+                            </td>
                             </tr>
                             <tr>
                                 <th nowrap="">Riesgo Moderado</th>
-                                <td>99</td>
-                                <td>99</td>
-                                <td>99</td>
-                                <td>99</td>
-                                <td>99</td>
+                                <td>
+                                    {{ $evaluacionPie_moderado }}
+                                </td>
+                                <td>
+                                    {{ $evaluacionPie_moderado_1564 }}
+                                </td>
+                                <td>
+                                    {{ $evaluacionPie_moderado_65 }}
+                                </td>
+                                <td>
+                                    {{ $evaluacionPie_moderadoM }}
+                                </td>
+                                <td>
+                                    {{ $evaluacionPie_moderadoF }}
+                                </td>
                             </tr>
                             <tr>
                                 <th nowrap="">Riesgo Alto</th>
-                                <td>99</td>
-                                <td>99</td>
-                                <td>99</td>
-                                <td>99</td>
-                                <td>99</td>
+                                <td>
+                                    {{ $evaluacionPie_alto }}
+                                </td>
+                                <td>
+                                    {{ $evaluacionPie_alto_1564 }}
+                                </td>
+                                <td>
+                                    {{ $evaluacionPie_alto_65 }}
+                                </td>
+                                <td>
+                                    {{ $evaluacionPie_altoM }}
+                                </td>
+                                <td>
+                                    {{ $evaluacionPie_altoF }}
+                                </td>
                             </tr>
                             <tr>
                                 <th nowrap="">Riesgo Maximo</th>
-                                <td>99</td>
-                                <td>99</td>
-                                <td>99</td>
-                                <td>99</td>
-                                <td>99</td>
+                                <td>
+                                    {{ $evaluacionPie_maximo }}
+                                </td>
+                                <td>
+                                    {{ $evaluacionPie_maximo_1564 }}
+                                </td>
+                                <td>
+                                    {{ $evaluacionPie_maximo_65 }}
+                                </td>
+                                <td>
+                                    {{ $evaluacionPie_maximoM }}
+                                </td>
+                                <td>
+                                    {{ $evaluacionPie_maximoF }}
+                                </td>
                             </tr>
                         </tr>
                         <tr>
@@ -254,36 +294,76 @@
                             </th>
                             <tr>
                                 <th nowrap="">Curación Convencional</th>
-                                <td>89</td>
-                                <td>89</td>
-                                <td>89</td>
-                                <td>89</td>
-                                <td>89</td>
+                            <td>
+                                {{ $ulcerasActivas_TipoCuracion_conv }}
+                            </td>
+                            <td>
+                                {{ $ulcerasActivas_TipoCuracion_conv_1564 }}
+                            </td>
+                            <td>
+                                {{ $ulcerasActivas_TipoCuracion_conv_65 }}
+                            </td>
+                            <td>
+                                {{ $ulcerasActivas_TipoCuracion_convM }}
+                            </td>
+                            <td>
+                                {{ $ulcerasActivas_TipoCuracion_convF }}
+                            </td>
                             </tr>
                             <tr>
                                 <th nowrap="">Curación Avanzada</th>
-                                <td>79</td>
-                                <td>79</td>
-                                <td>79</td>
-                                <td>79</td>
-                                <td>79</td>
+                                <td>
+                                    {{ $ulcerasActivas_TipoCuracion_avz }}
+                                </td>
+                                <td>
+                                    {{ $ulcerasActivas_TipoCuracion_avz_1564 }}
+                                </td>
+                                <td>
+                                    {{ $ulcerasActivas_TipoCuracion_avz_65 }}
+                                </td>
+                                <td>
+                                    {{ $ulcerasActivas_TipoCuracion_avzM }}
+                                </td>
+                                <td>
+                                    {{ $ulcerasActivas_TipoCuracion_avzF }}
+                                </td>
                             </tr>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON AMPUTACIÓN POR PIE DIABÉTICO</th>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>55</td>
+                            <td>
+                                {{ $aputacionPieDM2 }}
+                            </td>
+                            <td>
+                                {{ $aputacionPieDM2_1564 }}
+                            </td>
+                            <td>
+                                {{ $aputacionPieDM2_65 }}
+                            </td>
+                            <td>
+                                {{ $aputacionPieDM2M }}
+                            </td>
+                            <td>
+                                {{ $aputacionPieDM2F }}
+                            </td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON DIAGNOSTICO ASOCIADO DE HIPERTENSION ARTERIAL</th>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>55</td>
+                            <td>
+                                {{ $dm2M_hta }}
+                            </td>
+                            <td>
+                                {{ $dm2M_hta_1564 }}
+                            </td>
+                            <td>
+                                {{ $dm2M_hta_65 }}
+                            </td>
+                            <td>
+                                {{ $dm2M_htaM }}
+                            </td>
+                            <td>
+                                {{ $dm2M_htaF }}
+                            </td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON ANTECEDENTE DE ATAQUE CEREBRO VASCULAR</th>
@@ -302,7 +382,7 @@
                             <td>55</td>
                         </tr>
                         <tr>
-                            <th colspan="7" class="text-left">PERSONAS HIPERTENSAS EN PSCV</th>
+                            <th colspan="7" class="text-left bg-gradient-gray">PERSONAS HIPERTENSAS EN PSCV</th>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON RAZON ALBÚMINA CREATININA (RAC),VIGENTE</th>
@@ -321,7 +401,7 @@
                             <td>22</td>
                         </tr>
                         <tr>
-                            <th colspan="7" class="text-left">TODAS LAS PERSONAS EN PSCV</th>
+                            <th colspan="7" class="text-left bg-gradient-gray">TODAS LAS PERSONAS EN PSCV</th>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">SOBREPESO: IMC entre 25 y 29.9 <65</th>

@@ -15,7 +15,7 @@
                         <div class="form-group row my-2 ml-2">
                             {!! Form::label('last', 'Ultimo Control SI', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
                             <div class="col-sm-3">
-                                {!! Form::checkbox('last', old('last') ? : $control->last, $control->last == 1 ? 1 : 0,['class' => 'form-control my-2 last']) !!}
+                                {!! Form::checkbox('last', 1, old('last', $control->last),['class' => 'form-control my-2 last']) !!}
                             </div>
                             {!! Form::label('last', 'Ultimo Control NO', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
                             <div class="col-sm-3">

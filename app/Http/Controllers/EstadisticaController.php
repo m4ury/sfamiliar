@@ -884,6 +884,71 @@ class EstadisticaController extends Controller
         $ldlVigenteF = $pacientes->ldlVigente()->where('sexo', 'Femenino')->count();
         $ldlVigenteM = $pacientes->ldlVigente()->where('sexo', 'Masculino')->count();
 
-        return view('estadisticas.seccion-c', compact('racVigente', 'racVigente_1564', 'racVigente_65', 'racVigenteM', 'racVigenteF', 'vfgVigente', 'vfgVigente_1564', 'vfgVigente_65', 'vfgVigenteM', 'vfgVigenteF', 'fondoOjoVigente', 'fondoOjoVigente_1564', 'fondoOjoVigente_65', 'fondoOjoVigenteM', 'fondoOjoVigenteF', 'controlPodologico_alDia', 'controlPodologico_alDia_1564', 'controlPodologico_alDia_65', 'controlPodologico_alDiaM', 'controlPodologico_alDiaF', 'ecgVigente', 'ecgVigente_1564', 'ecgVigente_65', 'ecgVigenteM', 'ecgVigenteF', 'usoInsulina', 'usoInsulina_1564', 'usoInsulina_65', 'usoInsulinaM', 'usoInsulinaF', 'insulinaHba1C', 'insulinaHba1C_1564', 'insulinaHba1C_65', 'insulinaHba1CM', 'insulinaHba1CF', 'hba1cMayorIgual9Porcent', 'hba1cMayorIgual9Porcent_1564', 'hba1cMayorIgual9Porcent_65', 'hba1cMayorIgual9PorcentM', 'hba1cMayorIgual9PorcentF', 'usoIecaAraII', 'usoIecaAraII_1564', 'usoIecaAraII_65', 'usoIecaAraIIM', 'usoIecaAraIIF', 'ldlVigente', 'ldlVigente_1564', 'ldlVigente_65', 'ldlVigenteM', 'ldlVigenteF'));
+        //evaluacion Pie_bajo
+        $evaluacionPie_bajo = $pacientes->evaluacionPie_bajo()->count();
+        $evaluacionPie_bajo_1564 = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [15, 64])->count();
+        $evaluacionPie_bajo_65 = $pacientes->evaluacionPie_bajo()->get()->where('grupo', '>', 64)->count();
+        $evaluacionPie_bajoF = $pacientes->evaluacionPie_bajo()->where('sexo', 'Femenino')->count();
+        $evaluacionPie_bajoM = $pacientes->evaluacionPie_bajo()->where('sexo', 'Masculino')->count();
+
+        //evaluacion Pie_moderado
+        $evaluacionPie_moderado = $pacientes->evaluacionPie_moderado()->count();
+        $evaluacionPie_moderado_1564 = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [15, 64])->count();
+        $evaluacionPie_moderado_65 = $pacientes->evaluacionPie_moderado()->get()->where('grupo', '>', 64)->count();
+        $evaluacionPie_moderadoF = $pacientes->evaluacionPie_moderado()->where('sexo', 'Femenino')->count();
+        $evaluacionPie_moderadoM = $pacientes->evaluacionPie_moderado()->where('sexo', 'Masculino')->count();
+
+        //evaluacion Pie_alto
+        $evaluacionPie_alto = $pacientes->evaluacionPie_alto()->count();
+        $evaluacionPie_alto_1564 = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [15, 64])->count();
+        $evaluacionPie_alto_65 = $pacientes->evaluacionPie_alto()->get()->where('grupo', '>', 64)->count();
+        $evaluacionPie_altoF = $pacientes->evaluacionPie_alto()->where('sexo', 'Femenino')->count();
+        $evaluacionPie_altoM = $pacientes->evaluacionPie_alto()->where('sexo', 'Masculino')->count();
+
+        //evaluacion Pie_maximo
+        $evaluacionPie_maximo = $pacientes->evaluacionPie_maximo()->count();
+        $evaluacionPie_maximo_1564 = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [15, 64])->count();
+        $evaluacionPie_maximo_65 = $pacientes->evaluacionPie_maximo()->get()->where('grupo', '>', 64)->count();
+        $evaluacionPie_maximoF = $pacientes->evaluacionPie_maximo()->where('sexo', 'Femenino')->count();
+        $evaluacionPie_maximoM = $pacientes->evaluacionPie_maximo()->where('sexo', 'Masculino')->count();
+
+        //ulcerasActivas_TipoCuracion_avz
+        $ulcerasActivas_TipoCuracion_avz = $pacientes->ulcerasActivas_TipoCuracion_avz()->count();
+        $ulcerasActivas_TipoCuracion_avz_1564 = $pacientes->ulcerasActivas_TipoCuracion_avz()->get()->whereBetween('grupo', [15, 64])->count();
+        $ulcerasActivas_TipoCuracion_avz_65 = $pacientes->ulcerasActivas_TipoCuracion_avz()->get()->where('grupo', '>', 64)->count();
+        $ulcerasActivas_TipoCuracion_avzF = $pacientes->ulcerasActivas_TipoCuracion_avz()->where('sexo', 'Femenino')->count();
+        $ulcerasActivas_TipoCuracion_avzM = $pacientes->ulcerasActivas_TipoCuracion_avz()->where('sexo', 'Masculino')->count();
+
+        //ulcerasActivas_TipoCuracion_conv
+        $ulcerasActivas_TipoCuracion_conv = $pacientes->ulcerasActivas_TipoCuracion_conv()->count();
+        $ulcerasActivas_TipoCuracion_conv_1564 = $pacientes->ulcerasActivas_TipoCuracion_conv()->get()->whereBetween('grupo', [15, 64])->count();
+        $ulcerasActivas_TipoCuracion_conv_65 = $pacientes->ulcerasActivas_TipoCuracion_conv()->get()->where('grupo', '>', 64)->count();
+        $ulcerasActivas_TipoCuracion_convF = $pacientes->ulcerasActivas_TipoCuracion_conv()->where('sexo', 'Femenino')->count();
+        $ulcerasActivas_TipoCuracion_convM = $pacientes->ulcerasActivas_TipoCuracion_conv()->where('sexo', 'Masculino')->count();
+
+        //aputacionPieDM2
+        $aputacionPieDM2 = $pacientes->aputacionPieDM2()->count();
+        $aputacionPieDM2_1564 = $pacientes->aputacionPieDM2()->get()->whereBetween('grupo', [15, 64])->count();
+        $aputacionPieDM2_65 = $pacientes->aputacionPieDM2()->get()->where('grupo', '>', 64)->count();
+        $aputacionPieDM2F = $pacientes->aputacionPieDM2()->where('sexo', 'Femenino')->count();
+        $aputacionPieDM2M = $pacientes->aputacionPieDM2()->where('sexo', 'Masculino')->count();
+
+        //dm2 + hta
+        $dm2M_hta = $pacientes->dm2()->where('patologias.nombre_patologia', '=', 'HTA')->count();
+        $dm2M_hta_1564 = $pacientes->dm2()->where('patologias.nombre_patologia', '=', 'HTA')->get()->whereBetween('grupo', [15, 64])->count();
+        $dm2M_hta_65 = $pacientes->dm2()->where('patologias.nombre_patologia', '=', 'HTA')->get()->where('grupo', '>', 64)->count();
+        $dm2M_htaF = $pacientes->dm2()->where('patologias.nombre_patologia', '=', 'HTA')->where('sexo', 'Femenino')->count();
+        $dm2M_htaM = $pacientes->dm2()->where('patologias.nombre_patologia', '=', 'HTA')->where('sexo', 'Masculino')->count();
+        
+
+        return view('estadisticas.seccion-c', compact('racVigente', 'racVigente_1564', 'racVigente_65', 'racVigenteM', 'racVigenteF', 'vfgVigente', 'vfgVigente_1564', 'vfgVigente_65', 'vfgVigenteM', 'vfgVigenteF', 'fondoOjoVigente', 'fondoOjoVigente_1564', 'fondoOjoVigente_65', 'fondoOjoVigenteM', 'fondoOjoVigenteF', 'controlPodologico_alDia', 'controlPodologico_alDia_1564', 'controlPodologico_alDia_65', 'controlPodologico_alDiaM', 'controlPodologico_alDiaF', 'ecgVigente', 'ecgVigente_1564', 'ecgVigente_65', 'ecgVigenteM', 'ecgVigenteF', 'usoInsulina', 'usoInsulina_1564', 'usoInsulina_65', 'usoInsulinaM', 'usoInsulinaF', 'insulinaHba1C', 'insulinaHba1C_1564', 'insulinaHba1C_65', 'insulinaHba1CM', 'insulinaHba1CF', 'hba1cMayorIgual9Porcent', 'hba1cMayorIgual9Porcent_1564', 'hba1cMayorIgual9Porcent_65', 'hba1cMayorIgual9PorcentM', 'hba1cMayorIgual9PorcentF', 'usoIecaAraII', 'usoIecaAraII_1564', 'usoIecaAraII_65', 'usoIecaAraIIM', 'usoIecaAraIIF', 'ldlVigente', 'ldlVigente_1564', 'ldlVigente_65', 'ldlVigenteM', 'ldlVigenteF',
+            'evaluacionPie_bajo', 'evaluacionPie_bajo_1564', 'evaluacionPie_bajo_65', 'evaluacionPie_bajoM', 'evaluacionPie_bajoF',
+            'evaluacionPie_moderado', 'evaluacionPie_moderado_1564', 'evaluacionPie_moderado_65', 'evaluacionPie_moderadoM', 'evaluacionPie_moderadoF',
+            'evaluacionPie_alto', 'evaluacionPie_alto_1564', 'evaluacionPie_alto_65', 'evaluacionPie_altoM', 'evaluacionPie_altoF',
+            'evaluacionPie_maximo', 'evaluacionPie_maximo_1564', 'evaluacionPie_maximo_65', 'evaluacionPie_maximoM', 'evaluacionPie_maximoF',
+            'ulcerasActivas_TipoCuracion_avz', 'ulcerasActivas_TipoCuracion_avz_1564', 'ulcerasActivas_TipoCuracion_avz_65', 'ulcerasActivas_TipoCuracion_avzM', 'ulcerasActivas_TipoCuracion_avzF',
+            'ulcerasActivas_TipoCuracion_conv', 'ulcerasActivas_TipoCuracion_conv_1564', 'ulcerasActivas_TipoCuracion_conv_65', 'ulcerasActivas_TipoCuracion_convM', 'ulcerasActivas_TipoCuracion_convF',
+            'aputacionPieDM2', 'aputacionPieDM2_1564', 'aputacionPieDM2_65', 'aputacionPieDM2M', 'aputacionPieDM2F',
+            'dm2M_hta', 'dm2M_hta_1564', 'dm2M_hta_65', 'dm2M_htaM', 'dm2M_htaF'));
     }
 }

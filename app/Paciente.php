@@ -94,12 +94,12 @@ class Paciente extends Model
 
     public function hta()
     {
-        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')->where('patologias.nombre_patologia', '=', 'hta');
+        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->where('patologias.nombre_patologia', '=', 'HTA');
     }
 
     public function dm2()
     {
-        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->distinct('paciente_patologia.id', 'paciente_patologia.paciente_id')->where('patologias.nombre_patologia', '=', 'dm2');
+        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->where('patologias.nombre_patologia', '=', 'DM2');
     }
 
     public function dlp()
@@ -213,5 +213,40 @@ class Paciente extends Model
     public function ldlVigente()
     {
         return $this->where('ldlVigente', '!=', '000/00/00');
+    }
+
+    public function evaluacionPie_bajo()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Bajo')->latest('controls.fecha_control');
+    }
+
+    public function evaluacionPie_moderado()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Moderado')->latest('controls.fecha_control');
+    }
+
+    public function evaluacionPie_alto()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Alto')->latest('controls.fecha_control');
+    }
+
+    public function evaluacionPie_maximo()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Maximo')->latest('controls.fecha_control');
+    }
+
+    public function ulcerasActivas_TipoCuracion_avz()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.ulcerasActivas_TipoCuracion', '=', 'Avanzada')->latest('controls.fecha_control');
+    }
+
+    public function ulcerasActivas_TipoCuracion_conv()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.ulcerasActivas_TipoCuracion', '=', 'Convencional')->latest('controls.fecha_control');
+    }
+
+    public function aputacionPieDM2()
+    {
+        return $this->where('aputacionPieDM2', '!=', '000/00/00');
     }
 }
