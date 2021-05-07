@@ -249,4 +249,9 @@ class Paciente extends Model
     {
         return $this->where('aputacionPieDM2', '!=', '000/00/00');
     }
+
+    public function dm2_hta()
+    {
+        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('patologias.nombre_patologia', ['DM2', 'HTA'])->select('pacientes.id')->groupBy('pacientes.id')->having('aggregate', '=', 2);
+    }
 }

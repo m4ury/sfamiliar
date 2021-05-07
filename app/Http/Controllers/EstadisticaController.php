@@ -934,11 +934,11 @@ class EstadisticaController extends Controller
         $aputacionPieDM2M = $pacientes->aputacionPieDM2()->where('sexo', 'Masculino')->count();
 
         //dm2 + hta
-        $dm2M_hta = $pacientes->dm2()->where('patologias.nombre_patologia', '=', 'HTA')->count();
-        $dm2M_hta_1564 = $pacientes->dm2()->where('patologias.nombre_patologia', '=', 'HTA')->get()->whereBetween('grupo', [15, 64])->count();
-        $dm2M_hta_65 = $pacientes->dm2()->where('patologias.nombre_patologia', '=', 'HTA')->get()->where('grupo', '>', 64)->count();
-        $dm2M_htaF = $pacientes->dm2()->where('patologias.nombre_patologia', '=', 'HTA')->where('sexo', 'Femenino')->count();
-        $dm2M_htaM = $pacientes->dm2()->where('patologias.nombre_patologia', '=', 'HTA')->where('sexo', 'Masculino')->count();
+        $dm2M_hta = $pacientes->dm2_hta()->count();
+        $dm2M_hta_1564 = $pacientes->dm2_hta()->get()->whereBetween('grupo', [15, 64])->count();
+        $dm2M_hta_65 = $pacientes->dm2_hta()->get('pacientes.rut')->where('grupo', '>', 64)->count();
+        $dm2M_htaF = $pacientes->dm2_hta()->where('sexo', 'Femenino')->count();
+        $dm2M_htaM = $pacientes->dm2_hta()->where('sexo', 'Masculino')->count();
         
 
         return view('estadisticas.seccion-c', compact('racVigente', 'racVigente_1564', 'racVigente_65', 'racVigenteM', 'racVigenteF', 'vfgVigente', 'vfgVigente_1564', 'vfgVigente_65', 'vfgVigenteM', 'vfgVigenteF', 'fondoOjoVigente', 'fondoOjoVigente_1564', 'fondoOjoVigente_65', 'fondoOjoVigenteM', 'fondoOjoVigenteF', 'controlPodologico_alDia', 'controlPodologico_alDia_1564', 'controlPodologico_alDia_65', 'controlPodologico_alDiaM', 'controlPodologico_alDiaF', 'ecgVigente', 'ecgVigente_1564', 'ecgVigente_65', 'ecgVigenteM', 'ecgVigenteF', 'usoInsulina', 'usoInsulina_1564', 'usoInsulina_65', 'usoInsulinaM', 'usoInsulinaF', 'insulinaHba1C', 'insulinaHba1C_1564', 'insulinaHba1C_65', 'insulinaHba1CM', 'insulinaHba1CF', 'hba1cMayorIgual9Porcent', 'hba1cMayorIgual9Porcent_1564', 'hba1cMayorIgual9Porcent_65', 'hba1cMayorIgual9PorcentM', 'hba1cMayorIgual9PorcentF', 'usoIecaAraII', 'usoIecaAraII_1564', 'usoIecaAraII_65', 'usoIecaAraIIM', 'usoIecaAraIIF', 'ldlVigente', 'ldlVigente_1564', 'ldlVigente_65', 'ldlVigenteM', 'ldlVigenteF',
