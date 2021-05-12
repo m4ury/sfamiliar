@@ -355,15 +355,7 @@
                             <td>
                                 {{ $dm2M_hta_1564 }}
                             </td>
-                            <td>
-                                {{ $dm2M_hta_65 }}
-                            </td>
-                            <td>
-                                {{ $dm2M_htaM }}
-                            </td>
-                            <td>
-                                {{ $dm2M_htaF }}
-                            </td>
+
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON ANTECEDENTE DE ATAQUE CEREBRO VASCULAR</th>
