@@ -934,9 +934,10 @@ class EstadisticaController extends Controller
         $aputacionPieDM2M = $pacientes->aputacionPieDM2()->where('sexo', 'Masculino')->count();
 
         //dm2 + hta
-        $dm2M_hta = $pacientes->dm2_hta()->count();
+        $dm2M_hta = $pacientes->dm2_hta()->get()->count();
+        
         $dm2M_hta_1564 = $pacientes->dm2_hta()->get()->whereBetween('grupo', [15, 64])->count();
-        $dm2M_hta_65 = $pacientes->dm2_hta()->get('pacientes.rut')->where('grupo', '>', 64)->count();
+        $dm2M_hta_65 = $pacientes->dm2_hta()->get()->where('grupo', '>', 64)->count();
         $dm2M_htaF = $pacientes->dm2_hta()->where('sexo', 'Femenino')->count();
         $dm2M_htaM = $pacientes->dm2_hta()->where('sexo', 'Masculino')->count();
         

@@ -4,10 +4,12 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Paciente extends Model
 {
     protected $guarded = ['id'];
+
     /*protected $fillable = ['rut', 'ficha', 'nombres', 'apellidoP', 'apellidoM', 'sexo', 'telefono', 'direccion', 'fecha_nacimiento', 'comuna', 'migrante', 'pueblo_originario', 'compensado', 'riesgo_cv', 'erc', 'racVigente', 'vfgVigente', 'fondoOjoVigente', 'ecgVigente', 'ldlVigente'];*/
 
     public function fullName()
@@ -196,7 +198,8 @@ class Paciente extends Model
         return $this->where('usoInsulina', '=', 1);
     }
 
-    public function insulinaHba1C(){
+    public function insulinaHba1C()
+    {
         return $this->hba1cMayorIgual9Porcent()->where('usoInsulina', '=', 1);
     }
 
@@ -252,6 +255,19 @@ class Paciente extends Model
 
     public function dm2_hta()
     {
-        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('patologias.nombre_patologia', ['DM2', 'HTA'])->select('pacientes.id')->groupBy('pacientes.id')->having('aggregate', '=', 2);
+        return /*DB::select(
+            "SELECT pacientes.id as pctes FROM pacientes inner join paciente_patologia on
+                paciente_patologia.paciente_id = pacientes.id inner join patologias on
+                patologias.id = paciente_patologia.patologia_id
+                where patologias.nombre_patologia in ('HTA', 'DM2')
+                group by pctes
+                having count(*) = 2"
+        );*/
+            DB::table('pacientes')->select(DB::raw('pacientes.id as cant'))->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->groupBy('cant')->havingRaw('count(*) = 2');
+
+       /* select pacientes . id as id_paciente from `pacientes` inner join `paciente_patologia` on `paciente_patologia` . `paciente_id` = `pacientes` . `id` inner join `patologias` on `patologias` . `id` = `paciente_patologia` . `patologia_id` where
+patologias . nombre_patologia IN('HTA', 'DM2')
+group by id_paciente
+having count(*) = 2;*/
     }
 }
