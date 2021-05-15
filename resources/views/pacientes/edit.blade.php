@@ -79,21 +79,36 @@
                             {!! Form::date('fecha_nacimiento',$paciente->fecha_nacimiento, ['class' => 'form-control
                             form-control-sm']) !!}
                         </div>
-                        <!--  <div class="col-sm-5">
-                                {!! Form::select('sexo', array('Femenino' => 'Femenino', 'Masculino' => 'Masculino', 'Otro' => 'Otro'), $paciente->sexo, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción...']) !!}
-                            </div> -->
-                    </div>
-                    <div class="form-group row">
-                        {!! Form::label('telefono', 'Télefono.', ['class' => 'col-sm-2 col-form-label']) !!}
                         <div class="col-sm-5">
                             {!! Form::tel('telefono',$paciente->telefono, ['class' => 'form-control
                             form-control-sm'.($errors->has('telefono') ? ' is-invalid' : ''), 'id' => 'phone',
-                            'placeholder' => '12345678']) !!}
+                            'placeholder' => 'Télefono. Ejemplo: 988888888']) !!}
                             @if ($errors->has('telefono'))
                             <span class="invalid-feedback">
                                 <strong>{{ $errors->first('telefono') }}</strong>
                             </span>
                             @endif
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        {!! Form::label('direccion_label', 'Dirección.', ['class' => 'col-sm-2 col-form-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::tel('direccion',$paciente->direccion, ['class' => 'form-control
+                            form-control-sm'.($errors->has('direccion') ? ' is-invalid' : ''),
+                            'placeholder' => 'Dirección']) !!}
+                        </div>
+                        <div class="col-sm-5">
+                            {!! Form::select('comuna', ['Cauquenes' => 'Cauquenes', 'Chanco' => 'Chanco', 'Pelluhue' =>
+                            'Pelluhue', 'Curico' => 'Curico', 'Hualane' => 'Hualane', 'Licanten' => 'Licanten', 'Molina'
+                            => 'Molina', 'Rauco' => 'Rauco', 'Romeral' => 'Romeral', 'Sgda Familia' => 'Sgda Familia',
+                            'Teno' => 'Teno', 'Vichuquen' => 'Vichuquen', 'Linares' => 'Linares', 'Colbun' => 'Colbun',
+                            'Longabi' => 'Longabi', 'Parral' => 'Parral', 'Retiro' => 'Retiro', 'San Javier' => 'San
+                            Javier', 'Villa Alegre' => 'Villa Alegre', 'Yerbas Buenas' => 'Yerbas Buenas', 'Talca' =>
+                            'Talca', 'Constitucion' => 'Constitucion', 'Empedrado' => 'Empedrado', 'Maule' => 'Maule',
+                            'Pelarco' => 'Pelarco', 'Pencahue' => 'Pencahue', 'Rio Claro' => 'Rio Claro', 'San Clemente'
+                            => 'San Clemente', 'San Rafael' => 'San Rafael', 'Curepto' => 'Curepto'], $paciente->comuna,
+                            ['class' => 'form-control form-control-sm', 'id' => 'comuna', 'placeholder' => 'Seleccione
+                            Comuna']) !!}
                         </div>
                     </div>
                     <div class="form-group row">
@@ -252,4 +267,4 @@
         </div>
     </div>
 </div>
-@stop
+@endsection
