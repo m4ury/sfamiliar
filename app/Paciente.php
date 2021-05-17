@@ -255,14 +255,17 @@ class Paciente extends Model
 
     public function dm2_hta()
     {
-        return DB::select(
-            "SELECT pacientes.id as pctes FROM pacientes inner join paciente_patologia on
-                paciente_patologia.paciente_id = pacientes.id inner join patologias on
-                patologias.id = paciente_patologia.patologia_id
-                where patologias.nombre_patologia in ('HTA', 'DM2')
-                group by pctes
-                having count(*) = 2"
-        );
+        return DB::table('pacientes')->select(DB::raw('pacientes.id'))->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('patologias.nombre_patologia', ['DM2', 'HTA'])->groupBy('pacientes.id')->havingRaw('count(*) = 2');
+    }
+
+    public function dm2_acv()
+    {
+        return DB::table('pacientes')->select(DB::raw('pacientes.id'))->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('patologias.nombre_patologia', ['DM2', 'ANTECEDENTE ACV'])->groupBy('pacientes.id')->havingRaw('count(*) = 2');
+    }
+
+    public function dm2_iam()
+    {
+        return DB::table('pacientes')->select(DB::raw('pacientes.id'))->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('patologias.nombre_patologia', ['DM2', 'ANTECEDENTE IAM'])->groupBy('pacientes.id')->havingRaw('count(*) = 2');
     }
 
     public function paMayor160()

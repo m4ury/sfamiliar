@@ -815,19 +815,12 @@ class EstadisticaController extends Controller
         $pacientes = new Paciente;
 
         //racVigente
-<<<<<<< HEAD
-        $racVigente = $pacientes->racVigente()->count();
-        $racVigente_1564 = $pacientes->racVigente()->get()->whereBetween('grupo', [15, 64])->count();
-        $racVigente_65 = $pacientes->racVigente()->get()->where('grupo', '>', 64)->count();
-        $racVigenteF = $pacientes->racVigente()->where('sexo', 'Femenino')->count();
-        $racVigenteM = $pacientes->racVigente()->where('sexo', 'Masculino')->count();
-=======
         $racVigente = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->count();
         $racVigente_1564 = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->get()->whereBetween('grupo', [15, 64])->count();
         $racVigente_65 = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->get()->where('grupo', '>', 64)->count();
         $racVigenteF = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->where('sexo', 'Femenino')->count();
         $racVigenteM = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->where('sexo', 'Masculino')->count();
->>>>>>> branch
+
 
         //vfgVigente
         $vfgVigente = $pacientes->vfgVigente()->count();
@@ -942,11 +935,34 @@ class EstadisticaController extends Controller
         $aputacionPieDM2M = $pacientes->aputacionPieDM2()->where('sexo', 'Masculino')->count();
 
         //dm2 + hta
-        $dm2M_hta = count($pacientes->dm2_hta());
-        $dm2M_hta_1564 = $pacientes->get()->whereBetween('grupo', [15, 64])->count();
-        //$dm2M_hta_65 = $pacientes->get()->where('grupo', '>', 64)->count($pacientes->dm2_hta());
-        //$dm2M_htaF = count($pacientes->dm2_hta());
-        //$dm2M_htaM = count($pacientes->dm2_hta());
+        $dm2M_hta = $pacientes->dm2_hta()->get()->count();
+        $dm2M_hta_1564 = $pacientes->dm2_hta()->get()->whereBetween('grupo', [15, 64])->count();
+        $dm2M_hta_65 = $pacientes->dm2_hta()->get()->where('grupo', '>', 64)->count();
+        $dm2M_htaF = $pacientes->dm2_hta()->where('sexo', 'Femenino')->count();
+        $dm2M_htaM = $pacientes->dm2_hta()->where('sexo', 'Masculino')->count();
+
+
+        //dm2 + acv
+        $dm2M_acv = $pacientes->dm2_acv()->get()->count();
+        $dm2M_acv_1564 = $pacientes->dm2_acv()->get()->whereBetween('grupo', [15, 64])->count();
+        $dm2M_acv_65 = $pacientes->dm2_acv()->get()->where('grupo', '>', 64)->count();
+        $dm2M_acvF = $pacientes->dm2_acv()->where('sexo', 'Femenino')->count();
+        $dm2M_acvM = $pacientes->dm2_acv()->where('sexo', 'Masculino')->count();
+
+        //dm2 + iam
+        $dm2M_iam = $pacientes->dm2_iam()->get()->count();
+        $dm2M_iam_1564 = $pacientes->dm2_iam()->get()->whereBetween('grupo', [15, 64])->count();
+        $dm2M_iam_65 = $pacientes->dm2_iam()->get()->where('grupo', '>', 64)->count();
+        $dm2M_iamF = $pacientes->dm2_iam()->where('pacientes.sexo', 'Femenino')->count();
+        $dm2M_iamM = $pacientes->dm2_iam()->where('pacientes.sexo', 'Masculino')->count();
+
+        //hta + rac vigente
+        $hta_racVigente = $pacientes->racVigente()->count();
+        $hta_racVigente_1564 = $pacientes->racVigente()->get()->whereBetween('grupo', [15, 64])->count();
+        $hta_racVigente_65 = $pacientes->racVigente()->get()->where('grupo', '>', 64)->count();
+        $hta_racVigenteF = $pacientes->racVigente()->where('pacientes.sexo', 'Femenino')->count();
+        $hta_racVigenteM = $pacientes->racVigente()->where('pacientes.sexo', 'Masculino')->count();
+
 
         //pa mayor = 160/100
         $paMayor160 = $pacientes->paMayor160()->count();
@@ -988,9 +1004,6 @@ class EstadisticaController extends Controller
             'ulcerasActivas_TipoCuracion_avz', 'ulcerasActivas_TipoCuracion_avz_1564', 'ulcerasActivas_TipoCuracion_avz_65', 'ulcerasActivas_TipoCuracion_avzM', 'ulcerasActivas_TipoCuracion_avzF',
             'ulcerasActivas_TipoCuracion_conv', 'ulcerasActivas_TipoCuracion_conv_1564', 'ulcerasActivas_TipoCuracion_conv_65', 'ulcerasActivas_TipoCuracion_convM', 'ulcerasActivas_TipoCuracion_convF',
             'aputacionPieDM2', 'aputacionPieDM2_1564', 'aputacionPieDM2_65', 'aputacionPieDM2M', 'aputacionPieDM2F',
-<<<<<<< HEAD
-            'dm2M_hta', 'dm2M_hta_1564'));
-=======
             'dm2M_hta', 'dm2M_hta_1564', 'dm2M_hta_65', 'dm2M_htaM', 'dm2M_htaF',
             'dm2M_acv', 'dm2M_acv_1564', 'dm2M_acv_65', 'dm2M_acvM', 'dm2M_acvF',
             'hta_racVigente', 'hta_racVigente_1564', 'hta_racVigente_65', 'hta_racVigenteM', 'hta_racVigenteF',
@@ -1000,6 +1013,5 @@ class EstadisticaController extends Controller
             'imc2831_mayor65', 'imc2831_mayor65F', 'imc2831_mayor65M',
             'imcMayor30_menor65', 'imcMayor30_menor65F', 'imcMayor30_menor65M',
             'imcMayor32_mayor65', 'imcMayor32_mayor65F', 'imcMayor32_mayor65M'));
->>>>>>> branch
     }
 }

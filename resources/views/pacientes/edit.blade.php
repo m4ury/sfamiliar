@@ -73,72 +73,6 @@
                                 @endif
                             </div>
                         </div>
-<<<<<<< HEAD
-                        <!--  <div class="col-sm-5">
-                                {!! Form::select('sexo', array('Femenino' => 'Femenino', 'Masculino' => 'Masculino', 'Otro' => 'Otro'), $paciente->sexo, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione una opción...']) !!}
-                            </div> -->
-                    </div>
-                    <div class="form-group row">
-                        {!! Form::label('telefono', 'Télefono.', ['class' => 'col-sm-2 col-form-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::tel('telefono',$paciente->telefono, ['class' => 'form-control
-                            form-control-sm'.($errors->has('telefono') ? ' is-invalid' : ''), 'id' => 'phone',
-                            'placeholder' => '12345678']) !!}
-                            @if ($errors->has('telefono'))
-                            <span class="invalid-feedback">
-                                <strong>{{ $errors->first('telefono') }}</strong>
-                            </span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-5">
-                            {!! Form::label('pueblo_originario_label', 'Originario', ['class' => 'col-sm
-                            col-form-label']) !!}
-                            {!! Form::checkbox('pueblo_originario', 1, old('pueblo_originario',
-                            $paciente->pueblo_originario) ,['class' => 'form-control form-control']) !!}
-                        </div>
-                        <div class="col-sm-5">
-                            {!! Form::label('migrante', 'Pob. Migrante', ['class' => 'col-sm col-form-label']) !!}
-                            {!! Form::checkbox('migrante', 1, old('migrante', $paciente->migrante),['class' =>
-                            'form-control form-control']) !!}
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-group row">
-                        {!! Form::label('riesgo_cv_label', 'Riesgo Cardiovascular', ['class' => 'col-sm-3
-                        col-form-label']) !!}
-                        <div class="col-sm-3">
-                            {!! Form::select('riesgo_cv', ['BAJO' => 'BAJO', 'MODERADO' => 'MODERADO', 'ALTO' =>
-                            'ALTO'], old('riesgo_cv', $paciente->riesgo_cv), ['class' => 'form-control', 'placeholder'
-                            => 'Seleccione']) !!}
-                        </div>
-                        {!! Form::label('erc_label', 'Enf. Renal Crónica', ['class' => 'col-sm-3 col-form-label']) !!}
-                        <div class="col-sm-3">
-                            {!! Form::select('erc', ['SIN' => 'SIN', 'I' => 'I', 'II' => 'II', 'IIIA' => 'IIIA', 'IIIB'
-                            => 'IIIB', 'IV' => 'IV', 'V' => 'V'], old('erc', $paciente->erc), ['class' => 'form-control
-                            form-control', 'placeholder' => 'Seleccione']) !!}
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        {!! Form::label('compensado_label', 'Compensado', ['class' => 'col-sm-3 col-form-label']) !!}
-                        <div class="col-sm-3">
-                            {!! Form::select('compensado', [1 => 'Compensado', 2 => 'Descompensado'], old('cmopensado',
-                            $paciente->compensado), ['class' => 'form-control', 'placeholder' => 'Seleccione']) !!}
-                        </div>
-                    </div>
-                    @foreach($paciente->patologias as $patologia)
-                    @if($patologia->nombre_patologia == 'HTA')
-                    <div class="form-group row card card-danger card-outline">
-                        <div class="card-header text-bold text-red">HIPERTENSION ARTERIAL</div>
-                        <div class="card-body row form-group">
-                            {!! Form::label('rac_vigente_label', 'CON RAZON ALBÚMINA CREATININA (RAC)', ['class' =>
-                            'col-sm-6 col-form-label']) !!}
-                            <div class="col-sm-6">
-                                {!! Form::date('racVigente', old('racVigente', $paciente->racVigente), ['class' =>
-                                'form-control']) !!}
-=======
                         <div class="form-group row">
                             {!! Form::label('fecha_nacimiento', 'Fecha Nac.', ['class' => 'col-sm-2 col-form-label']) !!}
                             <div class="col-sm-5">
@@ -154,7 +88,6 @@
                                 <strong>{{ $errors->first('telefono') }}</strong>
                             </span>
                                 @endif
->>>>>>> branch
                             </div>
                         </div>
                         <div class="form-group row">
@@ -336,9 +269,4 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-</div>
-@stop
-=======
 @endsection
->>>>>>> branch

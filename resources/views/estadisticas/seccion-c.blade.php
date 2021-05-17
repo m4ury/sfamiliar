@@ -351,28 +351,56 @@
                         <tr>
                             <th nowrap="" colspan="2">CON DIAGNOSTICO ASOCIADO DE HIPERTENSION ARTERIAL</th>
                             <td>
-                                {{ $dm2M_hta }}
+                                {{ $paMayor160 }}
                             </td>
                             <td>
-                                {{ $dm2M_hta_1564 }}
+                                {{ $paMayor160_1564 }}
                             </td>
-
+                            <td>
+                                {{ $paMayor160_65 }}
+                            </td>
+                            <td>
+                                {{ $paMayor160M }}
+                            </td>
+                            <td>
+                                {{ $paMayor160F }}
+                            </td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON ANTECEDENTE DE ATAQUE CEREBRO VASCULAR</th>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>55</td>
+                            <td>
+                                {{ $dm2M_acv }}
+                            </td>
+                            <td>
+                                {{ $dm2M_acv_1564 }}
+                            </td>
+                            <td>
+                                {{ $dm2M_acv_65 }}
+                            </td>
+                            <td>
+                                {{ $dm2M_acvM }}
+                            </td>
+                            <td>
+                                {{ $dm2M_acvF }}
+                            </td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON ANTECEDENTES DE INFARTO AGUDO AL MIOCARDIO</th>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>55</td>
-                            <td>55</td>
+                            <td>
+                                {{ $dm2M_iam }}
+                            </td>
+                            <td>
+                                {{ $dm2M_iam_1564 }}
+                            </td>
+                            <td>
+                                {{ $dm2M_iam_65 }}
+                            </td>
+                            <td>
+                                {{ $dm2M_iamM }}
+                            </td>
+                            <td>
+                                {{ $dm2M_iamF }}
+                            </td>
                         </tr>
                         <tr>
                             <th colspan="7" class="text-left bg-gradient-gray">PERSONAS HIPERTENSAS EN PSCV</th>
