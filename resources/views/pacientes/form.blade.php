@@ -111,14 +111,3 @@
     </div>
 </div>
 {{ Form::close() }}
-
-@section('js')
-    <script>
-        $('#comuna, #sexo, #sector').select2({
-            theme: "classic",
-            width: '100%'
-        });
-        $("#migrante, #pueblo_originario").removeAttr("checked");
-        /*$('#input1, #input2').iCheck('check');*/
-    </script>
-@endsection

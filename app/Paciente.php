@@ -267,4 +267,29 @@ class Paciente extends Model
     {
         return DB::table('pacientes')->select(DB::raw('pacientes.id'))->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->whereIn('patologias.nombre_patologia', ['DM2', 'ANTECEDENTE IAM'])->groupBy('pacientes.id')->havingRaw('count(*) = 2');
     }
+
+    public function paMayor160()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.pa_mayor_160_100', '=', 1)->latest('controls.fecha_control');
+    }
+
+    public function imc2529()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->whereBetween('controls.imc', [25, 29.9])->latest('controls.fecha_control');
+    }
+
+    public function imc2831()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->whereBetween('controls.imc', [28, 31.9])->latest('controls.fecha_control');
+    }
+
+    public function imcMayor30()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.imc', '>=', 30)->latest('controls.fecha_control');
+    }
+
+    public function imcMayor32()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.imc', '>=', 32)->latest('controls.fecha_control');
+    }
 }

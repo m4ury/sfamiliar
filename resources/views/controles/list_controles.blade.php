@@ -42,7 +42,8 @@
                                 <td>{{ $control->talla_actual }}</td>
                                 <td>{{ $control->imc }}</td>
                                 <td>{{ $control->imc_resultado }}</td>
-                                <td>{{ $control->proximo_control }}</td>
+                                <td>{{ $control->proximo_control. ' - ' .$control->prox_tipo ? : ''}}</td>
+
                                 {{--<td>
                                     <a class="btn bg-gradient-secondary btn-sm disabled" data-toggle="tooltip"
                                        data-placement="bottom" title="Editar"
