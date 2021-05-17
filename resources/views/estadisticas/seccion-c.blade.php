@@ -140,7 +140,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th colspan="2">EN  TRATAMIENTO CON INSULINA QUE LOGRA META CON  HbA1C SEGÚN EDAD</th>
+                            <th colspan="2">EN TRATAMIENTO CON INSULINA QUE LOGRA META CON HbA1C SEGÚN EDAD</th>
                             <td>
                                 {{ $insulinaHba1C }}
                             </td>
@@ -213,10 +213,11 @@
                         </tr>
                         <tr>
                             <th rowspan="5" style="vertical-align: middle">
-                                CON *EVALUACIÓN VIGENTE DEL PIE SEGÚN PAUTA DE ESTIMACION DEL RIESGO DE ULCERACION EN PERSONAS CON DIABETES
+                                CON *EVALUACIÓN VIGENTE DEL PIE SEGÚN PAUTA DE ESTIMACION DEL RIESGO DE ULCERACION EN
+                                PERSONAS CON DIABETES
                             </th>
-                            <tr>
-                                <th nowrap="">Riesgo Bajo</th>
+                        <tr>
+                            <th nowrap="">Riesgo Bajo</th>
                             <td>
                                 {{ $evaluacionPie_bajo }}
                             </td>
@@ -232,68 +233,68 @@
                             <td>
                                 {{ $evaluacionPie_bajoF }}
                             </td>
-                            </tr>
-                            <tr>
-                                <th nowrap="">Riesgo Moderado</th>
-                                <td>
-                                    {{ $evaluacionPie_moderado }}
-                                </td>
-                                <td>
-                                    {{ $evaluacionPie_moderado_1564 }}
-                                </td>
-                                <td>
-                                    {{ $evaluacionPie_moderado_65 }}
-                                </td>
-                                <td>
-                                    {{ $evaluacionPie_moderadoM }}
-                                </td>
-                                <td>
-                                    {{ $evaluacionPie_moderadoF }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th nowrap="">Riesgo Alto</th>
-                                <td>
-                                    {{ $evaluacionPie_alto }}
-                                </td>
-                                <td>
-                                    {{ $evaluacionPie_alto_1564 }}
-                                </td>
-                                <td>
-                                    {{ $evaluacionPie_alto_65 }}
-                                </td>
-                                <td>
-                                    {{ $evaluacionPie_altoM }}
-                                </td>
-                                <td>
-                                    {{ $evaluacionPie_altoF }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th nowrap="">Riesgo Maximo</th>
-                                <td>
-                                    {{ $evaluacionPie_maximo }}
-                                </td>
-                                <td>
-                                    {{ $evaluacionPie_maximo_1564 }}
-                                </td>
-                                <td>
-                                    {{ $evaluacionPie_maximo_65 }}
-                                </td>
-                                <td>
-                                    {{ $evaluacionPie_maximoM }}
-                                </td>
-                                <td>
-                                    {{ $evaluacionPie_maximoF }}
-                                </td>
-                            </tr>
+                        </tr>
+                        <tr>
+                            <th nowrap="">Riesgo Moderado</th>
+                            <td>
+                                {{ $evaluacionPie_moderado }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_moderado_1564 }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_moderado_65 }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_moderadoM }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_moderadoF }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th nowrap="">Riesgo Alto</th>
+                            <td>
+                                {{ $evaluacionPie_alto }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_alto_1564 }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_alto_65 }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_altoM }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_altoF }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th nowrap="">Riesgo Maximo</th>
+                            <td>
+                                {{ $evaluacionPie_maximo }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_maximo_1564 }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_maximo_65 }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_maximoM }}
+                            </td>
+                            <td>
+                                {{ $evaluacionPie_maximoF }}
+                            </td>
+                        </tr>
                         </tr>
                         <tr>
                             <th rowspan="3" style="vertical-align: middle">
                                 CON ÚLCERAS ACTIVAS DE PIE TRATADAS CON CURACIÓN
                             </th>
-                            <tr>
-                                <th nowrap="">Curación Convencional</th>
+                        <tr>
+                            <th nowrap="">Curación Convencional</th>
                             <td>
                                 {{ $ulcerasActivas_TipoCuracion_conv }}
                             </td>
@@ -309,25 +310,25 @@
                             <td>
                                 {{ $ulcerasActivas_TipoCuracion_convF }}
                             </td>
-                            </tr>
-                            <tr>
-                                <th nowrap="">Curación Avanzada</th>
-                                <td>
-                                    {{ $ulcerasActivas_TipoCuracion_avz }}
-                                </td>
-                                <td>
-                                    {{ $ulcerasActivas_TipoCuracion_avz_1564 }}
-                                </td>
-                                <td>
-                                    {{ $ulcerasActivas_TipoCuracion_avz_65 }}
-                                </td>
-                                <td>
-                                    {{ $ulcerasActivas_TipoCuracion_avzM }}
-                                </td>
-                                <td>
-                                    {{ $ulcerasActivas_TipoCuracion_avzF }}
-                                </td>
-                            </tr>
+                        </tr>
+                        <tr>
+                            <th nowrap="">Curación Avanzada</th>
+                            <td>
+                                {{ $ulcerasActivas_TipoCuracion_avz }}
+                            </td>
+                            <td>
+                                {{ $ulcerasActivas_TipoCuracion_avz_1564 }}
+                            </td>
+                            <td>
+                                {{ $ulcerasActivas_TipoCuracion_avz_65 }}
+                            </td>
+                            <td>
+                                {{ $ulcerasActivas_TipoCuracion_avzM }}
+                            </td>
+                            <td>
+                                {{ $ulcerasActivas_TipoCuracion_avzF }}
+                            </td>
+                        </tr>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON AMPUTACIÓN POR PIE DIABÉTICO</th>
@@ -378,59 +379,80 @@
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON RAZON ALBÚMINA CREATININA (RAC),VIGENTE</th>
-                            <td>33</td>
-                            <td>33</td>
-                            <td>33</td>
-                            <td>33</td>
-                            <td>33</td>
+                            <td>
+                                {{ $hta_racVigente }}
+                            </td>
+                            <td>
+                                {{ $hta_racVigente_1564 }}
+                            </td>
+                            <td>
+                                {{ $hta_racVigente_65 }}
+                            </td>
+                            <td>
+                                {{ $hta_racVigenteM }}
+                            </td>
+                            <td>
+                                {{ $hta_racVigenteF }}
+                            </td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON PRESIÓN ARTERIAL igual o Mayor 160/100 mmHg</th>
-                            <td>22</td>
-                            <td>22</td>
-                            <td>22</td>
-                            <td>22</td>
-                            <td>22</td>
+                            <td>
+                                {{ $paMayor160 }}
+                            </td>
+                            <td>
+                                {{ $paMayor160_1564 }}
+                            </td>
+                            <td>
+                                {{ $paMayor160_65 }}
+                            </td>
+                            <td>
+                                {{ $paMayor160M }}
+                            </td>
+                            <td>
+                                {{ $paMayor160F }}
+                            </td>
                         </tr>
                         <tr>
                             <th colspan="7" class="text-left bg-gradient-gray">TODAS LAS PERSONAS EN PSCV</th>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">SOBREPESO: IMC entre 25 y 29.9 <65</th>
-                            <td>33</td>
-                            <td>33</td>
-                            <td>33</td>
-                            <td>33</td>
-                            <td>33</td>
+                            <td>{{ $imc2529_menor65 }}</td>
+                            <td>{{ $imc2529_menor65 }}</td>
+                            <td class="bg-gradient-gray"></td>
+                            <td>{{$imc2529_menor65M}}</td>
+                            <td>{{$imc2529_menor65F}}</td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">SOBREPESO: IMC entre 28 y 31.9 >65</th>
-                            <td>22</td>
-                            <td>22</td>
-                            <td>22</td>
-                            <td>22</td>
-                            <td>22</td>
+                            <td>{{ $imc2831_mayor65 }}</td>
+                            <td class="bg-gradient-gray"></td>
+                            <td>{{$imc2831_mayor65}}</td>
+                            <td>{{$imc2831_mayor65M}}</td>
+                            <td>{{$imc2831_mayor65F}}</td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">OBESIDAD IMC igual o Mayor a 30KG/M2 <65</th>
-                            <td>33</td>
-                            <td>33</td>
-                            <td>33</td>
-                            <td>33</td>
-                            <td>33</td>
+                            <td>{{ $imcMayor30_menor65 }}</td>
+                            <td>{{ $imcMayor30_menor65 }}</td>
+                            <td class="bg-gradient-gray"></td>
+                            <td>{{$imcMayor30_menor65M}}</td>
+                            <td>{{$imcMayor30_menor65F}}</td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">**OBESIDAD: IMC igual o Mayor a 32KG/M2 >65</th>
-                            <td>22</td>
-                            <td>22</td>
-                            <td>22</td>
-                            <td>22</td>
-                            <td>22</td>
+                            <td>{{ $imcMayor32_mayor65 }}</td>
+                            <td class="bg-gradient-gray"></td>
+                            <td>{{$imcMayor32_mayor65}}</td>
+                            <td>{{$imcMayor32_mayor65M}}</td>
+                            <td>{{$imcMayor32_mayor65F}}</td>
                         </tr>
                         </thead>
                     </table>
                     <p class="text-muted">NOTA (*): La vigencia de la evaluación del pie diabetico es de 12 meses.</p>
-                    <p class="text-muted">**Considerar en adultos mayores (65 años y más) un IMC igual o mayor a 32G/M2</p>
+                    <p class="text-muted">**Considerar en adultos mayores (65 años y más) un IMC igual o mayor a
+                        32G/M2</p>
                 </div>
             </div>
         </div>

@@ -815,11 +815,19 @@ class EstadisticaController extends Controller
         $pacientes = new Paciente;
 
         //racVigente
+<<<<<<< HEAD
         $racVigente = $pacientes->racVigente()->count();
         $racVigente_1564 = $pacientes->racVigente()->get()->whereBetween('grupo', [15, 64])->count();
         $racVigente_65 = $pacientes->racVigente()->get()->where('grupo', '>', 64)->count();
         $racVigenteF = $pacientes->racVigente()->where('sexo', 'Femenino')->count();
         $racVigenteM = $pacientes->racVigente()->where('sexo', 'Masculino')->count();
+=======
+        $racVigente = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->count();
+        $racVigente_1564 = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->get()->whereBetween('grupo', [15, 64])->count();
+        $racVigente_65 = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->get()->where('grupo', '>', 64)->count();
+        $racVigenteF = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->where('sexo', 'Femenino')->count();
+        $racVigenteM = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->where('sexo', 'Masculino')->count();
+>>>>>>> branch
 
         //vfgVigente
         $vfgVigente = $pacientes->vfgVigente()->count();
@@ -940,6 +948,37 @@ class EstadisticaController extends Controller
         //$dm2M_htaF = count($pacientes->dm2_hta());
         //$dm2M_htaM = count($pacientes->dm2_hta());
 
+        //pa mayor = 160/100
+        $paMayor160 = $pacientes->paMayor160()->count();
+        $paMayor160_1564 = $pacientes->paMayor160()->get()->whereBetween('grupo', [15, 64])->count();
+        $paMayor160_65 = $pacientes->paMayor160()->get()->where('grupo', '>', 64)->count();
+        $paMayor160F = $pacientes->paMayor160()->where('pacientes.sexo', 'Femenino')->count();
+        $paMayor160M = $pacientes->paMayor160()->where('pacientes.sexo', 'Masculino')->count();
+
+        //imc 25 y 29.9 <65
+        //$imc2529 = $pacientes->imc2529()->count();
+        $imc2529_menor65 = $pacientes->imc2529()->get()->where('grupo', '<', 65)->count();
+        $imc2529_menor65F = $pacientes->imc2529()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '<', 65)->count();
+        $imc2529_menor65M = $pacientes->imc2529()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '<', 65)->count();
+
+        //imc 28 y 31.9 > 65
+        //$imc2831 = $pacientes->imc2831()->count();
+        $imc2831_mayor65 = $pacientes->imc2831()->get()->where('grupo', '>', 65)->count();
+        $imc2831_mayor65F = $pacientes->imc2831()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '>', 65)->count();
+        $imc2831_mayor65M = $pacientes->imc2831()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '>', 65)->count();
+
+        //imc mayor 30 < 65
+        //$imcMayor30 = $pacientes->imcMayor30()->count();
+        $imcMayor30_menor65 = $pacientes->imcMayor30()->get()->where('grupo', '<', 65)->count();
+        $imcMayor30_menor65F = $pacientes->imcMayor30()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '<', 65)->count();
+        $imcMayor30_menor65M = $pacientes->imcMayor30()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '<', 65)->count();
+
+        //imc > 32 > 65
+        //$imc2529 = $pacientes->imc2529()->count();
+        $imcMayor32_mayor65 = $pacientes->imcMayor32()->get()->where('grupo', '>', 65)->count();
+        $imcMayor32_mayor65F = $pacientes->imcMayor32()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '>', 65)->count();
+        $imcMayor32_mayor65M = $pacientes->imcMayor32()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '>', 65)->count();
+
 
         return view('estadisticas.seccion-c', compact('racVigente', 'racVigente_1564', 'racVigente_65', 'racVigenteM', 'racVigenteF', 'vfgVigente', 'vfgVigente_1564', 'vfgVigente_65', 'vfgVigenteM', 'vfgVigenteF', 'fondoOjoVigente', 'fondoOjoVigente_1564', 'fondoOjoVigente_65', 'fondoOjoVigenteM', 'fondoOjoVigenteF', 'controlPodologico_alDia', 'controlPodologico_alDia_1564', 'controlPodologico_alDia_65', 'controlPodologico_alDiaM', 'controlPodologico_alDiaF', 'ecgVigente', 'ecgVigente_1564', 'ecgVigente_65', 'ecgVigenteM', 'ecgVigenteF', 'usoInsulina', 'usoInsulina_1564', 'usoInsulina_65', 'usoInsulinaM', 'usoInsulinaF', 'insulinaHba1C', 'insulinaHba1C_1564', 'insulinaHba1C_65', 'insulinaHba1CM', 'insulinaHba1CF', 'hba1cMayorIgual9Porcent', 'hba1cMayorIgual9Porcent_1564', 'hba1cMayorIgual9Porcent_65', 'hba1cMayorIgual9PorcentM', 'hba1cMayorIgual9PorcentF', 'usoIecaAraII', 'usoIecaAraII_1564', 'usoIecaAraII_65', 'usoIecaAraIIM', 'usoIecaAraIIF', 'ldlVigente', 'ldlVigente_1564', 'ldlVigente_65', 'ldlVigenteM', 'ldlVigenteF',
             'evaluacionPie_bajo', 'evaluacionPie_bajo_1564', 'evaluacionPie_bajo_65', 'evaluacionPie_bajoM', 'evaluacionPie_bajoF',
@@ -949,6 +988,18 @@ class EstadisticaController extends Controller
             'ulcerasActivas_TipoCuracion_avz', 'ulcerasActivas_TipoCuracion_avz_1564', 'ulcerasActivas_TipoCuracion_avz_65', 'ulcerasActivas_TipoCuracion_avzM', 'ulcerasActivas_TipoCuracion_avzF',
             'ulcerasActivas_TipoCuracion_conv', 'ulcerasActivas_TipoCuracion_conv_1564', 'ulcerasActivas_TipoCuracion_conv_65', 'ulcerasActivas_TipoCuracion_convM', 'ulcerasActivas_TipoCuracion_convF',
             'aputacionPieDM2', 'aputacionPieDM2_1564', 'aputacionPieDM2_65', 'aputacionPieDM2M', 'aputacionPieDM2F',
+<<<<<<< HEAD
             'dm2M_hta', 'dm2M_hta_1564'));
+=======
+            'dm2M_hta', 'dm2M_hta_1564', 'dm2M_hta_65', 'dm2M_htaM', 'dm2M_htaF',
+            'dm2M_acv', 'dm2M_acv_1564', 'dm2M_acv_65', 'dm2M_acvM', 'dm2M_acvF',
+            'hta_racVigente', 'hta_racVigente_1564', 'hta_racVigente_65', 'hta_racVigenteM', 'hta_racVigenteF',
+            'dm2M_iam', 'dm2M_iam_1564', 'dm2M_iam_65', 'dm2M_iamM', 'dm2M_iamF',
+            'paMayor160', 'paMayor160_1564', 'paMayor160_65', 'paMayor160M', 'paMayor160F',
+            'imc2529_menor65', 'imc2529_menor65F', 'imc2529_menor65M',
+            'imc2831_mayor65', 'imc2831_mayor65F', 'imc2831_mayor65M',
+            'imcMayor30_menor65', 'imcMayor30_menor65F', 'imcMayor30_menor65M',
+            'imcMayor32_mayor65', 'imcMayor32_mayor65F', 'imcMayor32_mayor65M'));
+>>>>>>> branch
     }
 }
