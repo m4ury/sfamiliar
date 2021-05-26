@@ -28,16 +28,6 @@
                             <th>IMC</th>
                             <th>Est. Nutricional</th>
                             <th>Prox. Control</th>
-                            {{--@if($paciente->with('patologias')->pluck('nombre_patologia' == 'hta'))
-                                <th>RAC (Vigente)</th>
-                                @if($paciente->grupo > 79)
-                                    <th>Presion arterial < 140/90</th>
-                                    <th>Presion arterial > 160/100</th>
-                                @elseif($paciente->grupo <= 79)
-                                    <th>Presion arterial < 140/90</th>
-                                    <th>Presion arterial > 160/100</th>
-                                @endif
-                            @endif--}}
                         </tr>
                         </thead>
                         <tbody>
@@ -52,10 +42,6 @@
                                 <td>{{ $control->imc }}</td>
                                 <td>{{ $control->imc_resultado}}</td>
                                 <td>{{ \Carbon\Carbon::parse($control->proximo_control)->format("d-m-Y") }}</td>
-                                {{--<td>
-                                    <a class="btn bg-gradient-secondary btn-sm disabled" data-toggle="tooltip" data-placement="bottom"
-                                       title="Editar"
-                                       href="{{ route('controles.edit', $control->id) }}"><i class="fas fa-pen"></i></a></td>--}}
                         </tr>
                         @endforeach
                         </tbody>

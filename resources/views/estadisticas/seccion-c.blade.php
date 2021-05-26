@@ -351,19 +351,19 @@
                         <tr>
                             <th nowrap="" colspan="2">CON DIAGNOSTICO ASOCIADO DE HIPERTENSION ARTERIAL</th>
                             <td>
-                                {{ $paMayor160 }}
+                                {{ $dm2M_hta }}
                             </td>
                             <td>
-                                {{ $paMayor160_1564 }}
+                                {{ $dm2M_hta_1564 }}
                             </td>
                             <td>
-                                {{ $paMayor160_65 }}
+                                {{ $dm2M_hta_65 }}
                             </td>
                             <td>
-                                {{ $paMayor160M }}
+                                {{ $dm2M_htaM }}
                             </td>
                             <td>
-                                {{ $paMayor160F }}
+                                {{ $dm2M_htaF }}
                             </td>
                         </tr>
                         <tr>
