@@ -19,7 +19,8 @@ class ControlRequest extends FormRequest
             'peso_actual' => 'required|numeric|min:1',
             'talla_actual' => 'required|numeric|min:1',
             'proximo_control' => 'required|after:fecha_control',
-            'prox_tipo' => 'required'
+            'prox_tipo' => 'required',
+            'presion_arterial' => 'required'
         ];
     }
 }
