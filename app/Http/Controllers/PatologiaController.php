@@ -58,6 +58,6 @@ class PatologiaController extends Controller
     public function destroy($id)
     {
         Patologia::destroy($id);
-        return redirect('patologias')->withSuccess('Patologia Eliminada con Exito!');
+        return redirect('patologias')->withToastSuccess('Patologia Eliminada con Exito!');
     }
 }

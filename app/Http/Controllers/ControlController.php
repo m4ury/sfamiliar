@@ -46,7 +46,7 @@ class ControlController extends Controller
         $control->paciente_id = $request->paciente_id;
         $control->save();
 
-        return redirect('pacientes/' . $request->paciente_id)->withSuccess('Control creado con exito!');
+        return redirect('pacientes/' . $request->paciente_id)->withToastSuccess('Control creado con exito!');
     }
 
     public function show($id)
