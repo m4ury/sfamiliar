@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ControlRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Alert;
 
 class ControlController extends Controller
 {

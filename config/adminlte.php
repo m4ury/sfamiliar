@@ -487,17 +487,17 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '../../node_modules/sweetalert2/dist/sweetalert2.all.min.js',
+                    'location' => '../vendor/almasaeed2010/adminlte/plugins/sweetalert2/sweetalert2.all.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => false,
-                    'location' => '../../node_modules/sweetalert2/dist/sweetalert2.min.css',
+                    'location' => '../vendor/almasaeed2010/adminlte/plugins/sweetalert2/sweetalert2.css',
                 ],
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '../../node_modules/sweetalert2/dist/sweetalert2.min.js',
+                    'location' => '../vendor/almasaeed2010/adminlte/plugins/sweetalert2/sweetalert2.js',
                 ]
             ],
         ],
