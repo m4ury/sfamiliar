@@ -99,10 +99,10 @@
 @include('partials.dm2')
 @endif
 @endforeach
-
-<div class="form-group row">
-    {!! Form::label('proximo_control_label', 'Fecha prox. control',['class' => 'col-sm-3 col-form-label']) !!}
-    <div class="col-sm-3">
+<hr/>
+<div class="form-group row py-3">
+    {!! Form::label('proximo_control_label', 'Fecha prox. control',['class' => 'col-sm-2 col-form-label']) !!}
+    <div class="col-sm-2">
         {!! Form::date('proximo_control', null, ['class' => 'form-control
         form-control-sm'.($errors->has('proximo_control') ? ' is-invalid' : '')]) !!}
         @if ($errors->has('proximo_control'))
@@ -111,8 +111,20 @@
         </span>
         @endif
     </div>
-    {!! Form::label('prox_tipo_label', 'Profesional prox. Control',['class' => 'col-sm-3 col-form-label']) !!}
-    <div class="col-sm-3">
+
+    {!! Form::label('prox_tipo_atencion_label', 'Tipo Atencion',['class' => 'col-sm-2 col-form-label']) !!}
+    <div class="col-sm-2">
+        {!! Form::select('tipo_atencion', ['Telefonico'=> 'Telefonico', 'Visita domiciliaria' => 'Visita domiciliaria', 'Presencial' => 'Presencial', 'ELEAM' => 'ELEAM'], null, ['class' => 'form-control form-control-sm'.($errors->has('prox_tipo')
+        ? ' is-invalid' : ''), 'id' => 'atencion', 'placeholder'=> "Seleccione"]) !!}
+        @if ($errors->has('tipo_atencion'))
+        <span class="invalid-feedback">
+            <strong>{{ $errors->first('tipo_atencion') }}</strong>
+        </span>
+        @endif
+    </div>
+
+    {!! Form::label('prox_tipo_label', 'Prof. prox. Control',['class' => 'col-sm-2 col-form-label']) !!}
+    <div class="col-sm-2">
         {!! Form::select('prox_tipo', ['Medico'=> 'Medico', 'Enfermera' => 'Enfermera', 'Kinesiologo' => 'Kinesiologo',
         'Nutricionista' => 'Nutricionista'], null, ['class' => 'form-control form-control-sm'.($errors->has('prox_tipo')
         ? ' is-invalid' : ''), 'id' => 'prox_tipo', 'placeholder'=> "Seleccione Profesional"]) !!}
@@ -127,7 +139,7 @@
 @section('js')
 <script>
     $('#Enfermera, #Kine, #Medico').hide();
-        $('#tipo, #prox_tipo').select2({
+        $('#tipo, #prox_tipo, #atencion').select2({
             theme: "classic",
             width: '100%',
         });
