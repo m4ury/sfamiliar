@@ -75,4 +75,10 @@ class ControlController extends Controller
         Control::destroy($id);
         return redirect('controles-all')->withErrors('Control eliminado con exito!');
     }
+
+    public function prox()
+    {
+        $controles = Control::all();
+        return view('controles.proximos', compact('controles'));
+    }
 }

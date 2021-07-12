@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::get('controles-all', 'ControlController@index')->name('controles-all');
     Route::get('controles/pcte/{paciente?}', 'ControlController@controlsPcte')->name('controles');
     Route::get('controles/create/{paciente?}', 'ControlController@create')->name('controles.create');
+    Route::get('proximos', 'ControlController@prox')->name('proximos');
+
 
     //rutas para perfil
     Route::get('/perfil', 'UserController@profile')->name('perfil');

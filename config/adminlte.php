@@ -257,12 +257,17 @@ return [
             'icon' => 'fas fa-fw fa-heartbeat text-danger',
             'can' => 'ver-patologias'
         ],
-        //['header' => 'Controles'],
+        //['header' => 'CONTROLES'],
         [
             'text' => 'Controles',
             'route' => 'controles-all',
             'icon' => 'fas fa-fw fa-hospital-user text-info',
             'can' => 'controles-all'
+        ],
+        [
+            'text' => 'Proximos Controles',
+            'route' => 'proximos',
+            'icon' => 'fas fa-fw fa-hospital-user text-info',
         ],
         [
             'text' => 'Estadisticas',
@@ -361,6 +366,17 @@ return [
     */
 
     'plugins' => [
+
+        'Moment' => [
+            'active' => true,
+            'files' => [
+            [
+                'type' => 'js',
+                'asset' => false,
+                'location' => '../node_modules/moment/moment.js',
+            ]
+        ]
+            ],
         'Datatables' => [
             'active' => false,
             'files' => [
@@ -443,6 +459,16 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '../node_modules/datatables.net-buttons-dt/js/buttons.dataTables.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-datetime/dist/dataTables.dateTime.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-datetime/dist/dataTables.dateTime.min.js',
                 ],
             ],
         ],
