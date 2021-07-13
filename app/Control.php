@@ -18,4 +18,10 @@ class Control extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function scopeSearch($query, $q)
+    {
+        if ($q)
+        return $query->whereMonth('proximo_control', $q);
+    }
+
 }

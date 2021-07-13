@@ -10,6 +10,7 @@ use App\Http\Requests\ControlRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Alert;
+use Carbon\Carbon;
 
 class ControlController extends Controller
 {
@@ -76,9 +77,14 @@ class ControlController extends Controller
         return redirect('controles-all')->withErrors('Control eliminado con exito!');
     }
 
-    public function prox()
+    public function prox(Request $request)
     {
-        $controles = Control::all();
+
+        $q = $request->get('q');
+        $controles = Control::latest()
+            ->search($q)
+            ->get();
+
         return view('controles.proximos', compact('controles'));
     }
 }
