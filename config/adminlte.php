@@ -244,35 +244,37 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],*/
-        //['header' => 'Pacientes'],
+        ['header' => 'PACIENTES'],
         [
             'text' => 'Pacientes',
             'route' => 'pacientes.index',
-            'icon' => 'fas fa-fw fa-user-injured text-yellow',
+            'icon' => 'fas fa-fw fa-user-injured text-success',
         ],
         //['header' => 'Patologias'],
         [
             'text' => 'Patologias',
             'route' => 'patologias.index',
-            'icon' => 'fas fa-fw fa-heartbeat text-danger',
+            'icon' => 'fas fa-fw fa-heartbeat text-primary',
             'can' => 'ver-patologias'
         ],
-        //['header' => 'CONTROLES'],
+        ['header' => 'CONTROLES'],
         [
             'text' => 'Controles',
             'route' => 'controles-all',
-            'icon' => 'fas fa-fw fa-hospital-user text-info',
+            'icon' => 'fas fa-fw fa-hospital-user text-danger',
             'can' => 'controles-all'
         ],
         [
             'text' => 'Proximos Controles',
             'route' => 'proximos',
-            'icon' => 'fas fa-fw fa-hospital-user text-info',
+            'icon' => 'fas fa-fw fa-project-diagram text-yellow',
+            'can' => 'controles-all'
         ],
+        ['header' => 'ESTADISTICAS'],
         [
             'text' => 'Estadisticas',
             'route' => 'estadisticas',
-            'icon' => 'fas fa-fw fa-file-alt text-white',
+            'icon' => 'fas fa-fw fa-file-alt text-pink',
             'can' => 'estadisticas'
         ],
         /*[
