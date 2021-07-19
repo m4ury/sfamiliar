@@ -96,7 +96,9 @@ class Paciente extends Model
 
     public function hta()
     {
-        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')->where('patologias.nombre_patologia', '=', 'HTA');
+        return $this->join('paciente_patologia', 'paciente_patologia.paciente_id', '=', 'pacientes.id')
+            ->join('patologias', 'patologias.id', '=', 'paciente_patologia.patologia_id')
+            ->where('patologias.nombre_patologia', '=', 'HTA');
     }
 
     public function dm2()

@@ -17,7 +17,7 @@
             <table id="proximos" class="table table-hover table-md-responsive table-bordered">
                 <thead class="thead-light">
                 <tr>
-                    
+
                     <th>Paciente</th>
                     <th>RUT. Paciente</th>
                     <th>Nº Ficha
@@ -30,7 +30,8 @@
                 </thead>
                 <tbody>
                 @foreach($controles as $control)
-                    <tr>
+                    @if($control->paciente)
+                        <tr>
                         <td class="text-uppercase">{{ $control->paciente->fullName() }}</td>
                         <td>{{ $control->paciente->rut }}</td>
                         <td>{{ $control->paciente->ficha }}</td>
@@ -40,6 +41,7 @@
                         <td>{{ $control->prox_tipo }}</td>
                         <td>{{ $control->tipo_atencion }}</td>
                     </tr>
+                    @endif
                 @endforeach
                 </tbody>
             </table>
