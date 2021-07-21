@@ -480,7 +480,7 @@ array('paciente_id'=> 549 ,'patologia_id'=> 1), array('paciente_id'=>549,'patolo
 array('paciente_id'=> 551 ,'patologia_id'=> 1), array('paciente_id'=>551,'patologia_id'=> 3 ),
 array('paciente_id'=> 552 ,'patologia_id'=> 1), array('paciente_id'=>552,'patologia_id'=> 2) , array('paciente_id'=>552,'patologia_id'=> 3), array('paciente_id'=>552,'patologia_id'=> 6 ),  array('paciente_id'=>553,'patologia_id'=> 8), array('paciente_id'=>553,'patologia_id'=> 13 ),
 array('paciente_id'=> 555 ,'patologia_id'=> 1), array('paciente_id'=>555,'patologia_id'=> 3), array('paciente_id'=>555,'patologia_id'=> 6), array('paciente_id'=>555,'patologia_id'=> 15 ),
-array('paciente_id'=> 556 ,'patologia_id'=> 1), array('paciente_id'=>556,'patologia_id'=> 3), array('paciente_id'=>556,'patologia_id'=> 9), array('paciente_id'=>556,'patologia_id'=> 13 ),
+array('paciente_id'=> 556 ,'patologia_id'=> 1), array('paciente_id'=>556,'patologia_id'=> 3), array('paciente_id'=>556, 'patologia_id'=> 9), array('paciente_id'=>556,'patologia_id'=> 13 ),
 array('paciente_id'=> 557 ,'patologia_id'=> 1), array('paciente_id'=>557,'patologia_id'=> 2), array('paciente_id'=>557,'patologia_id'=> 13 ),  array('paciente_id'=>558,'patologia_id'=> 8 ),
 array('paciente_id'=> 559 ,'patologia_id'=> 1), array('paciente_id'=>559,'patologia_id'=> 2) , array('paciente_id'=>559,'patologia_id'=> 3 ),
 array('paciente_id'=> 560 ,'patologia_id'=> 1), array('paciente_id'=>560,'patologia_id'=> 3 ),
