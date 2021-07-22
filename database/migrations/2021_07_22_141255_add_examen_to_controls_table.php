@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTipoAtencionToControlsTable extends Migration
+class AddExamenToControlsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddTipoAtencionToControlsTable extends Migration
     public function up()
     {
         Schema::table('controls', function (Blueprint $table) {
-            $table->string('tipo_atencion')->nullable();
+            $table->string('examen')->nullable();
         });
     }
 
