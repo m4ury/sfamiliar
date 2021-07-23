@@ -6,7 +6,7 @@
         'form-control'.($errors->has('tipo_control') ? ' is-invalid' : ''), 'id' => 'tipo', 'placeholder'=> "Seleccione
         Profesional"]) !!}
         @if ($errors->has('tipo_control'))
-        <span class="invalid-feedback">
+            <span class="invalid-feedback">
             <strong>{{ $errors->first('tipo_control') }}</strong>
         </span>
         @endif
@@ -21,7 +21,7 @@
         {!! Form::date('fecha_control', null, ['class' => 'form-control form-control-sm'.($errors->has('fecha_control')
         ? ' is-invalid' : '')]) !!}
         @if ($errors->has('fecha_control'))
-        <span class="invalid-feedback">
+            <span class="invalid-feedback">
             <strong>{{ $errors->first('fecha_control') }}</strong>
         </span>
         @endif
@@ -38,7 +38,7 @@
         form-control-sm'.($errors->has('presion_arterial') ? ' is-invalid' : ''), 'placeholder' => 'Ejemplo.: 120/80'])
         !!}
         @if ($errors->has('presion_arterial'))
-        <span class="invalid-feedback">
+            <span class="invalid-feedback">
             <strong>{{ $errors->first('presion_arterial') }}</strong>
         </span>
         @endif
@@ -50,7 +50,7 @@
         {!! Form::number('peso_actual', null, ['class' => 'form-control form-control-sm'.($errors->has('peso_actual') ?
         ' is-invalid' : ''), 'placeholder' => 'Ejemplo: 88', 'step' => 'any']) !!}
         @if ($errors->has('peso_actual'))
-        <span class="invalid-feedback">
+            <span class="invalid-feedback">
             <strong>{{ $errors->first('peso_actual') }}</strong>
         </span>
         @endif
@@ -60,7 +60,7 @@
         {!! Form::number('talla_actual', null, ['class' => 'form-control form-control-sm'.($errors->has('talla_actual')
         ? ' is-invalid' : ''), 'placeholder' => 'Ejemplo: 175']) !!}
         @if ($errors->has('talla_actual'))
-        <span class="invalid-feedback">
+            <span class="invalid-feedback">
             <strong>{{ $errors->first('talla_actual') }}</strong>
         </span>
         @endif
@@ -87,58 +87,78 @@
 </div>
 
 @foreach($paciente->patologias as $patologia)
-@if($patologia->nombre_patologia == 'HTA')
-@include('partials.hta')
-@elseif($patologia->nombre_patologia == 'DLP')
-@include('partials.dlp')
-{{-- @elseif($patologia->nombre_patologia == 'ANTECEDENTE IAM' || $patologia->nombre_patologia == 'ANTECEDENTE ACV')
-@include('partials.acv_iam') --}}
-@elseif($patologia->nombre_patologia == 'SALA ERA')
-@include('partials.sala_era')
-@elseif($patologia->nombre_patologia == 'DM2')
-@include('partials.dm2')
-@endif
+    @if($patologia->nombre_patologia == 'HTA')
+        @include('partials.hta')
+    @elseif($patologia->nombre_patologia == 'DLP')
+        @include('partials.dlp')
+        {{-- @elseif($patologia->nombre_patologia == 'ANTECEDENTE IAM' || $patologia->nombre_patologia == 'ANTECEDENTE ACV')
+        @include('partials.acv_iam') --}}
+    @elseif($patologia->nombre_patologia == 'SALA ERA')
+        @include('partials.sala_era')
+    @elseif($patologia->nombre_patologia == 'DM2')
+        @include('partials.dm2')
+    @endif
 @endforeach
-<hr/>
-<div class="form-group row py-3">
-    {!! Form::label('proximo_control_label', 'Fecha prox. control',['class' => 'col-sm-2 col-form-label']) !!}
-    <div class="col-sm-2">
-        {!! Form::date('proximo_control', null, ['class' => 'form-control
-        form-control-sm'.($errors->has('proximo_control') ? ' is-invalid' : '')]) !!}
-        @if ($errors->has('proximo_control'))
-        <span class="invalid-feedback">
+
+<div class="card card-info card-outline" id="proximo">
+    <div class="card-header text-bold text-bold">Proximo Control</div>
+    <div class="card-body row">
+        {!! Form::label('proximo_control_label', 'Fecha prox. control',['class' => 'col-sm-2 col-form-label']) !!}
+        <div class="col-sm-2">
+            {!! Form::date('proximo_control', null, ['class' => 'form-control
+            form-control-sm'.($errors->has('proximo_control') ? ' is-invalid' : '')]) !!}
+            @if ($errors->has('proximo_control'))
+                <span class="invalid-feedback">
             <strong>{{ $errors->first('proximo_control') }}</strong>
         </span>
-        @endif
-    </div>
+            @endif
+        </div>
 
-    {!! Form::label('prox_tipo_atencion_label', 'Tipo Atencion',['class' => 'col-sm-2 col-form-label']) !!}
-    <div class="col-sm-2">
-        {!! Form::select('tipo_atencion', ['Telefonico'=> 'Telefonico', 'Visita domiciliaria' => 'Visita domiciliaria', 'Presencial' => 'Presencial', 'ELEAM' => 'ELEAM'], null, ['class' => 'form-control form-control-sm'.($errors->has('prox_tipo')
-        ? ' is-invalid' : ''), 'id' => 'atencion', 'placeholder'=> "Seleccione"]) !!}
-        @if ($errors->has('tipo_atencion'))
-        <span class="invalid-feedback">
+        {!! Form::label('prox_tipo_atencion_label', 'Modalidad prox. Control',['class' => 'col-sm-2 col-form-label']) !!}
+        <div class="col-sm-2">
+            {!! Form::select('tipo_atencion', ['Telefonico'=> 'Telefonico', 'Visita domiciliaria' => 'Visita domiciliaria', 'Presencial' => 'Presencial', 'ELEAM' => 'ELEAM'], null, ['class' => 'form-control form-control-sm'.($errors->has('prox_tipo')
+            ? ' is-invalid' : ''), 'id' => 'atencion', 'placeholder'=> "Seleccione"]) !!}
+            @if ($errors->has('tipo_atencion'))
+                <span class="invalid-feedback">
             <strong>{{ $errors->first('tipo_atencion') }}</strong>
         </span>
-        @endif
-    </div>
+            @endif
+        </div>
 
-    {!! Form::label('prox_tipo_label', 'Prof. prox. Control',['class' => 'col-sm-2 col-form-label']) !!}
-    <div class="col-sm-2">
-        {!! Form::select('prox_tipo', ['Medico'=> 'Medico', 'Enfermera' => 'Enfermera', 'Kinesiologo' => 'Kinesiologo',
-        'Nutricionista' => 'Nutricionista'], null, ['class' => 'form-control form-control-sm'.($errors->has('prox_tipo')
-        ? ' is-invalid' : ''), 'id' => 'prox_tipo', 'placeholder'=> "Seleccione Profesional"]) !!}
-        @if ($errors->has('prox_tipo'))
-        <span class="invalid-feedback">
+        {!! Form::label('prox_tipo_label', 'Prof. prox. Control',['class' => 'col-sm-2 col-form-label']) !!}
+        <div class="col-sm-2">
+            {!! Form::select('prox_tipo', ['Medico'=> 'Medico', 'Enfermera' => 'Enfermera', 'Kinesiologo' => 'Kinesiologo',
+            'Nutricionista' => 'Nutricionista'], null, ['class' => 'form-control form-control-sm'.($errors->has('prox_tipo')
+            ? ' is-invalid' : ''), 'id' => 'prox_tipo', 'placeholder'=> "Seleccione Profesional"]) !!}
+            @if ($errors->has('prox_tipo'))
+                <span class="invalid-feedback">
             <strong>{{ $errors->first('prox_tipo') }}</strong>
         </span>
-        @endif
+            @endif
+        </div>
+
+        <div class="form-group row my-2 ml-2">
+            {!! Form::label('examenes_label', 'Solicitud Examenes', ['class' => 'col-sm col-form-label text-bold']) !!}
+            <div class="col-sm">
+                {!! Form::label('examenes1_label', 'SI', ['class' => 'col-sm col-form-label text-bold']) !!}
+                {!! Form::checkbox('examenes', "SI", null, ['class' => 'form-control my-2 examenes1']) !!}
+            </div>
+            <div class="col-sm">
+                {!! Form::label('examenes2_label', 'NO', ['class' => 'col-sm col-form-label text-bold']) !!}
+                {!! Form::checkbox('examenes', "NO", null, ['class' => 'form-control my-2 examenes2']) !!}
+            </div>
+            <div class="col-sm">
+                {!! Form::label('examenes3_label', 'SI HBC', ['class' => 'col-sm col-form-label text-bold']) !!}
+                {!! Form::checkbox('examenes', "SI HBC", null, ['class' => 'form-control my-2 examenes3']) !!}
+            </div>
+        </div>
+        
     </div>
 </div>
 
 @section('js')
-<script>
-    $('#Enfermera, #Kine, #Medico').hide();
+    <script>
+        $('#Enfermera, #Kine, #Medico').hide();
         $('#tipo, #prox_tipo, #atencion').select2({
             theme: "classic",
             width: '100%',
@@ -212,5 +232,15 @@
         $('input.check10').on('change', function () {
             $('input.check10').not(this).prop('checked', false);
         });
-</script>
+        
+        $('input.examenes1').on('change', function () {
+            $('input.examenes1').not(this).prop('checked', false);
+        });
+        $('input.examenes2').on('change', function () {
+            $('input.examenes2').not(this).prop('checked', false);
+        });
+        $('input.examenes3').on('change', function () {
+            $('input.examenes3').not(this).prop('checked', false);
+        });
+    </script>
 @endsection
