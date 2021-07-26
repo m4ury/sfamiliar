@@ -26,31 +26,31 @@
                         <th>Peso</th>
                         <th>Talla</th>
                         <th>IMC</th>
-                        <th>Estado nutricional </th>
+                        <th>Estado nutricional</th>
                         <th>Prox. Control</th>
                         {{--<th>Acciones</th>--}}
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($controles as $control)
-                       {{-- {{ dd($control) }}--}}
-                            <tr>
-                                <td>{{ $control->tipo_control }}</td>
-                                <td>{{ \Carbon\Carbon::parse($control->fecha_control)->format("d-m-Y") }}</td>
-                                <td>{{ $control->presion_arterial }}</td>
-                                <td>{{ $control->peso_actual }}</td>
-                                <td>{{ $control->talla_actual }}</td>
-                                <td>{{ $control->imc }}</td>
-                                <td>{{ $control->imc_resultado }}</td>
-                                <td>{{ $control->proximo_control. ' - ' .$control->prox_tipo ? : ''}}</td>
+                        {{-- {{ dd($control) }}--}}
+                        <tr>
+                            <td>{{ $control->tipo_control }}</td>
+                            <td>{{ \Carbon\Carbon::parse($control->fecha_control)->format("d-m-Y") }}</td>
+                            <td>{{ $control->presion_arterial }}</td>
+                            <td>{{ $control->peso_actual }}</td>
+                            <td>{{ $control->talla_actual }}</td>
+                            <td>{{ $control->imc }}</td>
+                            <td>{{ $control->imc_resultado }}</td>
+                            <td>{{ \Carbon\Carbon::parse($control->proximo_control)->format("d-m-Y"). ' - ' .$control->prox_tipo ? : ''}}</td>
 
-                                {{--<td>
-                                    <a class="btn bg-gradient-secondary btn-sm disabled" data-toggle="tooltip"
-                                       data-placement="bottom" title="Editar"
-                                    href="{{ route('controles.edit', $control->id) }}"><i class="fas fa-pen"></i>
-                                    </a>
-                                </td>--}}
-                            </tr>
+                            {{--<td>
+                                <a class="btn bg-gradient-secondary btn-sm disabled" data-toggle="tooltip"
+                                   data-placement="bottom" title="Editar"
+                                href="{{ route('controles.edit', $control->id) }}"><i class="fas fa-pen"></i>
+                                </a>
+                            </td>--}}
+                        </tr>
                     @endforeach
                     </tbody>
                 </table>

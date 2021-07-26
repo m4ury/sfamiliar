@@ -20,6 +20,7 @@
 
                     <th>Paciente</th>
                     <th>RUT. Paciente</th>
+                    <th>Edad</th>
                     <th>Nº Ficha
                     <th>Telefono</th>
                     <th>Dirección</th>
@@ -33,8 +34,9 @@
                 @foreach($controles as $control)
                     @if($control->paciente)
                         <tr>
-                            <td class="text-uppercase">{{ $control->paciente->fullName() }}</td>
+                            <td class="text-uppercase" nowrap="">{{ $control->paciente->fullName() }}</td>
                             <td>{{ $control->paciente->rut }}</td>
+                            <td>{{ $control->paciente->edad() }}</td>
                             <td>{{ $control->paciente->ficha }}</td>
                             <td>{{ $control->paciente->telefono }}</td>
                             <td>{{ $control->paciente->direccion }}, {{ $control->paciente->comuna }}</td>

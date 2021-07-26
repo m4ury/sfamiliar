@@ -12,13 +12,25 @@
             </div>
             <div class="card-body">
                 <div class="form-group row">
-                    <h4 class="col-sm-2 col-form text-nowrap">{{ $paciente->fullName() }}</h4>
+                    <h4 class="col-sm-2 col-form text-nowrap"><span
+                            class="badge badge-pill bg-gradient-warning badge mx-3 py-2">{{ $paciente->fullName() }} </span>
+                        <span
+                            class="badge badge-pill bg-gradient-warning badge mx-3 py-2">RUT.: {{ $paciente->rut }}</span>
+                        <span
+                            class="badge badge-pill bg-gradient-warning badge mx-3 py-2">Nº Ficha: {{ $paciente->ficha }}</span>
+                        <span class="badge badge-pill bg-gradient-light badge mx-3 py-2">Sector: @if($paciente->sector == 'celeste')
+                                <i class="fas fa-square text-primary"></i> Celeste
+                            @else($paciente->sector == 'naranjo')
+                                <i class="fas fa-square text-orange"></i> Naranjo
+                            @endif </span></h4>
                     <div class="col-sm text-right">
                         <a class="btn bg-gradient-primary btn-sm" title="Editar"
-                           href="{{ route('pacientes.edit', $paciente->id) }}"> Editar Paciente <i class="fas fa-pen mx-2"></i>
+                           href="{{ route('pacientes.edit', $paciente->id) }}"> Editar Paciente <i
+                                class="fas fa-pen mx-2"></i>
                         </a>
                     </div>
                 </div>
+                <hr>
                 <div class="row">
                     <div class="col-5 col-sm-3">
                         <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist"
@@ -84,11 +96,11 @@
                                 @include('controles.list_controles', $paciente)
                                 @if($paciente->controls->count() > 0)
                                     <a href="{{ route('controles', $paciente->id) }}"><span
-                                                class="text-bold">Ver Todos los
+                                            class="text-bold">Ver Todos los
                                             controles...</span></a>
                                 @else
                                     <p class="text-muted">No hay Controles aun, crea uno <i
-                                                class="far fa-laugh-wink fa-2x"></i></p>
+                                            class="far fa-laugh-wink fa-2x"></i></p>
                                 @endif
                             </div>
                             <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"
