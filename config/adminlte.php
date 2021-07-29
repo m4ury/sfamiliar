@@ -254,7 +254,7 @@ return [
         [
             'text' => 'Patologias',
             'route' => 'patologias.index',
-            'icon' => 'fas fa-fw fa-heartbeat text-primary',
+            'icon' => 'fas fa-fw fa-heartbeat text-info',
             'can' => 'ver-patologias'
         ],
         ['header' => 'CONTROLES'],
@@ -368,17 +368,6 @@ return [
     */
 
     'plugins' => [
-
-        'Moment' => [
-            'active' => true,
-            'files' => [
-            [
-                'type' => 'js',
-                'asset' => false,
-                'location' => '../node_modules/moment/moment.js',
-            ]
-        ]
-            ],
         'Datatables' => [
             'active' => false,
             'files' => [
@@ -514,18 +503,18 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '../vendor/almasaeed2010/adminlte/plugins/sweetalert2/sweetalert2.all.js',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.all.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '../vendor/almasaeed2010/adminlte/plugins/sweetalert2/sweetalert2.css',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.css',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '../vendor/almasaeed2010/adminlte/plugins/sweetalert2/sweetalert2.js',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.js',
                 ]
             ],
         ],

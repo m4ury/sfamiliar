@@ -6,8 +6,7 @@
     <div class="row">
         <div class="page-header">
             {!! Form::open(['route' => 'proximos', 'method' => 'GET', 'class' => 'form-inline float-right pb-3']) !!}
-
-            {!! Form::select('q', ['01' => 'Enero', '02' => 'Febrero', '03' => 'Marzo', '04' => 'Abril', '05' => 'Mayo', '06' => 'Junio', '07' => 'Julio', '08' => 'Agosto', '09' => 'Septiembre', '10' => 'Octubre', '11' => 'Noviembre', '12' => 'Diciembre'], null, ['class' => 'form-control', 'placeholder' => 'Busqueda por mes', 'id' => 'q']) !!}
+            {!! Form::selectMonth('q', null, ['class' => 'form-control', 'placeholder' => 'Busqueda por mes', 'id' => 'q']) !!}
             <button type="submit" class="btn btn-secondary btn-block form-control mt-2">
                 <span><i class="fas fa-search"> Buscar</i></span>
             </button>
@@ -17,7 +16,6 @@
             <table id="proximos" class="table table-hover table-md-responsive table-bordered">
                 <thead class="thead-light">
                 <tr>
-
                     <th>Paciente</th>
                     <th>RUT. Paciente</th>
                     <th>Edad</th>
@@ -66,7 +64,6 @@
                     'colvis',
                     'excel',
                     'pdf',
-                    'print',
                 ],
                 language:
                     {

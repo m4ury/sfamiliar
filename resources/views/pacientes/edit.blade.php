@@ -2,10 +2,10 @@
 @section('title', 'editar-pacientes')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-left">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
             <div class="col-sx-12 col-sm-12 col-lg-8">
-                <div class="card card-default">
+                <div class="card card card-success card-outline">
                     <div class="card-header"><i class="fas fa-user-edit mr-1"></i>Editando Paciente</div>
                     <div class="card-body">
                         {{ Form::open(['action' => 'PacienteController@update', 'method' => 'POST', 'url' => 'pacientes/'.$paciente->id, 'class' => 'form-horizontal']) }}
@@ -111,6 +111,15 @@
                                 Comuna']) !!}
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            {!! Form::label('sector_label', 'Sector.', ['class' => 'col-sm-2 col-form-label']) !!}
+                            <div class="col-sm-5">
+                                {!! Form::select('sector', ['naranjo' => 'Naranjo', 'celeste' => 'Celeste', 'blanco' => 'Blanco'], old('sector', $paciente->sector), ['class' => 'form-control
+                                    form-control-sm', 'placeholder' => 'Seleccione Sector', 'id' => 'sector']) !!}
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <div class="col-sm-5">
                                 {!! Form::label('pueblo_originario_label', 'Originario', ['class' => 'col-sm
@@ -119,7 +128,7 @@
                                 $paciente->pueblo_originario) ,['class' => 'form-control form-control']) !!}
                             </div>
                             <div class="col-sm-5">
-                                {!! Form::label('migrante', 'Pob. Migrante', ['class' => 'col-sm col-form-label']) !!}
+                                {!! Form::label('migrante_label', 'Pob. Migrante', ['class' => 'col-sm col-form-label']) !!}
                                 {!! Form::checkbox('migrante', 1, old('migrante', $paciente->migrante),['class' =>
                                 'form-control form-control']) !!}
                             </div>
@@ -135,7 +144,7 @@
                             </div>
                             {!! Form::label('erc_label', 'Enf. Renal Crónica', ['class' => 'col-sm-3 col-form-label']) !!}
                             <div class="col-sm-3">
-                                {!! Form::select('erc', ['SIN' => 'SIN', 'I' => 'I', 'II' => 'II', 'IIIA' => 'IIIA', 'IIIB'
+                                {!! Form::select('erc', ['sin' => 'SIN', 'I' => 'I', 'II' => 'II', 'IIIA' => 'IIIA', 'IIIB'
                                 => 'IIIB', 'IV' => 'IV', 'V' => 'V'], old('erc', $paciente->erc), ['class' => 'form-control
                                 form-control', 'placeholder' => 'Seleccione']) !!}
                             </div>
@@ -144,7 +153,7 @@
                         <div class="form-group row">
                             {!! Form::label('compensado_label', 'Compensado', ['class' => 'col-sm-3 col-form-label']) !!}
                             <div class="col-sm-3">
-                                {!! Form::select('compensado', [1 => 'Compensado', 2 => 'Descompensado'], old('cmopensado',
+                                {!! Form::select('compensado', [1 => 'Compensado', 2 => 'Descompensado'], old('compensado',
                                 $paciente->compensado), ['class' => 'form-control', 'placeholder' => 'Seleccione']) !!}
                             </div>
                         </div>
