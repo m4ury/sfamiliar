@@ -35,7 +35,8 @@ class ControlController extends Controller
     {
         $paciente = Paciente::with('patologias')->findOrFail($id);
         $pacientes = new Paciente;
-        return view('controles.create', compact('paciente', 'pacientes'));
+        $control = new Control;
+        return view('controles.create', compact('paciente', 'pacientes', 'control'));
     }
 
 
@@ -47,7 +48,7 @@ class ControlController extends Controller
         $control->paciente_id = $request->paciente_id;
         $control->save();
 
-        return redirect('pacientes/' . $request->paciente_id)->withToastSuccess('Control creado con exito!');
+        return redirect('pacientes/' . $request->paciente_id)->withSuccess('Control creado con exito!');
     }
 
     public function show($id)
@@ -63,6 +64,13 @@ class ControlController extends Controller
         return view('controles.edit', compact('control'));
     }
 
+    public function editar($id)
+    {
+        $control = Control::findOrFail($id);
+        $paciente = Paciente::with('patologias')->findOrFail($control->paciente->id);
+        return view('controles.editar', compact('control', 'paciente'));
+    }
+
 
     public function update(Request $request, $id)
     {
@@ -74,7 +82,7 @@ class ControlController extends Controller
     public function destroy($id)
     {
         Control::destroy($id);
-        return redirect('controles-all')->withErrors('Control eliminado con exito!');
+        return redirect()->back()->withErrors('Control eliminado con exito!');
     }
 
     public function prox(Request $request)

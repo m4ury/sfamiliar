@@ -18,7 +18,7 @@
 <div class="form-group row">
     {!! Form::label('fecha_control', 'Fecha Control', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::date('fecha_control', null, ['class' => 'form-control form-control-sm'.($errors->has('fecha_control')
+        {!! Form::date('fecha_control',  old('fecha_control', $control->fecha_control), ['class' => 'form-control form-control-sm'.($errors->has('fecha_control')
         ? ' is-invalid' : '')]) !!}
         @if ($errors->has('fecha_control'))
             <span class="invalid-feedback">
@@ -28,13 +28,13 @@
     </div>
     {!! Form::label('last', 'Ultimo Control?', ['class' => 'col-sm form-label text-bold']) !!}
     <div class="col-sm">
-        {!! Form::checkbox('last', 1, null, ['class' => 'form-control']) !!}
+        {!! Form::checkbox('last', 1,  old('last', $control->last), ['class' => 'form-control']) !!}
     </div>
 </div>
 <div class="form-group row">
     {!! Form::label('presion_arterial', 'Presion Arterial', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-9">
-        {!! Form::text('presion_arterial', null, ['class' => 'form-control
+        {!! Form::text('presion_arterial',  old('presion_arterial', $control->presion_arterial), ['class' => 'form-control
         form-control-sm'.($errors->has('presion_arterial') ? ' is-invalid' : ''), 'placeholder' => 'Ejemplo.: 120/80'])
         !!}
         @if ($errors->has('presion_arterial'))
@@ -47,7 +47,7 @@
 <div class="form-group row">
     {!! Form::label('peso_actual', 'Peso actual(Kg.)',['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::number('peso_actual', null, ['class' => 'form-control form-control-sm'.($errors->has('peso_actual') ?
+        {!! Form::number('peso_actual', old('peso_actual', $control->peso_actual), ['class' => 'form-control form-control-sm'.($errors->has('peso_actual') ?
         ' is-invalid' : ''), 'placeholder' => 'Ejemplo: 88', 'step' => 'any']) !!}
         @if ($errors->has('peso_actual'))
             <span class="invalid-feedback">
