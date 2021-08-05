@@ -15,7 +15,7 @@
         <div class="form-group row my-2 ml-2">
             {!! Form::label('pa_menor14090label', 'Presion arterial < 140/90 SI', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
             <div class="col-sm-3">
-                {!! Form::checkbox('pa_menor_140_90', 1, null, ['class' => 'form-control my-2 pa_14090']) !!}
+                {!! Form::checkbox('pa_menor_140_90', 1, old('pa_menor_140_90', $control->pa_menor_140_90), ['class' => 'form-control my-2 pa_14090']) !!}
             </div>
             {!! Form::label('pa_menor14090label', 'Presion arterial < 140/90 NO', ['class' => 'col-sm-3 col-form-label text-bold']) !!}
             <div class="col-sm-3">

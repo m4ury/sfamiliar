@@ -2,7 +2,7 @@
     {!! Form::label('tipo_control', 'Profesional', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm">
         {!! Form::select('tipo_control', ['Medico'=> 'Medico', 'Enfermera' => 'Enfermera', 'Kinesiologo' =>
-        'Kinesiologo', 'Nutricionista' => 'Nutricionista'], null, ['class' =>
+        'Kinesiologo', 'Nutricionista' => 'Nutricionista'], old('tipo_control', $control->tipo_control), ['class' =>
         'form-control'.($errors->has('tipo_control') ? ' is-invalid' : ''), 'id' => 'tipo', 'placeholder'=> "Seleccione
         Profesional"]) !!}
         @if ($errors->has('tipo_control'))
@@ -13,7 +13,7 @@
     </div>
 </div>
 
-{!! Form::hidden('paciente_id', $paciente->id) !!}
+{!! Form::hidden('paciente_id', $control->paciente->id) !!}
 
 <div class="form-group row">
     {!! Form::label('fecha_control', 'Fecha Control', ['class' => 'col-sm-3 col-form-label']) !!}
@@ -57,7 +57,7 @@
     </div>
     {!! Form::label('talla_actual', 'Talla actual(Cms.)',['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::number('talla_actual', null, ['class' => 'form-control form-control-sm'.($errors->has('talla_actual')
+        {!! Form::number('talla_actual', old('talla_actual', $control->talla_actual), ['class' => 'form-control form-control-sm'.($errors->has('talla_actual')
         ? ' is-invalid' : ''), 'placeholder' => 'Ejemplo: 175']) !!}
         @if ($errors->has('talla_actual'))
             <span class="invalid-feedback">
@@ -69,19 +69,19 @@
 <div class="form-group row">
     {!! Form::label('imc', 'IMC',['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::text('imc', null, ['class' => 'form-control form-control-sm','step' => 'any', 'placeholder' => 'IMC'])
+        {!! Form::text('imc', old('imc', $control->imc), ['class' => 'form-control form-control-sm','step' => 'any', 'placeholder' => 'IMC'])
         !!}
     </div>
     {!! Form::label('imc_resultado', 'Estado Nutricional',['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::text('imc_resultado', null, ['class' => 'form-control form-control-sm',
+        {!! Form::text('imc_resultado', old('imc_resultado', $control->imc_resultado), ['class' => 'form-control form-control-sm',
         'placeholder' => 'Est. Nutricional.']) !!}
     </div>
 </div>
 <div class="form-group row">
     {!! Form::label('observacion', 'Observación',['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm">
-        {!! Form::textarea('observacion', null, ['class' => 'form-control form-control-sm',
+        {!! Form::textarea('observacion', old('observacion', $control->observacion), ['class' => 'form-control form-control-sm',
         'placeholder' => 'Ingrese observación']) !!}
     </div>
 </div>
@@ -105,7 +105,7 @@
     <div class="card-body row">
         {!! Form::label('proximo_control_label', 'Fecha prox. control',['class' => 'col-sm-2 col-form-label']) !!}
         <div class="col-sm-2">
-            {!! Form::date('proximo_control', null, ['class' => 'form-control
+            {!! Form::date('proximo_control', old('proximo_control', $control->proximo_control), ['class' => 'form-control
             form-control-sm'.($errors->has('proximo_control') ? ' is-invalid' : '')]) !!}
             @if ($errors->has('proximo_control'))
                 <span class="invalid-feedback">
@@ -116,7 +116,7 @@
 
         {!! Form::label('prox_tipo_atencion_label', 'Modalidad prox. Control',['class' => 'col-sm-2 col-form-label']) !!}
         <div class="col-sm-2">
-            {!! Form::select('tipo_atencion', ['Telefonico'=> 'Telefonico', 'Visita domiciliaria' => 'Visita domiciliaria', 'Presencial' => 'Presencial', 'ELEAM' => 'ELEAM'], null, ['class' => 'form-control form-control-sm'.($errors->has('prox_tipo')
+            {!! Form::select('tipo_atencion', ['Telefonico'=> 'Telefonico', 'Visita domiciliaria' => 'Visita domiciliaria', 'Presencial' => 'Presencial', 'ELEAM' => 'ELEAM'], old('tipo_atencion', $control->tipo_atencion), ['class' => 'form-control form-control-sm'.($errors->has('prox_tipo')
             ? ' is-invalid' : ''), 'id' => 'atencion', 'placeholder'=> "Seleccione"]) !!}
             @if ($errors->has('tipo_atencion'))
                 <span class="invalid-feedback">
@@ -128,7 +128,7 @@
         {!! Form::label('prox_tipo_label', 'Prof. prox. Control',['class' => 'col-sm-2 col-form-label']) !!}
         <div class="col-sm-2">
             {!! Form::select('prox_tipo', ['Medico'=> 'Medico', 'Enfermera' => 'Enfermera', 'Kinesiologo' => 'Kinesiologo',
-            'Nutricionista' => 'Nutricionista'], null, ['class' => 'form-control form-control-sm'.($errors->has('prox_tipo')
+            'Nutricionista' => 'Nutricionista'], old('prox_tipo', $control->prox_tipo), ['class' => 'form-control form-control-sm'.($errors->has('prox_tipo')
             ? ' is-invalid' : ''), 'id' => 'prox_tipo', 'placeholder'=> "Seleccione Profesional"]) !!}
             @if ($errors->has('prox_tipo'))
                 <span class="invalid-feedback">
