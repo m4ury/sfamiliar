@@ -4,7 +4,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-sx-12 col-sm-12 col-lg-8">
+            <div class="col-sx-12 col-sm-12 col-lg">
                 <div class="card card card-success card-outline">
                     <div class="card-header"><i class="fas fa-user-edit mr-1"></i>Editando Paciente</div>
                     <div class="card-body">

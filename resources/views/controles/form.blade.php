@@ -13,7 +13,7 @@
     </div>
 </div>
 
-{!! Form::hidden('paciente_id', $control->paciente->id) !!}
+{!! Form::hidden('paciente_id', $paciente->id) !!}
 
 <div class="form-group row">
     {!! Form::label('fecha_control', 'Fecha Control', ['class' => 'col-sm-3 col-form-label']) !!}
