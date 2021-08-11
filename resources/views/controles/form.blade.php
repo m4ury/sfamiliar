@@ -141,15 +141,15 @@
             {!! Form::label('examenes_label', 'Solicitud Examenes', ['class' => 'col-sm col-form-label text-bold']) !!}
             <div class="col-sm">
                 {!! Form::label('examenes1_label', 'SI', ['class' => 'col-sm col-form-label text-bold']) !!}
-                {!! Form::checkbox('examen', "SI", null, ['class' => 'form-control my-2 examenes1']) !!}
+                {!! Form::checkbox('examen', "SI", old('examen', $control->examen), ['class' => 'form-control my-2 examenes1']) !!}
             </div>
             <div class="col-sm">
                 {!! Form::label('examenes2_label', 'NO', ['class' => 'col-sm col-form-label text-bold']) !!}
-                {!! Form::checkbox('examen', "NO", null, ['class' => 'form-control my-2 examenes2']) !!}
+                {!! Form::checkbox('examen', "NO", old('examen', $control->examen), ['class' => 'form-control my-2 examenes1']) !!}
             </div>
             <div class="col-sm">
                 {!! Form::label('examenes3_label', 'SI HBC', ['class' => 'col-sm col-form-label text-bold']) !!}
-                {!! Form::checkbox('examen', "SI HBC", null, ['class' => 'form-control my-2 examenes3']) !!}
+                {!! Form::checkbox('examen', "SI HBC", old('examen', $control->examen), ['class' => 'form-control my-2 examenes1']) !!}
             </div>
         </div>
 

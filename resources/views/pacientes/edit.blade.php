@@ -4,7 +4,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-sx-12 col-sm-12 col-lg">
+            <div class="col-sx-12 col-sm-12 col-lg-8">
                 <div class="card card card-success card-outline">
                     <div class="card-header"><i class="fas fa-user-edit mr-1"></i>Editando Paciente</div>
                     <div class="card-body">
@@ -140,23 +140,28 @@
                             <div class="col-sm-3">
                                 {!! Form::select('riesgo_cv', ['BAJO' => 'BAJO', 'MODERADO' => 'MODERADO', 'ALTO' =>
                                 'ALTO'], old('riesgo_cv', $paciente->riesgo_cv), ['class' => 'form-control', 'placeholder'
-                                => 'Seleccione']) !!}
+                                => 'Seleccione', 'id' => 'riesgo_cv']) !!}
                             </div>
                             {!! Form::label('erc_label', 'Enf. Renal Crónica', ['class' => 'col-sm-3 col-form-label']) !!}
                             <div class="col-sm-3">
                                 {!! Form::select('erc', ['sin' => 'SIN', 'I' => 'I', 'II' => 'II', 'IIIA' => 'IIIA', 'IIIB'
                                 => 'IIIB', 'IV' => 'IV', 'V' => 'V'], old('erc', $paciente->erc), ['class' => 'form-control
-                                form-control', 'placeholder' => 'Seleccione']) !!}
+                                form-control', 'placeholder' => 'Seleccione', 'id' => 'erc']) !!}
                             </div>
                         </div>
-
                         <div class="form-group row">
                             {!! Form::label('compensado_label', 'Compensado', ['class' => 'col-sm-3 col-form-label']) !!}
                             <div class="col-sm-3">
                                 {!! Form::select('compensado', [1 => 'Compensado', 2 => 'Descompensado'], old('compensado',
-                                $paciente->compensado), ['class' => 'form-control', 'placeholder' => 'Seleccione']) !!}
+                                $paciente->compensado), ['class' => 'form-control', 'placeholder' => 'Seleccione', 'id' => 'compensado']) !!}
                             </div>
                         </div>
+
+                        <hr>
+                        @if($paciente->edad() > 65)
+                            @include('partials.empam')
+                        @endif
+
                         @foreach($paciente->patologias as $patologia)
                             @if($patologia->nombre_patologia == 'HTA')
                                 <div class="form-group row card card-danger card-outline">
@@ -278,4 +283,19 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <script>
+        $('#riesgo_cv, #erc, #compensado, #funcionalidad, #riesgoCaida, #unipodal').select2({
+            theme: "classic",
+            width: '100%',
+        });
+
+        $('input.actFisica').on('change', function () {
+            $('input.actFisica').not(this).prop('checked', false);
+        });
+        $('input.maltrato').on('change', function () {
+            $('input.maltrato').not(this).prop('checked', false);
+        });
+    </script>
 @endsection

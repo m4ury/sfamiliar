@@ -76,7 +76,7 @@ class ControlController extends Controller
     {
         $control = Control::findOrFail($id);
         $control->update($request->all());
-        return redirect('controles-all')->withSuccess('Control actualizado con exito!');
+        return redirect('pacientes/'.$control->paciente->id)->withSuccess('Control actualizado con exito!');
     }
 
     public function destroy($id)

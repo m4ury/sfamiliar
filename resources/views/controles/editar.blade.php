@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-left">
-            <div class="col-sx-12 col-sm-12 col-lg">
+            <div class="col-sx-12 col-sm-12 col-lg-10">
                 <div class="card card-dark card-outline mb-3">
                     <div class="card-header">Editando control</div>
                     <div class="card-body">
