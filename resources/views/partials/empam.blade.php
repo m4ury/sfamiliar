@@ -3,9 +3,14 @@
     <div class="form-group row my-2 ml-2">
         {!! Form::label('funcionalidad_label', 'Funcionalidad', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::select('funcionalidad', ['SR' => 'Sin Riesgo', 'R' => 'Autovalente Con Riesgo', 'L'
-            =>'Depend. Leve', 'M' => 'Depend. Moderada', 'S' => 'Depend. Severo', 'T' =>'Depend. Total'], old('unipodal', $paciente->funcionalidad), ['class' => 'form-control form-control-sm',
+            {!! Form::select('funcionalidad', ['SR' => 'Autoval. sin Riesgo', 'R' => 'Autoval. con Riesgo', 'RD'
+            =>'Riesgo de Dependencia'], old('funcionalidad', $paciente->funcionalidad), ['class' => 'form-control form-control-sm',
             'placeholder' => 'Seleccione funcionalidad', 'id' => 'funcionalidad']) !!}
+        </div>
+        {!! Form::label('dependencia_label', 'Dependencia', ['class' => 'col-sm-3 col-form-label']) !!}
+        <div class="col-sm-3">
+            {!! Form::select('dependencia', ['L' =>'Depend. Leve', 'M' => 'Depend. Moderado', 'G' => 'Depend. Grave', 'T' =>'Depend. Total'], old('dependencia', $paciente->dependencia), ['class' => 'form-control form-control-sm',
+            'placeholder' => 'Seleccione dependencia', 'id' => 'dependencia']) !!}
         </div>
     </div>
     <div class="form-group row my-2 ml-2">
@@ -26,7 +31,7 @@
     <div class="form-group row my-2 ml-2">
         {!! Form::label('maltrato_label', 'Sospecha de Maltrato; SI', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('maltrato', old('maltrato', $paciente->maltrato), null, ['class' => 'form-control my-2 maltrato']) !!}
+            {!! Form::checkbox('maltrato', 1, old('maltrato', $paciente->maltrato), ['class' => 'form-control my-2 maltrato']) !!}
         </div>
         {!! Form::label('maltrato_label', 'Sospecha de Maltrato; NO', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
@@ -36,7 +41,7 @@
     <div class="form-group row my-2 ml-2">
         {!! Form::label('actFisica_label', 'Actividad Fisica; SI', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('actFisica', 1, old('unipodal', $paciente->actFisica), ['class' => 'form-control my-2 actFisica']) !!}
+            {!! Form::checkbox('actFisica', 1, old('actFisica', $paciente->actFisica), ['class' => 'form-control my-2 actFisica']) !!}
         </div>
         {!! Form::label('actFisica_label', 'Actividad Fisica; NO', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">

@@ -172,6 +172,7 @@
             $('#imc').val(imcF);
             $('#imc_resultado').focus(function () {
                 var clasificacion;
+
                 if (imc < 18) {
                     clasificacion = 'Bajo peso';
                 } else if (imc > 18 && imc < 25) {

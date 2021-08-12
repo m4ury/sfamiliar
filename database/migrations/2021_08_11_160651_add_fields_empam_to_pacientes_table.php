@@ -14,11 +14,12 @@ class AddFieldsEmpamToPacientesTable extends Migration
     public function up()
     {
         Schema::table('pacientes', function (Blueprint $table) {
-            $table->enum('funcionalidad', ['SR', 'R', 'L', 'M', 'S', 'T'])->nullable();
-                $table->enum('riesgoCaida', ['L', 'N', 'A'])->nullable();
-                $table->enum('unipodal', ['N', 'A'])->nullable();
-                $table->boolean('maltrato')->default(0);
-                $table->boolean('actFisica')->default(0);
+            $table->enum('funcionalidad', ['SR', 'R', 'RD'])->nullable();
+            $table->enum('dependencia', ['L', 'M', 'G', 'T'])->nullable();
+            $table->enum('riesgoCaida', ['L', 'N', 'A'])->nullable();
+            $table->enum('unipodal', ['N', 'A'])->nullable();
+            $table->boolean('maltrato')->default(0);
+            $table->boolean('actFisica')->default(0);
         });
     }
 

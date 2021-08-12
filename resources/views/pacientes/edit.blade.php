@@ -158,7 +158,7 @@
                         </div>
 
                         <hr>
-                        @if($paciente->edad() > 65)
+                        @if($paciente->edad() >= 65)
                             @include('partials.empam')
                         @endif
 
@@ -286,7 +286,7 @@
 @endsection
 @section('js')
     <script>
-        $('#riesgo_cv, #erc, #compensado, #funcionalidad, #riesgoCaida, #unipodal').select2({
+        $('#riesgo_cv, #erc, #compensado, #funcionalidad, #riesgoCaida, #unipodal, #dependencia').select2({
             theme: "classic",
             width: '100%',
         });
