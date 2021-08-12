@@ -49,7 +49,7 @@
         {!! Form::label('evaluacionPie_label', 'Evaluacion Pie diabetico', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
             {!! Form::select('evaluacionPie', ['Bajo' => 'Riesgo Bajo', 'Moderado' => 'Riesgo Moderado', 'Alto'
-            =>'Riesgo Alto', 'Maximo' => 'Riesgo Maximo'], null, ['class' => 'form-control form-control-sm',
+            =>'Riesgo Alto', 'Maximo' => 'Riesgo Maximo'], old('evaluacionPie', $control->evaluacionPie), ['class' => 'form-control form-control-sm',
             'placeholder' => 'Seleccione riesgo']) !!}
         </div>
     </div>
@@ -58,7 +58,7 @@
         'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
             {!! Form::select('ulcerasActivas_TipoCuracion', ['Avanzada' => 'Avanzada', 'Convencional' =>
-            'Convencional'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione tipo
+            'Convencional'], old('ulcerasActivas_TipoCuracion', $control->ulcerasActivas_TipoCuracion), ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione tipo
             curación']) !!}
         </div>
     </div>

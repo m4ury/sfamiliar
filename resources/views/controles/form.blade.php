@@ -169,19 +169,20 @@
             var tallamts = talla / 100;
             var imc = peso / (tallamts * tallamts);
             var imcF = imc.toFixed(2);
+
             $('#imc').val(imcF);
             $('#imc_resultado').focus(function () {
                 var clasificacion;
 
-                if (imc < 18) {
-                    clasificacion = 'Bajo peso';
-                } else if (imc > 18 && imc < 25) {
-                    clasificacion = 'Normal';
-                } else if (imc > 25 && imc < 30) {
-                    clasificacion = 'Sobrepeso';
-                } else if (imc > 30 && imc < 35) {
-                    clasificacion = 'Obeso';
-                } else {
+                    if (imc < 18) {
+                        clasificacion = 'Bajo peso';
+                    } else if (imc > 18 && imc < 25) {
+                        clasificacion = 'Normal';
+                    } else if (imc > 25 && imc < 30) {
+                        clasificacion = 'Sobrepeso';
+                    } else if (imc > 30 && imc < 35) {
+                        clasificacion = 'Obesidad';
+                    } else {
                     clasificacion = 'Obesidad Morbida';
                 }
                 $('#imc_resultado').val(clasificacion);
