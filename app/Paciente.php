@@ -294,4 +294,20 @@ class Paciente extends Model
     {
         return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.imc', '>=', 32)->latest('controls.fecha_control');
     }
+    
+    //rem P5
+    public function aSinRiesgo()
+    {
+        return $this->whereFuncionalidad('SR');
+    }
+
+    public function aRiesgo()
+    {
+        return $this->whereFuncionalidad('R');
+    }
+
+    public function riesgoDependencia()
+    {
+        return $this->whereFuncionalidad('RD');
+    }
 }

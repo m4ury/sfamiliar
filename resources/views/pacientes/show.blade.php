@@ -106,6 +106,7 @@
                             <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"
                                  aria-labelledby="vert-tabs-patologias-tab">
                                 @include('patologias.list_patologias', $paciente)
+                                
                                 @if($paciente->patologias->count() == 0)
                                     <p class="text-muted">No hay Patologias aun... </p>
                                 @endif

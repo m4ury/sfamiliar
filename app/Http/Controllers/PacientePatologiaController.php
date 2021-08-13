@@ -22,7 +22,7 @@ class PacientePatologiaController extends Controller
         $paciente_patolog = PacientePatologia::updateOrCreate($request->except('_token'));
         $paciente_patolog->paciente_id = $request->paciente_id;
         $paciente_patolog->patologia_id = $request->patologia_id;
-        //$paciente_patolog->syncChanges();
+        
         return redirect('pacientes/' . $request->paciente_id)->withSuccess('Patologia añadida con exito!');
     }
 }

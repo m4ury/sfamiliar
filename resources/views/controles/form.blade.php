@@ -173,7 +173,22 @@
             $('#imc').val(imcF);
             $('#imc_resultado').focus(function () {
                 var clasificacion;
+                var edad = '{{ $paciente->edad() }}';
 
+                if (edad >= 65) {
+                    if (imc < 23) {
+                        clasificacion = 'Bajo peso';
+                    } else if (imc > 23 && imc < 28) {
+                        clasificacion = 'Normal';
+                    } else if (imc > 28 && imc < 32) {
+                        clasificacion = 'Sobrepeso';
+                    } else if (imc > 32 && imc < 37) {
+                        clasificacion = 'Obesidad';
+                    } else if (imc > 37) {
+                        clasificacion = 'Obesidad Morbida';
+                    }
+                }
+                if (edad < 65) {
                     if (imc < 18) {
                         clasificacion = 'Bajo peso';
                     } else if (imc > 18 && imc < 25) {
@@ -182,12 +197,14 @@
                         clasificacion = 'Sobrepeso';
                     } else if (imc > 30 && imc < 35) {
                         clasificacion = 'Obesidad';
-                    } else {
-                    clasificacion = 'Obesidad Morbida';
+                    } else if (imc > 35) {
+                        clasificacion = 'Obesidad Morbida';
+                    }
                 }
                 $('#imc_resultado').val(clasificacion);
             })
-        });
+        })
+        ;
         $("#rac_vigente").removeAttr("checked");
 
         $('#tipo').change(function () {
