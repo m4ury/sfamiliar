@@ -310,4 +310,28 @@ class Paciente extends Model
     {
         return $this->whereFuncionalidad('RD');
     }
+    
+    public function subEsfam(){
+        return $this->whereIn('funcionalidad', ['SR', 'R', 'RD']);
+    }
+    
+    public function depLeve(){
+        return $this->whereDependencia('L');
+    }
+
+    public function depMod(){
+        return $this->whereDependencia('M');
+    }
+
+    public function depGrave(){
+        return $this->whereDependencia('G');
+    }
+
+    public function depTotal(){
+        return $this->whereDependencia('T');
+    }
+
+    public function subBarthel(){
+        return $this->whereIn('funcionalidad', ['L', 'M', 'G', 'T']);
+    }
 }
