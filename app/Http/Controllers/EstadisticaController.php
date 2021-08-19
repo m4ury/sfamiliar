@@ -1002,7 +1002,7 @@ class EstadisticaController extends Controller
     public function seccionP5a()
     {
         $pacientes = new Paciente;
-        
+
         //SIN RIESGO
         $aSinRiesgo = $pacientes->aSinRiesgo()->count();
         $aSinRiesgoF = $pacientes->aSinRiesgo()->where('pacientes.sexo', '=', 'femenino')->count();
@@ -1133,10 +1133,32 @@ class EstadisticaController extends Controller
         $subBarthel_7579M = $pacientes->subBarthel()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->count();
         $subBarthel_80M = $pacientes->subBarthel()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
 
-        return view('estadisticas.seccion-p5a', compact('aSinRiesgo', 'aSinRiesgoM', 'aSinRiesgoF', 'aSinRiesgo_6569M', 'aSinRiesgo_6569F', 'aSinRiesgo_7074M', 'aSinRiesgo_7074F', 'aSinRiesgo_7579M', 'aSinRiesgo_7579F', 'aSinRiesgo_80M', 'aSinRiesgo_80F', 'aRiesgo', 'aRiesgoM', 'aRiesgoF', 'aRiesgo_6569M', 'aRiesgo_6569F', 'aRiesgo_7074M', 'aRiesgo_7074F', 'aRiesgo_7579M', 'aRiesgo_7579F', 'aRiesgo_80M', 'aRiesgo_80F', 'riesgoDependencia', 'riesgoDependenciaM', 'riesgoDependenciaF', 'riesgoDependencia_6569M', 'riesgoDependencia_6569F', 'riesgoDependencia_7074M', 'riesgoDependencia_7074F', 'riesgoDependencia_7579M', 'riesgoDependencia_7579F', 'riesgoDependencia_80M', 'riesgoDependencia_80F', 'subEsfam', 'subEsfamM', 'subEsfamF', 'subEsfam_6569M', 'subEsfam_6569F', 'subEsfam_7074M', 'subEsfam_7074F', 'subEsfam_7579M', 'subEsfam_7579F', 'subEsfam_80M', 'subEsfam_80F', 'depLeve', 'depLeveM', 'depLeveF', 'depLeve_6569M', 'depLeve_6569F', 'depLeve_7074M', 'depLeve_7074F', 'depLeve_7579M', 'depLeve_7579F', 'depLeve_80M', 'depLeve_80F', 
+        //TOTAL
+        $totalSeccion = $pacientes->totalSeccion()->count();
+
+
+        $totalSeccionF = $pacientes->totalSeccion()->where('pacientes.sexo','=', 'femenino')->count();
+
+        //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $totalSeccion_6569F = $pacientes->totalSeccion()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->count();
+        $totalSeccion_7074F = $pacientes->totalSeccion()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->count();
+        $totalSeccion_7579F = $pacientes->totalSeccion()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->count();
+        $totalSeccion_80F = $pacientes->totalSeccion()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->count();
+
+
+        $totalSeccionM = $pacientes->totalSeccion()->where('pacientes.sexo', '=', 'Masculino')->count();
+        //$aspirinasOriginM = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $totalSeccion_6569M = $pacientes->totalSeccion()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->count();
+        $totalSeccion_7074M = $pacientes->totalSeccion()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->count();
+        $totalSeccion_7579M = $pacientes->totalSeccion()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->count();
+        $totalSeccion_80M = $pacientes->totalSeccion()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
+        //dd($totalSeccion_7074M);
+
+        return view('estadisticas.seccion-p5a', compact('aSinRiesgo', 'aSinRiesgoM', 'aSinRiesgoF', 'aSinRiesgo_6569M', 'aSinRiesgo_6569F', 'aSinRiesgo_7074M', 'aSinRiesgo_7074F', 'aSinRiesgo_7579M', 'aSinRiesgo_7579F', 'aSinRiesgo_80M', 'aSinRiesgo_80F', 'aRiesgo', 'aRiesgoM', 'aRiesgoF', 'aRiesgo_6569M', 'aRiesgo_6569F', 'aRiesgo_7074M', 'aRiesgo_7074F', 'aRiesgo_7579M', 'aRiesgo_7579F', 'aRiesgo_80M', 'aRiesgo_80F', 'riesgoDependencia', 'riesgoDependenciaM', 'riesgoDependenciaF', 'riesgoDependencia_6569M', 'riesgoDependencia_6569F', 'riesgoDependencia_7074M', 'riesgoDependencia_7074F', 'riesgoDependencia_7579M', 'riesgoDependencia_7579F', 'riesgoDependencia_80M', 'riesgoDependencia_80F', 'subEsfam', 'subEsfamM', 'subEsfamF', 'subEsfam_6569M', 'subEsfam_6569F', 'subEsfam_7074M', 'subEsfam_7074F', 'subEsfam_7579M', 'subEsfam_7579F', 'subEsfam_80M', 'subEsfam_80F', 'depLeve', 'depLeveM', 'depLeveF', 'depLeve_6569M', 'depLeve_6569F', 'depLeve_7074M', 'depLeve_7074F', 'depLeve_7579M', 'depLeve_7579F', 'depLeve_80M', 'depLeve_80F',
             'depMod', 'depModM', 'depModF', 'depMod_6569M', 'depMod_6569F', 'depMod_7074M', 'depMod_7074F', 'depMod_7579M', 'depMod_7579F', 'depMod_80M', 'depMod_80F',
             'depGrave', 'depGraveM', 'depGraveF', 'depGrave_6569M', 'depGrave_6569F', 'depGrave_7074M', 'depGrave_7074F', 'depGrave_7579M', 'depGrave_7579F', 'depGrave_80M', 'depGrave_80F',
-        'subBarthel', 'subBarthelM', 'subBarthelF', 'subBarthel_6569M', 'subBarthel_6569F', 'subBarthel_7074M', 'subBarthel_7074F', 'subBarthel_7579M', 'subBarthel_7579F', 'subBarthel_80M', 'subBarthel_80F'));
+        'subBarthel', 'subBarthelM', 'subBarthelF', 'subBarthel_6569M', 'subBarthel_6569F', 'subBarthel_7074M', 'subBarthel_7074F', 'subBarthel_7579M', 'subBarthel_7579F', 'subBarthel_80M', 'subBarthel_80F',
+        'totalSeccion', 'totalSeccionM', 'totalSeccionF', 'totalSeccion_6569M', 'totalSeccion_6569F', 'totalSeccion_7074M', 'totalSeccion_7074F', 'totalSeccion_7579M', 'totalSeccion_7579F', 'totalSeccion_80M', 'totalSeccion_80F'));
     }
 
 

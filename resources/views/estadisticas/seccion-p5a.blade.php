@@ -41,7 +41,7 @@
                             <th>Mujeres</th>
                             <th>Hombres</th>
                             <th>Mujeres</th>
-                            
+
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">AUTOVALENTE SIN RIESGO</th>
@@ -156,6 +156,20 @@
                             <td>{{$subBarthel_7579F}}</td>
                             <td>{{$subBarthel_80M}}</td>
                             <td>{{$subBarthel_80F}}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-center text-primary" nowrap="" colspan="2">TOTAL PERSONAS MAYORES EN CONTROL</th>
+                           <td>{{ $totalSeccion }}</td>
+                             <td>{{ $totalSeccionM }}</td>
+                            <td>{{ $totalSeccionF }}</td>
+                            <td>{{$totalSeccion_6569M}}</td>
+                            <td>{{$totalSeccion_6569F}}</td>
+                            <td>{{$totalSeccion_7074M}}</td>
+                            <td>{{$totalSeccion_7074F}}</td>
+                            <td>{{$totalSeccion_7579M}}</td>
+                            <td>{{$totalSeccion_7579F}}</td>
+                            <td>{{$totalSeccion_80M}}</td>
+                            <td>{{$totalSeccion_80F}}</td>
                         </tr>
                         </thead>
                     </table>

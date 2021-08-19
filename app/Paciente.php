@@ -294,7 +294,7 @@ class Paciente extends Model
     {
         return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.imc', '>=', 32)->latest('controls.fecha_control');
     }
-    
+
     //rem P5
     public function aSinRiesgo()
     {
@@ -310,11 +310,11 @@ class Paciente extends Model
     {
         return $this->whereFuncionalidad('RD');
     }
-    
+
     public function subEsfam(){
         return $this->whereIn('funcionalidad', ['SR', 'R', 'RD']);
     }
-    
+
     public function depLeve(){
         return $this->whereDependencia('L');
     }
@@ -332,6 +332,10 @@ class Paciente extends Model
     }
 
     public function subBarthel(){
-        return $this->whereIn('funcionalidad', ['L', 'M', 'G', 'T']);
+        return $this->whereIn('dependencia', ['L', 'M', 'G', 'T']);
+    }
+
+    public function totalSeccion(){
+        return $this->whereIn('funcionalidad', ['SR', 'R', 'RD'])->orWhereIn('dependencia', ['L', 'M', 'G', 'T']);
     }
 }
