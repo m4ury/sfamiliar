@@ -1137,7 +1137,7 @@ class EstadisticaController extends Controller
         $totalSeccion = $pacientes->totalSeccion()->count();
 
 
-        $totalSeccionF = $pacientes->totalSeccion()->where('pacientes.sexo','=', 'femenino')->count();
+        $totalSeccionF = $pacientes->where('pacientes.sexo','=', 'femenino')->count('funcionalidad', 'dependencia');
 
         //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
         $totalSeccion_6569F = $pacientes->totalSeccion()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->count();
@@ -1146,7 +1146,7 @@ class EstadisticaController extends Controller
         $totalSeccion_80F = $pacientes->totalSeccion()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->count();
 
 
-        $totalSeccionM = $pacientes->totalSeccion()->where('pacientes.sexo', '=', 'Masculino')->count();
+        $totalSeccionM = $pacientes->where('pacientes.sexo', '=', 'Masculino')->count('funcionalidad', 'dependencia');
         //$aspirinasOriginM = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
         $totalSeccion_6569M = $pacientes->totalSeccion()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->count();
         $totalSeccion_7074M = $pacientes->totalSeccion()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->count();
