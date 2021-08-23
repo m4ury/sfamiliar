@@ -4,7 +4,7 @@
     <div class="form-group row my-2 ml-2">
         {!! Form::label('hba1cMenor8_label', 'HBA1C Menor a 8% SI', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('hba1cMenor8Porcent', 1, null, ['class' => 'form-control my-2 check']) !!}
+            {!! Form::checkbox('hba1cMenor8Porcent', 1, old('hba1cMenor8Porcent', $control->hba1cMenor8Porcent == 1 ?true:null), ['class' => 'form-control my-2 check']) !!}
         </div>
         {!! Form::label('hba1cMenor8_label', 'HBA1C Menor a 8% NO', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
@@ -15,7 +15,7 @@
     <div class="form-group row my-2 ml-2">
         {!! Form::label('hba1cMenor7_label', 'HBA1C Menor a 7% SI', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('hba1cMenor7Porcent', 1, null, ['class' => 'form-control my-2 check']) !!}
+            {!! Form::checkbox('hba1cMenor7Porcent', 1, old('hba1cMenor7Porcent', $control->hba1cMenor7Porcent), ['class' => 'form-control my-2 check']) !!}
         </div>
         {!! Form::label('hba1cMenor7_label', 'HBA1C Menor a 7% NO', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
@@ -26,7 +26,7 @@
     <div class="form-group row my-2 ml-2">
         {!! Form::label('hba1cMayor9_label', 'HBA1C Mayor o igual a 9% SI', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('hba1cMayorIgual9Porcent', 1, null, ['class' => 'form-control my-2 check1']) !!}
+            {!! Form::checkbox('hba1cMayorIgual9Porcent', 1, old('hba1cMayorIgual9Porcent', $control->hba1cMayorIgual9Porcent), ['class' => 'form-control my-2 check1']) !!}
         </div>
         {!! Form::label('hba1cMayor9_label', 'HBA1C Mayor o igual a 9% NO', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
@@ -36,7 +36,7 @@
     <div class="form-group row my-2 ml-2">
         {!! Form::label('ldlMenor100_label', 'LDL Menor a 100 SI', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">
-            {!! Form::checkbox('ldlMenor100', 1, null, ['class' => 'form-control my-2 check2']) !!}
+            {!! Form::checkbox('ldlMenor100', 1, old('ldlMenor100', $control->ldlMenor100), ['class' => 'form-control my-2 check2']) !!}
         </div>
         {!! Form::label('ldlMenor100_label', 'LDL Menor a 100 NO', ['class' => 'col-sm-3 col-form-label']) !!}
         <div class="col-sm-3">

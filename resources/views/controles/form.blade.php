@@ -141,15 +141,15 @@
             {!! Form::label('examenes_label', 'Solicitud Examenes', ['class' => 'col-sm col-form-label text-bold']) !!}
             <div class="col-sm">
                 {!! Form::label('examenes1_label', 'SI', ['class' => 'col-sm col-form-label text-bold']) !!}
-                {!! Form::checkbox('examen', "SI", old('examen', $control->examen), ['class' => 'form-control my-2 examenes1']) !!}
+                {!! Form::checkbox('examen', "SI", old('examen', $control->examen == "SI"?true:null), ['class' => 'form-control my-2 examenes1']) !!}
             </div>
             <div class="col-sm">
                 {!! Form::label('examenes2_label', 'NO', ['class' => 'col-sm col-form-label text-bold']) !!}
-                {!! Form::checkbox('examen', "NO", old('examen', $control->examen), ['class' => 'form-control my-2 examenes1']) !!}
+                {!! Form::checkbox('examen', "NO", old('examen', $control->examen == "NO"?true:null), ['class' => 'form-control my-2 examenes1']) !!}
             </div>
             <div class="col-sm">
                 {!! Form::label('examenes3_label', 'SI HBC', ['class' => 'col-sm col-form-label text-bold']) !!}
-                {!! Form::checkbox('examen', "SI HBC", old('examen', $control->examen), ['class' => 'form-control my-2 examenes1']) !!}
+                {!! Form::checkbox('examen', "SI HBC", old('examen', $control->examen == "SI HBC"?true:null), ['class' => 'form-control my-2 examenes1']) !!}
             </div>
         </div>
 
@@ -205,7 +205,7 @@
             })
         })
         ;
-        $("#rac_vigente").removeAttr("checked");
+        $("#rac_vigente, #examenes1").removeAttr("checked");
 
         $('#tipo').change(function () {
             var selection = $('#tipo').val();
