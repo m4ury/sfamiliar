@@ -1162,4 +1162,83 @@ class EstadisticaController extends Controller
     }
 
 
+    public function seccionP5b()
+    {
+        $pacientes = new Paciente;
+
+        //BAJO PESO
+        $bajoPeso = $pacientes->bajoPeso()->count();
+        //dd($bajoPeso);
+        $bajoPesoF = $pacientes->bajoPeso()->where('pacientes.sexo', '=', 'femenino')->count();
+        //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $bajoPeso_6569F = $pacientes->bajoPeso()->where('sexo', 'Femenino')->get()->whereBetween('grupo', [65, 69])->count();
+        $bajoPeso_7074F = $pacientes->bajoPeso()->where('pacientes.sexo', 'Femenino')->get()->whereBetween('grupo', [70, 74])->count();
+        $bajoPeso_7579F = $pacientes->bajoPeso()->where('pacientes.sexo', 'Femenino')->get()->whereBetween('grupo', [75, 79])->count();
+        $bajoPeso_80F = $pacientes->bajoPeso()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '>', 79)->count();
+        //dd($bajoPeso_80F);
+
+        $bajoPesoM = $pacientes->bajoPeso()->where('pacientes.sexo', '=', 'Masculino')->count();
+        //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $bajoPeso_6569M = $pacientes->bajoPeso()->where('sexo', 'Masculino')->get()->whereBetween('grupo', [65, 69])->count();
+        $bajoPeso_7074M = $pacientes->bajoPeso()->where('pacientes.sexo', 'Masculino')->get()->whereBetween('grupo', [70, 74])->count();
+        $bajoPeso_7579M = $pacientes->bajoPeso()->where('pacientes.sexo', 'Masculino')->get()->whereBetween('grupo', [75, 79])->count();
+        $bajoPeso_80M = $pacientes->bajoPeso()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '>', 79)->count();
+
+        //NORMAL
+        $normal = $pacientes->normal()->count();
+        //dd($normal);
+        $normalF = $pacientes->normal()->where('pacientes.sexo', '=', 'femenino')->count();
+        //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $normal_6569F = $pacientes->normal()->where('sexo', 'Femenino')->get()->whereBetween('grupo', [65, 69])->count();
+        $normal_7074F = $pacientes->normal()->where('pacientes.sexo', 'Femenino')->get()->whereBetween('grupo', [70, 74])->count();
+        $normal_7579F = $pacientes->normal()->where('pacientes.sexo', 'Femenino')->get()->whereBetween('grupo', [75, 79])->count();
+        $normal_80F = $pacientes->normal()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '>', 79)->count();
+
+        $normalM = $pacientes->normal()->where('pacientes.sexo', '=', 'Masculino')->count();
+        //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $normal_6569M = $pacientes->normal()->where('sexo', 'Masculino')->get()->whereBetween('grupo', [65, 69])->count();
+        $normal_7074M = $pacientes->normal()->where('pacientes.sexo', 'Masculino')->get()->whereBetween('grupo', [70, 74])->count();
+        $normal_7579M = $pacientes->normal()->where('pacientes.sexo', 'Masculino')->get()->whereBetween('grupo', [75, 79])->count();
+        $normal_80M = $pacientes->normal()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '>', 79)->count();
+
+        //SOBRE PESO
+        $sobrePeso = $pacientes->sobrePeso()->count();
+        //dd($sobrePeso);
+        $sobrePesoF = $pacientes->sobrePeso()->where('pacientes.sexo', '=', 'femenino')->count();
+        //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $sobrePeso_6569F = $pacientes->sobrePeso()->where('sexo', 'Femenino')->get()->whereBetween('grupo', [65, 69])->count();
+        $sobrePeso_7074F = $pacientes->sobrePeso()->where('pacientes.sexo', 'Femenino')->get()->whereBetween('grupo', [70, 74])->count();
+        $sobrePeso_7579F = $pacientes->sobrePeso()->where('pacientes.sexo', 'Femenino')->get()->whereBetween('grupo', [75, 79])->count();
+        $sobrePeso_80F = $pacientes->sobrePeso()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '>', 79)->count();
+
+        $sobrePesoM = $pacientes->sobrePeso()->where('pacientes.sexo', '=', 'Masculino')->count();
+        //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $sobrePeso_6569M = $pacientes->sobrePeso()->where('sexo', 'Masculino')->get()->whereBetween('grupo', [65, 69])->count();
+        $sobrePeso_7074M = $pacientes->sobrePeso()->where('pacientes.sexo', 'Masculino')->get()->whereBetween('grupo', [70, 74])->count();
+        $sobrePeso_7579M = $pacientes->sobrePeso()->where('pacientes.sexo', 'Masculino')->get()->whereBetween('grupo', [75, 79])->count();
+        $sobrePeso_80M = $pacientes->sobrePeso()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '>', 79)->count();
+
+        //OBESO
+        $obeso = $pacientes->obeso()->count();
+        //dd($obeso);
+        $obesoF = $pacientes->obeso()->where('pacientes.sexo', '=', 'femenino')->count();
+        //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $obeso_6569F = $pacientes->obeso()->where('sexo', 'Femenino')->get()->whereBetween('grupo', [65, 69])->count();
+        $obeso_7074F = $pacientes->obeso()->where('pacientes.sexo', 'Femenino')->get()->whereBetween('grupo', [70, 74])->count();
+        $obeso_7579F = $pacientes->obeso()->where('pacientes.sexo', 'Femenino')->get()->whereBetween('grupo', [75, 79])->count();
+        $obeso_80F = $pacientes->obeso()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '>', 79)->count();
+
+        $obesoM = $pacientes->obeso()->where('pacientes.sexo', '=', 'Masculino')->count();
+        //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $obeso_6569M = $pacientes->obeso()->where('sexo', 'Masculino')->get()->whereBetween('grupo', [65, 69])->count();
+        $obeso_7074M = $pacientes->obeso()->where('pacientes.sexo', 'Masculino')->get()->whereBetween('grupo', [70, 74])->count();
+        $obeso_7579M = $pacientes->obeso()->where('pacientes.sexo', 'Masculino')->get()->whereBetween('grupo', [75, 79])->count();
+        $obeso_80M = $pacientes->obeso()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '>', 79)->count();
+        //dd($obeso_80M);
+
+        return view('estadisticas.seccion-p5b', compact('bajoPeso', 'bajoPesoM', 'bajoPesoF', 'bajoPeso_6569M', 'bajoPeso_6569F', 'bajoPeso_7074M', 'bajoPeso_7074F', 'bajoPeso_7579M', 'bajoPeso_7579F', 'bajoPeso_80M', 'bajoPeso_80F',
+        'normal', 'normalM', 'normalF', 'normal_6569M', 'normal_6569F', 'normal_7074M', 'normal_7074F', 'normal_7579M', 'normal_7579F', 'normal_80M', 'normal_80F',
+        'sobrePeso', 'sobrePesoM', 'sobrePesoF', 'sobrePeso_6569M', 'sobrePeso_6569F', 'sobrePeso_7074M', 'sobrePeso_7074F', 'sobrePeso_7579M', 'sobrePeso_7579F', 'sobrePeso_80M', 'sobrePeso_80F',
+        'obeso', 'obesoM', 'obesoF', 'obeso_6569M', 'obeso_6569F', 'obeso_7074M', 'obeso_7074F', 'obeso_7579M', 'obeso_7579F', 'obeso_80M', 'obeso_80F'));
+    }
 }

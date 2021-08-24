@@ -338,4 +338,24 @@ class Paciente extends Model
     public function totalSeccion(){
         return $this->whereIn('funcionalidad', ['SR', 'R', 'RD'])->orWhereIn('dependencia', ['L', 'M', 'G', 'T']);
     }
+
+    public function bajoPeso()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.imc_resultado', '=', 'Bajo peso')->where('controls.last', '=', 1)->latest('controls.fecha_control');
+    }
+
+    public function normal()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.imc_resultado', '=', 'Normal')->where('controls.last', '=', 1)->latest('controls.fecha_control');
+    }
+
+    public function sobrePeso()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.imc_resultado', '=', 'Sobrepeso')->where('controls.last', '=', 1)->latest('controls.fecha_control');
+    }
+
+    public function obeso()
+    {
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.imc_resultado', '=', 'Obeso')->where('controls.last', '=', 1)->latest('controls.fecha_control');
+    }
 }
