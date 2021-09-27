@@ -1237,9 +1237,9 @@ class EstadisticaController extends Controller
         //dd($obeso_80M);
 
         //total seccion B
-        /* $totalSeccionB = $pacientes->totalSeccionB()->count();
-        dd($totalSeccionB);
-        $totalSeccionBF = $pacientes->totalSeccionB()->where('pacientes.sexo','=', 'femenino')->count();
+         $totalSeccionB = $pacientes->totalSeccionB()->get()->where('grupo', '>', 64)->count();
+        //dd($totalSeccionB);
+        $totalSeccionBF = $pacientes->totalSeccionB()->where('pacientes.sexo','=', 'femenino')->get()->where('grupo', '>', 64)->count();
 
         //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
         $totalSeccionB_6569F = $pacientes->totalSeccionB()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->count();
@@ -1248,12 +1248,12 @@ class EstadisticaController extends Controller
         $totalSeccionB_80F = $pacientes->totalSeccionB()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->count();
 
 
-        $totalSeccionBM = $pacientes->totalSeccionB()->where('pacientes.sexo', '=', 'Masculino')->count();
+        $totalSeccionBM = $pacientes->totalSeccionB()->where('pacientes.sexo', '=', 'Masculino')->get()->where('grupo', '>', 64)->count();
         //$aspirinasOriginM = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
         $totalSeccionB_6569M = $pacientes->totalSeccionB()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->count();
         $totalSeccionB_7074M = $pacientes->totalSeccionB()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->count();
         $totalSeccionB_7579M = $pacientes->totalSeccionB()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->count();
-        $totalSeccionB_80M = $pacientes->totalSeccionB()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count(); */
+        $totalSeccionB_80M = $pacientes->totalSeccionB()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
 
         return view('estadisticas.seccion-p5b', compact('bajoPeso', 'bajoPesoM', 'bajoPesoF', 'bajoPeso_6569M', 'bajoPeso_6569F', 'bajoPeso_7074M', 'bajoPeso_7074F', 'bajoPeso_7579M', 'bajoPeso_7579F', 'bajoPeso_80M', 'bajoPeso_80F',
         'normal', 'normalM', 'normalF', 'normal_6569M', 'normal_6569F', 'normal_7074M', 'normal_7074F', 'normal_7579M', 'normal_7579F', 'normal_80M', 'normal_80F',

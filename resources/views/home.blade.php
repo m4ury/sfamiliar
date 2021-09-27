@@ -11,7 +11,7 @@
                 <div class="small-box bg-info">
                     <div class="inner">
                         <h3>{{ $totalPacientes }}</h3>
-                        <p>Total Pacientes</p>
+                        <p>Total Pacientes en Prog. Cardiovascular</p>
                     </div>
                     <div class="icon">
                         <i class="fas fa-users"></i>
@@ -82,6 +82,43 @@
                 </div>
             </div>
             <!-- ./col -->
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-gradient-success">
+                    <div class="inner">
+                        <h3>{{ $compensados }}</h3>
+                        <p>Pacientes Compensados</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-gradient-danger">
+                    <div class="inner">
+                        <h3>{{ $noCompensados }}</h3>
+                        <p>Pacientes NO Compensados</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-user-times"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-gradient-info">
+                    <div class="inner">
+                        <h3>{{ $sinInfo }}</h3>
+                        <p>Pacientes Sin Información</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-question"></i>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-lg">

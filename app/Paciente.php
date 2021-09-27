@@ -363,6 +363,6 @@ class Paciente extends Model
     }
 
     public function totalSeccionB(){
-        return $this->join('controls', 'controls.paciente_id', 'paciente.id')->whereIn('controls.imc_resultado', ['Normal', 'Sobrepeso', 'Obeso', 'Bajo peso'])->where('controls.last', '=', 1);
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->whereIn('controls.imc_resultado', ['Bajo peso', 'Normal', 'Sobrepeso', 'Obeso']);
     }
 }
