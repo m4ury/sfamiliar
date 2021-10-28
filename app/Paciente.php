@@ -34,7 +34,7 @@ class Paciente extends Model
 
     public function patologias()
     {
-        return $this->belongsToMany(Patologia::class);
+        return $this->belongsToMany(Patologia::class)->withPivot('created_at');
     }
 
     public function scopeSearch($query, $q)

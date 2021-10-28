@@ -26,7 +26,7 @@
         </span>
         @endif
     </div>
-    {!! Form::label('last', 'Ultimo Control?', ['class' => 'col-sm form-label text-bold']) !!}
+    {!! Form::label('last', 'Ultimo Control Semestral?', ['class' => 'col-sm form-label text-bold']) !!}
     <div class="col-sm">
         {!! Form::checkbox('last', 1,  old('last', $control->last), ['class' => 'form-control']) !!}
     </div>
@@ -220,7 +220,7 @@
                     break;
                 case 'Medico':
                     $('#Enfermera').hide();
-                    $('#Kine, #Medico').show();
+                    $('#Medico').show();
                     break;
             }
         });

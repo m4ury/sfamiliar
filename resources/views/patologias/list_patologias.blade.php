@@ -10,7 +10,9 @@
                 <div class="list-group">
                     <div class="list-group-item list-group-item my-3 text-bold ">
                         <p class="btn btn-block badge-pill bg-gradient-{{ $patologia->color }}">
-                            {{ $patologia->nombre_patologia }}
+                            {{ $patologia->nombre_patologia }} @if($patologia->pivot->created_at == null) - No existen Datos
+                            @else Desde : {{ $patologia->pivot->created_at->format('d-m-Y') }}
+                            @endif
                         </p>
                         {{-- Hipertensos--}}
                         @if($patologia->nombre_patologia == 'HTA' or $patologia->nombre_patologia == 'DM2')

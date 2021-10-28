@@ -10,7 +10,7 @@ class Patologia extends Model
 
     public function pacientes()
     {
-        return $this->belongsToMany(Paciente::class);
+        return $this->belongsToMany(Paciente::class)->withPivot('created_at');
     }
 
     /*public function paciente()
