@@ -43,6 +43,15 @@ class HomeController extends Controller
         $noCompensados = $all->pscv()->where('compensado', '=', 2)->count();
         $sinInfo = $all->pscv()->where('compensado', '=', 0)->count();
 
+         //x compensacion y riesgo
+         $compensados_rBajo = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'bajo')->count();
+         $compensados_rMod = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'moderado')->count();
+         $compensados_rAlto = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'alto')->count();
+
+        //no compensados
+         $noCompensados = $all->pscv()->where('compensado', '=', 2)->count();
+         $sinInfo = $all->pscv()->where('compensado', '=', 0)->count();
+
 
         $pacientes = new Paciente;
         $mas80 = $pacientes->pscv()->get()->where('grupo','>=',80)->count();
@@ -60,6 +69,6 @@ class HomeController extends Controller
         $in2024 = $pacientes->pscv()->get()->whereBetween('grupo',[20, 24])->count();
         $in1519 = $pacientes->pscv()->get()->whereBetween('grupo',[15, 19])->count();
 
-        return view('home', compact('totalPacientes', 'totalMasculino', 'totalFemenino', 'totalCeleste', 'totalNaranjo', 'mas80', 'in7579', 'in7074', 'in6569', 'in6064', 'in5559', 'in5054', 'in4549', 'in4044', 'in3539', 'in3034', 'in2529', 'in2024', 'in1519', 'compensados', 'noCompensados', 'sinInfo'));
+        return view('home', compact('totalPacientes', 'totalMasculino', 'totalFemenino', 'totalCeleste', 'totalNaranjo', 'mas80', 'in7579', 'in7074', 'in6569', 'in6064', 'in5559', 'in5054', 'in4549', 'in4044', 'in3539', 'in3034', 'in2529', 'in2024', 'in1519', 'compensados', 'noCompensados', 'sinInfo', 'compensados_rBajo', 'compensados_rMod', 'compensados_rAlto'));
     }
 }

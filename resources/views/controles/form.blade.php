@@ -203,8 +203,8 @@
                 }
                 $('#imc_resultado').val(clasificacion);
             })
-        })
-        ;
+        });
+        
         $("#rac_vigente, #examenes1").removeAttr("checked");
 
         $('#tipo').change(function () {
@@ -220,7 +220,7 @@
                     break;
                 case 'Medico':
                     $('#Enfermera').hide();
-                    $('#Medico').show();
+                    $('#Kine,#Medico').show();
                     break;
             }
         });
