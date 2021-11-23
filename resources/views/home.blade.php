@@ -4,168 +4,441 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row align-self-center">
-            <div class="col-lg col-6">
-                <!-- small box -->
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3>{{ $totalPacientes }}</h3>
-                        <p>Total Pacientes en Prog. Cardiovascular</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <a href="{{ route('pacientes.index') }}" class="small-box-footer">Mas información <i
-                                class="fas fa-arrow-circle-right"></i></a>
+<div class="container-fluid">
+    <div class="row align-self-center">
+        <div class="col-lg col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{ $totalPacientes }}</h3>
+                    <p>Total Pacientes en Prog. Cardiovascular</p>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-gradient-pink">
-                    <div class="inner">
-                        <h3>{{ $totalFemenino }}</h3>
-                        <p>Total Pacientes Mujeres</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-female"></i>
-                    </div>
-                    <a href="{{ url('/pacientes?q=femenino') }}" class="small-box-footer">More info <i
-                                class="fas fa-arrow-circle-right"></i></a>
+                <div class="icon">
+                    <i class="fas fa-users"></i>
                 </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-gradient-blue">
-                    <div class="inner">
-                        <h3>{{ $totalMasculino }}</h3>
-
-                        <p>Total Pacientes Hombres</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-male"></i>
-                    </div>
-                    <a href="{{ url('/pacientes?q=masculino') }}" class="small-box-footer">More info <i
-                                class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-gradient-orange">
-                    <div class="inner">
-                        <h3>{{ $totalNaranjo }}</h3>
-                        <p>Pacientes Sector Naranjo</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-hospital-user"></i>
-                    </div>
-                    <a href="{{ url('/pacientes?q=naranjo') }}" class="small-box-footer">More info <i
-                                class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-6">
-                <div class="small-box bg-gradient-lightblue">
-                    <div class="inner">
-                        <h3>{{ $totalCeleste }}</h3>
-                        <p>Pacientes Sector Celeste</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-hospital-user"></i>
-                    </div>
-                    <a href="{{ url('/pacientes?q=celeste') }}" class="small-box-footer">More info <i
-                                class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <!-- ./col -->
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-6">
-                <div class="small-box bg-gradient-success">
-                    <div class="inner">
-                        <h3>{{ $compensados }}</h3>
-                        <p>Pacientes Compensados</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-user-check"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-6">
-                <div class="small-box bg-gradient-danger">
-                    <div class="inner">
-                        <h3>{{ $noCompensados }}</h3>
-                        <p>Pacientes NO Compensados</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-user-times"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-6">
-                <div class="small-box bg-gradient-info">
-                    <div class="inner">
-                        <h3>{{ $sinInfo }}</h3>
-                        <p>Pacientes Sin Información</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-question"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg">
-                <div class="card">
-                    <div class="card-header border-0">
-                        <div class="d-flex justify-content-between">
-                            <h3 class="card-title">Pacientes por rango etareo</h3>
-                            {{--<a href="javascript:void(0);">View Report</a>--}}
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <p class="d-flex flex-column">
-                                <span class="text-bold text-lg">{{ $totalPacientes }}</span>
-                                <span>Total Pacientes</span>
-                            </p>
-                            <p class="ml-auto d-flex flex-column text-right">
-                    {{--<span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 33.1%
-                    </span>--}}
-                                {{--<span class="text-muted">Since last month</span>--}}
-                            </p>
-                        </div>
-                        <!-- /.d-flex -->
-
-                        <div class="position-relative mb-4">
-                            <div class="chartjs-size-monitor">
-                                <div class="chartjs-size-monitor-expand">
-                                    <div class=""></div>
-                                </div>
-                                <div class="chartjs-size-monitor-shrink">
-                                    <div class=""></div>
-                                </div>
-                            </div>
-                            <canvas id="myChart" height="200" style="display: block; width: 759px; height: 200px;"
-                                    width="759" class="chartjs-render-monitor"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.card -->
+                <a href="{{ route('pacientes.index') }}" class="small-box-footer">Mas información <i
+                        class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>
+    <div class="row">
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-pink">
+                <div class="inner">
+                    <h3>{{ $totalFemenino }}</h3>
+                    <p>Total Pacientes Mujeres</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-female"></i>
+                </div>
+                <a href="{{ url('/pacientes?q=femenino') }}" class="small-box-footer">More info <i
+                        class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-blue">
+                <div class="inner">
+                    <h3>{{ $totalMasculino }}</h3>
+
+                    <p>Total Pacientes Hombres</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-male"></i>
+                </div>
+                <a href="{{ url('/pacientes?q=masculino') }}" class="small-box-footer">More info <i
+                        class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-orange">
+                <div class="inner">
+                    <h3>{{ $totalNaranjo }}</h3>
+                    <p>Pacientes Sector Naranjo</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-hospital-user"></i>
+                </div>
+                <a href="{{ url('/pacientes?q=naranjo') }}" class="small-box-footer">More info <i
+                        class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-lightblue">
+                <div class="inner">
+                    <h3>{{ $totalCeleste }}</h3>
+                    <p>Pacientes Sector Celeste</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-hospital-user"></i>
+                </div>
+                <a href="{{ url('/pacientes?q=celeste') }}" class="small-box-footer">More info <i
+                        class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+    </div>
+    <div class="row">
+        <!--riesgo alto -->
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-danger">
+                <div class="inner">
+                    <h3>{{ $compensados_rAlto }}</h3>
+                    <p>Total Pacientes Compensados - riesgo Alto</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-danger">
+                <div class="inner">
+                    <h3>{{ $compensados_rAlto1519 }}</h3>
+                    <p>Compensados Riesgo Alto, de 15 a 19 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-danger">
+                <div class="inner">
+                    <h3>{{ $compensados_rAlto2064 }}</h3>
+                    <p>Compensados Riesgo Alto, de 20 a 64 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-danger">
+                <div class="inner">
+                    <h3>{{ $compensados_rAlto65mas }}</h3>
+                    <p>Compensados Riesgo Bajo, de 65 años y mas</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+        <!--riesgo moderado -->
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-warning">
+                <div class="inner">
+                    <h3>{{ $compensados_rMod }}</h3>
+                    <p>Total Pacientes Compensados - riesgo Moderado</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-warning">
+                <div class="inner">
+                    <h3>{{ $compensados_rMod1519 }}</h3>
+                    <p>Compensados Riesgo Moderado, de 15 a 19 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-warning">
+                <div class="inner">
+                    <h3>{{ $compensados_rMod2064 }}</h3>
+                    <p>Compensados Riesgo Moderado, de 20 a 64 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-warning">
+                <div class="inner">
+                    <h3>{{ $compensados_rMod65mas }}</h3>
+                    <p>Compensados Riesgo Moderado, de 65 años y mas</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+
+        <!--riesgo bajo -->
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-success">
+                <div class="inner">
+                    <h3>{{ $compensados_rBajo }}</h3>
+                    <p>Total Pacientes Compensados - riesgo Bajo</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-success">
+                <div class="inner">
+                    <h3>{{ $compensados_rBajo1519 }}</h3>
+                    <p>Compensados Riesgo Bajo, de 15 a 19 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-success">
+                <div class="inner">
+                    <h3>{{ $compensados_rBajo2064 }}</h3>
+                    <p>Compensados Riesgo Bajo, de 20 a 64 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-success">
+                <div class="inner">
+                    <h3>{{ $compensados_rBajo65mas }}</h3>
+                    <p>Compensados Riesgo Bajo, de 65 años y mas</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+
+        <!--no compensado riesgo alto -->
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-danger">
+                <div class="inner">
+                    <h3>{{ $noCompensados_rAlto }}</h3>
+                    <p>Total Pacientes Descompensados - riesgo Alto</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-danger">
+                <div class="inner">
+                    <h3>{{ $noCompensados_rAlto1519 }}</h3>
+                    <p>Descompensados Riesgo Alto, de 15 a 19 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-danger">
+                <div class="inner">
+                    <h3>{{ $noCompensados_rAlto2064 }}</h3>
+                    <p>Descompensados Riesgo Alto, de 20 a 64 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-danger">
+                <div class="inner">
+                    <h3>{{ $noCompensados_rAlto65mas }}</h3>
+                    <p>Descompensados Riesgo Bajo, de 65 años y mas</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+        <!--riesgo moderado -->
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-warning">
+                <div class="inner">
+                    <h3>{{ $noCompensados_rMod }}</h3>
+                    <p>Total Pacientes Descompensados - riesgo Moderado</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-warning">
+                <div class="inner">
+                    <h3>{{ $noCompensados_rMod1519 }}</h3>
+                    <p>Descompensados Riesgo Moderado, de 15 a 19 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-warning">
+                <div class="inner">
+                    <h3>{{ $noCompensados_rMod2064 }}</h3>
+                    <p>Descompensados Riesgo Moderado, de 20 a 64 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-warning">
+                <div class="inner">
+                    <h3>{{ $noCompensados_rMod65mas }}</h3>
+                    <p>Descompensados Riesgo Moderado, de 65 años y mas</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+
+        <!--riesgo bajo -->
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-success">
+                <div class="inner">
+                    <h3>{{ $noCompensados_rBajo }}</h3>
+                    <p>Total Pacientes Descompensados - riesgo Bajo</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-success">
+                <div class="inner">
+                    <h3>{{ $noCompensados_rBajo1519 }}</h3>
+                    <p>Descompensados Riesgo Bajo, de 15 a 19 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-success">
+                <div class="inner">
+                    <h3>{{ $noCompensados_rBajo2064 }}</h3>
+                    <p>Descompensados Riesgo Bajo, de 20 a 64 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-success">
+                <div class="inner">
+                    <h3>{{ $noCompensados_rBajo65mas }}</h3>
+                    <p>Descompensados Riesgo Bajo, de 65 años y mas</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-success">
+                <div class="inner">
+                    <h3>{{ $compensados }}</h3>
+                    <p>Pacientes Compensados</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-danger">
+                <div class="inner">
+                    <h3>{{ $noCompensados }}</h3>
+                    <p>Pacientes NO Compensados</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-gradient-info">
+                <div class="inner">
+                    <h3>{{ $sinInfo }}</h3>
+                    <p>Pacientes Sin Información</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-question"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <div class="card">
+                <div class="card-header border-0">
+                    <div class="d-flex justify-content-between">
+                        <h3 class="card-title">Pacientes por rango etareo</h3>
+                        {{--<a href="javascript:void(0);">View Report</a>--}}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex">
+                        <p class="d-flex flex-column">
+                            <span class="text-bold text-lg">{{ $totalPacientes }}</span>
+                            <span>Total Pacientes</span>
+                        </p>
+                        <p class="ml-auto d-flex flex-column text-right">
+                            {{--<span class="text-success">
+                      <i class="fas fa-arrow-up"></i> 33.1%
+                    </span>--}}
+                            {{--<span class="text-muted">Since last month</span>--}}
+                        </p>
+                    </div>
+                    <!-- /.d-flex -->
+
+                    <div class="position-relative mb-4">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <canvas id="myChart" height="200" style="display: block; width: 759px; height: 200px;"
+                            width="759" class="chartjs-render-monitor"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</div>
 @endsection
 @section('js')
-    <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -218,5 +491,5 @@
                 }
             }
         });
-    </script>
+</script>
 @endsection
