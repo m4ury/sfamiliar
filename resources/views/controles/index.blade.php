@@ -25,7 +25,7 @@
                 <tr>
                     <td>{{ \Carbon\Carbon::parse($control->fecha_control)->format("d-m-Y") }}</td>
                     <td>{{ $control->tipo_control }}</td>
-                    <td class="text-uppercase">{{ $control->paciente->fullName() }}</td>
+                    <td class="text-uppercase">{{ $control->paciente->nombres }}</td>
                     <td>{{ $control->paciente->rut }}</td>
                     <td>{{ $control->presion_arterial }}</td>
                     <td>{{ $control->peso_actual }}</td>

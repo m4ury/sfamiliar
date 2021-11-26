@@ -14,7 +14,7 @@ class Paciente extends Model
 
     public function fullName()
     {
-        return ucfirst($this->nombres) . " " . ucfirst($this->apellidoP) . " " . ucfirst($this->apellidoM);
+        return ucfirst($this->nombres ?? "") . " " . ucfirst($this->apellidoP ?? "") . " " . ucfirst($this->apellidoM ?? "");
     }
 
     public function edad()

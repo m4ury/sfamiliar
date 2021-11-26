@@ -17,6 +17,7 @@ class ControlController extends Controller
     public function index()
     {
         $controles = Control::all();
+        //dd($controles);
         return view('controles.index', compact('controles'));
     }
 
@@ -76,7 +77,7 @@ class ControlController extends Controller
     {
         $control = Control::findOrFail($id);
         $control->update($request->all());
-        return redirect('pacientes/'.$control->paciente->id)->withSuccess('Control actualizado con exito!');
+        return redirect('pacientes/' . $control->paciente->id)->withSuccess('Control actualizado con exito!');
     }
 
     public function destroy($id)

@@ -32,7 +32,13 @@ class HomeController extends Controller
 
         //x sexo
         $totalMasculino = $all->pscv()->where('sexo', '=', 'Masculino')->count();
+        $masculino2064 = $all->pscv()->where('sexo', '=', 'Masculino')->get()->whereBetween('grupo', [20, 64])->count();
+        $masculino65mas = $all->pscv()->where('sexo', '=', 'Masculino')->get()->where('grupo', '>=', 65)->count();
+
         $totalFemenino = $all->pscv()->where('sexo', '=', 'Femenino')->count();
+        $femenino2064 = $all->pscv()->where('sexo', '=', 'Femenino')->get()->whereBetween('grupo', [20, 64])->count();
+        $femenino65mas = $all->pscv()->where('sexo', '=', 'Femenino')->get()->where('grupo', '>=', 65)->count();
+
 
         //x sector
         $totalCeleste = $all->pscv()->where('sector', '=', 'celeste')->count();
@@ -146,7 +152,11 @@ class HomeController extends Controller
             'noCompensados_rAlto',
             'noCompensados_rAlto1519',
             'noCompensados_rAlto2064',
-            'noCompensados_rAlto65mas'
+            'noCompensados_rAlto65mas',
+            'femenino2064',
+            'femenino65mas',
+            'masculino2064',
+            'masculino65mas'
         ));
     }
 }

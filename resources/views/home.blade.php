@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-2 col-6">
             <!-- small box -->
             <div class="small-box bg-gradient-pink">
                 <div class="inner">
@@ -37,13 +37,38 @@
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
+        <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-pink">
+                <div class="inner">
+                    <h3>{{ $femenino2064 }}</h3>
+                    <p>Mujeres de 20 a 64 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-female"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-pink">
+                <div class="inner">
+                    <h3>{{ $femenino65mas }}</h3>
+                    <p>Mujeres de 65 años y mas</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-female"></i>
+                </div>
+            </div>
+        </div>
+
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-2 col-6">
             <!-- small box -->
             <div class="small-box bg-gradient-blue">
                 <div class="inner">
                     <h3>{{ $totalMasculino }}</h3>
-
                     <p>Total Pacientes Hombres</p>
                 </div>
                 <div class="icon">
@@ -51,6 +76,31 @@
                 </div>
                 <a href="{{ url('/pacientes?q=masculino') }}" class="small-box-footer">More info <i
                         class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-blue">
+                <div class="inner">
+                    <h3>{{ $masculino2064 }}</h3>
+                    <p>Hombres de 20 a 64 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-male"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-blue">
+                <div class="inner">
+                    <h3>{{ $masculino65mas }}</h3>
+                    <p>Hombres de 65 años y mas</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-male"></i>
+                </div>
             </div>
         </div>
         <!-- ./col -->
@@ -79,6 +129,40 @@
                 </div>
                 <a href="{{ url('/pacientes?q=celeste') }}" class="small-box-footer">More info <i
                         class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-6">
+            <div class="small-box bg-gradient-success">
+                <div class="inner">
+                    <h3>{{ $compensados }}</h3>
+                    <p>Pacientes Compensados</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-6">
+            <div class="small-box bg-gradient-danger">
+                <div class="inner">
+                    <h3>{{ $noCompensados }}</h3>
+                    <p>Pacientes NO Compensados</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-user-times"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-6">
+            <div class="small-box bg-gradient-info">
+                <div class="inner">
+                    <h3>{{ $sinInfo }}</h3>
+                    <p>Pacientes Sin Información</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-question"></i>
+                </div>
             </div>
         </div>
         <!-- ./col -->
@@ -357,41 +441,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-lg-3 col-6">
-            <div class="small-box bg-gradient-success">
-                <div class="inner">
-                    <h3>{{ $compensados }}</h3>
-                    <p>Pacientes Compensados</p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-user-check"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-6">
-            <div class="small-box bg-gradient-danger">
-                <div class="inner">
-                    <h3>{{ $noCompensados }}</h3>
-                    <p>Pacientes NO Compensados</p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-user-times"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-6">
-            <div class="small-box bg-gradient-info">
-                <div class="inner">
-                    <h3>{{ $sinInfo }}</h3>
-                    <p>Pacientes Sin Información</p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-question"></i>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="row">
         <div class="col-lg">
@@ -410,8 +459,8 @@
                         </p>
                         <p class="ml-auto d-flex flex-column text-right">
                             {{--<span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 33.1%
-                    </span>--}}
+                                <i class="fas fa-arrow-up"></i> 33.1%
+                            </span>--}}
                             {{--<span class="text-muted">Since last month</span>--}}
                         </p>
                     </div>
