@@ -213,8 +213,9 @@
                                             @endif
 
                                             {{--evaluacion pie dm2--}}
-
-                                            @if ($paciente->controls()->pluck('evaluacionPie') == 'Riesgo Bajo')
+                                            {{--dd($paciente->controls()->pluck('evaluacionPie')->last())--}}
+                                            @if ($paciente->controls()->pluck('evaluacionPie') != "null")
+                                            @if ($paciente->controls()->pluck('evaluacionPie')->last() == 'Bajo')
                                             <div class="col-sm-5">
                                                 <strong><i class="fas fa-stethoscope text-success"></i> Evaluacion Pie
                                                     Diabetico
@@ -222,7 +223,7 @@
                                                 <p class="btn rounded-pill bg-gradient-success">
                                                     Riesgo: {{ $paciente->controls()->pluck('evaluacionPie') }}</P>
                                             </div>
-                                            @elseif ($paciente->controls()->pluck('evaluacionPie') == 'Riesgo Moderado')
+                                            @elseif ($paciente->controls()->pluck('evaluacionPie') == 'Moderado')
                                             <div class="col-sm-5">
                                                 <strong><i class="fas fa-stethoscope text-warning"></i> Evaluacion Pie
                                                     Diabetico
@@ -230,7 +231,7 @@
                                                 <p class="btn rounded-pill bg-gradient-warning">
                                                     Riesgo: {{ $paciente->controls()->pluck('evaluacionPie') }}</P>
                                             </div>
-                                            @elseif ($paciente->controls()->pluck('evaluacionPie') == 'Riesgo Alto')
+                                            @elseif ($paciente->controls()->pluck('evaluacionPie') == 'Alto')
                                             <div class="col-sm-5">
                                                 <strong><i class="fas fa-stethoscope text-danger"></i> Evaluacion Pie
                                                     Diabetico
@@ -238,7 +239,7 @@
                                                 <p class="btn rounded-pill bg-gradient-danger">
                                                     Riesgo: {{ $paciente->controls()->pluck('evaluacionPie') }}</P>
                                             </div>
-                                            @elseif ($paciente->controls()->pluck('evaluacionPie') == 'Riesgo Maximo')
+                                            @elseif ($paciente->controls()->pluck('evaluacionPie') == 'Maximo')
                                             <div class="col-sm-5">
                                                 <strong><i class="fas fa-stethoscope text-danger"></i> Evaluacion Pie
                                                     Diabetico
@@ -252,6 +253,7 @@
                                                     Diabetico</strong>
                                                 <p class="btn badge-pill bg-gradient-secondary ml-3">No hay datos...</p>
                                             </div>
+                                            @endif
                                             @endif
                 </div>
                 @endif
