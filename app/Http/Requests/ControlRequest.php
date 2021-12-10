@@ -15,12 +15,12 @@ class ControlRequest extends FormRequest
     {
         return [
             'tipo_control' => 'required',
-            'fecha_control' => 'required',
+            'fecha_control' => 'required|before_or_equal:today',
             'peso_actual' => 'required|numeric|min:1',
             'talla_actual' => 'required|numeric|min:1',
             'proximo_control' => 'required|after:fecha_control',
             'prox_tipo' => 'required',
-            'presion_arterial' => 'required'
+            'presion_arterial' => 'required',
         ];
     }
 }
