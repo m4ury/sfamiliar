@@ -50,46 +50,6 @@ class HomeController extends Controller
         $sinInfo = $all->pscv()->where('compensado', '=', 0)->count();
         $sinInfo = $all->pscv()->where('compensado', '=', 0)->count();
 
-
-        //x compensacion y riesgo
-
-        //compensado rcv bajo
-        $compensados_rBajo = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'bajo')->count();
-        $compensados_rBajo1519 = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [15, 19])->count();
-        $compensados_rBajo2064 = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [20, 64])->count();
-        $compensados_rBajo65mas = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'bajo')->get()->where('grupo', '>=', 65)->count();
-
-        //compensado rcv alto
-        $compensados_rAlto = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'alto')->count();
-        $compensados_rAlto1519 = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [15, 19])->count();
-        $compensados_rAlto2064 = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [20, 64])->count();
-        $compensados_rAlto65mas = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'alto')->get()->where('grupo', '>=', 65)->count();
-        //compensado rcv moderado
-        $compensados_rMod = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'moderado')->count();
-        $compensados_rMod1519 = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [15, 19])->count();
-        $compensados_rMod2064 = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [20, 64])->count();
-        $compensados_rMod65mas = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'moderado')->get()->where('grupo', '>=', 65)->count();
-
-
-        //no compensados
-        $noCompensados_rBajo = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'bajo')->count();
-        $noCompensados_rBajo1519 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [15, 19])->count();
-        $noCompensados_rBajo2064 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [20, 64])->count();
-        $noCompensados_rBajo65mas = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'bajo')->get()->where('grupo', '>=', 65)->count();
-
-        $noCompensados_rMod = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'moderado')->count();
-        $noCompensados_rMod1519 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [15, 19])->count();
-        $noCompensados_rMod2064 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [20, 64])->count();
-        $noCompensados_rMod65mas = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'moderado')->get()->where('grupo', '>=', 65)->count();
-
-        $noCompensados_rAlto = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'alto')->count();
-        $noCompensados_rAlto1519 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [15, 19])->count();
-        $noCompensados_rAlto2064 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [20, 64])->count();
-        $noCompensados_rAlto65mas = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'alto')->get()->where('grupo', '>=', 65)->count();
-
-
-
-
         $pacientes = new Paciente;
         $mas80 = $pacientes->pscv()->get()->where('grupo', '>=', 80)->count();
         $in7579 = $pacientes->pscv()->get()->whereBetween('grupo', [75, 79])->count();
@@ -129,30 +89,6 @@ class HomeController extends Controller
             'compensados',
             'noCompensados',
             'sinInfo',
-            'compensados_rBajo',
-            'compensados_rBajo1519',
-            'compensados_rBajo2064',
-            'compensados_rBajo65mas',
-            'compensados_rMod',
-            'compensados_rMod1519',
-            'compensados_rMod2064',
-            'compensados_rMod65mas',
-            'compensados_rAlto',
-            'compensados_rAlto1519',
-            'compensados_rAlto2064',
-            'compensados_rAlto65mas',
-            'noCompensados_rBajo',
-            'noCompensados_rBajo1519',
-            'noCompensados_rBajo2064',
-            'noCompensados_rBajo65mas',
-            'noCompensados_rMod',
-            'noCompensados_rMod1519',
-            'noCompensados_rMod2064',
-            'noCompensados_rMod65mas',
-            'noCompensados_rAlto',
-            'noCompensados_rAlto1519',
-            'noCompensados_rAlto2064',
-            'noCompensados_rAlto65mas',
             'femenino2064',
             'femenino65mas',
             'masculino2064',

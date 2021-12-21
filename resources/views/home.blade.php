@@ -167,7 +167,7 @@
         </div>
         <!-- ./col -->
     </div>
-    <div class="row">
+    {{-- <div class="row">
         <!--riesgo alto -->
         <div class="col-lg-3 col-6">
             <div class="small-box bg-gradient-danger">
@@ -441,46 +441,33 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg">
-            <div class="card">
-                <div class="card-header border-0">
-                    <div class="d-flex justify-content-between">
-                        <h3 class="card-title">Pacientes por rango etareo</h3>
-                        {{--<a href="javascript:void(0);">View Report</a>--}}
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="d-flex">
-                        <p class="d-flex flex-column">
-                            <span class="text-bold text-lg">{{ $totalPacientes }}</span>
-                            <span>Total Pacientes</span>
-                        </p>
-                        <p class="ml-auto d-flex flex-column text-right">
-                            {{--<span class="text-success">
-                                <i class="fas fa-arrow-up"></i> 33.1%
-                            </span>--}}
-                            {{--<span class="text-muted">Since last month</span>--}}
-                        </p>
-                    </div>
-                    <!-- /.d-flex -->
+    </div>--}}
+    <div class="card-body">
+        <div class="d-flex">
+            <p class="d-flex flex-column">
+                {{--<span class="text-bold text-lg">{{ $totalPacientes }}</span>--}}
+                <span>Total Pacientes</span>
+            </p>
+            <p class="ml-auto d-flex flex-column text-right">
+                {{--<span class="text-success">
+                    <i class="fas fa-arrow-up"></i> 33.1%
+                </span>--}}
+                {{--<span class="text-muted">Since last month</span>--}}
+            </p>
+        </div>
+        <!-- /.d-flex -->
 
-                    <div class="position-relative mb-4">
-                        <div class="chartjs-size-monitor">
-                            <div class="chartjs-size-monitor-expand">
-                                <div class=""></div>
-                            </div>
-                            <div class="chartjs-size-monitor-shrink">
-                                <div class=""></div>
-                            </div>
-                        </div>
-                        <canvas id="myChart" height="200" style="display: block; width: 759px; height: 200px;"
-                            width="759" class="chartjs-render-monitor"></canvas>
-                    </div>
+        <div class="position-relative mb-4">
+            <div class="chartjs-size-monitor">
+                <div class="chartjs-size-monitor-expand">
+                    <div class=""></div>
+                </div>
+                <div class="chartjs-size-monitor-shrink">
+                    <div class=""></div>
                 </div>
             </div>
-            <!-- /.card -->
+            <canvas id="myChart" height="200" style="display: block; width: 759px; height: 200px;" width="759"
+                class="chartjs-render-monitor"></canvas>
         </div>
     </div>
 </div>

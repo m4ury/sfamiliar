@@ -806,8 +806,196 @@ class EstadisticaController extends Controller
         $aspirinas_7579M = $pacientes->aspirinas()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->count();
         $aspirinas_80M = $pacientes->aspirinas()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
 
-
-        return view('estadisticas.seccion-b', compact('pa140_90', 'pa140_90M', 'pa140_90F', 'pa140_1519M', 'pa140_1519F', 'pa140_2024M', 'pa140_2024F', 'pa140_2529M', 'pa140_2529F', 'pa140_3034M', 'pa140_3034F', 'pa140_3539M', 'pa140_3539F', 'pa140_4044M', 'pa140_4044F', 'pa140_4549M', 'pa140_4549F', 'pa140_5054M', 'pa140_5054F', 'pa140_5559M', 'pa140_5559F', 'pa140_6064M', 'pa140_6064F', 'pa140_6569M', 'pa140_6569F', 'pa140_7074M', 'pa140_7074F', 'pa140_7579M', 'pa140_7579F', 'pa150', 'pa150M', 'pa150F', 'hbac17', 'hbac17M', 'hbac17F', 'hbac17_1519M', 'hbac17_1519F', 'hbac17_2024M', 'hbac17_2024F', 'hbac17_2529M', 'hbac17_2529F', 'hbac17_3034M', 'hbac17_3034F', 'hbac17_3539M', 'hbac17_3539F', 'hbac17_4044M', 'hbac17_4044F', 'hbac17_4549M', 'hbac17_4549F', 'hbac17_5054M', 'hbac17_5054F', 'hbac17_5559M', 'hbac17_5559F', 'hbac17_6064M', 'hbac17_6064F', 'hbac17_6569M', 'hbac17_6569F', 'hbac17_7074M', 'hbac17_7074F', 'hbac17_7579M', 'hbac17_7579F', 'hbac18', 'hbac18M', 'hbac18F', 'hbac17Pa140Ldl100', 'hbac17Pa140Ldl100M', 'hbac17Pa140Ldl100F', 'hbac17Pa140Ldl100_1519M', 'hbac17Pa140Ldl100_1519F', 'hbac17Pa140Ldl100_2024M', 'hbac17Pa140Ldl100_2024F', 'hbac17Pa140Ldl100_2529M', 'hbac17Pa140Ldl100_2529F', 'hbac17Pa140Ldl100_3034M', 'hbac17Pa140Ldl100_3034F', 'hbac17Pa140Ldl100_3539M', 'hbac17Pa140Ldl100_3539F', 'hbac17Pa140Ldl100_4044M', 'hbac17Pa140Ldl100_4044F', 'hbac17Pa140Ldl100_4549M', 'hbac17Pa140Ldl100_4549F', 'hbac17Pa140Ldl100_5054M', 'hbac17Pa140Ldl100_5054F', 'hbac17Pa140Ldl100_5559M', 'hbac17Pa140Ldl100_5559F', 'hbac17Pa140Ldl100_6064M', 'hbac17Pa140Ldl100_6064F', 'hbac17Pa140Ldl100_6569M', 'hbac17Pa140Ldl100_6569F', 'hbac17Pa140Ldl100_7074M', 'hbac17Pa140Ldl100_7074F', 'hbac17Pa140Ldl100_7579M', 'hbac17Pa140Ldl100_7579F', 'hbac17Pa140Ldl100_80M', 'hbac17Pa140Ldl100_80F', 'ldl100', 'ldl100M', 'ldl100F', 'ldl100_1519M', 'ldl100_1519F', 'ldl100_2024M', 'ldl100_2024F', 'ldl100_2529M', 'ldl100_2529F', 'ldl100_3034M', 'ldl100_3034F', 'ldl100_3539M', 'ldl100_3539F', 'ldl100_4044M', 'ldl100_4044F', 'ldl100_4549M', 'ldl100_4549F', 'ldl100_5054M', 'ldl100_5054F', 'ldl100_5559M', 'ldl100_5559F', 'ldl100_6064M', 'ldl100_6064F', 'ldl100_6569M', 'ldl100_6569F', 'ldl100_7074M', 'ldl100_7074F', 'ldl100_7579M', 'ldl100_7579F', 'ldl100_80M', 'ldl100_80F', 'aspirinas', 'aspirinasM', 'aspirinasF', 'aspirinas_1519M', 'aspirinas_1519F', 'aspirinas_2024M', 'aspirinas_2024F', 'aspirinas_2529M', 'aspirinas_2529F', 'aspirinas_3034M', 'aspirinas_3034F', 'aspirinas_3539M', 'aspirinas_3539F', 'aspirinas_4044M', 'aspirinas_4044F', 'aspirinas_4549M', 'aspirinas_4549F', 'aspirinas_5054M', 'aspirinas_5054F', 'aspirinas_5559M', 'aspirinas_5559F', 'aspirinas_6064M', 'aspirinas_6064F', 'aspirinas_6569M', 'aspirinas_6569F', 'aspirinas_7074M', 'aspirinas_7074F', 'aspirinas_7579M', 'aspirinas_7579F', 'aspirinas_80M', 'aspirinas_80F', 'estatinas', 'estatinasM', 'estatinasF', 'estatinas_1519M', 'estatinas_1519F', 'estatinas_2024M', 'estatinas_2024F', 'estatinas_2529M', 'estatinas_2529F', 'estatinas_3034M', 'estatinas_3034F', 'estatinas_3539M', 'estatinas_3539F', 'estatinas_4044M', 'estatinas_4044F', 'estatinas_4549M', 'estatinas_4549F', 'estatinas_5054M', 'estatinas_5054F', 'estatinas_5559M', 'estatinas_5559F', 'estatinas_6064M', 'estatinas_6064F', 'estatinas_6569M', 'estatinas_6569F', 'estatinas_7074M', 'estatinas_7074F', 'estatinas_7579M', 'estatinas_7579F', 'estatinas_80M', 'estatinas_80F'));
+        return view('estadisticas.seccion-b', compact(
+            'pa140_90',
+            'pa140_90M',
+            'pa140_90F',
+            'pa140_1519M',
+            'pa140_1519F',
+            'pa140_2024M',
+            'pa140_2024F',
+            'pa140_2529M',
+            'pa140_2529F',
+            'pa140_3034M',
+            'pa140_3034F',
+            'pa140_3539M',
+            'pa140_3539F',
+            'pa140_4044M',
+            'pa140_4044F',
+            'pa140_4549M',
+            'pa140_4549F',
+            'pa140_5054M',
+            'pa140_5054F',
+            'pa140_5559M',
+            'pa140_5559F',
+            'pa140_6064M',
+            'pa140_6064F',
+            'pa140_6569M',
+            'pa140_6569F',
+            'pa140_7074M',
+            'pa140_7074F',
+            'pa140_7579M',
+            'pa140_7579F',
+            'pa150',
+            'pa150M',
+            'pa150F',
+            'hbac17',
+            'hbac17M',
+            'hbac17F',
+            'hbac17_1519M',
+            'hbac17_1519F',
+            'hbac17_2024M',
+            'hbac17_2024F',
+            'hbac17_2529M',
+            'hbac17_2529F',
+            'hbac17_3034M',
+            'hbac17_3034F',
+            'hbac17_3539M',
+            'hbac17_3539F',
+            'hbac17_4044M',
+            'hbac17_4044F',
+            'hbac17_4549M',
+            'hbac17_4549F',
+            'hbac17_5054M',
+            'hbac17_5054F',
+            'hbac17_5559M',
+            'hbac17_5559F',
+            'hbac17_6064M',
+            'hbac17_6064F',
+            'hbac17_6569M',
+            'hbac17_6569F',
+            'hbac17_7074M',
+            'hbac17_7074F',
+            'hbac17_7579M',
+            'hbac17_7579F',
+            'hbac18',
+            'hbac18M',
+            'hbac18F',
+            'hbac17Pa140Ldl100',
+            'hbac17Pa140Ldl100M',
+            'hbac17Pa140Ldl100F',
+            'hbac17Pa140Ldl100_1519M',
+            'hbac17Pa140Ldl100_1519F',
+            'hbac17Pa140Ldl100_2024M',
+            'hbac17Pa140Ldl100_2024F',
+            'hbac17Pa140Ldl100_2529M',
+            'hbac17Pa140Ldl100_2529F',
+            'hbac17Pa140Ldl100_3034M',
+            'hbac17Pa140Ldl100_3034F',
+            'hbac17Pa140Ldl100_3539M',
+            'hbac17Pa140Ldl100_3539F',
+            'hbac17Pa140Ldl100_4044M',
+            'hbac17Pa140Ldl100_4044F',
+            'hbac17Pa140Ldl100_4549M',
+            'hbac17Pa140Ldl100_4549F',
+            'hbac17Pa140Ldl100_5054M',
+            'hbac17Pa140Ldl100_5054F',
+            'hbac17Pa140Ldl100_5559M',
+            'hbac17Pa140Ldl100_5559F',
+            'hbac17Pa140Ldl100_6064M',
+            'hbac17Pa140Ldl100_6064F',
+            'hbac17Pa140Ldl100_6569M',
+            'hbac17Pa140Ldl100_6569F',
+            'hbac17Pa140Ldl100_7074M',
+            'hbac17Pa140Ldl100_7074F',
+            'hbac17Pa140Ldl100_7579M',
+            'hbac17Pa140Ldl100_7579F',
+            'hbac17Pa140Ldl100_80M',
+            'hbac17Pa140Ldl100_80F',
+            'ldl100',
+            'ldl100M',
+            'ldl100F',
+            'ldl100_1519M',
+            'ldl100_1519F',
+            'ldl100_2024M',
+            'ldl100_2024F',
+            'ldl100_2529M',
+            'ldl100_2529F',
+            'ldl100_3034M',
+            'ldl100_3034F',
+            'ldl100_3539M',
+            'ldl100_3539F',
+            'ldl100_4044M',
+            'ldl100_4044F',
+            'ldl100_4549M',
+            'ldl100_4549F',
+            'ldl100_5054M',
+            'ldl100_5054F',
+            'ldl100_5559M',
+            'ldl100_5559F',
+            'ldl100_6064M',
+            'ldl100_6064F',
+            'ldl100_6569M',
+            'ldl100_6569F',
+            'ldl100_7074M',
+            'ldl100_7074F',
+            'ldl100_7579M',
+            'ldl100_7579F',
+            'ldl100_80M',
+            'ldl100_80F',
+            'aspirinas',
+            'aspirinasM',
+            'aspirinasF',
+            'aspirinas_1519M',
+            'aspirinas_1519F',
+            'aspirinas_2024M',
+            'aspirinas_2024F',
+            'aspirinas_2529M',
+            'aspirinas_2529F',
+            'aspirinas_3034M',
+            'aspirinas_3034F',
+            'aspirinas_3539M',
+            'aspirinas_3539F',
+            'aspirinas_4044M',
+            'aspirinas_4044F',
+            'aspirinas_4549M',
+            'aspirinas_4549F',
+            'aspirinas_5054M',
+            'aspirinas_5054F',
+            'aspirinas_5559M',
+            'aspirinas_5559F',
+            'aspirinas_6064M',
+            'aspirinas_6064F',
+            'aspirinas_6569M',
+            'aspirinas_6569F',
+            'aspirinas_7074M',
+            'aspirinas_7074F',
+            'aspirinas_7579M',
+            'aspirinas_7579F',
+            'aspirinas_80M',
+            'aspirinas_80F',
+            'estatinas',
+            'estatinasM',
+            'estatinasF',
+            'estatinas_1519M',
+            'estatinas_1519F',
+            'estatinas_2024M',
+            'estatinas_2024F',
+            'estatinas_2529M',
+            'estatinas_2529F',
+            'estatinas_3034M',
+            'estatinas_3034F',
+            'estatinas_3539M',
+            'estatinas_3539F',
+            'estatinas_4044M',
+            'estatinas_4044F',
+            'estatinas_4549M',
+            'estatinas_4549F',
+            'estatinas_5054M',
+            'estatinas_5054F',
+            'estatinas_5559M',
+            'estatinas_5559F',
+            'estatinas_6064M',
+            'estatinas_6064F',
+            'estatinas_6569M',
+            'estatinas_6569F',
+            'estatinas_7074M',
+            'estatinas_7074F',
+            'estatinas_7579M',
+            'estatinas_7579F',
+            'estatinas_80M',
+            'estatinas_80F'
+        ));
     }
 
     public function seccionC()
@@ -1137,7 +1325,7 @@ class EstadisticaController extends Controller
         $totalSeccion = $pacientes->totalSeccion()->count();
 
 
-        $totalSeccionF = $pacientes->where('pacientes.sexo','=', 'femenino')->count('funcionalidad', 'dependencia');
+        $totalSeccionF = $pacientes->where('pacientes.sexo', '=', 'femenino')->count('funcionalidad', 'dependencia');
 
         //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
         $totalSeccion_6569F = $pacientes->totalSeccion()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->count();
@@ -1154,11 +1342,107 @@ class EstadisticaController extends Controller
         $totalSeccion_80M = $pacientes->totalSeccion()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
         //dd($totalSeccion_7074M);
 
-        return view('estadisticas.seccion-p5a', compact('aSinRiesgo', 'aSinRiesgoM', 'aSinRiesgoF', 'aSinRiesgo_6569M', 'aSinRiesgo_6569F', 'aSinRiesgo_7074M', 'aSinRiesgo_7074F', 'aSinRiesgo_7579M', 'aSinRiesgo_7579F', 'aSinRiesgo_80M', 'aSinRiesgo_80F', 'aRiesgo', 'aRiesgoM', 'aRiesgoF', 'aRiesgo_6569M', 'aRiesgo_6569F', 'aRiesgo_7074M', 'aRiesgo_7074F', 'aRiesgo_7579M', 'aRiesgo_7579F', 'aRiesgo_80M', 'aRiesgo_80F', 'riesgoDependencia', 'riesgoDependenciaM', 'riesgoDependenciaF', 'riesgoDependencia_6569M', 'riesgoDependencia_6569F', 'riesgoDependencia_7074M', 'riesgoDependencia_7074F', 'riesgoDependencia_7579M', 'riesgoDependencia_7579F', 'riesgoDependencia_80M', 'riesgoDependencia_80F', 'subEsfam', 'subEsfamM', 'subEsfamF', 'subEsfam_6569M', 'subEsfam_6569F', 'subEsfam_7074M', 'subEsfam_7074F', 'subEsfam_7579M', 'subEsfam_7579F', 'subEsfam_80M', 'subEsfam_80F', 'depLeve', 'depLeveM', 'depLeveF', 'depLeve_6569M', 'depLeve_6569F', 'depLeve_7074M', 'depLeve_7074F', 'depLeve_7579M', 'depLeve_7579F', 'depLeve_80M', 'depLeve_80F',
-            'depMod', 'depModM', 'depModF', 'depMod_6569M', 'depMod_6569F', 'depMod_7074M', 'depMod_7074F', 'depMod_7579M', 'depMod_7579F', 'depMod_80M', 'depMod_80F',
-            'depGrave', 'depGraveM', 'depGraveF', 'depGrave_6569M', 'depGrave_6569F', 'depGrave_7074M', 'depGrave_7074F', 'depGrave_7579M', 'depGrave_7579F', 'depGrave_80M', 'depGrave_80F',
-        'subBarthel', 'subBarthelM', 'subBarthelF', 'subBarthel_6569M', 'subBarthel_6569F', 'subBarthel_7074M', 'subBarthel_7074F', 'subBarthel_7579M', 'subBarthel_7579F', 'subBarthel_80M', 'subBarthel_80F',
-        'totalSeccion', 'totalSeccionM', 'totalSeccionF', 'totalSeccion_6569M', 'totalSeccion_6569F', 'totalSeccion_7074M', 'totalSeccion_7074F', 'totalSeccion_7579M', 'totalSeccion_7579F', 'totalSeccion_80M', 'totalSeccion_80F'));
+        return view('estadisticas.seccion-p5a', compact(
+            'aSinRiesgo',
+            'aSinRiesgoM',
+            'aSinRiesgoF',
+            'aSinRiesgo_6569M',
+            'aSinRiesgo_6569F',
+            'aSinRiesgo_7074M',
+            'aSinRiesgo_7074F',
+            'aSinRiesgo_7579M',
+            'aSinRiesgo_7579F',
+            'aSinRiesgo_80M',
+            'aSinRiesgo_80F',
+            'aRiesgo',
+            'aRiesgoM',
+            'aRiesgoF',
+            'aRiesgo_6569M',
+            'aRiesgo_6569F',
+            'aRiesgo_7074M',
+            'aRiesgo_7074F',
+            'aRiesgo_7579M',
+            'aRiesgo_7579F',
+            'aRiesgo_80M',
+            'aRiesgo_80F',
+            'riesgoDependencia',
+            'riesgoDependenciaM',
+            'riesgoDependenciaF',
+            'riesgoDependencia_6569M',
+            'riesgoDependencia_6569F',
+            'riesgoDependencia_7074M',
+            'riesgoDependencia_7074F',
+            'riesgoDependencia_7579M',
+            'riesgoDependencia_7579F',
+            'riesgoDependencia_80M',
+            'riesgoDependencia_80F',
+            'subEsfam',
+            'subEsfamM',
+            'subEsfamF',
+            'subEsfam_6569M',
+            'subEsfam_6569F',
+            'subEsfam_7074M',
+            'subEsfam_7074F',
+            'subEsfam_7579M',
+            'subEsfam_7579F',
+            'subEsfam_80M',
+            'subEsfam_80F',
+            'depLeve',
+            'depLeveM',
+            'depLeveF',
+            'depLeve_6569M',
+            'depLeve_6569F',
+            'depLeve_7074M',
+            'depLeve_7074F',
+            'depLeve_7579M',
+            'depLeve_7579F',
+            'depLeve_80M',
+            'depLeve_80F',
+            'depMod',
+            'depModM',
+            'depModF',
+            'depMod_6569M',
+            'depMod_6569F',
+            'depMod_7074M',
+            'depMod_7074F',
+            'depMod_7579M',
+            'depMod_7579F',
+            'depMod_80M',
+            'depMod_80F',
+            'depGrave',
+            'depGraveM',
+            'depGraveF',
+            'depGrave_6569M',
+            'depGrave_6569F',
+            'depGrave_7074M',
+            'depGrave_7074F',
+            'depGrave_7579M',
+            'depGrave_7579F',
+            'depGrave_80M',
+            'depGrave_80F',
+            'subBarthel',
+            'subBarthelM',
+            'subBarthelF',
+            'subBarthel_6569M',
+            'subBarthel_6569F',
+            'subBarthel_7074M',
+            'subBarthel_7074F',
+            'subBarthel_7579M',
+            'subBarthel_7579F',
+            'subBarthel_80M',
+            'subBarthel_80F',
+            'totalSeccion',
+            'totalSeccionM',
+            'totalSeccionF',
+            'totalSeccion_6569M',
+            'totalSeccion_6569F',
+            'totalSeccion_7074M',
+            'totalSeccion_7074F',
+            'totalSeccion_7579M',
+            'totalSeccion_7579F',
+            'totalSeccion_80M',
+            'totalSeccion_80F'
+        ));
     }
 
 
@@ -1237,9 +1521,9 @@ class EstadisticaController extends Controller
         //dd($obeso_80M);
 
         //total seccion B
-         $totalSeccionB = $pacientes->totalSeccionB()->get()->where('grupo', '>', 64)->count();
+        $totalSeccionB = $pacientes->totalSeccionB()->get()->where('grupo', '>', 64)->count();
         //dd($totalSeccionB);
-        $totalSeccionBF = $pacientes->totalSeccionB()->where('pacientes.sexo','=', 'femenino')->get()->where('grupo', '>', 64)->count();
+        $totalSeccionBF = $pacientes->totalSeccionB()->where('pacientes.sexo', '=', 'femenino')->get()->where('grupo', '>', 64)->count();
 
         //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
         $totalSeccionB_6569F = $pacientes->totalSeccionB()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->count();
@@ -1255,10 +1539,128 @@ class EstadisticaController extends Controller
         $totalSeccionB_7579M = $pacientes->totalSeccionB()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->count();
         $totalSeccionB_80M = $pacientes->totalSeccionB()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
 
-        return view('estadisticas.seccion-p5b', compact('bajoPeso', 'bajoPesoM', 'bajoPesoF', 'bajoPeso_6569M', 'bajoPeso_6569F', 'bajoPeso_7074M', 'bajoPeso_7074F', 'bajoPeso_7579M', 'bajoPeso_7579F', 'bajoPeso_80M', 'bajoPeso_80F',
-        'normal', 'normalM', 'normalF', 'normal_6569M', 'normal_6569F', 'normal_7074M', 'normal_7074F', 'normal_7579M', 'normal_7579F', 'normal_80M', 'normal_80F',
-        'sobrePeso', 'sobrePesoM', 'sobrePesoF', 'sobrePeso_6569M', 'sobrePeso_6569F', 'sobrePeso_7074M', 'sobrePeso_7074F', 'sobrePeso_7579M', 'sobrePeso_7579F', 'sobrePeso_80M', 'sobrePeso_80F',
-        'obeso', 'obesoM', 'obesoF', 'obeso_6569M', 'obeso_6569F', 'obeso_7074M', 'obeso_7074F', 'obeso_7579M', 'obeso_7579F', 'obeso_80M', 'obeso_80F',
-        'totalSeccionB', 'totalSeccionBM', 'totalSeccionBF', 'totalSeccionB_6569M', 'totalSeccionB_6569F', 'totalSeccionB_7074M', 'totalSeccionB_7074F', 'totalSeccionB_7579M', 'totalSeccionB_7579F', 'totalSeccionB_80M', 'totalSeccionB_80F'));
+        return view('estadisticas.seccion-p5b', compact(
+            'bajoPeso',
+            'bajoPesoM',
+            'bajoPesoF',
+            'bajoPeso_6569M',
+            'bajoPeso_6569F',
+            'bajoPeso_7074M',
+            'bajoPeso_7074F',
+            'bajoPeso_7579M',
+            'bajoPeso_7579F',
+            'bajoPeso_80M',
+            'bajoPeso_80F',
+            'normal',
+            'normalM',
+            'normalF',
+            'normal_6569M',
+            'normal_6569F',
+            'normal_7074M',
+            'normal_7074F',
+            'normal_7579M',
+            'normal_7579F',
+            'normal_80M',
+            'normal_80F',
+            'sobrePeso',
+            'sobrePesoM',
+            'sobrePesoF',
+            'sobrePeso_6569M',
+            'sobrePeso_6569F',
+            'sobrePeso_7074M',
+            'sobrePeso_7074F',
+            'sobrePeso_7579M',
+            'sobrePeso_7579F',
+            'sobrePeso_80M',
+            'sobrePeso_80F',
+            'obeso',
+            'obesoM',
+            'obesoF',
+            'obeso_6569M',
+            'obeso_6569F',
+            'obeso_7074M',
+            'obeso_7074F',
+            'obeso_7579M',
+            'obeso_7579F',
+            'obeso_80M',
+            'obeso_80F',
+            'totalSeccionB',
+            'totalSeccionBM',
+            'totalSeccionBF',
+            'totalSeccionB_6569M',
+            'totalSeccionB_6569F',
+            'totalSeccionB_7074M',
+            'totalSeccionB_7074F',
+            'totalSeccionB_7579M',
+            'totalSeccionB_7579F',
+            'totalSeccionB_80M',
+            'totalSeccionB_80F'
+        ));
+    }
+
+    public function programacion()
+    {
+        //x compensacion y riesgo
+        $all = new Paciente;
+        //compensado rcv bajo
+        $compensados_rBajo = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'bajo')->count();
+        $compensados_rBajo1519 = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [15, 19])->count();
+        $compensados_rBajo2064 = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [20, 64])->count();
+        $compensados_rBajo65mas = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'bajo')->get()->where('grupo', '>=', 65)->count();
+
+        //compensado rcv alto
+        $compensados_rAlto = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'alto')->count();
+        $compensados_rAlto1519 = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [15, 19])->count();
+        $compensados_rAlto2064 = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [20, 64])->count();
+        $compensados_rAlto65mas = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'alto')->get()->where('grupo', '>=', 65)->count();
+        //compensado rcv moderado
+        $compensados_rMod = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'moderado')->count();
+        $compensados_rMod1519 = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [15, 19])->count();
+        $compensados_rMod2064 = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [20, 64])->count();
+        $compensados_rMod65mas = $all->pscv()->where('compensado', '=', 1)->where('riesgo_cv', '=', 'moderado')->get()->where('grupo', '>=', 65)->count();
+
+
+        //no compensados
+        $noCompensados_rBajo = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'bajo')->count();
+        $noCompensados_rBajo1519 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [15, 19])->count();
+        $noCompensados_rBajo2064 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [20, 64])->count();
+        $noCompensados_rBajo65mas = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'bajo')->get()->where('grupo', '>=', 65)->count();
+
+        $noCompensados_rMod = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'moderado')->count();
+        $noCompensados_rMod1519 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [15, 19])->count();
+        $noCompensados_rMod2064 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [20, 64])->count();
+        $noCompensados_rMod65mas = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'moderado')->get()->where('grupo', '>=', 65)->count();
+
+        $noCompensados_rAlto = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'alto')->count();
+        $noCompensados_rAlto1519 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [15, 19])->count();
+        $noCompensados_rAlto2064 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [20, 64])->count();
+        $noCompensados_rAlto65mas = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'alto')->get()->where('grupo', '>=', 65)->count();
+
+        return view('estadisticas.programacion', compact(
+            'compensados_rBajo',
+            'compensados_rBajo1519',
+            'compensados_rBajo2064',
+            'compensados_rBajo65mas',
+            'compensados_rMod',
+            'compensados_rMod1519',
+            'compensados_rMod2064',
+            'compensados_rMod65mas',
+            'compensados_rAlto',
+            'compensados_rAlto1519',
+            'compensados_rAlto2064',
+            'compensados_rAlto65mas',
+            'noCompensados_rBajo',
+            'noCompensados_rBajo1519',
+            'noCompensados_rBajo2064',
+            'noCompensados_rBajo65mas',
+            'noCompensados_rMod',
+            'noCompensados_rMod1519',
+            'noCompensados_rMod2064',
+            'noCompensados_rMod65mas',
+            'noCompensados_rAlto',
+            'noCompensados_rAlto1519',
+            'noCompensados_rAlto2064',
+            'noCompensados_rAlto65mas',
+        ));
     }
 }
