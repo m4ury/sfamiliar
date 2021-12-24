@@ -25,4 +25,12 @@ class PacientePatologiaController extends Controller
 
         return redirect('pacientes/' . $request->paciente_id)->withSuccess('Patologia añadida con exito!');
     }
+
+    public function eliminarPatologia($id)
+    {
+        $paciente = Paciente::findOrFail($id);
+        //$paciente_patologia = $paciente->patologias()->paciente_id
+
+        return redirect('pacientes/' . $paciente->id)->withSuccess('Patologia eliminada con exito!');
+    }
 }

@@ -25,22 +25,22 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('ver-patologias', function ($user){
-            if ($user->type == 'admin'){
+        Gate::define('ver-patologias', function ($user) {
+            if ($user->type == 'admin') {
                 return true;
             }
             return false;
         });
 
-        Gate::define('estadisticas', function ($user){
-            if ($user->type == 'admin' || $user->type == 'enfermera'){
+        Gate::define('estadisticas', function ($user) {
+            if ($user->type == 'admin' || $user->type == 'enfermera') {
                 return true;
             }
             return false;
         });
 
-        Gate::define('controles-all', function ($user){
-            if ($user->type == 'admin'){
+        Gate::define('controles-all', function ($user) {
+            if ($user->type == 'admin' || $user->type == 'medico') {
                 return true;
             }
             return false;

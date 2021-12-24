@@ -1636,6 +1636,24 @@ class EstadisticaController extends Controller
         $noCompensados_rAlto2064 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [20, 64])->count();
         $noCompensados_rAlto65mas = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'alto')->get()->where('grupo', '>=', 65)->count();
 
+        $rAlto = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'alto')->count();
+        $rMod = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'moderado')->count();
+        $rBajo = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'bajo')->count();
+
+        $rAlto1519 = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [15, 19])->count();
+        $rMod1519 = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [15, 19])->count();
+        $rBajo1519 = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [15, 19])->count();
+
+        $rAlto2064 = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [20, 64])->count();
+        $rMod2064 = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [20, 64])->count();
+        $rBajo2064 = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [20, 64])->count();
+
+        $rAlto65mas = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'alto')->get()->where('grupo', '>=', 65)->count();
+        $rMod65mas = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'moderado')->get()->where('grupo', '>=', 65)->count();
+        $rBajo65mas = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'bajo')->get()->where('grupo', '>=', 65)->count();
+
+
+
         return view('estadisticas.programacion', compact(
             'compensados_rBajo',
             'compensados_rBajo1519',
@@ -1661,6 +1679,18 @@ class EstadisticaController extends Controller
             'noCompensados_rAlto1519',
             'noCompensados_rAlto2064',
             'noCompensados_rAlto65mas',
+            'rAlto',
+            'rMod',
+            'rBajo',
+            'rBajo1519',
+            'rBajo2064',
+            'rBajo65mas',
+            'rAlto1519',
+            'rAlto2064',
+            'rAlto65mas',
+            'rMod1519',
+            'rMod2064',
+            'rMod65mas',
         ));
     }
 }
