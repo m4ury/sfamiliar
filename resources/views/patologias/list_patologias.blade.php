@@ -19,9 +19,11 @@
 
                     {{ Form::hidden('patologia_id', $patologia->id) }}
                     {{ Form::hidden('paciente_id', $paciente->id) }}
-
-                    {{ Form::submit('Eliminar', ['class' => 'btn bg-gradient-primary', 'id' => 'delete-confirm'])
+                    @if(auth()->user()->isAdmin() || auth()->user()->type == 'medico')
+                    {{ Form::submit('Eliminar patologia', ['class' => 'btn bg-gradient-primary', 'id' =>
+                    'delete-confirm', 'onclick'=>'return confirm("seguro desea eliminar esta Patologia?")'])
                     }}
+                    @endif
                     {{ Form::close() }}
 
                     {{-- Hipertensos--}}
@@ -371,25 +373,3 @@ $patologia->nombre_patologia === 'ANTECEDENTE ACV')
 </div>
 @endforeach
 @endif
-@section('js')
-<script type="text/javascript">
-    $('#delete_confirm').click(function(event) {
-         var form =  $(this).closest("form");
-         var name = $(this).data("name");
-         event.preventDefault();
-         swal({
-             title: `Are you sure you want to delete this record?`,
-             text: "If you delete this, it will be gone forever.",
-             icon: "warning",
-             buttons: true,
-             dangerMode: true,
-         })
-         .then((willDelete) => {
-           if (willDelete) {
-             form.submit();
-           }
-         });
-     });
-
-</script>
-@endsection

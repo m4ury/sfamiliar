@@ -11,9 +11,9 @@
                 </h3>
             </div>
             <div class="card-body">
-                <div class="form-group row">
-                    <h4 class="col-sm-2 col-form text-nowrap"><span
-                            class="badge badge-pill bg-gradient-warning badge mx-3 py-2">{{ $paciente->fullName() }}
+                <div class="form-group row nowrap">
+                        <span class="badge badge-pill bg-gradient-warning badge mx-3 py-2">{{
+                            $paciente->fullName() }}
                         </span>
                         <span class="badge badge-pill bg-gradient-warning badge mx-3 py-2">RUT.: {{ $paciente->rut
                             }}</span>
@@ -25,7 +25,6 @@
                             @else($paciente->sector == 'naranjo')
                             <i class="fas fa-square text-orange"></i> Naranjo
                             @endif </span>
-                    </h4>
                     <div class="col-sm text-right">
                         <a class="btn bg-gradient-primary btn-sm" title="Editar"
                             href="{{ route('pacientes.edit', $paciente->id) }}"> Editar Paciente <i
