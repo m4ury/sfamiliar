@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
     //rutas para paciente patologias
     Route::resource('ppatologias', 'PacientePatologiaController');
     Route::get('pacientes/patologia/{paciente?}', 'PacientePatologiaController@create')->name('pacientes.patologia');
+    Route::post('pacientes/patologia/{paciente?}', 'PacientePatologiaController@eliminarPatologia');
 
     //rutas para estadisticas
     Route::get('/estadisticas', 'EstadisticaController@index')->name('estadisticas');

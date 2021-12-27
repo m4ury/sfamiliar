@@ -13,10 +13,20 @@
                     {{ $patologia->nombre_patologia }} @if($patologia->pivot->created_at == null) - No existen Datos
                     @else Desde : {{ $patologia->pivot->created_at->format('d-m-Y') }}
                     @endif
-                </p>
-                {{-- Hipertensos--}}
-                @if($patologia->nombre_patologia == 'HTA' or $patologia->nombre_patologia == 'DM2')
-                {{-- RAC vigente--}}
+                    {{ Form::open(['action' => 'PacientePatologiaController@eliminarPatologia', 'method' => 'POST',
+                    'class' =>
+                    'col-sm-3 float-right']) }}
+
+                    {{ Form::hidden('patologia_id', $patologia->id) }}
+                    {{ Form::hidden('paciente_id', $paciente->id) }}
+
+                    {{ Form::submit('Eliminar', ['class' => 'btn bg-gradient-primary', 'id' => 'delete-confirm'])
+                    }}
+                    {{ Form::close() }}
+
+                    {{-- Hipertensos--}}
+                    @if($patologia->nombre_patologia == 'HTA' or $patologia->nombre_patologia == 'DM2')
+                    {{-- RAC vigente--}}
                 <div class="form-group row">
                     @if(\Carbon\Carbon::parse($paciente->racVigente)->diffInDays(\Carbon\Carbon::now()) <= 365 &&
                         $paciente->racVigente != null && $paciente->racVigente!= '0000/00/00')
@@ -361,3 +371,25 @@ $patologia->nombre_patologia === 'ANTECEDENTE ACV')
 </div>
 @endforeach
 @endif
+@section('js')
+<script type="text/javascript">
+    $('#delete_confirm').click(function(event) {
+         var form =  $(this).closest("form");
+         var name = $(this).data("name");
+         event.preventDefault();
+         swal({
+             title: `Are you sure you want to delete this record?`,
+             text: "If you delete this, it will be gone forever.",
+             icon: "warning",
+             buttons: true,
+             dangerMode: true,
+         })
+         .then((willDelete) => {
+           if (willDelete) {
+             form.submit();
+           }
+         });
+     });
+
+</script>
+@endsection
