@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'WelcomeController@index');
 
 Auth::routes();
 
@@ -25,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('pacientes', 'PacienteController');
     Route::resource('patologias', 'PatologiaController')->except('[index, create]');
     Route::get('patologias/{paciente?}', 'PatologiaController@index')->name('patologias');
-    Route::get('patologias/create/{paciente?}', 'PatologiaController@create')->name('patologias.create');
+    Route::get('patologias/create/{paciente?}', 'PatologiaController@create')->name('patologias.crear');
 
     //rutas para controles
     Route::resource('controles', 'ControlController')->except('[index, create]');

@@ -225,11 +225,15 @@
                                             @endif
 
                                             {{--evaluacion pie dm2--}}
-                                            {{-- dd($paciente->controls()->pluck('talla_actual')->last()) --}}
+                                            {{-- dd($paciente->controls()->pluck('evaluacionPie', 'tipo_control')) --}}
+                                            {{--dd($paciente->controls()->pluck('evaluacionPie') != 'null')->get()--}}
+                                            {{-- $paciente->controls()->pluck('tipo_control') --}}
 
-                                            @if (Str::contains($paciente->controls()->pluck('evaluacionPie')->last(),
+                                            {{--dd($paciente->controls->evaluacionPie)--}}
+
+                                            @if (Str::contains($paciente->controls()->pluck('evaluacionPie')->whereNotNull()->last(),
                                             'Bajo'))
-                                            @if(Carbon\Carbon::parse($paciente->controls()->pluck('fecha_control')->last())->diffInDays(\Carbon\Carbon::now())
+                                            @if(Carbon\Carbon::parse($paciente->controls()->pluck('fecha_control')->last())->diffInDays(Carbon\Carbon::now())
                                             <= 365) <div class="col-sm">
                                                 <strong><i class="fas fa-stethoscope text-success"></i>
                                                     Evaluacion
@@ -251,8 +255,8 @@
                         Riesgo: Bajo - No Vigente</P>
                 </div>
                 @endif
-                @elseif (Str::contains($paciente->controls()->pluck('evaluacionPie')->last(), 'Moderado'))
-                @if(Carbon\Carbon::parse($paciente->controls()->pluck('fecha_control')->last())->diffInMonths(\Carbon\Carbon::now())
+                @elseif (Str::contains($paciente->controls()->pluck('evaluacionPie')->whereNotNull()->last(), 'Moderado'))
+                @if(Carbon\Carbon::parse($paciente->controls()->pluck('fecha_control')->last())->diffInMonths(Carbon\Carbon::now())
                 <= 6) <div class="col-sm">
                     <strong><i class="fas fa-stethoscope text-warning"></i>
                         Evaluacion
@@ -274,8 +278,8 @@
             </div>
             @endif
 
-            @elseif (Str::contains($paciente->controls()->pluck('evaluacionPie')->last() , 'Alto'))
-            @if(Carbon\Carbon::parse($paciente->controls()->pluck('fecha_control')->last())->diffInMonths(\Carbon\Carbon::now())
+            @elseif (Str::contains($paciente->controls()->pluck('evaluacionPie')->whereNotNull()->last() , 'Alto'))
+            @if(Carbon\Carbon::parse($paciente->controls()->pluck('fecha_control')->last())->diffInMonths(Carbon\Carbon::now())
             <= 6) <div class="col-sm">
                 <strong><i class="fas fa-stethoscope text-danger"></i>
                     Evaluacion
@@ -296,8 +300,8 @@
                 Riesgo: Alto - No Vigente</P>
         </div>
         @endif
-        @elseif (Str::contains($paciente->controls()->pluck('evaluacionPie')->last() , 'Maximo'))
-        @if(Carbon\Carbon::parse($paciente->controls()->pluck('fecha_control')->last())->diffInMonths(\Carbon\Carbon::now())
+        @elseif (Str::contains($paciente->controls()->pluck('evaluacionPie')->whereNotNull()->last() , 'Maximo'))
+        @if(Carbon\Carbon::parse($paciente->controls()->pluck('fecha_control')->last())->diffInMonths(Carbon\Carbon::now())
         <= 3) <div class="col-sm">
             <strong><i class="fas fa-stethoscope text-danger"></i>
                 Evaluacion

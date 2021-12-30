@@ -32,8 +32,6 @@ class PacientePatologiaController extends Controller
         $paciente = Paciente::findOrFail($request->paciente_id);
         $patologia = $paciente->patologias()->detach($request->patologia_id);
 
-        // dd($patologia);
-
         return redirect('pacientes/' . $paciente->id)->withSuccess('Patologia eliminada con exito!');
     }
 }

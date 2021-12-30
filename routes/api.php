@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::apiResource('pacientes', 'PacienteController');
 Route::apiResource('controls', 'ControlController');
-/*Route::apiResource('fichas', 'FichaController'); */
-Route::apiResource('patologias', 'PatologiaController');
+Route::apiResource('fichas', 'FichaController');
+Route::apiResource('patologias', 'PatologiaController'); */

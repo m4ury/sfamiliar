@@ -222,22 +222,22 @@ class Paciente extends Model
 
     public function evaluacionPie_bajo()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.tipo_control', '=', 'Enfermera')->where('controls.evaluacionPie', '=', 'Bajo')->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Bajo')->latest('controls.fecha_control');
     }
 
     public function evaluacionPie_moderado()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.tipo_control', '=', 'Enfermera')->where('controls.evaluacionPie', '=', 'Moderado')->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Moderado')->latest('controls.fecha_control');
     }
 
     public function evaluacionPie_alto()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.tipo_control', '=', 'Enfermera')->where('controls.evaluacionPie', '=', 'Alto')->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Alto')->latest('controls.fecha_control');
     }
 
     public function evaluacionPie_maximo()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.tipo_control', '=', 'Enfermera')->where('controls.evaluacionPie', '=', 'Maximo')->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Maximo')->latest('controls.fecha_control');
     }
 
     public function ulcerasActivas_TipoCuracion_avz()
@@ -365,4 +365,6 @@ class Paciente extends Model
     public function totalSeccionB(){
         return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->whereIn('controls.imc_resultado', ['Bajo peso', 'Normal', 'Sobrepeso', 'Obeso']);
     }
+
+
 }
