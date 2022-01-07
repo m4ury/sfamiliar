@@ -1304,6 +1304,24 @@ class EstadisticaController extends Controller
         $depGrave_7579M = $pacientes->depGrave()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->count();
         $depGrave_80M = $pacientes->depGrave()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
 
+        //DEPENDENCIA TOTAL
+        $depTotal = $pacientes->depTotal()->count();
+        $depTotalF = $pacientes->depTotal()->where('pacientes.sexo', '=', 'femenino')->count();
+        //$aspirinasOriginF = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $depTotal_6569F = $pacientes->depTotal()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->count();
+        $depTotal_7074F = $pacientes->depTotal()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->count();
+        $depTotal_7579F = $pacientes->depTotal()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->count();
+        $depTotal_80F = $pacientes->depTotal()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->count();
+
+        $depTotalM = $pacientes->depTotal()->where('pacientes.sexo', '=', 'Masculino')->count();
+        //$aspirinasOriginM = $pacientes->aspirinas()->where('pacientes.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $depTotal_6569M = $pacientes->depTotal()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->count();
+        $depTotal_7074M = $pacientes->depTotal()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->count();
+        $depTotal_7579M = $pacientes->depTotal()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->count();
+        $depTotal_80M = $pacientes->depTotal()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
+
+
+
         //SUBTOTAL BARTHEL
         $subBarthel = $pacientes->subBarthel()->count();
 
@@ -1420,6 +1438,19 @@ class EstadisticaController extends Controller
             'depGrave_7579F',
             'depGrave_80M',
             'depGrave_80F',
+
+            'depTotal',
+            'depTotalM',
+            'depTotalF',
+            'depTotal_6569M',
+            'depTotal_6569F',
+            'depTotal_7074M',
+            'depTotal_7074F',
+            'depTotal_7579M',
+            'depTotal_7579F',
+            'depTotal_80M',
+            'depTotal_80F',
+
             'subBarthel',
             'subBarthelM',
             'subBarthelF',
@@ -1636,21 +1667,21 @@ class EstadisticaController extends Controller
         $noCompensados_rAlto2064 = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [20, 64])->count();
         $noCompensados_rAlto65mas = $all->pscv()->where('compensado', '=', 2)->where('riesgo_cv', '=', 'alto')->get()->where('grupo', '>=', 65)->count();
 
-        $rAlto = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'alto')->count();
-        $rMod = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'moderado')->count();
-        $rBajo = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'bajo')->count();
+        $rAlto = $all->pscv()->whereIn('compensado', [1, 2])->where('riesgo_cv', '=', 'alto')->count();
+        $rMod = $all->pscv()->whereIn('compensado', [1, 2])->where('riesgo_cv', '=', 'moderado')->count();
+        $rBajo = $all->pscv()->whereIn('compensado', [1, 2])->where('riesgo_cv', '=', 'bajo')->count();
 
-        $rAlto1519 = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [15, 19])->count();
-        $rMod1519 = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [15, 19])->count();
-        $rBajo1519 = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [15, 19])->count();
+        $rAlto1519 = $all->pscv()->whereIn('compensado', [1, 2])->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [15, 19])->count();
+        $rMod1519 = $all->pscv()->whereIn('compensado', [1, 2])->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [15, 19])->count();
+        $rBajo1519 = $all->pscv()->whereIn('compensado', [1, 2])->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [15, 19])->count();
 
-        $rAlto2064 = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [20, 64])->count();
-        $rMod2064 = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [20, 64])->count();
-        $rBajo2064 = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [20, 64])->count();
+        $rAlto2064 = $all->pscv()->whereIn('compensado', [1, 2])->where('riesgo_cv', '=', 'alto')->get()->whereBetween('grupo', [20, 64])->count();
+        $rMod2064 = $all->pscv()->whereIn('compensado', [1, 2])->where('riesgo_cv', '=', 'moderado')->get()->whereBetween('grupo', [20, 64])->count();
+        $rBajo2064 = $all->pscv()->whereIn('compensado', [1, 2])->where('riesgo_cv', '=', 'bajo')->get()->whereBetween('grupo', [20, 64])->count();
 
-        $rAlto65mas = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'alto')->get()->where('grupo', '>=', 65)->count();
-        $rMod65mas = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'moderado')->get()->where('grupo', '>=', 65)->count();
-        $rBajo65mas = $all->pscv()->whereIn('compensado', [1,2])->where('riesgo_cv', '=', 'bajo')->get()->where('grupo', '>=', 65)->count();
+        $rAlto65mas = $all->pscv()->whereIn('compensado', [1, 2])->where('riesgo_cv', '=', 'alto')->get()->where('grupo', '>=', 65)->count();
+        $rMod65mas = $all->pscv()->whereIn('compensado', [1, 2])->where('riesgo_cv', '=', 'moderado')->get()->where('grupo', '>=', 65)->count();
+        $rBajo65mas = $all->pscv()->whereIn('compensado', [1, 2])->where('riesgo_cv', '=', 'bajo')->get()->where('grupo', '>=', 65)->count();
 
 
 

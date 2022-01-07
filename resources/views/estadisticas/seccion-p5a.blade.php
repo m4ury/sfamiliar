@@ -144,6 +144,20 @@
                             <td>{{$depGrave_80F}}</td>
                         </tr>
                         <tr>
+                            <th nowrap="" colspan="2">DEPENDIENTE TOTAL</th>
+                            <td>{{ $depTotal }}</td>
+                            <td>{{ $depTotalM }}</td>
+                            <td>{{ $depTotalF }}</td>
+                            <td>{{$depTotal_6569M}}</td>
+                            <td>{{$depTotal_6569F}}</td>
+                            <td>{{$depTotal_7074M}}</td>
+                            <td>{{$depTotal_7074F}}</td>
+                            <td>{{$depTotal_7579M}}</td>
+                            <td>{{$depTotal_7579F}}</td>
+                            <td>{{$depTotal_80M}}</td>
+                            <td>{{$depTotal_80F}}</td>
+                        </tr>
+                        <tr>
                             <th class="text-center text-primary" nowrap="" colspan="2">SUBTOTAL (INDICE BARTHEL)</th>
                             <td>{{ $subBarthel }}</td>
                             <td>{{ $subBarthelM }}</td>
