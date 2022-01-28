@@ -14,6 +14,7 @@ class ControlRequest extends FormRequest
     public function rules()
     {
         return [
+            'imc_resultado' => 'required',
             'tipo_control' => 'required',
             'fecha_control' => 'required|before_or_equal:today',
             'peso_actual' => 'required|numeric|min:1',

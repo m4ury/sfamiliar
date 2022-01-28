@@ -1,21 +1,21 @@
 @extends('adminlte::page')
 
-@section('title', 'Seccion B')
+@section('title', 'REM P4: Seccion B')
 
 @section('content')
-    <div class="row justify-content-center">
-        <div class="card card-primary card-outline">
-            <div class="card-body">
-                <h4 class="card-title text-bold mb-3">
-                    <a class="mx-3" href="{{ url('estadisticas') }}" title="Atras">
-                        <i class="fas fa-arrow-alt-circle-left" style="font-size: x-large"></i>
-                        Volver
-                    </a>
-                    SECCIÓN B: METAS DE COMPENSACIÓN
-                </h4>
-                <div class="col-md-12 table-responsive">
-                    <table id="pscv" class="table table-md-responsive table-bordered">
-                        <thead>
+<div class="row justify-content-center">
+    <div class="card card-primary card-outline">
+        <div class="card-body">
+            <h4 class="card-title text-bold mb-3">
+                <a class="mx-3" href="{{ url('estadisticas') }}" title="Atras">
+                    <i class="fas fa-arrow-alt-circle-left" style="font-size: x-large"></i>
+                    Volver
+                </a>
+                SECCIÓN B: METAS DE COMPENSACIÓN
+            </h4>
+            <div class="col-md-12 table-responsive">
+                <table id="pscv" class="table table-md-responsive table-bordered">
+                    <thead>
                         <tr>
                             <th class="text-center" colspan="2" rowspan="3">CONCEPTO</th>
                             <th class="text-center" colspan="3" rowspan="2">TOTAL</th>
@@ -149,9 +149,9 @@
                             <td>{{ $pa150F }}</td>
                         </tr>
                         <tr>
-                        <th rowspan="5" style="vertical-align: middle">PERSONAS BAJO CONTROL POR DIABETES
-                            MELLITUS
-                        </th>
+                            <th rowspan="5" style="vertical-align: middle">PERSONAS BAJO CONTROL POR DIABETES
+                                MELLITUS
+                            </th>
                         <tr>
                             <th>HbA1C < 7%</th>
                             <td>{{ $hbac17 }}</td>
@@ -221,7 +221,7 @@
                             <td>{{ $hbac18F }}</td>
                         </tr>
                         <tr>
-                        <th>HbA1C < 7% - PA < 140/90mmHg y Colesterol LDL < 100 mg/dl</th>
+                            <th>HbA1C < 7% - PA < 140/90mmHg y Colesterol LDL < 100 mg/dl</th>
                             <td>{{ $hbac17Pa140Ldl100 }}</td>
                             <td>{{ $hbac17Pa140Ldl100M }}</td>
                             <td>{{ $hbac17Pa140Ldl100F }}</td>
@@ -255,7 +255,7 @@
                             <td>{{$hbac17Pa140Ldl100_80F}}</td>
                         </tr>
                         <tr>
-                        <th nowrap="">COLESTEROL LDL < 100 mg/dL</th>
+                            <th nowrap="">COLESTEROL LDL < 100 mg/dL</th>
                             <td>{{ $ldl100 }}</td>
                             <td>{{ $ldl100M }}</td>
                             <td>{{ $ldl100F }}</td>
@@ -360,10 +360,10 @@
                             <td>{{$estatinas_80M}}</td>
                             <td>{{$estatinas_80F}}</td>
                         </tr>
-                        </thead>
-                    </table>
-                </div>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
+</div>
 @endsection

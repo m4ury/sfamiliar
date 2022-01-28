@@ -1,21 +1,21 @@
 @extends('adminlte::page')
 
-@section('title', 'Seccion A')
+@section('title', 'REM P5: Seccion A')
 
 @section('content')
-    <div class="row justify-content-center">
-        <div class="card card-primary card-outline">
-            <div class="card-body">
-                <h4 class="card-title text-bold mb-3">
-                    <a class="mx-3" href="{{ url('estadisticas') }}" title="Atras">
-                        <i class="fas fa-arrow-alt-circle-left" style="font-size: x-large"></i>
-                        Volver
-                    </a>
-                    SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD
-                </h4>
-                <div class="col-md-12 table-responsive">
-                    <table id="pscv" class="table table-md-responsive table-bordered">
-                        <thead>
+<div class="row justify-content-center">
+    <div class="card card-primary card-outline">
+        <div class="card-body">
+            <h4 class="card-title text-bold mb-3">
+                <a class="mx-3" href="{{ url('estadisticas') }}" title="Atras">
+                    <i class="fas fa-arrow-alt-circle-left" style="font-size: x-large"></i>
+                    Volver
+                </a>
+                SECCION A: POBLACIÓN EN CONTROL POR CONDICIÓN DE FUNCIONALIDAD
+            </h4>
+            <div class="col-md-12 table-responsive">
+                <table id="pscv" class="table table-md-responsive table-bordered">
+                    <thead>
                         <tr>
                             <th class="text-center" colspan="2" rowspan="3">CONDICION DE FUNCIONALIDAD</th>
                             <th class="text-center" colspan="3" rowspan="2">TOTAL</th>
@@ -172,9 +172,10 @@
                             <td>{{$subBarthel_80F}}</td>
                         </tr>
                         <tr>
-                            <th class="text-center text-primary" nowrap="" colspan="2">TOTAL PERSONAS MAYORES EN CONTROL</th>
-                           <td>{{ $totalSeccion }}</td>
-                             <td>{{ $totalSeccionM }}</td>
+                            <th class="text-center text-primary" nowrap="" colspan="2">TOTAL PERSONAS MAYORES EN CONTROL
+                            </th>
+                            <td>{{ $totalSeccion }}</td>
+                            <td>{{ $totalSeccionM }}</td>
                             <td>{{ $totalSeccionF }}</td>
                             <td>{{$totalSeccion_6569M}}</td>
                             <td>{{$totalSeccion_6569F}}</td>
@@ -185,10 +186,10 @@
                             <td>{{$totalSeccion_80M}}</td>
                             <td>{{$totalSeccion_80F}}</td>
                         </tr>
-                        </thead>
-                    </table>
-                </div>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
+</div>
 @endsection

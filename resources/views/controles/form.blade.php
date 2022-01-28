@@ -74,8 +74,13 @@
     </div>
     {!! Form::label('imc_resultado', 'Estado Nutricional',['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::text('imc_resultado', old('imc_resultado', $control->imc_resultado), ['class' => 'form-control form-control-sm',
-        'placeholder' => 'Est. Nutricional.']) !!}
+        {!! Form::text('imc_resultado', old('imc_resultado', $control->imc_resultado), ['class' => 'form-control form-control-sm'.($errors->has('imc_resultado')
+        ? ' is-invalid' : ''), 'placeholder' => 'Est. Nutricional.']) !!}
+        @if ($errors->has('imc_resultado'))
+            <span class="invalid-feedback">
+            <strong>{{ $errors->first('imc_resultado') }}</strong>
+        </span>
+        @endif
     </div>
 </div>
 <div class="form-group row">
@@ -204,7 +209,7 @@
                 $('#imc_resultado').val(clasificacion);
             })
         });
-        
+
         $("#rac_vigente, #examenes1").removeAttr("checked");
 
         $('#tipo').change(function () {

@@ -1,21 +1,21 @@
 @extends('adminlte::page')
 
-@section('title', 'Seccion C')
+@section('title', 'REM P4: Seccion C')
 
 @section('content')
-    <div class="row justify-content-center">
-        <div class="card card-primary card-outline">
-            <div class="card-body">
-                <h4 class="card-title text-bold mb-3">
-                    <a class="mx-3" href="{{ url('estadisticas') }}" title="Atras">
-                        <i class="fas fa-arrow-alt-circle-left" style="font-size: x-large"></i>
-                        Volver
-                    </a>
-                    SECCIÓN C: VARIABLES DE SEGUIMIENTO DEL PSCV AL CORTE
-                </h4>
-                <div class="col-md-12 table-responsive">
-                    <table class="table table-md-responsive table-bordered">
-                        <thead>
+<div class="row justify-content-center">
+    <div class="card card-primary card-outline">
+        <div class="card-body">
+            <h4 class="card-title text-bold mb-3">
+                <a class="mx-3" href="{{ url('estadisticas') }}" title="Atras">
+                    <i class="fas fa-arrow-alt-circle-left" style="font-size: x-large"></i>
+                    Volver
+                </a>
+                SECCIÓN C: VARIABLES DE SEGUIMIENTO DEL PSCV AL CORTE
+            </h4>
+            <div class="col-md-12 table-responsive">
+                <table class="table table-md-responsive table-bordered">
+                    <thead>
                         <tr>
                             <th class="text-center" colspan="2" rowspan="2">VARIABLES</th>
                             <th class="text-center" rowspan="2">TOTAL</th>
@@ -445,7 +445,7 @@
                             <th colspan="7" class="text-left bg-gradient-gray">TODAS LAS PERSONAS EN PSCV</th>
                         </tr>
                         <tr>
-                            <th nowrap="" colspan="2">SOBREPESO: IMC entre 25 y 29.9 <65</th>
+                            <th nowrap="" colspan="2">SOBREPESO: IMC entre 25 y 29.9 <65< /th>
                             <td>{{ $imc2529_menor65 }}</td>
                             <td>{{ $imc2529_menor65 }}</td>
                             <td class="bg-gradient-gray"></td>
@@ -461,7 +461,7 @@
                             <td>{{$imc2831_mayor65F}}</td>
                         </tr>
                         <tr>
-                            <th nowrap="" colspan="2">OBESIDAD IMC igual o Mayor a 30KG/M2 <65</th>
+                            <th nowrap="" colspan="2">OBESIDAD IMC igual o Mayor a 30KG/M2 <65< /th>
                             <td>{{ $imcMayor30_menor65 }}</td>
                             <td>{{ $imcMayor30_menor65 }}</td>
                             <td class="bg-gradient-gray"></td>
@@ -476,13 +476,13 @@
                             <td>{{$imcMayor32_mayor65M}}</td>
                             <td>{{$imcMayor32_mayor65F}}</td>
                         </tr>
-                        </thead>
-                    </table>
-                    <p class="text-muted">NOTA (*): La vigencia de la evaluación del pie diabetico es de 12 meses.</p>
-                    <p class="text-muted">**Considerar en adultos mayores (65 años y más) un IMC igual o mayor a
-                        32G/M2</p>
-                </div>
+                    </thead>
+                </table>
+                <p class="text-muted">NOTA (*): La vigencia de la evaluación del pie diabetico es de 12 meses.</p>
+                <p class="text-muted">**Considerar en adultos mayores (65 años y más) un IMC igual o mayor a
+                    32G/M2</p>
             </div>
         </div>
     </div>
+</div>
 @endsection
