@@ -35,7 +35,7 @@ class PacienteController extends Controller
     public function show($id)
     {
         $paciente = Paciente::findOrFail($id);
-        $controles = $paciente->controls()->latest('fecha_control')->get()->take(3);
+        $controles = $paciente->controls()->latest('fecha_control')->get();
         return view('pacientes.show', compact('paciente', 'controles'));
     }
 
