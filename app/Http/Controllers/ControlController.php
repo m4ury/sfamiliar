@@ -43,7 +43,7 @@ class ControlController extends Controller
 
     public function store(ControlRequest $request)
     {
-        //dd($request->all());
+
         $control = new Control($request->except('_token'));
         $control->user_id = Auth::user()->id;
         $control->paciente_id = $request->paciente_id;
@@ -77,9 +77,11 @@ class ControlController extends Controller
     {
         $control = Control::findOrFail($id);
 
-       //dd($request->all());
+        //dd($request->all());
         $control->update($request->all());
-        return redirect('pacientes/'. $request->paciente_id)->withSuccess('Control actualizado con exito!');
+        $control->last = $request->last ?? 2;
+        $control->save();
+        return redirect('pacientes/' . $request->paciente_id)->withSuccess('Control actualizado con exito!');
     }
 
     public function destroy($id)
