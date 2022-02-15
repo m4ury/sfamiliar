@@ -256,7 +256,7 @@
                         </tr>
                         <tr>
                             <th nowrap="">COLESTEROL LDL < 100 mg/dL</th>
-                            <td>{{ $ldl100 }}</td>
+                            <td>{{ $ldl100_all }}</td>
                             <td>{{ $ldl100M }}</td>
                             <td>{{ $ldl100F }}</td>
                             <td>{{$ldl100_1519M}}</td>
