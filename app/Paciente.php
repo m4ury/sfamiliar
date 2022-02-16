@@ -172,27 +172,27 @@ class Paciente extends Model
 
     public function racVigente()
     {
-        return $this->where('racVigente', '!=', '000/00/00');
+        return $this->where('racVigente', '>=', Carbon::now()->subYear(1));
     }
 
     public function vfgVigente()
     {
-        return $this->where('vfgVigente', '!=', '000/00/00');
+        return $this->where('vfgVigente', '>=', Carbon::now()->subYear(1));
     }
 
     public function fondoOjoVigente()
     {
-        return $this->where('fondoOjoVigente', '!=', '000/00/00');
+        return $this->where('fondoOjoVigente', '>=', Carbon::now()->subYear(1));
     }
 
     public function controlPodologico_alDia()
     {
-        return $this->where('controlPodologico_alDia', '!=', '000/00/00');
+        return $this->where('controlPodologico_alDia', '>=', Carbon::now()->subYear(1));
     }
 
     public function ecgVigente()
     {
-        return $this->where('ecgVigente', '!=', '000/00/00');
+        return $this->where('ecgVigente', '>=', Carbon::now()->subYear(1));
     }
 
     public function usoInsulina()
@@ -217,7 +217,7 @@ class Paciente extends Model
 
     public function ldlVigente()
     {
-        return $this->where('ldlVigente', '!=', '000/00/00');
+        return $this->where('ldlVigente', '>=', Carbon::now()->subYear(1));
     }
 
     public function evaluacionPie_bajo()
@@ -252,7 +252,7 @@ class Paciente extends Model
 
     public function aputacionPieDM2()
     {
-        return $this->where('aputacionPieDM2', '!=', '000/00/00');
+        return $this->where('aputacionPieDM2', '>=', Carbon::now()->subYear(1));
     }
 
     public function dm2_hta()

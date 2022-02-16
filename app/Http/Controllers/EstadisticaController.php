@@ -1007,13 +1007,31 @@ class EstadisticaController extends Controller
     public function seccionC()
     {
         $pacientes = new Paciente;
+//dd(Carbon::now()->diffInYears(Carbon::parse($pacientes->controls->pluck('racVigente'))));
 
         //racVigente
-        $racVigente = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->count();
-        $racVigente_1564 = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->get()->whereBetween('grupo', [15, 64])->count();
-        $racVigente_65 = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->get()->where('grupo', '>', 64)->count();
-        $racVigenteF = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->where('sexo', 'Femenino')->count();
-        $racVigenteM = $pacientes->dm2()->where('pacientes.racVigente', '!=', '000/00/00')->where('sexo', 'Masculino')->count();
+        $racVigente = $pacientes->dm2()->where('racVigente', '>=', Carbon::now()->subYear(1))->get()->count();
+        //dd($racVigente);
+        $racVigente_1564 = $pacientes->dm2()->where('racVigente', '>=', Carbon::now()->subYear(1))->get()->whereBetween('grupo', [15, 64])->count();
+        $racVigente_65 = $pacientes->dm2()->where('racVigente', '>=', Carbon::now()->subYear(1))->get()->where('grupo', '>', 64)->count();
+/*
+        $racVigente_1519F = $pacientes->dm2()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Femenino')->count();
+        $racVigente_2024F = $pacientes->dm2()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->count();
+        $racVigente_2529F = $pacientes->dm2()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->count();
+        $racVigente_3034F = $pacientes->dm2()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->count();
+        $racVigente_3539F = $pacientes->dm2()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->count();
+        $racVigente_4044F = $pacientes->dm2()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->count();
+        $racVigente_4549F = $pacientes->dm2()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->count();
+        $racVigente_5054F = $pacientes->dm2()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->count();
+        $racVigente_5559F = $pacientes->dm2()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->count();
+        $racVigente_6064F = $pacientes->dm2()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->count();
+        $racVigente_6569F = $pacientes->dm2()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->count();
+        $racVigente_7074F = $pacientes->dm2()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->count();
+        $racVigente_7579F = $pacientes->dm2()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->count();
+        $racVigente_80F = $pacientes->dm2()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->count();
+*/
+        $racVigenteF = $pacientes->dm2()->where('racVigente', '>=', Carbon::now()->subYear(1))->where('sexo', 'Femenino')->count();
+        $racVigenteM = $pacientes->dm2()->where('racVigente', '>=', Carbon::now()->subYear(1))->where('sexo', 'Masculino')->count();
 
 
         //vfgVigente
