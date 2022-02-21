@@ -27,7 +27,7 @@
                         <th>IMC</th>
                         <th>Est. nutricional</th>
                         <th>Observacion</th>
-                        <th>Ultimo del semestre?</th>
+                        {{--<th>Ultimo del semestre?</th>--}}
                         <th>Prox. Control</th>
                         <th>Acciones</th>
                     </tr>
@@ -43,11 +43,11 @@
                         <td>{{ $control->imc }}</td>
                         <td>{{ $control->imc_resultado }}</td>
                         <td>{{ $control->observacion }}</td>
-                        @if($control->last == 1)
+                        {{--@if($control->last == 1)
                         <td class="text-center"><i class="fas fa-check-circle text-green"></i></td>
-                    @else
+                        @else
                         <td class="text-center"></td>
-                    @endif
+                        @endif--}}
                         <td>{{ \Carbon\Carbon::parse($control->proximo_control)->format("d-m-Y"). ' - '
                             .$control->prox_tipo ? : ''}}</td>
 

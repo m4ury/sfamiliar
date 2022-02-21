@@ -17,7 +17,7 @@
 
 <div class="form-group row">
     {!! Form::label('fecha_control', 'Fecha Control', ['class' => 'col-sm-3 col-form-label']) !!}
-    <div class="col-sm-3">
+    <div class="col-sm">
         {!! Form::date('fecha_control', old('fecha_control', $control->fecha_control), ['class' => 'form-control
         form-control-sm'.($errors->has('fecha_control')
         ? ' is-invalid' : '')]) !!}
@@ -26,10 +26,6 @@
             <strong>{{ $errors->first('fecha_control') }}</strong>
         </span>
         @endif
-    </div>
-    {!! Form::label('last_label', 'Ultimo Control Semestral?', ['class' => 'col-sm form-label text-bold']) !!}
-    <div class="col-sm">
-        {!! Form::checkbox('last', 1, old('last', $control->last), ['class' => 'form-control last_check']) !!}
     </div>
 </div>
 <div class="form-group row">
@@ -180,7 +176,7 @@
 @section('js')
 <script>
     $('#Enfermera, #Kine, #Medico').hide();
-        $('#tipo, #prox_tipo, #atencion').select2({
+        $('#tipo, #prox_tipo, #atencion , .evaluacionPie, .ulcerasActivas').select2({
             theme: "classic",
             width: '100%',
         });
@@ -282,16 +278,36 @@
         $('input.examenes3').on('change', function () {
             $('input.examenes3').not(this).prop('checked', false);
         });
-
-{{--
-        $('.last_check').on('change', function () {
-            if( $('.last_check').is(':checked'))
-            {
-                var last_check = $('.last_check').val(1);
-            }else{
-                var last_check = $('.last_check').val(2);
-            }
-        })  --}}
-
 </script>
+<script>
+    $('input.pa_14090').on('click', function () {
+        if($('input.pa_14090').is(':checked')){
+          $('.pa_160100').hide()
+
+        } else $('.pa_160100').show()
+});
+
+    $('input.pa_160100').on('click', function () {
+        if($('input.pa_160100').is(':checked')){
+            $('.pa_14090').hide()
+
+        } else $('.pa_14090').show()
+});
+
+    $('input.check').on('click', function () {
+        if($('input.check').is(':checked')){
+
+          $('.hba1c9').hide()
+
+        } else $('.hba1c9').show()
+});
+
+    $('input.check1').on('click', function () {
+        if($('input.check1').is(':checked')){
+            $('.hba1c7').hide()
+
+        } else $('.hba1c7').show()
+});
+</script>
+
 @endsection

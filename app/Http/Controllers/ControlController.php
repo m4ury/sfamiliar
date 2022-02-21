@@ -62,6 +62,7 @@ class ControlController extends Controller
     public function edit($id)
     {
         $control = Control::findOrFail($id);
+        $paciente = Paciente::with('patologias')->findOrFail($control->paciente->id);
         return view('controles.edit', compact('control'));
     }
 
@@ -79,7 +80,7 @@ class ControlController extends Controller
 
         //dd($request->all());
         $control->update($request->all());
-        $control->last = $request->last ?? 2;
+        //$control->last = $request->last ?? 2;
         $control->save();
         return redirect('pacientes/' . $request->paciente_id)->withSuccess('Control actualizado con exito!');
     }
