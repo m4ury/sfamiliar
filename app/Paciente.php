@@ -272,7 +272,7 @@ class Paciente extends Model
 
     public function paMayor160()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.pa_mayor_160_100', '=', 1)->where('controls.fecha_control', '>=', '2021-06-01')->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.pa_mayor_160_100', '=', 1)->where('controls.fecha_control', '>=', '2021-06-01')->where('controls.tipo_control', '=', 'Medico')->latest('controls.fecha_control');
     }
 
     public function imc2529()
