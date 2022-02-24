@@ -220,6 +220,8 @@ class Paciente extends Model
         return $this->where('ldlVigente', '>=', Carbon::now()->subYear(1));
     }
 
+
+    //Controles Enfermera *********
     public function evaluacionPie_bajo()
     {
         return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Bajo')->latest('controls.fecha_control');
@@ -249,6 +251,7 @@ class Paciente extends Model
     {
         return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->whereIn('controls.tipo_control', ['Enfermera', 'Medico'])->where('controls.ulcerasActivas_TipoCuracion', '=', 'Convencional')->latest('controls.fecha_control');
     }
+    //Controles Enfermera ************
 
     public function aputacionPieDM2()
     {

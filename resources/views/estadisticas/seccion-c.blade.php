@@ -183,57 +183,105 @@
                         </tr>
                         <tr>
                             <th colspan="2">CON ATENCIÓN PODOLÓGICA VIGENTE</th>
-                            <td>
-                                {{ $controlPodologico_alDia }}
-                            </td>
-                            <td>
-                                {{ $controlPodologico_alDia_1564 }}
-                            </td>
-                            <td>
-                                {{ $controlPodologico_alDia_65 }}
-                            </td>
-                            <td>
-                                {{ $controlPodologico_alDiaM }}
-                            </td>
-                            <td>
-                                {{ $controlPodologico_alDiaF }}
-                            </td>
+                            <td>{{ $controlPodologico_alDia }}</td>
+                            <td>{{ $controlPodologico_alDiaM }}</td>
+                            <td>{{ $controlPodologico_alDiaF }}</td>
+                            <td>{{$controlPodologico_alDia_1519M}}</td>
+                            <td>{{$controlPodologico_alDia_1519F}}</td>
+                            <td>{{$controlPodologico_alDia_2024M}}</td>
+                            <td>{{$controlPodologico_alDia_2024F}}</td>
+                            <td>{{$controlPodologico_alDia_2529M}}</td>
+                            <td>{{$controlPodologico_alDia_2529F}}</td>
+                            <td>{{$controlPodologico_alDia_3034M}}</td>
+                            <td>{{$controlPodologico_alDia_3034F}}</td>
+                            <td>{{$controlPodologico_alDia_3539M}}</td>
+                            <td>{{$controlPodologico_alDia_3539F}}</td>
+                            <td>{{$controlPodologico_alDia_4044M}}</td>
+                            <td>{{$controlPodologico_alDia_4044F}}</td>
+                            <td>{{$controlPodologico_alDia_4549M}}</td>
+                            <td>{{$controlPodologico_alDia_4549F}}</td>
+                            <td>{{$controlPodologico_alDia_5054M}}</td>
+                            <td>{{$controlPodologico_alDia_5054F}}</td>
+                            <td>{{$controlPodologico_alDia_5559M}}</td>
+                            <td>{{$controlPodologico_alDia_5559F}}</td>
+                            <td>{{$controlPodologico_alDia_6064M}}</td>
+                            <td>{{$controlPodologico_alDia_6064F}}</td>
+                            <td>{{$controlPodologico_alDia_6569M}}</td>
+                            <td>{{$controlPodologico_alDia_6569F}}</td>
+                            <td>{{$controlPodologico_alDia_7074M}}</td>
+                            <td>{{$controlPodologico_alDia_7074F}}</td>
+                            <td>{{$controlPodologico_alDia_7579M}}</td>
+                            <td>{{$controlPodologico_alDia_7579F}}</td>
+                            <td>{{$controlPodologico_alDia_80M}}</td>
+                            <td>{{$controlPodologico_alDia_80F}}</td>
                         </tr>
                         <tr>
                             <th colspan="2">CON ECG VIGENTE</th>
-                            <td>
-                                {{ $ecgVigente }}
-                            </td>
-                            <td>
-                                {{ $ecgVigente_1564 }}
-                            </td>
-                            <td>
-                                {{ $ecgVigente_65 }}
-                            </td>
-                            <td>
-                                {{ $ecgVigenteM }}
-                            </td>
-                            <td>
-                                {{ $ecgVigenteF }}
-                            </td>
+                            <td>{{ $ecgVigente }}</td>
+                            <td>{{ $ecgVigenteM }}</td>
+                            <td>{{ $ecgVigenteF }}</td>
+                            <td>{{$ecgVigente_1519M}}</td>
+                            <td>{{$ecgVigente_1519F}}</td>
+                            <td>{{$ecgVigente_2024M}}</td>
+                            <td>{{$ecgVigente_2024F}}</td>
+                            <td>{{$ecgVigente_2529M}}</td>
+                            <td>{{$ecgVigente_2529F}}</td>
+                            <td>{{$ecgVigente_3034M}}</td>
+                            <td>{{$ecgVigente_3034F}}</td>
+                            <td>{{$ecgVigente_3539M}}</td>
+                            <td>{{$ecgVigente_3539F}}</td>
+                            <td>{{$ecgVigente_4044M}}</td>
+                            <td>{{$ecgVigente_4044F}}</td>
+                            <td>{{$ecgVigente_4549M}}</td>
+                            <td>{{$ecgVigente_4549F}}</td>
+                            <td>{{$ecgVigente_5054M}}</td>
+                            <td>{{$ecgVigente_5054F}}</td>
+                            <td>{{$ecgVigente_5559M}}</td>
+                            <td>{{$ecgVigente_5559F}}</td>
+                            <td>{{$ecgVigente_6064M}}</td>
+                            <td>{{$ecgVigente_6064F}}</td>
+                            <td>{{$ecgVigente_6569M}}</td>
+                            <td>{{$ecgVigente_6569F}}</td>
+                            <td>{{$ecgVigente_7074M}}</td>
+                            <td>{{$ecgVigente_7074F}}</td>
+                            <td>{{$ecgVigente_7579M}}</td>
+                            <td>{{$ecgVigente_7579F}}</td>
+                            <td>{{$ecgVigente_80M}}</td>
+                            <td>{{$ecgVigente_80F}}</td>
                         </tr>
                         <tr>
                             <th colspan="2">EN TRATAMIENTO CON INSULINA</th>
-                            <td>
-                                {{ $usoInsulina }}
-                            </td>
-                            <td>
-                                {{ $usoInsulina_1564 }}
-                            </td>
-                            <td>
-                                {{ $usoInsulina_65 }}
-                            </td>
-                            <td>
-                                {{ $usoInsulinaM }}
-                            </td>
-                            <td>
-                                {{ $usoInsulinaF }}
-                            </td>
+                            <td>{{ $usoInsulina }}</td>
+                            <td>{{ $usoInsulinaM }}</td>
+                            <td>{{ $usoInsulinaF }}</td>
+                            <td>{{$usoInsulina_1519M}}</td>
+                            <td>{{$usoInsulina_1519F}}</td>
+                            <td>{{$usoInsulina_2024M}}</td>
+                            <td>{{$usoInsulina_2024F}}</td>
+                            <td>{{$usoInsulina_2529M}}</td>
+                            <td>{{$usoInsulina_2529F}}</td>
+                            <td>{{$usoInsulina_3034M}}</td>
+                            <td>{{$usoInsulina_3034F}}</td>
+                            <td>{{$usoInsulina_3539M}}</td>
+                            <td>{{$usoInsulina_3539F}}</td>
+                            <td>{{$usoInsulina_4044M}}</td>
+                            <td>{{$usoInsulina_4044F}}</td>
+                            <td>{{$usoInsulina_4549M}}</td>
+                            <td>{{$usoInsulina_4549F}}</td>
+                            <td>{{$usoInsulina_5054M}}</td>
+                            <td>{{$usoInsulina_5054F}}</td>
+                            <td>{{$usoInsulina_5559M}}</td>
+                            <td>{{$usoInsulina_5559F}}</td>
+                            <td>{{$usoInsulina_6064M}}</td>
+                            <td>{{$usoInsulina_6064F}}</td>
+                            <td>{{$usoInsulina_6569M}}</td>
+                            <td>{{$usoInsulina_6569F}}</td>
+                            <td>{{$usoInsulina_7074M}}</td>
+                            <td>{{$usoInsulina_7074F}}</td>
+                            <td>{{$usoInsulina_7579M}}</td>
+                            <td>{{$usoInsulina_7579F}}</td>
+                            <td>{{$usoInsulina_80M}}</td>
+                            <td>{{$usoInsulina_80F}}</td>
                         </tr>
                         <tr>
                             <th colspan="2">EN TRATAMIENTO CON INSULINA QUE LOGRA META CON HbA1C SEGÚN EDAD</th>
@@ -273,39 +321,71 @@
                         </tr>
                         <tr>
                             <th colspan="2">EN TRATAMIENTO CON IECA O ARA II.</th>
-                            <td>
-                                {{ $usoIecaAraII }}
-                            </td>
-                            <td>
-                                {{ $usoIecaAraII_1564 }}
-                            </td>
-                            <td>
-                                {{ $usoIecaAraII_65 }}
-                            </td>
-                            <td>
-                                {{ $usoIecaAraIIM }}
-                            </td>
-                            <td>
-                                {{ $usoIecaAraIIF }}
-                            </td>
+                            <td>{{ $usoIecaAraII }}</td>
+                            <td>{{ $usoIecaAraIIM }}</td>
+                            <td>{{ $usoIecaAraIIF }}</td>
+                            <td>{{$usoIecaAraII_1519M}}</td>
+                            <td>{{$usoIecaAraII_1519F}}</td>
+                            <td>{{$usoIecaAraII_2024M}}</td>
+                            <td>{{$usoIecaAraII_2024F}}</td>
+                            <td>{{$usoIecaAraII_2529M}}</td>
+                            <td>{{$usoIecaAraII_2529F}}</td>
+                            <td>{{$usoIecaAraII_3034M}}</td>
+                            <td>{{$usoIecaAraII_3034F}}</td>
+                            <td>{{$usoIecaAraII_3539M}}</td>
+                            <td>{{$usoIecaAraII_3539F}}</td>
+                            <td>{{$usoIecaAraII_4044M}}</td>
+                            <td>{{$usoIecaAraII_4044F}}</td>
+                            <td>{{$usoIecaAraII_4549M}}</td>
+                            <td>{{$usoIecaAraII_4549F}}</td>
+                            <td>{{$usoIecaAraII_5054M}}</td>
+                            <td>{{$usoIecaAraII_5054F}}</td>
+                            <td>{{$usoIecaAraII_5559M}}</td>
+                            <td>{{$usoIecaAraII_5559F}}</td>
+                            <td>{{$usoIecaAraII_6064M}}</td>
+                            <td>{{$usoIecaAraII_6064F}}</td>
+                            <td>{{$usoIecaAraII_6569M}}</td>
+                            <td>{{$usoIecaAraII_6569F}}</td>
+                            <td>{{$usoIecaAraII_7074M}}</td>
+                            <td>{{$usoIecaAraII_7074F}}</td>
+                            <td>{{$usoIecaAraII_7579M}}</td>
+                            <td>{{$usoIecaAraII_7579F}}</td>
+                            <td>{{$usoIecaAraII_80M}}</td>
+                            <td>{{$usoIecaAraII_80F}}</td>
                         </tr>
                         <tr>
                             <th colspan="2">CON UN EXÁMEN DE COLESTEROL LDL VIGENTE.</th>
-                            <td>
-                                {{ $ldlVigente }}
-                            </td>
-                            <td>
-                                {{ $ldlVigente_1564 }}
-                            </td>
-                            <td>
-                                {{ $ldlVigente_65 }}
-                            </td>
-                            <td>
-                                {{ $ldlVigenteM }}
-                            </td>
-                            <td>
-                                {{ $ldlVigenteF }}
-                            </td>
+                            <td>{{ $ldlVigente }}</td>
+                            <td>{{ $ldlVigenteM }}</td>
+                            <td>{{ $ldlVigenteF }}</td>
+                            <td>{{$ldlVigente_1519M}}</td>
+                            <td>{{$ldlVigente_1519F}}</td>
+                            <td>{{$ldlVigente_2024M}}</td>
+                            <td>{{$ldlVigente_2024F}}</td>
+                            <td>{{$ldlVigente_2529M}}</td>
+                            <td>{{$ldlVigente_2529F}}</td>
+                            <td>{{$ldlVigente_3034M}}</td>
+                            <td>{{$ldlVigente_3034F}}</td>
+                            <td>{{$ldlVigente_3539M}}</td>
+                            <td>{{$ldlVigente_3539F}}</td>
+                            <td>{{$ldlVigente_4044M}}</td>
+                            <td>{{$ldlVigente_4044F}}</td>
+                            <td>{{$ldlVigente_4549M}}</td>
+                            <td>{{$ldlVigente_4549F}}</td>
+                            <td>{{$ldlVigente_5054M}}</td>
+                            <td>{{$ldlVigente_5054F}}</td>
+                            <td>{{$ldlVigente_5559M}}</td>
+                            <td>{{$ldlVigente_5559F}}</td>
+                            <td>{{$ldlVigente_6064M}}</td>
+                            <td>{{$ldlVigente_6064F}}</td>
+                            <td>{{$ldlVigente_6569M}}</td>
+                            <td>{{$ldlVigente_6569F}}</td>
+                            <td>{{$ldlVigente_7074M}}</td>
+                            <td>{{$ldlVigente_7074F}}</td>
+                            <td>{{$ldlVigente_7579M}}</td>
+                            <td>{{$ldlVigente_7579F}}</td>
+                            <td>{{$ldlVigente_80M}}</td>
+                            <td>{{$ldlVigente_80F}}</td>
                         </tr>
                         <tr>
                             <th rowspan="5" style="vertical-align: middle">
@@ -499,7 +579,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th colspan="7" class="text-left bg-gradient-gray">PERSONAS HIPERTENSAS EN PSCV</th>
+                            <th colspan="2" class="text-left bg-gradient-gray">PERSONAS HIPERTENSAS EN PSCV</th>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON RAZON ALBÚMINA CREATININA (RAC),VIGENTE</th>
