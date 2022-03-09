@@ -175,8 +175,8 @@
 
 @section('js')
 <script>
-    $('#Enfermera, #Kine, #Medico').hide();
-        $('#tipo, #prox_tipo, #atencion , .evaluacionPie, .ulcerasActivas').select2({
+    $('#Enfermera, #Kine, #Medico, #Nutricionista').hide();
+        $('#tipo, #prox_tipo, #atencion , .evaluacionPie, .ulcerasActivas, .asmaClasif, .asmaControl, .epocClasif, .epocControl, .otras_enf').select2({
             theme: "classic",
             width: '100%',
         });
@@ -225,19 +225,23 @@
         $("#rac_vigente, #examenes1").removeAttr("checked");
 
         $('#tipo').change(function () {
+            $('#Enfermera, #Kine, #Medico, #Nutricionista').hide();
             var selection = $('#tipo').val();
-            $('#Enfermera, #Kine, #Medico').hide();
             switch (selection) {
                 case 'Enfermera':
                     $('#Enfermera').show();
                     $('#Kine').hide();
+                    $('#Medico').hide();
                     break;
                 case 'Kinesiologo':
                     $('#Kine').show();
+                    $('#Enfermera').hide();
+                    $('#Medico').hide();
                     break;
                 case 'Medico':
+                    $('#Medico, #Nutricionista').show();
                     $('#Enfermera').hide();
-                    $('#Kine,#Medico').show();
+                    //$('#Kine').hide();
                     break;
             }
         });
