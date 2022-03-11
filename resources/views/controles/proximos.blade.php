@@ -4,6 +4,11 @@
 
 @section('content')
     <div class="row">
+
+    @php
+    setlocale( LC_ALL, "Spanish_Chile" );
+    @endphp
+        
         <div class="page-header">
             {!! Form::open(['route' => 'proximos', 'method' => 'GET', 'class' => 'form-inline float-right pb-3']) !!}
             {!! Form::selectMonth('q', null, ['class' => 'form-control', 'placeholder' => 'Busqueda por mes', 'id' => 'q']) !!}
