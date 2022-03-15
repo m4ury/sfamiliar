@@ -394,75 +394,139 @@
                             </th>
                         <tr>
                             <th nowrap="">Riesgo Bajo</th>
-                            <td>
-                                {{ $evaluacionPie_bajo }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_bajo_1564 }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_bajo_65 }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_bajoM }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_bajoF }}
-                            </td>
+                            <td>{{ $evaluacionPie_bajo }}</td>
+                            <td>{{ $evaluacionPie_bajoM }}</td>
+                            <td>{{ $evaluacionPie_bajoF }}</td>
+                            <td>{{$evaluacionPie_bajo_1519M}}</td>
+                            <td>{{$evaluacionPie_bajo_1519F}}</td>
+                            <td>{{$evaluacionPie_bajo_2024M}}</td>
+                            <td>{{$evaluacionPie_bajo_2024F}}</td>
+                            <td>{{$evaluacionPie_bajo_2529M}}</td>
+                            <td>{{$evaluacionPie_bajo_2529F}}</td>
+                            <td>{{$evaluacionPie_bajo_3034M}}</td>
+                            <td>{{$evaluacionPie_bajo_3034F}}</td>
+                            <td>{{$evaluacionPie_bajo_3539M}}</td>
+                            <td>{{$evaluacionPie_bajo_3539F}}</td>
+                            <td>{{$evaluacionPie_bajo_4044M}}</td>
+                            <td>{{$evaluacionPie_bajo_4044F}}</td>
+                            <td>{{$evaluacionPie_bajo_4549M}}</td>
+                            <td>{{$evaluacionPie_bajo_4549F}}</td>
+                            <td>{{$evaluacionPie_bajo_5054M}}</td>
+                            <td>{{$evaluacionPie_bajo_5054F}}</td>
+                            <td>{{$evaluacionPie_bajo_5559M}}</td>
+                            <td>{{$evaluacionPie_bajo_5559F}}</td>
+                            <td>{{$evaluacionPie_bajo_6064M}}</td>
+                            <td>{{$evaluacionPie_bajo_6064F}}</td>
+                            <td>{{$evaluacionPie_bajo_6569M}}</td>
+                            <td>{{$evaluacionPie_bajo_6569F}}</td>
+                            <td>{{$evaluacionPie_bajo_7074M}}</td>
+                            <td>{{$evaluacionPie_bajo_7074F}}</td>
+                            <td>{{$evaluacionPie_bajo_7579M}}</td>
+                            <td>{{$evaluacionPie_bajo_7579F}}</td>
+                            <td>{{$evaluacionPie_bajo_80M}}</td>
+                            <td>{{$evaluacionPie_bajo_80F}}</td>
                         </tr>
                         <tr>
                             <th nowrap="">Riesgo Moderado</th>
-                            <td>
-                                {{ $evaluacionPie_moderado }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_moderado_1564 }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_moderado_65 }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_moderadoM }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_moderadoF }}
-                            </td>
+                            <td>{{ $evaluacionPie_moderado }}</td>
+                            <td>{{ $evaluacionPie_moderadoM }}</td>
+                            <td>{{ $evaluacionPie_moderadoF }}</td>
+                            <td>{{$evaluacionPie_moderado_1519M}}</td>
+                            <td>{{$evaluacionPie_moderado_1519F}}</td>
+                            <td>{{$evaluacionPie_moderado_2024M}}</td>
+                            <td>{{$evaluacionPie_moderado_2024F}}</td>
+                            <td>{{$evaluacionPie_moderado_2529M}}</td>
+                            <td>{{$evaluacionPie_moderado_2529F}}</td>
+                            <td>{{$evaluacionPie_moderado_3034M}}</td>
+                            <td>{{$evaluacionPie_moderado_3034F}}</td>
+                            <td>{{$evaluacionPie_moderado_3539M}}</td>
+                            <td>{{$evaluacionPie_moderado_3539F}}</td>
+                            <td>{{$evaluacionPie_moderado_4044M}}</td>
+                            <td>{{$evaluacionPie_moderado_4044F}}</td>
+                            <td>{{$evaluacionPie_moderado_4549M}}</td>
+                            <td>{{$evaluacionPie_moderado_4549F}}</td>
+                            <td>{{$evaluacionPie_moderado_5054M}}</td>
+                            <td>{{$evaluacionPie_moderado_5054F}}</td>
+                            <td>{{$evaluacionPie_moderado_5559M}}</td>
+                            <td>{{$evaluacionPie_moderado_5559F}}</td>
+                            <td>{{$evaluacionPie_moderado_6064M}}</td>
+                            <td>{{$evaluacionPie_moderado_6064F}}</td>
+                            <td>{{$evaluacionPie_moderado_6569M}}</td>
+                            <td>{{$evaluacionPie_moderado_6569F}}</td>
+                            <td>{{$evaluacionPie_moderado_7074M}}</td>
+                            <td>{{$evaluacionPie_moderado_7074F}}</td>
+                            <td>{{$evaluacionPie_moderado_7579M}}</td>
+                            <td>{{$evaluacionPie_moderado_7579F}}</td>
+                            <td>{{$evaluacionPie_moderado_80M}}</td>
+                            <td>{{$evaluacionPie_moderado_80F}}</td>
                         </tr>
                         <tr>
                             <th nowrap="">Riesgo Alto</th>
-                            <td>
-                                {{ $evaluacionPie_alto }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_alto_1564 }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_alto_65 }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_altoM }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_altoF }}
-                            </td>
+                            <td>{{ $evaluacionPie_alto }}</td>
+                            <td>{{ $evaluacionPie_altoM }}</td>
+                            <td>{{ $evaluacionPie_altoF }}</td>
+                            <td>{{$evaluacionPie_alto_1519M}}</td>
+                            <td>{{$evaluacionPie_alto_1519F}}</td>
+                            <td>{{$evaluacionPie_alto_2024M}}</td>
+                            <td>{{$evaluacionPie_alto_2024F}}</td>
+                            <td>{{$evaluacionPie_alto_2529M}}</td>
+                            <td>{{$evaluacionPie_alto_2529F}}</td>
+                            <td>{{$evaluacionPie_alto_3034M}}</td>
+                            <td>{{$evaluacionPie_alto_3034F}}</td>
+                            <td>{{$evaluacionPie_alto_3539M}}</td>
+                            <td>{{$evaluacionPie_alto_3539F}}</td>
+                            <td>{{$evaluacionPie_alto_4044M}}</td>
+                            <td>{{$evaluacionPie_alto_4044F}}</td>
+                            <td>{{$evaluacionPie_alto_4549M}}</td>
+                            <td>{{$evaluacionPie_alto_4549F}}</td>
+                            <td>{{$evaluacionPie_alto_5054M}}</td>
+                            <td>{{$evaluacionPie_alto_5054F}}</td>
+                            <td>{{$evaluacionPie_alto_5559M}}</td>
+                            <td>{{$evaluacionPie_alto_5559F}}</td>
+                            <td>{{$evaluacionPie_alto_6064M}}</td>
+                            <td>{{$evaluacionPie_alto_6064F}}</td>
+                            <td>{{$evaluacionPie_alto_6569M}}</td>
+                            <td>{{$evaluacionPie_alto_6569F}}</td>
+                            <td>{{$evaluacionPie_alto_7074M}}</td>
+                            <td>{{$evaluacionPie_alto_7074F}}</td>
+                            <td>{{$evaluacionPie_alto_7579M}}</td>
+                            <td>{{$evaluacionPie_alto_7579F}}</td>
+                            <td>{{$evaluacionPie_alto_80M}}</td>
+                            <td>{{$evaluacionPie_alto_80F}}</td>
                         </tr>
                         <tr>
                             <th nowrap="">Riesgo Maximo</th>
-                            <td>
-                                {{ $evaluacionPie_maximo }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_maximo_1564 }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_maximo_65 }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_maximoM }}
-                            </td>
-                            <td>
-                                {{ $evaluacionPie_maximoF }}
-                            </td>
+                            <td>{{ $evaluacionPie_maximo }}</td>
+                            <td>{{ $evaluacionPie_maximoM }}</td>
+                            <td>{{ $evaluacionPie_maximoF }}</td>
+                            <td>{{$evaluacionPie_maximo_1519M}}</td>
+                            <td>{{$evaluacionPie_maximo_1519F}}</td>
+                            <td>{{$evaluacionPie_maximo_2024M}}</td>
+                            <td>{{$evaluacionPie_maximo_2024F}}</td>
+                            <td>{{$evaluacionPie_maximo_2529M}}</td>
+                            <td>{{$evaluacionPie_maximo_2529F}}</td>
+                            <td>{{$evaluacionPie_maximo_3034M}}</td>
+                            <td>{{$evaluacionPie_maximo_3034F}}</td>
+                            <td>{{$evaluacionPie_maximo_3539M}}</td>
+                            <td>{{$evaluacionPie_maximo_3539F}}</td>
+                            <td>{{$evaluacionPie_maximo_4044M}}</td>
+                            <td>{{$evaluacionPie_maximo_4044F}}</td>
+                            <td>{{$evaluacionPie_maximo_4549M}}</td>
+                            <td>{{$evaluacionPie_maximo_4549F}}</td>
+                            <td>{{$evaluacionPie_maximo_5054M}}</td>
+                            <td>{{$evaluacionPie_maximo_5054F}}</td>
+                            <td>{{$evaluacionPie_maximo_5559M}}</td>
+                            <td>{{$evaluacionPie_maximo_5559F}}</td>
+                            <td>{{$evaluacionPie_maximo_6064M}}</td>
+                            <td>{{$evaluacionPie_maximo_6064F}}</td>
+                            <td>{{$evaluacionPie_maximo_6569M}}</td>
+                            <td>{{$evaluacionPie_maximo_6569F}}</td>
+                            <td>{{$evaluacionPie_maximo_7074M}}</td>
+                            <td>{{$evaluacionPie_maximo_7074F}}</td>
+                            <td>{{$evaluacionPie_maximo_7579M}}</td>
+                            <td>{{$evaluacionPie_maximo_7579F}}</td>
+                            <td>{{$evaluacionPie_maximo_80M}}</td>
+                            <td>{{$evaluacionPie_maximo_80F}}</td>
                         </tr>
                         </tr>
                         <tr>
@@ -637,36 +701,140 @@
                             <th colspan="7" class="text-left bg-gradient-gray">TODAS LAS PERSONAS EN PSCV</th>
                         </tr>
                         <tr>
-                            <th nowrap="" colspan="2">SOBREPESO: IMC entre 25 y 29.9 <65< /th>
-                            <td>{{ $imc2529_menor65 }}</td>
-                            <td>{{ $imc2529_menor65 }}</td>
-                            <td class="bg-gradient-gray"></td>
-                            <td>{{$imc2529_menor65M}}</td>
-                            <td>{{$imc2529_menor65F}}</td>
+                            <th nowrap="" colspan="2">SOBREPESO: IMC entre 25 y 29.9 < 65 </th>
+                            <td>{{ $imc2529 }}</td>
+                            <td>{{ $imc2529M }}</td>
+                            <td>{{ $imc2529F }}</td>
+                            <td>{{$imc2529_1519M}}</td>
+                            <td>{{$imc2529_1519F}}</td>
+                            <td>{{$imc2529_2024M}}</td>
+                            <td>{{$imc2529_2024F}}</td>
+                            <td>{{$imc2529_2529M}}</td>
+                            <td>{{$imc2529_2529F}}</td>
+                            <td>{{$imc2529_3034M}}</td>
+                            <td>{{$imc2529_3034F}}</td>
+                            <td>{{$imc2529_3539M}}</td>
+                            <td>{{$imc2529_3539F}}</td>
+                            <td>{{$imc2529_4044M}}</td>
+                            <td>{{$imc2529_4044F}}</td>
+                            <td>{{$imc2529_4549M}}</td>
+                            <td>{{$imc2529_4549F}}</td>
+                            <td>{{$imc2529_5054M}}</td>
+                            <td>{{$imc2529_5054F}}</td>
+                            <td>{{$imc2529_5559M}}</td>
+                            <td>{{$imc2529_5559F}}</td>
+                            <td>{{$imc2529_6064M}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <th nowrap="" colspan="2">SOBREPESO: IMC entre 28 y 31.9 >65</th>
-                            <td>{{ $imc2831_mayor65 }}</td>
-                            <td class="bg-gradient-gray"></td>
-                            <td>{{$imc2831_mayor65}}</td>
-                            <td>{{$imc2831_mayor65M}}</td>
-                            <td>{{$imc2831_mayor65F}}</td>
+                            <th nowrap="" colspan="2">SOBREPESO: IMC entre 28 y 31.9 > 65 </th>
+                            <td>{{ $imc2831 }}</td>
+                            <td>{{ $imc2831M }}</td>
+                            <td>{{ $imc2831F }}</td>
+                            <td>{{$imc2831_1519M}}</td>
+                            <td>{{$imc2831_1519F}}</td>
+                            <td>{{$imc2831_2024M}}</td>
+                            <td>{{$imc2831_2024F}}</td>
+                            <td>{{$imc2831_2529M}}</td>
+                            <td>{{$imc2831_2529F}}</td>
+                            <td>{{$imc2831_3034M}}</td>
+                            <td>{{$imc2831_3034F}}</td>
+                            <td>{{$imc2831_3539M}}</td>
+                            <td>{{$imc2831_3539F}}</td>
+                            <td>{{$imc2831_4044M}}</td>
+                            <td>{{$imc2831_4044F}}</td>
+                            <td>{{$imc2831_4549M}}</td>
+                            <td>{{$imc2831_4549F}}</td>
+                            <td>{{$imc2831_5054M}}</td>
+                            <td>{{$imc2831_5054F}}</td>
+                            <td>{{$imc2831_5559M}}</td>
+                            <td>{{$imc2831_5559F}}</td>
+                            <td>{{$imc2831_6064M}}</td>
+                            <td>{{$imc2831_6064F}}</td>
+                            <td>{{$imc2831_6569M}}</td>
+                            <td>{{$imc2831_6569F}}</td>
+                            <td>{{$imc2831_7074M}}</td>
+                            <td>{{$imc2831_7074F}}</td>
+                            <td>{{$imc2831_7579M}}</td>
+                            <td>{{$imc2831_7579F}}</td>
+                            <td>{{$imc2831_80M}}</td>
+                            <td>{{$imc2831_80F}}</td>
                         </tr>
                         <tr>
-                            <th nowrap="" colspan="2">OBESIDAD IMC igual o Mayor a 30KG/M2 <65< /th>
-                            <td>{{ $imcMayor30_menor65 }}</td>
-                            <td>{{ $imcMayor30_menor65 }}</td>
-                            <td class="bg-gradient-gray"></td>
-                            <td>{{$imcMayor30_menor65M}}</td>
-                            <td>{{$imcMayor30_menor65F}}</td>
+                            <th nowrap="" colspan="2">OBESIDAD IMC igual o Mayor a 30 KG/M2 < 65 </th>
+                            <td>{{ $imcMayor30 }}</td>
+                            <td>{{ $imcMayor30M }}</td>
+                            <td>{{ $imcMayor30F }}</td>
+                            <td>{{$imcMayor30_1519M}}</td>
+                            <td>{{$imcMayor30_1519F}}</td>
+                            <td>{{$imcMayor30_2024M}}</td>
+                            <td>{{$imcMayor30_2024F}}</td>
+                            <td>{{$imcMayor30_2529M}}</td>
+                            <td>{{$imcMayor30_2529F}}</td>
+                            <td>{{$imcMayor30_3034M}}</td>
+                            <td>{{$imcMayor30_3034F}}</td>
+                            <td>{{$imcMayor30_3539M}}</td>
+                            <td>{{$imcMayor30_3539F}}</td>
+                            <td>{{$imcMayor30_4044M}}</td>
+                            <td>{{$imcMayor30_4044F}}</td>
+                            <td>{{$imcMayor30_4549M}}</td>
+                            <td>{{$imcMayor30_4549F}}</td>
+                            <td>{{$imcMayor30_5054M}}</td>
+                            <td>{{$imcMayor30_5054F}}</td>
+                            <td>{{$imcMayor30_5559M}}</td>
+                            <td>{{$imcMayor30_5559F}}</td>
+                            <td>{{$imcMayor30_6064M}}</td>
+                            <td>{{$imcMayor30_6064F}}</td>
+                            <td>{{$imcMayor30_6569M}}</td>
+                            <td>{{$imcMayor30_6569F}}</td>
+                            <td>{{$imcMayor30_7074M}}</td>
+                            <td>{{$imcMayor30_7074F}}</td>
+                            <td>{{$imcMayor30_7579M}}</td>
+                            <td>{{$imcMayor30_7579F}}</td>
+                            <td>{{$imcMayor30_80M}}</td>
+                            <td>{{$imcMayor30_80F}}</td>
                         </tr>
                         <tr>
-                            <th nowrap="" colspan="2">**OBESIDAD: IMC igual o Mayor a 32KG/M2 >65</th>
-                            <td>{{ $imcMayor32_mayor65 }}</td>
-                            <td class="bg-gradient-gray"></td>
-                            <td>{{$imcMayor32_mayor65}}</td>
-                            <td>{{$imcMayor32_mayor65M}}</td>
-                            <td>{{$imcMayor32_mayor65F}}</td>
+                            <th nowrap="" colspan="2">**OBESIDAD: IMC igual o Mayor a 32KG/M2 > 65 </th>
+                            <td>{{ $imcMayor32 }}</td>
+                            <td>{{ $imcMayor32M }}</td>
+                            <td>{{ $imcMayor32F }}</td>
+                            <td>{{$imcMayor32_1519M}}</td>
+                            <td>{{$imcMayor32_1519F}}</td>
+                            <td>{{$imcMayor32_2024M}}</td>
+                            <td>{{$imcMayor32_2024F}}</td>
+                            <td>{{$imcMayor32_2529M}}</td>
+                            <td>{{$imcMayor32_2529F}}</td>
+                            <td>{{$imcMayor32_3034M}}</td>
+                            <td>{{$imcMayor32_3034F}}</td>
+                            <td>{{$imcMayor32_3539M}}</td>
+                            <td>{{$imcMayor32_3539F}}</td>
+                            <td>{{$imcMayor32_4044M}}</td>
+                            <td>{{$imcMayor32_4044F}}</td>
+                            <td>{{$imcMayor32_4549M}}</td>
+                            <td>{{$imcMayor32_4549F}}</td>
+                            <td>{{$imcMayor32_5054M}}</td>
+                            <td>{{$imcMayor32_5054F}}</td>
+                            <td>{{$imcMayor32_5559M}}</td>
+                            <td>{{$imcMayor32_5559F}}</td>
+                            <td>{{$imcMayor32_6064M}}</td>
+                            <td>{{$imcMayor32_6064F}}</td>
+                            <td>{{$imcMayor32_6569M}}</td>
+                            <td>{{$imcMayor32_6569F}}</td>
+                            <td>{{$imcMayor32_7074M}}</td>
+                            <td>{{$imcMayor32_7074F}}</td>
+                            <td>{{$imcMayor32_7579M}}</td>
+                            <td>{{$imcMayor32_7579F}}</td>
+                            <td>{{$imcMayor32_80M}}</td>
+                            <td>{{$imcMayor32_80F}}</td>
                         </tr>
                     </thead>
                 </table>

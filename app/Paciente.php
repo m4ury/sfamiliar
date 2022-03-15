@@ -224,32 +224,32 @@ class Paciente extends Model
     //Controles Enfermera *********
     public function evaluacionPie_bajo()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Bajo')->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.evaluacionPie', '=', 'Bajo')->where('controls.tipo_control', '=', 'Enfermera')->where('controls.fecha_control', '>=', '2021-06-01')->latest('controls.fecha_control');
     }
 
     public function evaluacionPie_moderado()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Moderado')->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.evaluacionPie', '=', 'Moderado')->where('controls.tipo_control', '=', 'Enfermera')->where('controls.fecha_control', '>=', '2021-06-01')->latest('controls.fecha_control');
     }
 
     public function evaluacionPie_alto()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Alto')->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.evaluacionPie', '=', 'Alto')->where('controls.tipo_control', '=', 'Enfermera')->where('controls.fecha_control', '>=', '2021-06-01')->latest('controls.fecha_control');
     }
 
     public function evaluacionPie_maximo()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->where('controls.evaluacionPie', '=', 'Maximo')->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.evaluacionPie', '=', 'Maximo')->where('controls.tipo_control', '=', 'Enfermera')->where('controls.fecha_control', '>=', '2021-06-01')->latest('controls.fecha_control');
     }
 
     public function ulcerasActivas_TipoCuracion_avz()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->whereIn('controls.tipo_control', ['Enfermera', 'Medico'])->where('controls.ulcerasActivas_TipoCuracion', '=', 'Avanzada')->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.fecha_control', '>=', '2021-06-01')->where('controls.ulcerasActivas_TipoCuracion', '=', 'Avanzada')->where('controls.tipo_control', '=', 'Enfermera')->latest('controls.fecha_control');
     }
 
     public function ulcerasActivas_TipoCuracion_conv()
     {
-        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.last', '=', 1)->whereIn('controls.tipo_control', ['Enfermera', 'Medico'])->where('controls.ulcerasActivas_TipoCuracion', '=', 'Convencional')->latest('controls.fecha_control');
+        return $this->join('controls', 'controls.paciente_id', 'pacientes.id')->where('controls.fecha_control', '>=', '2021-06-01')->where('controls.ulcerasActivas_TipoCuracion', '=', 'Convencional')->where('controls.tipo_control', '=', 'Enfermera')->latest('controls.fecha_control');
     }
     //Controles Enfermera ************
 

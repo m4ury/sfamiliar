@@ -1312,32 +1312,181 @@ class EstadisticaController extends Controller
         $ldlVigente_80M = $pacientes->ldlVigente()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
 
         //evaluacion Pie_bajo
-        $evaluacionPie_bajo = $pacientes->evaluacionPie_bajo()->count();
+        /*$evaluacionPie_bajo = $pacientes->evaluacionPie_bajo()->count();
         $evaluacionPie_bajo_1564 = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [15, 64])->count();
         $evaluacionPie_bajo_65 = $pacientes->evaluacionPie_bajo()->get()->where('grupo', '>', 64)->count();
         $evaluacionPie_bajoF = $pacientes->evaluacionPie_bajo()->where('sexo', 'Femenino')->count();
-        $evaluacionPie_bajoM = $pacientes->evaluacionPie_bajo()->where('sexo', 'Masculino')->count();
+        $evaluacionPie_bajoM = $pacientes->evaluacionPie_bajo()->where('sexo', 'Masculino')->count();*/
 
-        //evaluacion Pie_moderado
-        $evaluacionPie_moderado = $pacientes->evaluacionPie_moderado()->count();
+        //evaluacion Pie_bajo
+        $evaluacionPie_bajo = $pacientes->evaluacionPie_bajo()->get()->where('grupo', '>', 14)->unique('rut')->count();
+
+        $evaluacionPie_bajoM = $pacientes->evaluacionPie_bajo()->get()->where('grupo', '>', 14)->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajoOriginM = $pacientes->evaluacionPie_bajo()->where('.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $evaluacionPie_bajo_1519M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_2024M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_2529M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_3034M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_3539M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_4044M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_4549M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_5054M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_5559M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_6064M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_6569M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_7074M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_7579M = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_bajo_80M = $pacientes->evaluacionPie_bajo()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+
+        $evaluacionPie_bajoF = $pacientes->evaluacionPie_bajo()->get()->where('grupo', '>', 14)->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajoOriginF = $pacientes->evaluacionPie_bajo()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $evaluacionPie_bajo_1519F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_2024F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_2529F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_3034F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_3539F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_4044F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_4549F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_5054F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_5559F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_6064F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_6569F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_7074F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_7579F = $pacientes->evaluacionPie_bajo()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_bajo_80F = $pacientes->evaluacionPie_bajo()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+
+        /*$evaluacionPie_moderado = $pacientes->evaluacionPie_moderado()->count();
         $evaluacionPie_moderado_1564 = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [15, 64])->count();
         $evaluacionPie_moderado_65 = $pacientes->evaluacionPie_moderado()->get()->where('grupo', '>', 64)->count();
         $evaluacionPie_moderadoF = $pacientes->evaluacionPie_moderado()->where('sexo', 'Femenino')->count();
-        $evaluacionPie_moderadoM = $pacientes->evaluacionPie_moderado()->where('sexo', 'Masculino')->count();
+        $evaluacionPie_moderadoM = $pacientes->evaluacionPie_moderado()->where('sexo', 'Masculino')->count();*/
 
-        //evaluacion Pie_alto
-        $evaluacionPie_alto = $pacientes->evaluacionPie_alto()->count();
+        //evaluacion Pie_moderado
+
+        $evaluacionPie_moderado = $pacientes->evaluacionPie_moderado()->get()->where('grupo', '>', 14)->unique('rut')->count();
+
+        $evaluacionPie_moderadoM = $pacientes->evaluacionPie_moderado()->get()->where('grupo', '>', 14)->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderadoOriginM = $pacientes->evaluacionPie_moderado()->where('.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $evaluacionPie_moderado_1519M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_2024M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_2529M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_3034M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_3539M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_4044M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_4549M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_5054M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_5559M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_6064M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_6569M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_7074M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_7579M = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_moderado_80M = $pacientes->evaluacionPie_moderado()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+
+        $evaluacionPie_moderadoF = $pacientes->evaluacionPie_moderado()->get()->where('grupo', '>', 14)->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderadoOriginF = $pacientes->evaluacionPie_moderado()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $evaluacionPie_moderado_1519F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_2024F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_2529F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_3034F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_3539F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_4044F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_4549F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_5054F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_5559F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_6064F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_6569F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_7074F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_7579F = $pacientes->evaluacionPie_moderado()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_moderado_80F = $pacientes->evaluacionPie_moderado()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+
+
+        /*$evaluacionPie_alto = $pacientes->evaluacionPie_alto()->count();
         $evaluacionPie_alto_1564 = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [15, 64])->count();
         $evaluacionPie_alto_65 = $pacientes->evaluacionPie_alto()->get()->where('grupo', '>', 64)->count();
         $evaluacionPie_altoF = $pacientes->evaluacionPie_alto()->where('sexo', 'Femenino')->count();
-        $evaluacionPie_altoM = $pacientes->evaluacionPie_alto()->where('sexo', 'Masculino')->count();
+        $evaluacionPie_altoM = $pacientes->evaluacionPie_alto()->where('sexo', 'Masculino')->count();*/
 
-        //evaluacion Pie_maximo
-        $evaluacionPie_maximo = $pacientes->evaluacionPie_maximo()->count();
+        //evaluacion Pie_alto
+        $evaluacionPie_alto = $pacientes->evaluacionPie_alto()->get()->where('grupo', '>', 14)->unique('rut')->count();
+
+        $evaluacionPie_altoM = $pacientes->evaluacionPie_alto()->get()->where('grupo', '>', 14)->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_altoOriginM = $pacientes->evaluacionPie_alto()->where('.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $evaluacionPie_alto_1519M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_2024M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_2529M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_3034M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_3539M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_4044M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_4549M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_5054M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_5559M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_6064M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_6569M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_7074M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_7579M = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_alto_80M = $pacientes->evaluacionPie_alto()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+
+        $evaluacionPie_altoF = $pacientes->evaluacionPie_alto()->get()->where('grupo', '>', 14)->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_altoOriginF = $pacientes->evaluacionPie_alto()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $evaluacionPie_alto_1519F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_2024F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_2529F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_3034F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_3539F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_4044F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_4549F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_5054F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_5559F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_6064F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_6569F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_7074F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_7579F = $pacientes->evaluacionPie_alto()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_alto_80F = $pacientes->evaluacionPie_alto()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+
+        /*$evaluacionPie_maximo = $pacientes->evaluacionPie_maximo()->count();
         $evaluacionPie_maximo_1564 = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [15, 64])->count();
         $evaluacionPie_maximo_65 = $pacientes->evaluacionPie_maximo()->get()->where('grupo', '>', 64)->count();
         $evaluacionPie_maximoF = $pacientes->evaluacionPie_maximo()->where('sexo', 'Femenino')->count();
-        $evaluacionPie_maximoM = $pacientes->evaluacionPie_maximo()->where('sexo', 'Masculino')->count();
+        $evaluacionPie_maximoM = $pacientes->evaluacionPie_maximo()->where('sexo', 'Masculino')->count();*/
+
+        //evaluacion Pie_maximo
+
+        $evaluacionPie_maximo = $pacientes->evaluacionPie_maximo()->get()->where('grupo', '>', 14)->unique('rut')->count();
+
+        $evaluacionPie_maximoM = $pacientes->evaluacionPie_maximo()->get()->where('grupo', '>', 14)->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximoOriginM = $pacientes->evaluacionPie_maximo()->where('.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $evaluacionPie_maximo_1519M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_2024M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_2529M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_3034M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_3539M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_4044M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_4549M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_5054M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_5559M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_6064M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_6569M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_7074M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_7579M = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->unique('rut')->count();
+        $evaluacionPie_maximo_80M = $pacientes->evaluacionPie_maximo()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+
+        $evaluacionPie_maximoF = $pacientes->evaluacionPie_maximo()->get()->where('grupo', '>', 14)->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximoOriginF = $pacientes->evaluacionPie_maximo()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $evaluacionPie_maximo_1519F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_2024F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_2529F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_3034F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_3539F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_4044F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_4549F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_5054F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_5559F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_6064F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_6569F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_7074F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_7579F = $pacientes->evaluacionPie_maximo()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->unique('rut')->count();
+        $evaluacionPie_maximo_80F = $pacientes->evaluacionPie_maximo()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+
 
         //ulcerasActivas_TipoCuracion_avz
         $ulcerasActivas_TipoCuracion_avz = $pacientes->ulcerasActivas_TipoCuracion_avz()->count();
@@ -1428,27 +1577,166 @@ class EstadisticaController extends Controller
 
         //imc 25 y 29.9 <65
         //$imc2529 = $pacientes->imc2529()->count();
-        $imc2529_menor65 = $pacientes->imc2529()->get()->where('grupo', '<', 65)->count();
+        /*$imc2529_menor65 = $pacientes->imc2529()->get()->where('grupo', '<', 65)->count();
         $imc2529_menor65F = $pacientes->imc2529()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '<', 65)->count();
-        $imc2529_menor65M = $pacientes->imc2529()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '<', 65)->count();
+        $imc2529_menor65M = $pacientes->imc2529()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '<', 65)->count();*/
+
+        $imc2529 = $pacientes->imc2529()->get()->unique('rut')->where('grupo', '<', 65)->count();
+        $imc2529F = $pacientes->imc2529()->get()->where('grupo', '<', 65)->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_1519F = $pacientes->imc2529()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_2024F = $pacientes->imc2529()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_2529F = $pacientes->imc2529()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_3034F = $pacientes->imc2529()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_3539F = $pacientes->imc2529()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_4044F = $pacientes->imc2529()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_4549F = $pacientes->imc2529()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_5054F = $pacientes->imc2529()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_5559F = $pacientes->imc2529()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_6064F = $pacientes->imc2529()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();
+        /*$imc2529_6569F = $pacientes->imc2529()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_7074F = $pacientes->imc2529()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_7579F = $pacientes->imc2529()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2529_80F = $pacientes->imc2529()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();*/
+        // dd($imc2529_80F);
+
+        $imc2529M = $pacientes->imc2529()->get()->where('grupo', '<', 65)->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_1519M = $pacientes->imc2529()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_2024M = $pacientes->imc2529()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_2529M = $pacientes->imc2529()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_3034M = $pacientes->imc2529()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_3539M = $pacientes->imc2529()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_4044M = $pacientes->imc2529()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_4549M = $pacientes->imc2529()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_5054M = $pacientes->imc2529()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_5559M = $pacientes->imc2529()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_6064M = $pacientes->imc2529()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();
+        /*$imc2529_6569M = $pacientes->imc2529()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_7074M = $pacientes->imc2529()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_7579M = $pacientes->imc2529()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2529_80M = $pacientes->imc2529()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->unique('rut')->count();*/
 
         //imc 28 y 31.9 > 65
         //$imc2831 = $pacientes->imc2831()->count();
-        $imc2831_mayor65 = $pacientes->imc2831()->get()->where('grupo', '>', 65)->count();
+        /*$imc2831_mayor65 = $pacientes->imc2831()->get()->where('grupo', '>', 65)->count();
         $imc2831_mayor65F = $pacientes->imc2831()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '>', 65)->count();
-        $imc2831_mayor65M = $pacientes->imc2831()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '>', 65)->count();
+        $imc2831_mayor65M = $pacientes->imc2831()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '>', 65)->count();*/
+
+        $imc2831 = $pacientes->imc2831()->get()->unique('rut')->count();
+        $imc2831F = $pacientes->imc2831()->get()->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_1519F = $pacientes->imc2831()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_2024F = $pacientes->imc2831()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_2529F = $pacientes->imc2831()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_3034F = $pacientes->imc2831()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_3539F = $pacientes->imc2831()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_4044F = $pacientes->imc2831()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_4549F = $pacientes->imc2831()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_5054F = $pacientes->imc2831()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_5559F = $pacientes->imc2831()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_6064F = $pacientes->imc2831()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_6569F = $pacientes->imc2831()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_7074F = $pacientes->imc2831()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_7579F = $pacientes->imc2831()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_80F = $pacientes->imc2831()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+        // dd($imc2831_80F);
+
+        $imc2831M = $pacientes->imc2831()->get()->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_1519M = $pacientes->imc2831()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_2024M = $pacientes->imc2831()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_2529M = $pacientes->imc2831()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_3034M = $pacientes->imc2831()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_3539M = $pacientes->imc2831()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_4044M = $pacientes->imc2831()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_4549M = $pacientes->imc2831()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_5054M = $pacientes->imc2831()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_5559M = $pacientes->imc2831()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_6064M = $pacientes->imc2831()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_6569M = $pacientes->imc2831()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_7074M = $pacientes->imc2831()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_7579M = $pacientes->imc2831()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_80M = $pacientes->imc2831()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->unique('rut')->count();
 
         //imc mayor 30 < 65
         //$imcMayor30 = $pacientes->imcMayor30()->count();
-        $imcMayor30_menor65 = $pacientes->imcMayor30()->get()->where('grupo', '<', 65)->count();
+        /*$imcMayor30_menor65 = $pacientes->imcMayor30()->get()->where('grupo', '<', 65)->count();
         $imcMayor30_menor65F = $pacientes->imcMayor30()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '<', 65)->count();
-        $imcMayor30_menor65M = $pacientes->imcMayor30()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '<', 65)->count();
+        $imcMayor30_menor65M = $pacientes->imcMayor30()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '<', 65)->count();*/
+
+        $imcMayor30 = $pacientes->imcMayor30()->get()->unique('rut')->count();
+
+        $imcMayor30F = $pacientes->imcMayor30()->get()->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_1519F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_2024F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_2529F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_3034F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_3539F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_4044F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_4549F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_5054F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_5559F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_6064F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_6569F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_7074F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_7579F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_80F = $pacientes->imcMayor30()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+        // dd($imcMayor30_80F);
+
+        $imcMayor30M = $pacientes->imcMayor30()->get()->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_1519M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_2024M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_2529M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_3034M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_3539M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_4044M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_4549M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_5054M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_5559M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_6064M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_6569M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_7074M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_7579M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_80M = $pacientes->imcMayor30()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->unique('rut')->count();
+
 
         //imc > 32 > 65
         //$imc2529 = $pacientes->imc2529()->count();
-        $imcMayor32_mayor65 = $pacientes->imcMayor32()->get()->where('grupo', '>', 65)->count();
+        /*$imcMayor32_mayor65 = $pacientes->imcMayor32()->get()->where('grupo', '>', 65)->count();
         $imcMayor32_mayor65F = $pacientes->imcMayor32()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '>', 65)->count();
-        $imcMayor32_mayor65M = $pacientes->imcMayor32()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '>', 65)->count();
+        $imcMayor32_mayor65M = $pacientes->imcMayor32()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '>', 65)->count();*/
+
+        $imcMayor32 = $pacientes->imcMayor32()->get()->unique('rut')->count();
+
+        $imcMayor32F = $pacientes->imcMayor32()->get()->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_1519F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_2024F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_2529F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_3034F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_3539F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_4044F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_4549F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_5054F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_5559F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_6064F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_6569F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_7074F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_7579F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_80F = $pacientes->imcMayor32()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+        // dd($imcMayor32_80F);
+
+        $imcMayor32M = $pacientes->imcMayor32()->get()->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_1519M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_2024M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_2529M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_3034M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_3539M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_4044M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_4549M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_5054M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_5559M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_6064M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_6569M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_7074M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_7579M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_80M = $pacientes->imcMayor32()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->unique('rut')->count();
 
 
         return view('estadisticas.seccion-c', compact(
@@ -1483,6 +1771,7 @@ class EstadisticaController extends Controller
             'racVigente_7579F',
             'racVigente_80M',
             'racVigente_80F',
+
             'vfgVigente',
             'vfgVigenteM',
             'vfgVigenteF',
@@ -1514,6 +1803,7 @@ class EstadisticaController extends Controller
             'vfgVigente_7579F',
             'vfgVigente_80M',
             'vfgVigente_80F',
+
             'fondoOjoVigente',
             'fondoOjoVigenteM',
             'fondoOjoVigenteF',
@@ -1545,6 +1835,7 @@ class EstadisticaController extends Controller
             'fondoOjoVigente_7579F',
             'fondoOjoVigente_80M',
             'fondoOjoVigente_80F',
+
             'controlPodologico_alDia',
             'controlPodologico_alDiaM',
             'controlPodologico_alDiaF',
@@ -1576,6 +1867,7 @@ class EstadisticaController extends Controller
             'controlPodologico_alDia_7579F',
             'controlPodologico_alDia_80M',
             'controlPodologico_alDia_80F',
+
             'ecgVigente',
             'ecgVigenteM',
             'ecgVigenteF',
@@ -1607,6 +1899,7 @@ class EstadisticaController extends Controller
             'ecgVigente_7579F',
             'ecgVigente_80M',
             'ecgVigente_80F',
+
             'usoIecaAraII',
             'usoIecaAraIIM',
             'usoIecaAraIIF',
@@ -1638,16 +1931,19 @@ class EstadisticaController extends Controller
             'usoIecaAraII_7579F',
             'usoIecaAraII_80M',
             'usoIecaAraII_80F',
+
             'insulinaHba1C',
             'insulinaHba1C_1564',
             'insulinaHba1C_65',
             'insulinaHba1CM',
             'insulinaHba1CF',
+
             'hba1cMayorIgual9Porcent',
             'hba1cMayorIgual9Porcent_1564',
             'hba1cMayorIgual9Porcent_65',
             'hba1cMayorIgual9PorcentM',
             'hba1cMayorIgual9PorcentF',
+
             'usoInsulina',
             'usoInsulinaM',
             'usoInsulinaF',
@@ -1679,6 +1975,7 @@ class EstadisticaController extends Controller
             'usoInsulina_7579F',
             'usoInsulina_80M',
             'usoInsulina_80F',
+
             'ldlVigente',
             'ldlVigenteM',
             'ldlVigenteF',
@@ -1710,61 +2007,177 @@ class EstadisticaController extends Controller
             'ldlVigente_7579F',
             'ldlVigente_80M',
             'ldlVigente_80F',
+
             'evaluacionPie_bajo',
-            'evaluacionPie_bajo_1564',
-            'evaluacionPie_bajo_65',
             'evaluacionPie_bajoM',
             'evaluacionPie_bajoF',
+            'evaluacionPie_bajo_1519M',
+            'evaluacionPie_bajo_1519F',
+            'evaluacionPie_bajo_2024M',
+            'evaluacionPie_bajo_2024F',
+            'evaluacionPie_bajo_2529M',
+            'evaluacionPie_bajo_2529F',
+            'evaluacionPie_bajo_3034M',
+            'evaluacionPie_bajo_3034F',
+            'evaluacionPie_bajo_3539M',
+            'evaluacionPie_bajo_3539F',
+            'evaluacionPie_bajo_4044M',
+            'evaluacionPie_bajo_4044F',
+            'evaluacionPie_bajo_4549M',
+            'evaluacionPie_bajo_4549F',
+            'evaluacionPie_bajo_5054M',
+            'evaluacionPie_bajo_5054F',
+            'evaluacionPie_bajo_5559M',
+            'evaluacionPie_bajo_5559F',
+            'evaluacionPie_bajo_6064M',
+            'evaluacionPie_bajo_6064F',
+            'evaluacionPie_bajo_6569M',
+            'evaluacionPie_bajo_6569F',
+            'evaluacionPie_bajo_7074M',
+            'evaluacionPie_bajo_7074F',
+            'evaluacionPie_bajo_7579M',
+            'evaluacionPie_bajo_7579F',
+            'evaluacionPie_bajo_80M',
+            'evaluacionPie_bajo_80F',
+
             'evaluacionPie_moderado',
-            'evaluacionPie_moderado_1564',
-            'evaluacionPie_moderado_65',
             'evaluacionPie_moderadoM',
             'evaluacionPie_moderadoF',
+            'evaluacionPie_moderado_1519M',
+            'evaluacionPie_moderado_1519F',
+            'evaluacionPie_moderado_2024M',
+            'evaluacionPie_moderado_2024F',
+            'evaluacionPie_moderado_2529M',
+            'evaluacionPie_moderado_2529F',
+            'evaluacionPie_moderado_3034M',
+            'evaluacionPie_moderado_3034F',
+            'evaluacionPie_moderado_3539M',
+            'evaluacionPie_moderado_3539F',
+            'evaluacionPie_moderado_4044M',
+            'evaluacionPie_moderado_4044F',
+            'evaluacionPie_moderado_4549M',
+            'evaluacionPie_moderado_4549F',
+            'evaluacionPie_moderado_5054M',
+            'evaluacionPie_moderado_5054F',
+            'evaluacionPie_moderado_5559M',
+            'evaluacionPie_moderado_5559F',
+            'evaluacionPie_moderado_6064M',
+            'evaluacionPie_moderado_6064F',
+            'evaluacionPie_moderado_6569M',
+            'evaluacionPie_moderado_6569F',
+            'evaluacionPie_moderado_7074M',
+            'evaluacionPie_moderado_7074F',
+            'evaluacionPie_moderado_7579M',
+            'evaluacionPie_moderado_7579F',
+            'evaluacionPie_moderado_80M',
+            'evaluacionPie_moderado_80F',
+
             'evaluacionPie_alto',
-            'evaluacionPie_alto_1564',
-            'evaluacionPie_alto_65',
             'evaluacionPie_altoM',
             'evaluacionPie_altoF',
+            'evaluacionPie_alto_1519M',
+            'evaluacionPie_alto_1519F',
+            'evaluacionPie_alto_2024M',
+            'evaluacionPie_alto_2024F',
+            'evaluacionPie_alto_2529M',
+            'evaluacionPie_alto_2529F',
+            'evaluacionPie_alto_3034M',
+            'evaluacionPie_alto_3034F',
+            'evaluacionPie_alto_3539M',
+            'evaluacionPie_alto_3539F',
+            'evaluacionPie_alto_4044M',
+            'evaluacionPie_alto_4044F',
+            'evaluacionPie_alto_4549M',
+            'evaluacionPie_alto_4549F',
+            'evaluacionPie_alto_5054M',
+            'evaluacionPie_alto_5054F',
+            'evaluacionPie_alto_5559M',
+            'evaluacionPie_alto_5559F',
+            'evaluacionPie_alto_6064M',
+            'evaluacionPie_alto_6064F',
+            'evaluacionPie_alto_6569M',
+            'evaluacionPie_alto_6569F',
+            'evaluacionPie_alto_7074M',
+            'evaluacionPie_alto_7074F',
+            'evaluacionPie_alto_7579M',
+            'evaluacionPie_alto_7579F',
+            'evaluacionPie_alto_80M',
+            'evaluacionPie_alto_80F',
+
             'evaluacionPie_maximo',
-            'evaluacionPie_maximo_1564',
-            'evaluacionPie_maximo_65',
             'evaluacionPie_maximoM',
             'evaluacionPie_maximoF',
+            'evaluacionPie_maximo_1519M',
+            'evaluacionPie_maximo_1519F',
+            'evaluacionPie_maximo_2024M',
+            'evaluacionPie_maximo_2024F',
+            'evaluacionPie_maximo_2529M',
+            'evaluacionPie_maximo_2529F',
+            'evaluacionPie_maximo_3034M',
+            'evaluacionPie_maximo_3034F',
+            'evaluacionPie_maximo_3539M',
+            'evaluacionPie_maximo_3539F',
+            'evaluacionPie_maximo_4044M',
+            'evaluacionPie_maximo_4044F',
+            'evaluacionPie_maximo_4549M',
+            'evaluacionPie_maximo_4549F',
+            'evaluacionPie_maximo_5054M',
+            'evaluacionPie_maximo_5054F',
+            'evaluacionPie_maximo_5559M',
+            'evaluacionPie_maximo_5559F',
+            'evaluacionPie_maximo_6064M',
+            'evaluacionPie_maximo_6064F',
+            'evaluacionPie_maximo_6569M',
+            'evaluacionPie_maximo_6569F',
+            'evaluacionPie_maximo_7074M',
+            'evaluacionPie_maximo_7074F',
+            'evaluacionPie_maximo_7579M',
+            'evaluacionPie_maximo_7579F',
+            'evaluacionPie_maximo_80M',
+            'evaluacionPie_maximo_80F',
+
             'ulcerasActivas_TipoCuracion_avz',
             'ulcerasActivas_TipoCuracion_avz_1564',
             'ulcerasActivas_TipoCuracion_avz_65',
             'ulcerasActivas_TipoCuracion_avzM',
             'ulcerasActivas_TipoCuracion_avzF',
+
             'ulcerasActivas_TipoCuracion_conv',
             'ulcerasActivas_TipoCuracion_conv_1564',
             'ulcerasActivas_TipoCuracion_conv_65',
             'ulcerasActivas_TipoCuracion_convM',
             'ulcerasActivas_TipoCuracion_convF',
+
             'aputacionPieDM2',
             'aputacionPieDM2_1564',
             'aputacionPieDM2_65',
             'aputacionPieDM2M',
             'aputacionPieDM2F',
+
             'dm2M_hta',
             'dm2M_hta_1564',
             'dm2M_hta_65',
             'dm2M_htaM',
             'dm2M_htaF',
+
             'dm2M_acv',
             'dm2M_acv_1564',
             'dm2M_acv_65',
             'dm2M_acvM',
             'dm2M_acvF',
+
             'hta_racVigente',
             'hta_racVigente_1564',
             'hta_racVigente_65',
             'hta_racVigenteM',
             'hta_racVigenteF',
+
             'dm2M_iam',
             'dm2M_iam_1564',
             'dm2M_iam_65',
             'dm2M_iamM',
             'dm2M_iamF',
+
             'paMayor160',
             'paMayor160M',
             'paMayor160F',
@@ -1796,18 +2209,126 @@ class EstadisticaController extends Controller
             'paMayor160_7579F',
             'paMayor160_80M',
             'paMayor160_80F',
-            'imc2529_menor65',
-            'imc2529_menor65F',
-            'imc2529_menor65M',
-            'imc2831_mayor65',
-            'imc2831_mayor65F',
-            'imc2831_mayor65M',
-            'imcMayor30_menor65',
-            'imcMayor30_menor65F',
-            'imcMayor30_menor65M',
-            'imcMayor32_mayor65',
-            'imcMayor32_mayor65F',
-            'imcMayor32_mayor65M'
+
+            'imc2529',
+            'imc2529M',
+            'imc2529F',
+            'imc2529_1519M',
+            'imc2529_1519F',
+            'imc2529_2024M',
+            'imc2529_2024F',
+            'imc2529_2529M',
+            'imc2529_2529F',
+            'imc2529_3034M',
+            'imc2529_3034F',
+            'imc2529_3539M',
+            'imc2529_3539F',
+            'imc2529_4044M',
+            'imc2529_4044F',
+            'imc2529_4549M',
+            'imc2529_4549F',
+            'imc2529_5054M',
+            'imc2529_5054F',
+            'imc2529_5559M',
+            'imc2529_5559F',
+            'imc2529_6064M',
+            'imc2529_6064F',
+
+            'imc2831',
+            'imc2831M',
+            'imc2831F',
+            'imc2831_1519M',
+            'imc2831_1519F',
+            'imc2831_2024M',
+            'imc2831_2024F',
+            'imc2831_2529M',
+            'imc2831_2529F',
+            'imc2831_3034M',
+            'imc2831_3034F',
+            'imc2831_3539M',
+            'imc2831_3539F',
+            'imc2831_4044M',
+            'imc2831_4044F',
+            'imc2831_4549M',
+            'imc2831_4549F',
+            'imc2831_5054M',
+            'imc2831_5054F',
+            'imc2831_5559M',
+            'imc2831_5559F',
+            'imc2831_6064M',
+            'imc2831_6064F',
+            'imc2831_6569M',
+            'imc2831_6569F',
+            'imc2831_7074M',
+            'imc2831_7074F',
+            'imc2831_7579M',
+            'imc2831_7579F',
+            'imc2831_80M',
+            'imc2831_80F',
+
+            'imcMayor30',
+            'imcMayor30M',
+            'imcMayor30F',
+            'imcMayor30_1519M',
+            'imcMayor30_1519F',
+            'imcMayor30_2024M',
+            'imcMayor30_2024F',
+            'imcMayor30_2529M',
+            'imcMayor30_2529F',
+            'imcMayor30_3034M',
+            'imcMayor30_3034F',
+            'imcMayor30_3539M',
+            'imcMayor30_3539F',
+            'imcMayor30_4044M',
+            'imcMayor30_4044F',
+            'imcMayor30_4549M',
+            'imcMayor30_4549F',
+            'imcMayor30_5054M',
+            'imcMayor30_5054F',
+            'imcMayor30_5559M',
+            'imcMayor30_5559F',
+            'imcMayor30_6064M',
+            'imcMayor30_6064F',
+            'imcMayor30_6569M',
+            'imcMayor30_6569F',
+            'imcMayor30_7074M',
+            'imcMayor30_7074F',
+            'imcMayor30_7579M',
+            'imcMayor30_7579F',
+            'imcMayor30_80M',
+            'imcMayor30_80F',
+
+            'imcMayor32',
+            'imcMayor32M',
+            'imcMayor32F',
+            'imcMayor32_1519M',
+            'imcMayor32_1519F',
+            'imcMayor32_2024M',
+            'imcMayor32_2024F',
+            'imcMayor32_2529M',
+            'imcMayor32_2529F',
+            'imcMayor32_3034M',
+            'imcMayor32_3034F',
+            'imcMayor32_3539M',
+            'imcMayor32_3539F',
+            'imcMayor32_4044M',
+            'imcMayor32_4044F',
+            'imcMayor32_4549M',
+            'imcMayor32_4549F',
+            'imcMayor32_5054M',
+            'imcMayor32_5054F',
+            'imcMayor32_5559M',
+            'imcMayor32_5559F',
+            'imcMayor32_6064M',
+            'imcMayor32_6064F',
+            'imcMayor32_6569M',
+            'imcMayor32_6569F',
+            'imcMayor32_7074M',
+            'imcMayor32_7074F',
+            'imcMayor32_7579M',
+            'imcMayor32_7579F',
+            'imcMayor32_80M',
+            'imcMayor32_80F',
         ));
     }
 
