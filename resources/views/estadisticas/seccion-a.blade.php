@@ -468,6 +468,11 @@
                             <td>{{$s_erc_7579F}}</td>
                             <td>{{$s_erc_80M}}</td>
                             <td>{{$s_erc_80F}}</td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td>{{ $dm2_sErc }}</td>
                         </tr>
                         <tr>
                             <th nowrap="">ETAPA G1 Y ETAPA G2 (VFG > 60 ml/min)</th>
@@ -502,6 +507,11 @@
                             <td>{{$ercI_II_7579F}}</td>
                             <td>{{$ercI_II_80M}}</td>
                             <td>{{$ercI_II_80F}}</td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td>{{ $dm2_ercI_II }}</td>
                         </tr>
                         <tr>
                             <th nowrap="">ETAPA G3a (VFG > 45 a 59 ml/min)</th>
@@ -536,6 +546,11 @@
                             <td>{{$ercIIIa_7579F}}</td>
                             <td>{{$ercIIIa_80M}}</td>
                             <td>{{$ercIIIa_80F}}</td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td>{{ $dm2_ercIIIa }}</td>
                         </tr>
                         <tr>
                             <th nowrap="">ETAPA G3b (VFG > 30 a 44 ml/min)</th>
@@ -570,6 +585,11 @@
                             <td>{{$ercIIIb_7579F}}</td>
                             <td>{{$ercIIIb_80M}}</td>
                             <td>{{$ercIIIb_80F}}</td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td>{{ $dm2_ercIIIb }}</td>
                         </tr>
                         <tr>
                             <th nowrap="">ETAPA G4 (VFG > 15 a 29 ml/min)</th>
@@ -604,6 +624,11 @@
                             <td>{{$ercIV_7579F}}</td>
                             <td>{{$ercIV_80M}}</td>
                             <td>{{$ercIV_80F}}</td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td>{{ $dm2_ercIV }}</td>
                         </tr>
                         <tr>
                             <th nowrap="">ETAPA G5 (VFG < 15 ml/min)</th>
@@ -638,6 +663,11 @@
                             <td>{{$ercV_7579F}}</td>
                             <td>{{$ercV_80M}}</td>
                             <td>{{$ercV_80F}}</td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td class="bg-gradient-white"></td>
+                            <td>{{ $dm2_ercV }}</td>
                         </tr>
                         </tr>
                     </thead>

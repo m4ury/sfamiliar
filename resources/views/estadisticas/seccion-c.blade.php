@@ -724,15 +724,15 @@
                             <td>{{$imc2529_5559M}}</td>
                             <td>{{$imc2529_5559F}}</td>
                             <td>{{$imc2529_6064M}}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{$imc2529_6064F}}</td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">SOBREPESO: IMC entre 28 y 31.9 > 65 </th>

@@ -61,7 +61,7 @@ class Paciente extends Model
 
     public function s_erc()
     {
-        return $this->whereIn('riesgo_cv', ['ALTO', 'BAJO', 'MODERADO'])->whereErc('sin');
+        return $this->pscv()->whereErc('sin');
     }
 
     public function ercI_II()
