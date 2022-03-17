@@ -1728,12 +1728,49 @@ class EstadisticaController extends Controller
         $insulinaHba1CM = $pacientes->insulinaHba1C()->get()->where('grupo', '>', 14)->where('sexo', 'Masculino')->unique('rut')->count();
 
         //hba1cMayorIgual9Porcent Hba1C
-        $hba1cMayorIgual9Porcent = $pacientes->hba1cMayorIgual9Porcent()->get()->where('grupo', '>', 14)->unique('rut')->count();
+        /*$hba1cMayorIgual9Porcent = $pacientes->hba1cMayorIgual9Porcent()->get()->where('grupo', '>', 14)->unique('rut')->count();
 
         $hba1cMayorIgual9Porcent_1564 = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [15, 64])->count();
         $hba1cMayorIgual9Porcent_65 = $pacientes->hba1cMayorIgual9Porcent()->get()->where('grupo', '>', 64)->count();
         $hba1cMayorIgual9PorcentF = $pacientes->hba1cMayorIgual9Porcent()->where('sexo', 'Femenino')->count();
-        $hba1cMayorIgual9PorcentM = $pacientes->hba1cMayorIgual9Porcent()->where('sexo', 'Masculino')->count();
+        $hba1cMayorIgual9PorcentM = $pacientes->hba1cMayorIgual9Porcent()->where('sexo', 'Masculino')->count();*/
+
+        $hba1cMayorIgual9Porcent = $pacientes->hba1cMayorIgual9Porcent()->get()->where('grupo', '>', 14)->unique('rut')->count();
+
+        $hba1cMayorIgual9PorcentM = $pacientes->hba1cMayorIgual9Porcent()->get()->where('grupo', '>', 14)->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9PorcentOriginM = $pacientes->hba1cMayorIgual9Porcent()->where('.sexo', '=', 'Masculino')->where('pueblo_originario', '=', 1)->count();
+        $hba1cMayorIgual9Porcent_1519M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_2024M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_2529M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_3034M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_3539M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_4044M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_4549M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_5054M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_5559M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_6064M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_6569M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_7074M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_7579M = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_80M = $pacientes->hba1cMayorIgual9Porcent()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+
+        $hba1cMayorIgual9PorcentF = $pacientes->hba1cMayorIgual9Porcent()->get()->where('grupo', '>', 14)->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9PorcentOriginF = $pacientes->hba1cMayorIgual9Porcent()->where('pacientes.sexo', '=', 'femenino')->where('pueblo_originario', '=', 1)->count();
+        $hba1cMayorIgual9Porcent_1519F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [15, 19])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_2024F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_2529F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_3034F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_3539F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_4044F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_4549F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_5054F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_5559F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_6064F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_6569F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_7074F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_7579F = $pacientes->hba1cMayorIgual9Porcent()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->unique('rut')->count();
+        $hba1cMayorIgual9Porcent_80F = $pacientes->hba1cMayorIgual9Porcent()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+
 
         //usoIecaAraII
         $usoIecaAraII = $pacientes->usoIecaAraII()->get()->count();
@@ -2028,11 +2065,45 @@ class EstadisticaController extends Controller
         $dm2M_iamM = $pacientes->dm2_iam()->where('pacientes.sexo', 'Masculino')->count();
 
         //hta + rac vigente
-        $hta_racVigente = $pacientes->racVigente()->count();
-        $hta_racVigente_1564 = $pacientes->racVigente()->get()->whereBetween('grupo', [15, 64])->count();
-        $hta_racVigente_65 = $pacientes->racVigente()->get()->where('grupo', '>', 64)->count();
-        $hta_racVigenteF = $pacientes->racVigente()->where('pacientes.sexo', 'Femenino')->count();
-        $hta_racVigenteM = $pacientes->racVigente()->where('pacientes.sexo', 'Masculino')->count();
+        // $hta_racVigente = $pacientes->racVigente()->count();
+        // $hta_racVigente_1564 = $pacientes->racVigente()->get()->whereBetween('grupo', [15, 64])->count();
+        // $hta_racVigente_65 = $pacientes->racVigente()->get()->where('grupo', '>', 64)->count();
+        // $hta_racVigenteF = $pacientes->racVigente()->where('pacientes.sexo', 'Femenino')->count();
+        // $hta_racVigenteM = $pacientes->racVigente()->where('pacientes.sexo', 'Masculino')->count();
+
+        $hta_racVigente = $pacientes->hta()->where('racVigente', '>=', Carbon::now()->subYear(1))->get()->count();
+        //dd($racVigente);
+        $hta_racVigenteF = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->where('sexo', 'Femenino')->count();
+        $hta_racVigente_1519F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_2024F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_2529F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_3034F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_3539F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [35, 39])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_4044F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [40, 44])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_4549F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_5054F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_5559F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_6064F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_6569F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_7074F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_7579F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->count();
+        $hta_racVigente_80F = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->where('grupo', '>', 79)->where('sexo', 'Femenino')->count();
+
+        $hta_racVigenteM = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->where('sexo', 'Masculino')->count();
+        $hta_racVigente_1519M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_2024M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_2529M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_3034M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_3539M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [35, 39])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_4044M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [40, 44])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_4549M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_5054M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_5559M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_6064M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_6569M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_7074M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_7579M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->count();
+        $hta_racVigente_80M = $pacientes->hta()->get()->where('racVigente', '>=', Carbon::now()->subYear(1))->where('grupo', '>', 79)->where('sexo', 'Masculino')->count();
 
 
         //pa mayor = 160/100
@@ -2078,6 +2149,7 @@ class EstadisticaController extends Controller
         $imc2529_menor65M = $pacientes->imc2529()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '<', 65)->count();*/
 
         $imc2529 = $pacientes->imc2529()->get()->unique('rut')->where('grupo', '<', 65)->count();
+
         $imc2529F = $pacientes->imc2529()->get()->where('grupo', '<', 65)->where('sexo', 'Femenino')->unique('rut')->count();
         $imc2529_1519F = $pacientes->imc2529()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
         $imc2529_2024F = $pacientes->imc2529()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
@@ -2117,9 +2189,9 @@ class EstadisticaController extends Controller
         $imc2831_mayor65F = $pacientes->imc2831()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '>', 65)->count();
         $imc2831_mayor65M = $pacientes->imc2831()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '>', 65)->count();*/
 
-        $imc2831 = $pacientes->imc2831()->get()->unique('rut')->count();
-        $imc2831F = $pacientes->imc2831()->get()->where('sexo', 'Femenino')->unique('rut')->count();
-        $imc2831_1519F = $pacientes->imc2831()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831 = $pacientes->imc2831()->get()->unique('rut')->where('grupo', '>', 65)->count();
+        $imc2831F = $pacientes->imc2831()->get()->where('sexo', 'Femenino')->unique('rut')->where('grupo', '>', 65)->count();
+        /*$imc2831_1519F = $pacientes->imc2831()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
         $imc2831_2024F = $pacientes->imc2831()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
         $imc2831_2529F = $pacientes->imc2831()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->unique('rut')->count();
         $imc2831_3034F = $pacientes->imc2831()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->unique('rut')->count();
@@ -2128,15 +2200,15 @@ class EstadisticaController extends Controller
         $imc2831_4549F = $pacientes->imc2831()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
         $imc2831_5054F = $pacientes->imc2831()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->unique('rut')->count();
         $imc2831_5559F = $pacientes->imc2831()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->unique('rut')->count();
-        $imc2831_6064F = $pacientes->imc2831()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imc2831_6064F = $pacientes->imc2831()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();*/
         $imc2831_6569F = $pacientes->imc2831()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
         $imc2831_7074F = $pacientes->imc2831()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->unique('rut')->count();
         $imc2831_7579F = $pacientes->imc2831()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->unique('rut')->count();
         $imc2831_80F = $pacientes->imc2831()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
         // dd($imc2831_80F);
 
-        $imc2831M = $pacientes->imc2831()->get()->where('sexo', 'Masculino')->unique('rut')->count();
-        $imc2831_1519M = $pacientes->imc2831()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831M = $pacientes->imc2831()->get()->where('sexo', 'Masculino')->unique('rut')->where('grupo', '>', 65)->count();
+        /*$imc2831_1519M = $pacientes->imc2831()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
         $imc2831_2024M = $pacientes->imc2831()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->unique('rut')->count();
         $imc2831_2529M = $pacientes->imc2831()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->unique('rut')->count();
         $imc2831_3034M = $pacientes->imc2831()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->unique('rut')->count();
@@ -2145,7 +2217,7 @@ class EstadisticaController extends Controller
         $imc2831_4549M = $pacientes->imc2831()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
         $imc2831_5054M = $pacientes->imc2831()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->unique('rut')->count();
         $imc2831_5559M = $pacientes->imc2831()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->unique('rut')->count();
-        $imc2831_6064M = $pacientes->imc2831()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imc2831_6064M = $pacientes->imc2831()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();*/
         $imc2831_6569M = $pacientes->imc2831()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
         $imc2831_7074M = $pacientes->imc2831()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->unique('rut')->count();
         $imc2831_7579M = $pacientes->imc2831()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->unique('rut')->count();
@@ -2157,9 +2229,9 @@ class EstadisticaController extends Controller
         $imcMayor30_menor65F = $pacientes->imcMayor30()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '<', 65)->count();
         $imcMayor30_menor65M = $pacientes->imcMayor30()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '<', 65)->count();*/
 
-        $imcMayor30 = $pacientes->imcMayor30()->get()->unique('rut')->count();
+        $imcMayor30 = $pacientes->imcMayor30()->get()->unique('rut')->where('grupo', '<', 65)->count();
 
-        $imcMayor30F = $pacientes->imcMayor30()->get()->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30F = $pacientes->imcMayor30()->get()->where('sexo', 'Femenino')->unique('rut')->where('grupo', '<', 65)->count();
         $imcMayor30_1519F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor30_2024F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor30_2529F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->unique('rut')->count();
@@ -2170,13 +2242,13 @@ class EstadisticaController extends Controller
         $imcMayor30_5054F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor30_5559F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor30_6064F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();
-        $imcMayor30_6569F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
+        /*$imcMayor30_6569F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor30_7074F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor30_7579F = $pacientes->imcMayor30()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->unique('rut')->count();
-        $imcMayor30_80F = $pacientes->imcMayor30()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor30_80F = $pacientes->imcMayor30()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();*/
         // dd($imcMayor30_80F);
 
-        $imcMayor30M = $pacientes->imcMayor30()->get()->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30M = $pacientes->imcMayor30()->get()->where('sexo', 'Masculino')->unique('rut')->where('grupo', '<', 65)->count();
         $imcMayor30_1519M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor30_2024M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor30_2529M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->unique('rut')->count();
@@ -2187,10 +2259,10 @@ class EstadisticaController extends Controller
         $imcMayor30_5054M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor30_5559M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor30_6064M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();
-        $imcMayor30_6569M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
+        /*$imcMayor30_6569M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor30_7074M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor30_7579M = $pacientes->imcMayor30()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->unique('rut')->count();
-        $imcMayor30_80M = $pacientes->imcMayor30()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor30_80M = $pacientes->imcMayor30()->get()->where('grupo', '>', 79)->where('sexo', 'Masculino')->unique('rut')->count();*/
 
 
         //imc > 32 > 65
@@ -2199,10 +2271,10 @@ class EstadisticaController extends Controller
         $imcMayor32_mayor65F = $pacientes->imcMayor32()->where('pacientes.sexo', 'Femenino')->get()->where('grupo', '>', 65)->count();
         $imcMayor32_mayor65M = $pacientes->imcMayor32()->where('pacientes.sexo', 'Masculino')->get()->where('grupo', '>', 65)->count();*/
 
-        $imcMayor32 = $pacientes->imcMayor32()->get()->unique('rut')->count();
+        $imcMayor32 = $pacientes->imcMayor32()->get()->unique('rut')->where('grupo', '>', 65)->count();
 
-        $imcMayor32F = $pacientes->imcMayor32()->get()->where('sexo', 'Femenino')->unique('rut')->count();
-        $imcMayor32_1519F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32F = $pacientes->imcMayor32()->get()->where('sexo', 'Femenino')->unique('rut')->where('grupo', '>', 65)->count();
+        /*$imcMayor32_1519F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor32_2024F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor32_2529F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor32_3034F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Femenino')->unique('rut')->count();
@@ -2211,15 +2283,15 @@ class EstadisticaController extends Controller
         $imcMayor32_4549F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor32_5054F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor32_5559F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Femenino')->unique('rut')->count();
-        $imcMayor32_6064F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();
+        $imcMayor32_6064F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Femenino')->unique('rut')->count();*/
         $imcMayor32_6569F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor32_7074F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor32_7579F = $pacientes->imcMayor32()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Femenino')->unique('rut')->count();
         $imcMayor32_80F = $pacientes->imcMayor32()->get()->where('grupo', '>', 79)->where('sexo', 'Femenino')->unique('rut')->count();
         // dd($imcMayor32_80F);
 
-        $imcMayor32M = $pacientes->imcMayor32()->get()->where('sexo', 'Masculino')->unique('rut')->count();
-        $imcMayor32_1519M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32M = $pacientes->imcMayor32()->get()->where('sexo', 'Masculino')->unique('rut')->where('grupo', '>', 65)->count();
+        /*$imcMayor32_1519M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor32_2024M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [20, 24])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor32_2529M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [25, 29])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor32_3034M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [30, 34])->where('sexo', 'Masculino')->unique('rut')->count();
@@ -2228,7 +2300,7 @@ class EstadisticaController extends Controller
         $imcMayor32_4549M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [45, 49])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor32_5054M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [50, 54])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor32_5559M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [55, 59])->where('sexo', 'Masculino')->unique('rut')->count();
-        $imcMayor32_6064M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();
+        $imcMayor32_6064M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [60, 64])->where('sexo', 'Masculino')->unique('rut')->count();*/
         $imcMayor32_6569M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [65, 69])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor32_7074M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [70, 74])->where('sexo', 'Masculino')->unique('rut')->count();
         $imcMayor32_7579M = $pacientes->imcMayor32()->get()->whereBetween('grupo', [75, 79])->where('sexo', 'Masculino')->unique('rut')->count();
@@ -2435,10 +2507,36 @@ class EstadisticaController extends Controller
             'insulinaHba1CF',
 
             'hba1cMayorIgual9Porcent',
-            'hba1cMayorIgual9Porcent_1564',
-            'hba1cMayorIgual9Porcent_65',
             'hba1cMayorIgual9PorcentM',
             'hba1cMayorIgual9PorcentF',
+            'hba1cMayorIgual9Porcent_1519M',
+            'hba1cMayorIgual9Porcent_1519F',
+            'hba1cMayorIgual9Porcent_2024M',
+            'hba1cMayorIgual9Porcent_2024F',
+            'hba1cMayorIgual9Porcent_2529M',
+            'hba1cMayorIgual9Porcent_2529F',
+            'hba1cMayorIgual9Porcent_3034M',
+            'hba1cMayorIgual9Porcent_3034F',
+            'hba1cMayorIgual9Porcent_3539M',
+            'hba1cMayorIgual9Porcent_3539F',
+            'hba1cMayorIgual9Porcent_4044M',
+            'hba1cMayorIgual9Porcent_4044F',
+            'hba1cMayorIgual9Porcent_4549M',
+            'hba1cMayorIgual9Porcent_4549F',
+            'hba1cMayorIgual9Porcent_5054M',
+            'hba1cMayorIgual9Porcent_5054F',
+            'hba1cMayorIgual9Porcent_5559M',
+            'hba1cMayorIgual9Porcent_5559F',
+            'hba1cMayorIgual9Porcent_6064M',
+            'hba1cMayorIgual9Porcent_6064F',
+            'hba1cMayorIgual9Porcent_6569M',
+            'hba1cMayorIgual9Porcent_6569F',
+            'hba1cMayorIgual9Porcent_7074M',
+            'hba1cMayorIgual9Porcent_7074F',
+            'hba1cMayorIgual9Porcent_7579M',
+            'hba1cMayorIgual9Porcent_7579F',
+            'hba1cMayorIgual9Porcent_80M',
+            'hba1cMayorIgual9Porcent_80F',
 
             'usoInsulina',
             'usoInsulinaM',
@@ -2663,10 +2761,36 @@ class EstadisticaController extends Controller
             'dm2M_acvF',
 
             'hta_racVigente',
-            'hta_racVigente_1564',
-            'hta_racVigente_65',
             'hta_racVigenteM',
             'hta_racVigenteF',
+            'hta_racVigente_1519M',
+            'hta_racVigente_1519F',
+            'hta_racVigente_2024M',
+            'hta_racVigente_2024F',
+            'hta_racVigente_2529M',
+            'hta_racVigente_2529F',
+            'hta_racVigente_3034M',
+            'hta_racVigente_3034F',
+            'hta_racVigente_3539M',
+            'hta_racVigente_3539F',
+            'hta_racVigente_4044M',
+            'hta_racVigente_4044F',
+            'hta_racVigente_4549M',
+            'hta_racVigente_4549F',
+            'hta_racVigente_5054M',
+            'hta_racVigente_5054F',
+            'hta_racVigente_5559M',
+            'hta_racVigente_5559F',
+            'hta_racVigente_6064M',
+            'hta_racVigente_6064F',
+            'hta_racVigente_6569M',
+            'hta_racVigente_6569F',
+            'hta_racVigente_7074M',
+            'hta_racVigente_7074F',
+            'hta_racVigente_7579M',
+            'hta_racVigente_7579F',
+            'hta_racVigente_80M',
+            'hta_racVigente_80F',
 
             'dm2M_iam',
             'dm2M_iam_1564',
@@ -2733,7 +2857,7 @@ class EstadisticaController extends Controller
             'imc2831',
             'imc2831M',
             'imc2831F',
-            'imc2831_1519M',
+            /*'imc2831_1519M',
             'imc2831_1519F',
             'imc2831_2024M',
             'imc2831_2024F',
@@ -2752,7 +2876,7 @@ class EstadisticaController extends Controller
             'imc2831_5559M',
             'imc2831_5559F',
             'imc2831_6064M',
-            'imc2831_6064F',
+            'imc2831_6064F',*/
             'imc2831_6569M',
             'imc2831_6569F',
             'imc2831_7074M',
@@ -2785,19 +2909,19 @@ class EstadisticaController extends Controller
             'imcMayor30_5559F',
             'imcMayor30_6064M',
             'imcMayor30_6064F',
-            'imcMayor30_6569M',
+            /*'imcMayor30_6569M',
             'imcMayor30_6569F',
             'imcMayor30_7074M',
             'imcMayor30_7074F',
             'imcMayor30_7579M',
             'imcMayor30_7579F',
             'imcMayor30_80M',
-            'imcMayor30_80F',
+            'imcMayor30_80F',*/
 
             'imcMayor32',
             'imcMayor32M',
             'imcMayor32F',
-            'imcMayor32_1519M',
+            /*'imcMayor32_1519M',
             'imcMayor32_1519F',
             'imcMayor32_2024M',
             'imcMayor32_2024F',
@@ -2816,7 +2940,7 @@ class EstadisticaController extends Controller
             'imcMayor32_5559M',
             'imcMayor32_5559F',
             'imcMayor32_6064M',
-            'imcMayor32_6064F',
+            'imcMayor32_6064F',*/
             'imcMayor32_6569M',
             'imcMayor32_6569F',
             'imcMayor32_7074M',

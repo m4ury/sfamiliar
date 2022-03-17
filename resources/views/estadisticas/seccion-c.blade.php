@@ -112,6 +112,10 @@
                             <td>{{$racVigente_7579F}}</td>
                             <td>{{$racVigente_80M}}</td>
                             <td>{{$racVigente_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th colspan="2">CON VELOCIDAD DE FILTRACIÓN GLOMERULAR (VFG), VIGENTE</th>
@@ -146,6 +150,10 @@
                             <td>{{$vfgVigente_7579F}}</td>
                             <td>{{$vfgVigente_80M}}</td>
                             <td>{{$vfgVigente_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th colspan="2">CON FONDO DE OJO, VIGENTE</th>
@@ -180,6 +188,10 @@
                             <td>{{$fondoOjoVigente_7579F}}</td>
                             <td>{{$fondoOjoVigente_80M}}</td>
                             <td>{{$fondoOjoVigente_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th colspan="2">CON ATENCIÓN PODOLÓGICA VIGENTE</th>
@@ -214,6 +226,10 @@
                             <td>{{$controlPodologico_alDia_7579F}}</td>
                             <td>{{$controlPodologico_alDia_80M}}</td>
                             <td>{{$controlPodologico_alDia_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th colspan="2">CON ECG VIGENTE</th>
@@ -248,6 +264,10 @@
                             <td>{{$ecgVigente_7579F}}</td>
                             <td>{{$ecgVigente_80M}}</td>
                             <td>{{$ecgVigente_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th colspan="2">EN TRATAMIENTO CON INSULINA</th>
@@ -282,6 +302,10 @@
                             <td>{{$usoInsulina_7579F}}</td>
                             <td>{{$usoInsulina_80M}}</td>
                             <td>{{$usoInsulina_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th colspan="2">EN TRATAMIENTO CON INSULINA QUE LOGRA META CON HbA1C SEGÚN EDAD</th>
@@ -303,21 +327,41 @@
                         </tr>
                         <tr>
                             <th colspan="2">CON HbA1C >= 9 %</th>
-                            <td>
-                                {{ $hba1cMayorIgual9Porcent }}
-                            </td>
-                            <td>
-                                {{ $hba1cMayorIgual9Porcent_1564 }}
-                            </td>
-                            <td>
-                                {{ $hba1cMayorIgual9Porcent_65 }}
-                            </td>
-                            <td>
-                                {{ $hba1cMayorIgual9PorcentM }}
-                            </td>
-                            <td>
-                                {{ $hba1cMayorIgual9PorcentF }}
-                            </td>
+                            <td>{{ $hba1cMayorIgual9Porcent }}</td>
+                            <td>{{ $hba1cMayorIgual9PorcentM }}</td>
+                            <td>{{ $hba1cMayorIgual9PorcentF }}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_1519M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_1519F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_2024M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_2024F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_2529M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_2529F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_3034M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_3034F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_3539M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_3539F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_4044M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_4044F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_4549M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_4549F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_5054M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_5054F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_5559M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_5559F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_6064M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_6064F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_6569M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_6569F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_7074M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_7074F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_7579M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_7579F}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_80M}}</td>
+                            <td>{{$hba1cMayorIgual9Porcent_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th colspan="2">EN TRATAMIENTO CON IECA O ARA II.</th>
@@ -352,6 +396,10 @@
                             <td>{{$usoIecaAraII_7579F}}</td>
                             <td>{{$usoIecaAraII_80M}}</td>
                             <td>{{$usoIecaAraII_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th colspan="2">CON UN EXÁMEN DE COLESTEROL LDL VIGENTE.</th>
@@ -386,6 +434,10 @@
                             <td>{{$ldlVigente_7579F}}</td>
                             <td>{{$ldlVigente_80M}}</td>
                             <td>{{$ldlVigente_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th rowspan="5" style="vertical-align: middle">
@@ -425,6 +477,10 @@
                             <td>{{$evaluacionPie_bajo_7579F}}</td>
                             <td>{{$evaluacionPie_bajo_80M}}</td>
                             <td>{{$evaluacionPie_bajo_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th nowrap="">Riesgo Moderado</th>
@@ -459,6 +515,10 @@
                             <td>{{$evaluacionPie_moderado_7579F}}</td>
                             <td>{{$evaluacionPie_moderado_80M}}</td>
                             <td>{{$evaluacionPie_moderado_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th nowrap="">Riesgo Alto</th>
@@ -493,6 +553,10 @@
                             <td>{{$evaluacionPie_alto_7579F}}</td>
                             <td>{{$evaluacionPie_alto_80M}}</td>
                             <td>{{$evaluacionPie_alto_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th nowrap="">Riesgo Maximo</th>
@@ -527,6 +591,10 @@
                             <td>{{$evaluacionPie_maximo_7579F}}</td>
                             <td>{{$evaluacionPie_maximo_80M}}</td>
                             <td>{{$evaluacionPie_maximo_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         </tr>
                         <tr>
@@ -647,21 +715,41 @@
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON RAZON ALBÚMINA CREATININA (RAC),VIGENTE</th>
-                            <td>
-                                {{ $hta_racVigente }}
-                            </td>
-                            <td>
-                                {{ $hta_racVigente_1564 }}
-                            </td>
-                            <td>
-                                {{ $hta_racVigente_65 }}
-                            </td>
-                            <td>
-                                {{ $hta_racVigenteM }}
-                            </td>
-                            <td>
-                                {{ $hta_racVigenteF }}
-                            </td>
+                            <td>{{ $hta_racVigente }}</td>
+                            <td>{{ $hta_racVigenteM }}</td>
+                            <td>{{ $hta_racVigenteF }}</td>
+                            <td>{{$hta_racVigente_1519M}}</td>
+                            <td>{{$hta_racVigente_1519F}}</td>
+                            <td>{{$hta_racVigente_2024M}}</td>
+                            <td>{{$hta_racVigente_2024F}}</td>
+                            <td>{{$hta_racVigente_2529M}}</td>
+                            <td>{{$hta_racVigente_2529F}}</td>
+                            <td>{{$hta_racVigente_3034M}}</td>
+                            <td>{{$hta_racVigente_3034F}}</td>
+                            <td>{{$hta_racVigente_3539M}}</td>
+                            <td>{{$hta_racVigente_3539F}}</td>
+                            <td>{{$hta_racVigente_4044M}}</td>
+                            <td>{{$hta_racVigente_4044F}}</td>
+                            <td>{{$hta_racVigente_4549M}}</td>
+                            <td>{{$hta_racVigente_4549F}}</td>
+                            <td>{{$hta_racVigente_5054M}}</td>
+                            <td>{{$hta_racVigente_5054F}}</td>
+                            <td>{{$hta_racVigente_5559M}}</td>
+                            <td>{{$hta_racVigente_5559F}}</td>
+                            <td>{{$hta_racVigente_6064M}}</td>
+                            <td>{{$hta_racVigente_6064F}}</td>
+                            <td>{{$hta_racVigente_6569M}}</td>
+                            <td>{{$hta_racVigente_6569F}}</td>
+                            <td>{{$hta_racVigente_7074M}}</td>
+                            <td>{{$hta_racVigente_7074F}}</td>
+                            <td>{{$hta_racVigente_7579M}}</td>
+                            <td>{{$hta_racVigente_7579F}}</td>
+                            <td>{{$hta_racVigente_80M}}</td>
+                            <td>{{$hta_racVigente_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">CON PRESIÓN ARTERIAL igual o Mayor 160/100 mmHg</th>
@@ -696,9 +784,13 @@
                             <td>{{$paMayor160_7579F}}</td>
                             <td>{{$paMayor160_80M}}</td>
                             <td>{{$paMayor160_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <th colspan="7" class="text-left bg-gradient-gray">TODAS LAS PERSONAS EN PSCV</th>
+                            <th colspan="2" class="text-left bg-gradient-gray">TODAS LAS PERSONAS EN PSCV</th>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">SOBREPESO: IMC entre 25 y 29.9 < 65 </th>
@@ -733,32 +825,36 @@
                             <td class="bg-gradient-gray"></td>
                             <td class="bg-gradient-gray"></td>
                             <td class="bg-gradient-gray"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">SOBREPESO: IMC entre 28 y 31.9 > 65 </th>
                             <td>{{ $imc2831 }}</td>
                             <td>{{ $imc2831M }}</td>
                             <td>{{ $imc2831F }}</td>
-                            <td>{{$imc2831_1519M}}</td>
-                            <td>{{$imc2831_1519F}}</td>
-                            <td>{{$imc2831_2024M}}</td>
-                            <td>{{$imc2831_2024F}}</td>
-                            <td>{{$imc2831_2529M}}</td>
-                            <td>{{$imc2831_2529F}}</td>
-                            <td>{{$imc2831_3034M}}</td>
-                            <td>{{$imc2831_3034F}}</td>
-                            <td>{{$imc2831_3539M}}</td>
-                            <td>{{$imc2831_3539F}}</td>
-                            <td>{{$imc2831_4044M}}</td>
-                            <td>{{$imc2831_4044F}}</td>
-                            <td>{{$imc2831_4549M}}</td>
-                            <td>{{$imc2831_4549F}}</td>
-                            <td>{{$imc2831_5054M}}</td>
-                            <td>{{$imc2831_5054F}}</td>
-                            <td>{{$imc2831_5559M}}</td>
-                            <td>{{$imc2831_5559F}}</td>
-                            <td>{{$imc2831_6064M}}</td>
-                            <td>{{$imc2831_6064F}}</td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
                             <td>{{$imc2831_6569M}}</td>
                             <td>{{$imc2831_6569F}}</td>
                             <td>{{$imc2831_7074M}}</td>
@@ -767,6 +863,10 @@
                             <td>{{$imc2831_7579F}}</td>
                             <td>{{$imc2831_80M}}</td>
                             <td>{{$imc2831_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">OBESIDAD IMC igual o Mayor a 30 KG/M2 < 65 </th>
@@ -793,40 +893,44 @@
                             <td>{{$imcMayor30_5559F}}</td>
                             <td>{{$imcMayor30_6064M}}</td>
                             <td>{{$imcMayor30_6064F}}</td>
-                            <td>{{$imcMayor30_6569M}}</td>
-                            <td>{{$imcMayor30_6569F}}</td>
-                            <td>{{$imcMayor30_7074M}}</td>
-                            <td>{{$imcMayor30_7074F}}</td>
-                            <td>{{$imcMayor30_7579M}}</td>
-                            <td>{{$imcMayor30_7579F}}</td>
-                            <td>{{$imcMayor30_80M}}</td>
-                            <td>{{$imcMayor30_80F}}</td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">**OBESIDAD: IMC igual o Mayor a 32KG/M2 > 65 </th>
                             <td>{{ $imcMayor32 }}</td>
                             <td>{{ $imcMayor32M }}</td>
                             <td>{{ $imcMayor32F }}</td>
-                            <td>{{$imcMayor32_1519M}}</td>
-                            <td>{{$imcMayor32_1519F}}</td>
-                            <td>{{$imcMayor32_2024M}}</td>
-                            <td>{{$imcMayor32_2024F}}</td>
-                            <td>{{$imcMayor32_2529M}}</td>
-                            <td>{{$imcMayor32_2529F}}</td>
-                            <td>{{$imcMayor32_3034M}}</td>
-                            <td>{{$imcMayor32_3034F}}</td>
-                            <td>{{$imcMayor32_3539M}}</td>
-                            <td>{{$imcMayor32_3539F}}</td>
-                            <td>{{$imcMayor32_4044M}}</td>
-                            <td>{{$imcMayor32_4044F}}</td>
-                            <td>{{$imcMayor32_4549M}}</td>
-                            <td>{{$imcMayor32_4549F}}</td>
-                            <td>{{$imcMayor32_5054M}}</td>
-                            <td>{{$imcMayor32_5054F}}</td>
-                            <td>{{$imcMayor32_5559M}}</td>
-                            <td>{{$imcMayor32_5559F}}</td>
-                            <td>{{$imcMayor32_6064M}}</td>
-                            <td>{{$imcMayor32_6064F}}</td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
+                            <td class="bg-gradient-gray"></td>
                             <td>{{$imcMayor32_6569M}}</td>
                             <td>{{$imcMayor32_6569F}}</td>
                             <td>{{$imcMayor32_7074M}}</td>
@@ -835,6 +939,10 @@
                             <td>{{$imcMayor32_7579F}}</td>
                             <td>{{$imcMayor32_80M}}</td>
                             <td>{{$imcMayor32_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </thead>
                 </table>
