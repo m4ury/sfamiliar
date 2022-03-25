@@ -19,7 +19,7 @@
                         <tr>
                             <th class="text-center" colspan="2" rowspan="3">ESTADO NUTRICIONAL</th>
                             <th class="text-center" colspan="3" rowspan="2">TOTAL</th>
-                            <th class="text-center" colspan="28">GRUPOS DE EDAD (en años) Y SEXO</th>
+                            <th class="text-center" colspan="8">GRUPOS DE EDAD (en años) Y SEXO</th>
                             <th colspan="2" rowspan="2">Pueblos Originarios</th>
                             <th colspan="2" rowspan="2">Poblacion Migrantes</th>
                         </tr>
@@ -41,7 +41,10 @@
                             <th>Mujeres</th>
                             <th>Hombres</th>
                             <th>Mujeres</th>
-
+                            <th>Hombres</th>
+                            <th>Mujeres</th>
+                            <th>Hombres</th>
+                            <th>Mujeres</th>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">BAJO PESO</th>
@@ -56,6 +59,10 @@
                             <td>{{$bajoPeso_7579F}}</td>
                             <td>{{$bajoPeso_80M}}</td>
                             <td>{{$bajoPeso_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
 
                         <tr>
@@ -71,6 +78,10 @@
                             <td>{{$normal_7579F}}</td>
                             <td>{{$normal_80M}}</td>
                             <td>{{$normal_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
 
                         <tr>
@@ -86,6 +97,10 @@
                             <td>{{$sobrePeso_7579F}}</td>
                             <td>{{$sobrePeso_80M}}</td>
                             <td>{{$sobrePeso_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th nowrap="" colspan="2">OBESO</th>
@@ -100,6 +115,10 @@
                             <td>{{$obeso_7579F}}</td>
                             <td>{{$obeso_80M}}</td>
                             <td>{{$obeso_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th class="text-center" nowrap="" colspan="2">TOTAL</th>
@@ -114,6 +133,10 @@
                             <td>{{$totalSeccionB_7579F}}</td>
                             <td>{{$totalSeccionB_80M}}</td>
                             <td>{{$totalSeccionB_80F}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </thead>
                 </table>
