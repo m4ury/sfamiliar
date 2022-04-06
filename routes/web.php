@@ -21,27 +21,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::resource('pacientes', 'PacienteController');
-    Route::resource('patologias', 'PatologiaController')->except('[index, create]');
+    /*Route::resource('patologias', 'PatologiaController')->except('[index, create]');
     Route::get('patologias/{paciente?}', 'PatologiaController@index')->name('patologias');
-    Route::get('patologias/create/{paciente?}', 'PatologiaController@create')->name('patologias.crear');
+    Route::get('patologias/create/{paciente?}', 'PatologiaController@create')->name('patologias.crear');*/
 
-    //rutas para controles
-    Route::resource('controles', 'ControlController')->except('[index, create]');
-    Route::get('controles-all', 'ControlController@index')->name('controles-all');
-    Route::get('controles/pcte/{paciente?}', 'ControlController@controlsPcte')->name('controles');
-    Route::get('controles/create/{paciente?}', 'ControlController@create')->name('controles.create');
-    Route::get('proximos', 'ControlController@prox')->name('proximos');
-    Route::get('controles/{controle?}/editar', 'ControlController@editar')->name('controles.editar');
-
+    //rutas para familias
+    Route::resource('familias', 'FamiliaController');
 
     //rutas para perfil
     Route::get('/perfil', 'UserController@profile')->name('perfil');
     Route::put('perfil', 'UserController@updateProfile');
-
-    //rutas para paciente patologias
-    Route::resource('ppatologias', 'PacientePatologiaController');
-    Route::get('pacientes/patologia/{paciente?}', 'PacientePatologiaController@create')->name('pacientes.patologia');
-    Route::post('pacientes/patologia/{paciente?}', 'PacientePatologiaController@eliminarPatologia');
 
     //rutas para estadisticas
     Route::get('/estadisticas', 'EstadisticaController@index')->name('estadisticas');

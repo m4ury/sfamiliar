@@ -17,10 +17,10 @@ class CreateFamiliasTable extends Migration
             $table->id();
             $table->string('familia');
             $table->string('domicilio');
-            $table->int('ficha_familiar')->unique();
+            $table->string('ficha_familiar')->unique();
             $table->string('fono')->nullable();
-            $table->string('fono');
-            $table->enum('sector', ['Naranjo'=>'naranjo', 'Celeste'=>'celeste', 'Blanco'=>'blanco']);
+            $table->unsignedInteger('num_integrantes')->nullable();
+            $table->enum('sector', ['b'=>'Naranjo', 'a'=>'Celeste', 'ss'=>'Blanco'])->default('Blanco');
             $table->timestamps();
         });
     }
