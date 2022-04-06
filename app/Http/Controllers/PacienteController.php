@@ -14,7 +14,7 @@ class PacienteController extends Controller
     public function index(Request $request)
     {
         $q = $request->get('q');
-        $pacientes = Paciente::select('id', 'rut', 'nombres', 'apellidoP', 'apellidoM', 'ficha', 'edad', 'sexo', 'sector', 'fecha_nacimiento')->latest()
+        $pacientes = Paciente::select('id', 'rut', 'nombres', 'apellidoP', 'apellidoM', 'ficha', 'sexo', 'sector', 'fecha_nacimiento')->latest()
             ->search($q)
             ->get();
 

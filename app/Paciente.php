@@ -27,9 +27,9 @@ class Paciente extends Model
         return Carbon::parse($this->fecha_nacimiento)->age;
     }
 
-    public function controls()
+    public function familia()
     {
-        return $this->hasMany(Control::class);
+        return $this->belongsTo(Familia::class);
     }
 
     public function patologias()
