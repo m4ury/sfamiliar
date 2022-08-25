@@ -8,4 +8,5 @@ class Familia extends Model
 {
     protected $guarded = ['id'];
 
+    
 }
