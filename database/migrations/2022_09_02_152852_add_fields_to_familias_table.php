@@ -17,8 +17,8 @@ class AddFieldsToFamiliasTable extends Migration
             $table->date('fecha_inscripcion')->nullable();
             $table->string('causal_eliminacion')->nullable();
             $table->date('fecha_eliminacion')->nullable();
-            $table->enum('tipo_familia', ['Nuclear', 'Extensa', 'Monoparental', 'Unipersonal', 'Reconstituida']);
-            $table->enum('etapa_cicloVital', ['Formacion de la pareja', 'Crianza inicial de niños', 'Fam. con hijos preescolares', 'Fam. con hijos escolares', 'Fam. con hijos adolecentes', 'Fam. plataforma de lanzam.', 'Fam. nido vacio', 'Fam. Adulto mayor']);
+            $table->enum('tipo_familia', ['nuclear', 'extensa', 'monoparental', 'unipersonal', 'reconstituida']);
+            $table->enum('etapa_cicloVital', ['formacion_pareja', 'crianza_inicial', 'hijos_preescolares', 'hijos_escolares', 'hijos_adolecentes', 'plataforma_lanzam', 'nido_vacio', 'adulto_mayor']);
 
         });
     }
