@@ -17,6 +17,7 @@
                 <th>Rut</th>
                 <th>Nombre Completo</th>
                 <th>Nº Ficha Clinica</th>
+                <th>Ficha familiar</th>
                 <th>Edad</th>
                 <th>Sexo</th>
                 <th>Sector</th>
@@ -29,6 +30,7 @@
                     <td><a href="{{ route('pacientes.show', $paciente->id) }}">{{ $paciente->rut }}</a></td>
                     <td class="text-uppercase">{{ $paciente->fullName() }}</td>
                     <td>{{ $paciente->ficha }}</td>
+                    <td>{{ $paciente->familia->ficha_familiar }}</td>
                     <td>{{ $paciente->edad() }}</td>
                     <td>{{ $paciente->sexo }}</td>
                     @if($paciente->sector == 'celeste')

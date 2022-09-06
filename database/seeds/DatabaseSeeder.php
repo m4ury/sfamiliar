@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
         //$this->call(PacienteSeeder::class);
-        $this->call(PacientePatologiaSeeder::class);
+        $this->call(PacienteSeeder::class);
     }
 }
