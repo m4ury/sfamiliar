@@ -55,7 +55,7 @@
                                 <div class="card-body">
                                     <strong><i class="fas fa-map-marker-alt"></i> Dirección</strong>
                                     <p class="text-muted">
-                                        {{ $paciente->direccion }}, {{ $paciente->comuna ? : 'Licantén' }}
+                                        {{ $paciente->direccion }}, {{ $paciente->comuna ? : 'Hualañe' }}
                                     </p>
                                     <hr>
                                     <strong><i class="fas fa-phone-alt mr-1"></i> Telefono</strong>
@@ -94,24 +94,11 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="vert-tabs-controles" role="tabpanel"
+                             <div class="tab-pane fade" id="vert-tabs-controles" role="tabpanel"
                                 aria-labelledby="vert-tabs-controles-tab">
-                                @include('controles.list_controles', $paciente)
-                                @if($paciente->controls->count() > 0)
-                                <a href="{{ route('controles', $paciente->id) }}"><span class="text-bold">Ver Todos los
-                                        controles...</span></a>
-                                @else
-                                <p class="text-muted">No hay Controles aun, crea uno <i
-                                        class="far fa-laugh-wink fa-2x"></i></p>
-                                @endif
                             </div>
                             <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"
                                 aria-labelledby="vert-tabs-patologias-tab">
-                                @include('patologias.list_patologias', $paciente)
-
-                                @if($paciente->patologias->count() == 0)
-                                <p class="text-muted">No hay Patologias aun... </p>
-                                @endif
                             </div>
                         </div>
                     </div>
