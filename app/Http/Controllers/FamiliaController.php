@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Familia;
+use App\Paciente;
 use Illuminate\Http\Request;
 
 class FamiliaController extends Controller
@@ -49,7 +50,8 @@ class FamiliaController extends Controller
     public function show(Familia $familia)
     {
         $familia = Familia::findOrFail($familia->id);
-        return view('familias.show', compact('familia'));
+        $pacientes = $familia->pacientes;
+        return view('familias.show', compact('familia', 'pacientes'));
     }
 
     /**

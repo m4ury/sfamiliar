@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <!-- ./col -->
-        <div class="col-lg-2 col-6">
+        <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-gradient-pink">
                 <div class="inner">
@@ -39,7 +39,7 @@
         </div>
 
         <!-- ./col -->
-        <div class="col-lg-2 col-6">
+        <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-gradient-blue">
                 <div class="inner">

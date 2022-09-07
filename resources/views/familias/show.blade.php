@@ -5,21 +5,26 @@
     <div class="col">
         <div class="card card-primary card-outline">
             <div class="card-header">
+                
                 <h3 class="card-title">
+                    <a class="btn bg-gradient-warning btn-sm mr-3" title="Volver" href="{{ route('familias.index') }}">
+                        <i class="fas fa-arrow-alt-circle-left"></i>
+                        Volver
+                    </a>
                     <i class="fas fa-users-cog"></i>
                     Familia
                 </h3>
             </div>
             <div class="card-body">
                 <div class="form-group row nowrap">
-                        <span class="badge badge-pill bg-gradient-warning badge mx-3 py-2">{{
-                            $familia->fichaFamiliar() }}
-                        </span>
-                        <span class="badge badge-pill bg-gradient-warning badge mx-3 py-2">FAMILIA.: {{ $familia->familia
+                        <span class="badge badge-pill bg-gradient-{{$familia->sector == 'SB'?'warning':'info' }} badge mx-3 py-2"> FAMILIA: {{ $familia->familia
                             }}</span>
+                            <span class="badge badge-pill bg-gradient-{{$familia->sector == 'SB'?'warning':'info' }} badge mx-3 py-2"> FICHA FAMILIAR: {{
+                             $familia->fichaFamiliar() }}
+                        </span>
                         
                     <div class="col-sm text-right">
-                        <a class="btn bg-gradient-primary btn-sm" title="Editar"
+                        <a class="btn bg-gradient-success btn-sm" title="Editar"
                             href="{{ route('familias.edit', $familia->id) }}"> Editar Familia <i
                                 class="fas fa-pen mx-2"></i>
                         </a>
@@ -35,10 +40,10 @@
                                 aria-selected="true">Informacion Familia</a>
                             <a class="nav-link" id="vert-tabs-controles-tab" data-toggle="pill"
                                 href="#vert-tabs-controles" role="tab" aria-controls="vert-tabs-presupuestos"
-                                aria-selected="false">Integrantes</a>
+                                aria-selected="false">Identificacion del Grupo Familiar</a>
                             <a class="nav-link" id="vert-tabs-patologias-tab" data-toggle="pill"
                                 href="#vert-tabs-patologias" role="tab" aria-controls="vert-tabs-patologias"
-                                aria-selected="false">Diagnosticos</a>
+                                aria-selected="false">Genograma</a>
                         </div>
                     </div>
                     <div class="col-7 col-sm-9">
@@ -48,17 +53,26 @@
                                 <div class="card-body">
                                     <strong><i class="fas fa-map-marker-alt"></i> Dirección</strong>
                                     <p class="text-muted">
-                                        {{ $familia->direccion }}, {{ $familia->comuna ? : 'Licantén' }}
+                                        {{ $familia->direccion }}, {{ $familia->comuna ? : 'Hualañe' }}
                                     </p>
                                     <hr>
                                     <strong><i class="fas fa-phone-alt mr-1"></i> Telefono</strong>
                                     <p class="text-muted">{{ $familia->telefono ? : 'Sin datos...'}}</p>
                                     <hr>
-                                    
+                                    <strong><i class="fas fa-users-cog"></i> Tipo Familia</strong>
+                                    <p class="text-muted text-uppercase">
+                                        {{ $familia->tipo_familia ?? ''}}
+                                    </p>
+                                    <hr>
+                                    <strong><i class="fa fa-chart-bar"></i> Etapa ciclo Vital</strong>
+                                    <p class="text-muted text-uppercase">
+                                        {{ str_replace('_', ' ', $familia->etapa_cicloVital ?? '' )}}
+                                    </p>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="vert-tabs-controles" role="tabpanel"
                                 aria-labelledby="vert-tabs-controles-tab">
+                                @include('integrantes.list_controles')
                                 
                             </div>
                             <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"

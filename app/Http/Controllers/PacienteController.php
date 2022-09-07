@@ -61,6 +61,19 @@ class PacienteController extends Controller
         return redirect('pacientes/' . $id)->withSuccess('Paciente Actualizado con exito!');
     }
 
+    public function eliminarInt(Request $request)
+    {
+
+        dd($request->all());
+        $familia_id = $request->familia_id;
+
+        $paciente = Paciente::findOrFail($id);
+       // $producto->materiaPrima()->detach($materiaPrima_id,$min_produccion);
+        $paciente->familia->detach($request->familia_id);
+
+        return redirect('familias/' . $request->familia_id)->withSuccess('Familia Actualizada con exito!');
+    }
+
     public
     function destroy($id)
     {
