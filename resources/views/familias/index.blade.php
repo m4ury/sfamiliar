@@ -23,7 +23,7 @@
             <tbody>
             @foreach($familias as $familia)
                 <tr>
-                    <td class="text-uppercase">{{ $familia->fichaFamiliar() }}</td>
+                    <td class="text-uppercase"><a href="{{ route('familias.show', $familia->id) }}">{{ $familia->fichaFamiliar() }}</a></td>
                     <td class="text-uppercase">{{ $familia->familia }}</td>
                     <td>{{$familia->direccion}}</td>
                     @if($familia->sector == 'SA')

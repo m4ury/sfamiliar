@@ -1,7 +1,7 @@
-@if($paciente->controls)
+@if(!$familia->pacientes)
 <div class="col-sm-6 mb-2">
-    <a class="btn bg-gradient-success btn-sm" title="Nuevo control"
-        href="{{ route('controles.create', $paciente->id) }}">
+    <a class="btn bg-gradient-success btn-sm" title="Nuevo integrante"
+        href="{{ route('paci.create', $paciente->id) }}">
         <i class="fas fa-money-check-alt"></i>
         Nuevo control
     </a>

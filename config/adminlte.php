@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'Salud Familiar | ',
-    'title_prefix' => '',
+    'title' => '',
+    'title_prefix' => 'Salud Familiar | ',
     'title_postfix' => '',
 
     /*

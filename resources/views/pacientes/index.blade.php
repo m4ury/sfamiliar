@@ -27,7 +27,7 @@
             <tbody>
             @foreach($pacientes as $paciente)
                 <tr>
-                    <td><a href="{{ route('pacientes.show', $paciente->id) }}">{{ $paciente->rut }}</a></td>
+                    <td nowrap=""><a href="{{ route('pacientes.show', $paciente->id) }}">{{ $paciente->rut }}</a></td>
                     <td class="text-uppercase">{{ $paciente->fullName() }}</td>
                     <td>{{ $paciente->ficha }}</td>
                     <td class="text-uppercase">{{ $paciente->familia->sector ?? " " }}000{{ $paciente->familia->ficha_familiar ?? " " }}</td>
@@ -131,6 +131,7 @@
                             "sortDescending": ": Activar para ordenar la columna de manera descendente"
                         }
                     },
+                    order: [[3, 'asc']],
             });
     </script>
 @endsection

@@ -61,37 +61,12 @@
                                     <strong><i class="fas fa-phone-alt mr-1"></i> Telefono</strong>
                                     <p class="text-muted">{{ $paciente->telefono ? : 'Sin datos...'}}</p>
                                     <hr>
-                                    <strong><i class="fas fa-heartbeat mr-1"></i> Riesgo Cardiovascular</strong>
-                                    <br>
-                                    @if($paciente->riesgo_cv == 'MODERADO')
-                                    <p class="btn rounded-pill bg-gradient-warning">MODERADO</P>
-                                    @elseif($paciente->riesgo_cv == 'ALTO')
-                                    <p class="btn rounded-pill bg-gradient-danger px-4">ALTO</P>
-                                    @elseif($paciente->riesgo_cv == 'BAJO')
-                                    <p class="btn rounded-pill bg-gradient-success px-4">BAJO</P>
-                                    @else
-                                    <p class="btn badge-pill bg-gradient-info">No hay datos...</p>
-                                    @endif
+                                    
                                     <hr>
-                                    <strong><i class="fas fa-disease mr-1"></i>Enfermedad Renal
-                                        Cronica(ERC)</strong>
+                                    <strong><i class="fas fa-disease mr-1"></i>Enfermedad Cronica</strong>
                                     <br>
-                                    <p class="btn badge-pill bg-gradient-info">{{ $paciente->erc ? : 'No se encontraron
-                                        datos.' }}</p>
-                                    <hr>
-                                    @if($paciente->compensado == 1)
-                                    <strong><i class="fas fa-thumbs-up mr-1"></i>Compensado</strong>
-                                    <br>
-                                    <p class="btn rounded-pill bg-gradient-success">COMPENSADO</P>
-                                    @elseif($paciente->compensado == 2)
-                                    <strong><i class="fas fa-thumbs-down mr-1"></i>No Compensado</strong>
-                                    <br>
-                                    <p class="btn rounded-pill bg-gradient-danger">NO COMPENSADO</p>
-                                    @else
-                                    <strong><i class="fas fa-question-circle mr-1"></i>Compensado</strong>
-                                    <br>
-                                    <p class="btn badge-pill bg-gradient-info">No hay datos...</p>
-                                    @endif
+                                    <p class="btn badge-pill bg-gradient-info">{{ $paciente->enf_cronica ? : 'No se encontraron
+                                        datos...' }}</p>
                                 </div>
                             </div>
                              <div class="tab-pane fade" id="vert-tabs-controles" role="tabpanel"

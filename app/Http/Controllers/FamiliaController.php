@@ -14,7 +14,7 @@ class FamiliaController extends Controller
      */
     public function index()
     {
-        $familias = Familia::with('pacientes')->latest()->get();
+        $familias = Familia::with('pacientes')->orderBy('ficha_familiar', 'desc')->get();
 
         return view('familias.index', compact('familias'));
     }
@@ -48,7 +48,8 @@ class FamiliaController extends Controller
      */
     public function show(Familia $familia)
     {
-        //
+        $familia = Familia::findOrFail($familia->id);
+        return view('familias.show', compact('familia'));
     }
 
     /**
