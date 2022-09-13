@@ -15,7 +15,7 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => 'Salud Familiar | ',
+    'title_prefix' => 'Inscritos | ',
     'title_postfix' => '',
 
     /*
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Salud Familiar</b>',
+    'logo' => '<b>Inscritos </b>IV',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => null,
+    'logo_img_alt' => 'AdminLTE',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => true,
+    'usermenu_header' => false,
     'usermenu_header_class' => 'bg-info',
     'usermenu_image' => true,
     'usermenu_desc' => true,
@@ -87,7 +87,8 @@ return [
     'layout_boxed' => false,
     'layout_fixed_sidebar' => false,
     'layout_fixed_navbar' => false,
-    'layout_fixed_footer' => true,
+    'layout_fixed_footer' => false,
+    'layout_dark_mode' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -224,60 +225,40 @@ return [
     */
 
     'menu' => [
+        // Navbar items:
         /*[
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
+            'type'         => 'navbar-search',
+            'text'         => 'search',
+            'topnav_right' => true,
+        ],
+        [
+            'type'         => 'fullscreen-widget',
+            'topnav_right' => true,
         ],*/
+
+        // Sidebar items:
         /*[
+            'type' => 'sidebar-menu-search',
+            'text' => 'search',
+        ],
+        [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
-        ],*/
-        /*['header' => 'account_settings'],
+        ],
         [
-            'text' => 'profile',
-            'route' => 'perfil',
-            'icon' => 'fas fa-fw fa-user text-cyan',
-        ],*/
-        /*[
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text'        => 'pages',
+            'url'         => 'admin/pages',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 4,
+            'label_color' => 'success',
         ],*/
         ['header' => 'PACIENTES'],
         [
             'text' => 'Pacientes',
-            'route' => 'pacientes.index',
-            'icon' => 'fas fa-fw fa-user-injured text-success',
-        ],
-        ['header' => 'FAMILIAS'],
-        [
-            'text' => 'Familias',
-            'route' => 'familias.index',
-            'icon' => 'fas fa-fw fa-users text-danger',
-        ],
-        ['header' => 'CONTROLES',
-        'can' => 'controles-all'],
-        [
-            'text' => 'Controles',
-            'route' => 'controles-all',
-            'icon' => 'fas fa-fw fa-hospital-user text-danger',
-            'can' => 'controles-all'
-        ],
-        [
-            'text' => 'Proximos Controles',
-            'route' => 'proximos',
-            'icon' => 'fas fa-fw fa-project-diagram text-yellow',
-            'can' => 'controles-all'
-        ],
-        ['header' => 'ESTADISTICAS', 
-            'can' => 'estadisticas'],
-        [
-            'text' => 'Estadisticas',
-            'route' => 'estadisticas',
-            'icon' => 'fas fa-fw fa-file-alt text-pink',
-            'can' => 'estadisticas'
+            'route'  => 'pacientes.index',
+            'icon' => 'fas fa-fw fa-user',
+            'label_color' => 'success'
         ],
         /*[
             'text'    => 'multilevel',
@@ -317,22 +298,13 @@ return [
                 ],
             ],
         ],*/
-        /*['header' => 'labels'],
+        ['header' => 'FAMILIAS'],
         [
-            'text'       => 'important',
+            'text'       => 'Familias',
+            'icon' => 'fas fa-fw fa-users',
             'icon_color' => 'red',
-            'url'        => '#',
+            'route'        => 'familias.index',
         ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ]*/
     ],
 
     /*
@@ -376,67 +348,162 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    'location' => '../node_modules/datatables.net/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'location' => '../node_modules/datatables.net-dt/js/dataTables.dataTables.min.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'location' => '../node_modules/datatables.net-dt/css/jquery.dataTables.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons/js/dataTables.buttons.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons/js/buttons.flash.min.js'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/jszip/jszip.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/pdfmake/pdfmake.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => 'vendor/datatables-plugins/pdfmake/vfs_fonts.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons/js/buttons.html5.min.js'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons/js/buttons.print.min.js'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-autofill/js/dataTables.autoFill.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-autofill-dt/css/autoFill.dataTables.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-autofill-dt/js/autoFill.dataTables.min.js'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons/js/buttons.colVis.min.js'
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons-dt/css/buttons.dataTables.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-buttons-dt/js/buttons.dataTables.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-datetime/dist/dataTables.dateTime.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../node_modules/datatables.net-datetime/dist/dataTables.dateTime.min.js',
                 ],
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/select2/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
+                    'asset' => true,
+                    'location' => 'vendor/select2/css/select2.min.css',
                 ],
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/chart.js/Chart.bundle.min.js',
                 ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/chart.js/Chart.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/chart.js/Chart.min.css',
+                ]
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.all.js',
                 ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.js',
+                ]
             ],
         ],
         'Pace' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-radar.min.css',
+                    'asset' => true,
+                    'location' => 'vendor/pace-progress/themes/black/pace-theme-loading-bar.css',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/pace-progress/pace.min.js',
                 ],
             ],
         ],

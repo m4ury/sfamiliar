@@ -25,7 +25,7 @@
                 <tr>
                     <td class="text-uppercase"><a href="{{ route('familias.show', $familia->id) }}">{{ $familia->fichaFamiliar() }}</a></td>
                     <td class="text-uppercase">{{ $familia->familia }}</td>
-                    <td>{{$familia->direccion}}</td>
+                    <td class="text-uppercase">{{$familia->domicilio}}</td>
                     @if($familia->sector == 'SA')
                         <td><span class="mr-2">
                     <i class="fas fa-square text-primary"></i></span> Celeste

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Familia;
+use App\Http\Requests\FamiliaRequest;
 use App\Paciente;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class FamiliaController extends Controller
      */
     public function create()
     {
-        //
+        return view('familias.create');
     }
 
     /**
@@ -36,9 +37,15 @@ class FamiliaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FamiliaRequest $request)
     {
-        //
+
+        //dd($request->all());
+        $familia = Familia::create($request->all());
+        $familia->familia = $request->familia.' '.$request->familia2;
+        $familia->save();
+        //Alert::success('Nuevo Paciente ha sido cread@ con exito');
+        return redirect('familias')->withSuccess('Familia Creada con exito!');
     }
 
     /**

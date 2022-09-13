@@ -16,7 +16,7 @@ class Familia extends Model
 
     public function fichaFamiliar()
     {
-        return $this->sector."000".$this->ficha_familiar;
+        return $this->sector.''.$this->ficha_familiar;
     }
-    
+
 }

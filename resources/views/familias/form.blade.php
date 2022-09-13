@@ -1,71 +1,33 @@
-{{ Form::open(['action' => 'PacienteController@store', 'method' => 'POST', 'class' => 'form-horizontal']) }}
+{{ Form::open(['action' => 'FamiliaController@store', 'method' => 'POST', 'class' => 'form-horizontal']) }}
 <div class="form-group row">
-    {!! Form::label('rut', 'Rut', ['class' => 'col-sm-2 col-form-label']) !!}
+    {!! Form::label('familia_label', 'Apellidos Jefe Hogar', ['class' => 'col-sm-2 col-form-label']) !!}
     <div class="col-sm-5">
-        {!! Form::text('rut', null, ['class' => 'form-control form-control-sm'.($errors->has('rut') ? ' is-invalid' : ''), 'placeholder' =>
-        'Ej.: 16000000-K']) !!}
-        @if ($errors->has('rut'))
+        {!! Form::text('familia', null, ['class' => 'form-control form-control-sm'.($errors->has('familia') ? ' is-invalid' : ''), 'placeholder' =>
+        'ej.: Sanchez']) !!}
+        @if ($errors->has('familia'))
             <span class="invalid-feedback">
-               <strong>{{ $errors->first('rut') }}</strong>
+               <strong>{{ $errors->first('familia') }}</strong>
             </span>
         @endif
     </div>
     <div class="col-sm-5">
-        {!! Form::number('ficha',null, ['class' => 'form-control form-control-sm'.($errors->has('ficha') ? '
-        is-invalid' : ''), 'placeholder' => 'Nº Ficha']) !!}
-        @if ($errors->has('ficha'))
+        {!! Form::text('familia2',null, ['class' => 'form-control form-control-sm'.($errors->has('familia2') ? '
+        is-invalid' : ''), 'placeholder' => 'ej.: Ramirez']) !!}
+        @if ($errors->has('familia2'))
             <span class="invalid-feedback">
-               <strong>{{ $errors->first('ficha') }}</strong>
-            </span>
-        @endif
-    </div>
-</div>
-<div class="form-group row">
-    {!! Form::label('nombres', 'Nombres', ['class' => 'col-sm-2 col-form-label']) !!}
-    <div class="col-sm-10">
-        {!! Form::text('nombres', null, ['class' => 'form-control form-control-sm'.($errors->has('nombres') ? ' is-invalid' : ''),
-    'placeholder' => 'Ingrese Nombres']) !!}
-        @if ($errors->has('nombres'))
-            <span class="invalid-feedback">
-                <strong>{{ $errors->first('nombres') }}</strong>
+               <strong>{{ $errors->first('familia2') }}</strong>
             </span>
         @endif
     </div>
 </div>
 
 <div class="form-group row">
-    {!! Form::label('apellidos', 'Apellidos', ['class' => 'col-sm-2 col-form-label']) !!}
+    {!! Form::label('domicilio_label', 'Domicilio', ['class' => 'col-sm-2 col-form-label']) !!}
     <div class="col-sm-5">
-        {!! Form::text('apellidoP',null, ['class' => 'form-control form-control-sm'.($errors->has('apellidoP') ? '
-        is-invalid' : ''), 'placeholder' => 'Apellido Paterno']) !!}
-        @if ($errors->has('apellidoP'))
+        {!! Form::text('domicilio',null, ['class' => 'form-control form-control-sm'.($errors->has('domicilio') ? ' is-invalid' : '')]) !!}
+        @if ($errors->has('domicilio'))
             <span class="invalid-feedback">
-                          <strong>{{ $errors->first('apellidoP') }}</strong>
-                        </span>
-        @endif
-    </div>
-    <div class="col-sm-5">
-        {!! Form::text('apellidoM',null, ['class' => 'form-control form-control-sm'.($errors->has('apellidoM') ? '
-        is-invalid' : ''), 'placeholder' => 'Apellido Materno']) !!}
-    </div>
-</div>
-
-<div class="form-group row">
-    {!! Form::label('fecha_nacimiento', 'Fecha Nac.', ['class' => 'col-sm-2 col-form-label']) !!}
-    <div class="col-sm-5">
-        {!! Form::date('fecha_nacimiento',null, ['class' => 'form-control form-control-sm']) !!}
-    </div>
-    <div class="col-sm-5">
-        {!! Form::select('sexo', ['Femenino' => 'Femenino', 'Masculino' => 'Masculino', 'Otro' => 'otro'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione Sexo', 'id' => 'sexo']) !!}
-    </div>
-</div>
-<div class="form-group row">
-    {!! Form::label('direccion', 'Direcciôn', ['class' => 'col-sm-2 col-form-label']) !!}
-    <div class="col-sm-5">
-        {!! Form::text('direccion',null, ['class' => 'form-control form-control-sm'.($errors->has('direccion') ? ' is-invalid' : '')]) !!}
-        @if ($errors->has('direccion'))
-            <span class="invalid-feedback">
-                <strong>{{ $errors->first('direccion') }}</strong>
+                <strong>{{ $errors->first('domicilio') }}</strong>
             </span>
         @endif
     </div>
@@ -74,38 +36,46 @@
     </div>
 </div>
 <div class="form-group row">
-    {!! Form::label('telefono', 'Télefono.', ['class' => 'col-sm-2 col-form-label']) !!}
+    {!! Form::label('fono_label', 'Télefono.', ['class' => 'col-sm-2 col-form-label']) !!}
     <div class="col-sm-5">
-        {!! Form::tel('telefono',null, ['class' => 'form-control form-control-sm'.($errors->has('telefono') ? ' is-invalid' : ''), 'id' => 'phone', 'placeholder' =>
+        {!! Form::tel('fono',null, ['class' => 'form-control form-control-sm'.($errors->has('fono') ? ' is-invalid' : ''), 'id' => 'phone', 'placeholder' =>
             'ej.: 912345678']) !!}
-        @if ($errors->has('telefono'))
+        @if ($errors->has('fono'))
             <span class="invalid-feedback">
-               <strong>{{ $errors->first('telefono') }}</strong>
+               <strong>{{ $errors->first('fono') }}</strong>
             </span>
         @endif
     </div>
-    <div class="col-sm-5">
-        {!! Form::select('sector', ['Naranjo' => 'Naranjo', 'Celeste' => 'Celeste', 'Blanco' => 'Blanco'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione Sector', 'id' => 'sector']) !!}
-    </div>
 </div>
 
-<div class="form-group row">
-    <div class="col">
-        {!! Form::label('pueblo_originario', 'Originario', ['class' => 'col-sm col-form-label']) !!}
-        {!! Form::checkbox('pueblo_originario', 1, null ,['class' => 'form-control form-control']) !!}
+    <div class="form-group row">
+        {!! Form::label('sector_label', 'Sector', ['class' => 'col-sm-2 col-form-label']) !!}
+        <div class="col-sm-5">
+            {!! Form::select('sector', ['SB' => 'Naranjo (SB)', 'SA' => 'Celeste (SA)'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione Sector', 'id' => 'sector']) !!}
+        @if ($errors->has('sector'))
+            <span class="invalid-feedback">
+                <strong>{{ $errors->first('sector') }}</strong>
+            </span>
+        @endif
+        </div>
+        <div class="col-sm-5">
+            {!! Form::number('ficha_familiar',null, ['class' => 'form-control form-control-sm'.($errors->has('ficha_familiar') ? '
+            is-invalid' : ''), 'placeholder' => 'Nº Ficha Familiar']) !!}
+            @if ($errors->has('ficha_familiar'))
+                <span class="invalid-feedback">
+                   <strong>{{ $errors->first('ficha_familiar') }}</strong>
+                </span>
+            @endif
+        </div>
     </div>
-    <div class="col">
-        {!! Form::label('migrante', 'Pob. Migrante', ['class' => 'col-sm col-form-label']) !!}
-        {!! Form::checkbox('migrante', 1, null, ['class' => 'form-control form-control']) !!}
-    </div>
-</div>
+
 <hr>
 <div class="row">
     <div class="col">
         {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-primary btn-sm btn-block']) }}
     </div>
     <div class="col">
-        <a href="{{ url('pacientes') }}" style="text-decoration:none">
+        <a href="{{ url('familias') }}" style="text-decoration:none">
             {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block'] ) }}
         </a>
     </div>

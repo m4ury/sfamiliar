@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5541eba9885a83b790ae0dee75516d36",
+    "content-hash": "59572f6cf3b9f849734122618de96bbf",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -2758,20 +2758,20 @@
         },
         {
             "name": "realrashid/sweet-alert",
-            "version": "v3.2.3",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/realrashid/sweet-alert.git",
-                "reference": "d4e40b4956e1f040bd709d54410b360023cea67f"
+                "reference": "fb837beaa52568fb3106d311ff3c7a7b8e543608"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/realrashid/sweet-alert/zipball/d4e40b4956e1f040bd709d54410b360023cea67f",
-                "reference": "d4e40b4956e1f040bd709d54410b360023cea67f",
+                "url": "https://api.github.com/repos/realrashid/sweet-alert/zipball/fb837beaa52568fb3106d311ff3c7a7b8e543608",
+                "reference": "fb837beaa52568fb3106d311ff3c7a7b8e543608",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^7.0|^8.0",
+                "laravel/framework": "^5.6|^6.0|^7.0|^8.0|^9.0|^9.11|9.14.*",
                 "php": "^7.2|^8.0"
             },
             "require-dev": {
@@ -2844,7 +2844,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-26T10:10:01+00:00"
+            "time": "2022-05-28T13:28:03+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7844,5 +7844,5 @@
         "php": "^7.2.5"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.3.0"
 }
