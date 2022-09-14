@@ -42,8 +42,8 @@ class FamiliaController extends Controller
 
         //dd($request->all());
         $familia = Familia::create($request->all());
-        $familia->familia = $request->familia.' '.$request->familia2;
-        $familia->save();
+       // $familia->familia = $request->familia.' '.$request->familia2;
+        //$familia->save();
         //Alert::success('Nuevo Paciente ha sido cread@ con exito');
         return redirect('familias')->withSuccess('Familia Creada con exito!');
     }
@@ -69,7 +69,9 @@ class FamiliaController extends Controller
      */
     public function edit(Familia $familia)
     {
-        //
+        $pacients = Paciente::select('rut', 'nombres', 'apellidoP', 'apellidoM')->orderBy('apellidoP', 'desc')->get();
+
+        return view('familias.edit', compact('familia', 'pacients'));
     }
 
     /**

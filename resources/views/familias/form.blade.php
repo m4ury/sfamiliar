@@ -2,20 +2,11 @@
 <div class="form-group row">
     {!! Form::label('familia_label', 'Apellidos Jefe Hogar', ['class' => 'col-sm-2 col-form-label']) !!}
     <div class="col-sm-5">
-        {!! Form::text('familia', null, ['class' => 'form-control form-control-sm'.($errors->has('familia') ? ' is-invalid' : ''), 'placeholder' =>
+        {!! Form::text('familia', old('familia', $familia->familia ?? ''), ['class' => 'form-control form-control-sm'.($errors->has('familia') ? ' is-invalid' : ''), 'placeholder' =>
         'ej.: Sanchez']) !!}
         @if ($errors->has('familia'))
             <span class="invalid-feedback">
                <strong>{{ $errors->first('familia') }}</strong>
-            </span>
-        @endif
-    </div>
-    <div class="col-sm-5">
-        {!! Form::text('familia2',null, ['class' => 'form-control form-control-sm'.($errors->has('familia2') ? '
-        is-invalid' : ''), 'placeholder' => 'ej.: Ramirez']) !!}
-        @if ($errors->has('familia2'))
-            <span class="invalid-feedback">
-               <strong>{{ $errors->first('familia2') }}</strong>
             </span>
         @endif
     </div>
