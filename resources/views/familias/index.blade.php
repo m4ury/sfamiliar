@@ -18,6 +18,7 @@
                 <th>Familia</th>
                 <th>Direccion</th>
                 <th>Sector</th>
+                <th>N° Integrantes</th>
             </tr>
             </thead>
             <tbody>
@@ -39,6 +40,7 @@
                     <i class="fas fa-square text-white"></i></span> Blanco
                         </td>
                     @endif
+                    <td><i class="fas fa-users"></i> {{ $familia->pacientes->count('rut') }}</td>
                 </tr>
             @endforeach
             </tbody>

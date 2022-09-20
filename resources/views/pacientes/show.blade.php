@@ -6,6 +6,9 @@
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <h3 class="card-title">
+                    <a class= "btn bg-gradient-info btn-sm mr-3" title="Volver" href="{{ route('pacientes.index') }}">
+                        <i class="fas fa-arrow-alt-circle-left"></i> Volver
+                    </a>
                     <i class="fas fa-users-cog"></i>
                     Paciente
                 </h3>
