@@ -6,6 +6,7 @@ use App\Familia;
 use App\Http\Requests\FamiliaRequest;
 use App\Paciente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FamiliaController extends Controller
 {
@@ -16,7 +17,7 @@ class FamiliaController extends Controller
      */
     public function index()
     {
-        $familias = Familia::with('pacientes')->orderBy('ficha_familiar', 'desc')->get();
+        $familias = Familia::with('pacientes')->get();
 
         return view('familias.index', compact('familias'));
     }
@@ -28,7 +29,9 @@ class FamiliaController extends Controller
      */
     public function create()
     {
-        return view('familias.create');
+        $pacientes = new Paciente;
+
+        return view('familias.create', compact('pacientes'));
     }
 
     /**
@@ -42,16 +45,13 @@ class FamiliaController extends Controller
 
         //dd($request->all());
         $familia = Familia::create($request->all());
-       // $familia->familia = $request->familia.' '.$request->familia2;
-        //$familia->save();
-        //Alert::success('Nuevo Paciente ha sido cread@ con exito');
         return redirect('familias')->withSuccess('Familia Creada con exito!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Familia  $familia
+     * @param  \App\Familia
      * @return \Illuminate\Http\Response
      */
     public function show(Familia $familia)
@@ -69,9 +69,9 @@ class FamiliaController extends Controller
      */
     public function edit(Familia $familia)
     {
-        $pacients = Paciente::select('rut', 'nombres', 'apellidoP', 'apellidoM')->orderBy('apellidoP', 'desc')->get();
+        $pacientes = Paciente::select(\DB::raw('CONCAT(nombres, " ", apellidoP, " - ", rut) AS full_name, id'))->where('familia_id', '=', null)->pluck('full_name', 'id')->lazy();
 
-        return view('familias.edit', compact('familia', 'pacients'));
+        return view('familias.edit', compact('familia', 'pacientes'));
     }
 
     /**
@@ -83,7 +83,24 @@ class FamiliaController extends Controller
      */
     public function update(Request $request, Familia $familia)
     {
-        //
+        //dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'familia' => 'string|min:4',
+            'ficha_familiar' => 'numeric|min:1',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        $familia = Familia::findOrFail($familia->id);
+        $familia->update($request->all());
+
+        //$reunion->users()->sync($request->users);
+        if(isset($request->paciente_id)){
+            $paciente = Paciente::findOrFail($request->paciente_id);
+            $paciente->update(['familia_id' => $familia->id]);
+        }
+
+        return redirect('familias/' . $familia->id)->withSuccess('Actualizado con exito!');
     }
 
     /**

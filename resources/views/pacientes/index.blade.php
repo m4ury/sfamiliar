@@ -30,7 +30,7 @@
                     <td nowrap=""><a href="{{ route('pacientes.show', $paciente->id) }}">{{ $paciente->rut }}</a></td>
                     <td class="text-uppercase">{{ $paciente->fullName() }}</td>
                     <td>{{ $paciente->ficha }}</td>
-                    <td class="text-uppercase">{{ $paciente->familia->sector ?? " " }}{{ $paciente->familia->ficha_familiar ?? " " }}</td>
+                    <td class="text-uppercase"><a href="{{ route('familias.show', $paciente->familia->id ?? '') }}">{{ $paciente->familia->sector ?? " " }}{{ $paciente->familia->ficha_familiar ?? " " }}</td>
                     <td>{{ $paciente->edad() }}</td>
                     <td>{{ $paciente->sexo }}</td>
                     @if($paciente->sector == 'celeste')
@@ -131,7 +131,7 @@
                             "sortDescending": ": Activar para ordenar la columna de manera descendente"
                         }
                     },
-                    order: [[3, 'asc']],
+                    //order: [[3, 'asc']],
             });
     </script>
 @endsection

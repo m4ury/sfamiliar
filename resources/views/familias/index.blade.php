@@ -82,6 +82,7 @@
                             "sortDescending": ": Activar para ordenar la columna de manera descendente"
                         }
                     },
+                    order: [[0, 'asc']],
             });
     </script>
 @endsection

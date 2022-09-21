@@ -5,7 +5,7 @@
     <div class="col">
         <div class="card card-primary card-outline">
             <div class="card-header">
-                
+
                 <h3 class="card-title">
                     <a class="btn bg-gradient-warning btn-sm mr-3" title="Volver" href="{{ route('familias.index') }}">
                         <i class="fas fa-arrow-alt-circle-left"></i>
@@ -22,7 +22,7 @@
                             <span class="badge badge-pill bg-gradient-{{$familia->sector == 'SB'?'warning':'info' }} badge mx-3 py-2"> FICHA FAMILIAR: {{
                              $familia->fichaFamiliar() }}
                         </span>
-                        
+
                     <div class="col-sm text-right">
                         <a class="btn bg-gradient-success btn-sm" title="Editar"
                             href="{{ route('familias.edit', $familia->id) }}"> Editar Familia <i
@@ -53,7 +53,7 @@
                                 <div class="card-body">
                                     <strong><i class="fas fa-map-marker-alt"></i> Dirección</strong>
                                     <p class="text-muted">
-                                        {{ $familia->direccion }}, {{ $familia->comuna ? : 'Hualañe' }}
+                                        {{ $familia->domicilio }}, {{ $familia->comuna ? : 'Hualañe' }}
                                     </p>
                                     <hr>
                                     <strong><i class="fas fa-phone-alt mr-1"></i> Telefono</strong>
@@ -73,7 +73,7 @@
                             <div class="tab-pane fade" id="vert-tabs-controles" role="tabpanel"
                                 aria-labelledby="vert-tabs-controles-tab">
                                 @include('integrantes.list_controles')
-                                
+
                             </div>
                             <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"
                                 aria-labelledby="vert-tabs-patologias-tab">

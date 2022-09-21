@@ -10,6 +10,19 @@
                 <div class="card-body">
                     {{ Form::open(['action' => 'FamiliaController@update', 'method' => 'POST', 'url' => 'familias/'.$familia->id, 'class' => 'form-horizontal']) }}
                     @method('PUT')
+
+                    <div class="form-group row">
+                        {!! Form::label('integrantes_label', 'Agregar integrante(s)', ['class' => 'col-sm-2 col-form-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::select('paciente_id', $pacientes, null, ['class' => 'form-control form-control-sm', 'id' => 'pacientes', 'placeholder' => 'Seleccione integrante']) !!}
+                        @if ($errors->has('paciente_id'))
+                            <span class="invalid-feedback">
+                                <strong>{{ $errors->first('paciente_id') }}</strong>
+                            </span>
+                        @endif
+                        </div>
+                    </div>
+                    <hr>
                     @include('familias.form')
 
                 </div>
@@ -20,9 +33,9 @@
 @endsection
 @section('js')
 <script>
-    $('#sector, #comuna').select2({
+    $('#sector, #comuna, #pacientes').select2({
         theme: "classic",
-        width: '100%',
+        width: '100%'
     });
 </script>
 @endsection

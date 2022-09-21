@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PacienteRequest;
 use App\Paciente;
+use App\Familia;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -13,7 +14,7 @@ class PacienteController extends Controller
 {
     public function index()
     {
-        $pacientes = Paciente::with('familia')->latest()
+        $pacientes = Paciente::with('familia')->latest('familia_id', 'desc')
             ->get();
 
         return view('pacientes.index', compact('pacientes'));
@@ -40,6 +41,7 @@ class PacienteController extends Controller
     public function edit($id)
     {
         $paciente = Paciente::findOrFail($id);
+        //$familias = Familia::all();
         return view('pacientes.edit', compact('paciente'));
     }
 
@@ -49,8 +51,7 @@ class PacienteController extends Controller
         $validator = Validator::make($request->all(), [
             'rut' => 'cl_rut',
             'nombres' => 'string|min:3',
-            'apellidoP' => 'string|min:3',
-            'racVigente' => 'before_or_equal:' . Carbon::now(),
+            'apellidoP' => 'string|min:3'
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -61,17 +62,13 @@ class PacienteController extends Controller
         return redirect('pacientes/' . $id)->withSuccess('Paciente Actualizado con exito!');
     }
 
-    public function eliminarInt(Request $request)
+    public function eliminarInt(Request $request, $id)
     {
-
-        dd($request->all());
-        $familia_id = $request->familia_id;
-
         $paciente = Paciente::findOrFail($id);
-       // $producto->materiaPrima()->detach($materiaPrima_id,$min_produccion);
-        $paciente->familia->detach($request->familia_id);
+        $paciente->familia_id = null;
+        $paciente->save();
 
-        return redirect('familias/' . $request->familia_id)->withSuccess('Familia Actualizada con exito!');
+        return redirect()->back()->withSuccess('Familia Actualizada con exito!');
     }
 
     public

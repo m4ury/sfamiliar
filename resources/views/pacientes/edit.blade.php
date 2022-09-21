@@ -93,7 +93,7 @@
                     <div class="form-group row">
                         {!! Form::label('direccion_label', 'Dirección.', ['class' => 'col-sm-2 col-form-label']) !!}
                         <div class="col-sm-5">
-                            {!! Form::tel('direccion',$paciente->direccion, ['class' => 'form-control
+                            {!! Form::tel('direccion',old('direccion', $paciente->direccion ?? ''), ['class' => 'form-control
                             form-control-sm'.($errors->has('direccion') ? ' is-invalid' : ''),
                             'placeholder' => 'Dirección']) !!}
                         </div>
@@ -106,7 +106,7 @@
                             Javier', 'Villa Alegre' => 'Villa Alegre', 'Yerbas Buenas' => 'Yerbas Buenas', 'Talca' =>
                             'Talca', 'Constitucion' => 'Constitucion', 'Empedrado' => 'Empedrado', 'Maule' => 'Maule',
                             'Pelarco' => 'Pelarco', 'Pencahue' => 'Pencahue', 'Rio Claro' => 'Rio Claro', 'San Clemente'
-                            => 'San Clemente', 'San Rafael' => 'San Rafael', 'Curepto' => 'Curepto'], $paciente->comuna,
+                            => 'San Clemente', 'San Rafael' => 'San Rafael', 'Curepto' => 'Curepto'], old('comuna', $paciente->comuna ?? ''),
                             ['class' => 'form-control form-control-sm', 'id' => 'comuna', 'placeholder' => 'Seleccione
                             Comuna']) !!}
                         </div>
@@ -120,7 +120,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <div class="col-sm-5">
                             {!! Form::label('pueblo_originario_label', 'Originario', ['class' => 'col-sm
                             col-form-label']) !!}
@@ -132,32 +132,24 @@
                             {!! Form::checkbox('migrante', 1, old('migrante', $paciente->migrante),['class' =>
                             'form-control form-control']) !!}
                         </div>
-                    </div>
+                    </div> --}}
                     <hr>
-                    <div class="form-group row">
-                        {!! Form::label('riesgo_cv_label', 'Riesgo Cardiovascular', ['class' => 'col-sm-3
+                    {{-- <div class="form-group row">
+                        {!! Form::label('ficha_familiar_label', 'Ficha famliar', ['class' => 'col-sm-3
                         col-form-label']) !!}
                         <div class="col-sm-3">
-                            {!! Form::select('riesgo_cv', ['BAJO' => 'BAJO', 'MODERADO' => 'MODERADO', 'ALTO' =>
-                            'ALTO'], old('riesgo_cv', $paciente->riesgo_cv), ['class' => 'form-control', 'placeholder'
-                            => 'Seleccione', 'id' => 'riesgo_cv']) !!}
-                        </div>
-                        {!! Form::label('erc_label', 'Enf. Renal Crónica', ['class' => 'col-sm-3 col-form-label']) !!}
+                            {!! Form::select('familia_id', $familias->pluck('ficha_familiar'), old('ficha_familiar', $paciente->familia->ficha_familiar ?? ''), ['class' => 'form-control', 'placeholder'
+                            => 'Seleccione', 'id' => 'ficha_familiar']) !!}
+                        </div> --}}
+                        {{-- {!! Form::label('erc_label', 'Enf. Renal Crónica', ['class' => 'col-sm-3 col-form-label']) !!}
                         <div class="col-sm-3">
                             {!! Form::select('erc', ['sin' => 'SIN', 'I' => 'I', 'II' => 'II', 'IIIA' => 'IIIA', 'IIIB'
                             => 'IIIB', 'IV' => 'IV', 'V' => 'V'], old('erc', $paciente->erc), ['class' => 'form-control
                             form-control', 'placeholder' => 'Seleccione', 'id' => 'erc']) !!}
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        {!! Form::label('compensado_label', 'Compensado', ['class' => 'col-sm-3 col-form-label']) !!}
-                        <div class="col-sm-3">
-                            {!! Form::select('compensado', [1 => 'Compensado', 2 => 'Descompensado'], old('compensado',
-                            $paciente->compensado), ['class' => 'form-control', 'placeholder' => 'Seleccione', 'id' => 'compensado']) !!}
-                        </div>
+                        </div> --}}
                     </div>
 
-                                        <div class="row">   
+                                        <div class="row">
                                             <div class="col">
                                                 {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-primary btn-sm btn-block']) }}
                                             </div>
@@ -176,7 +168,7 @@
 @endsection
 @section('js')
 <script>
-    $('#riesgo_cv, #erc, #compensado, #funcionalidad, #riesgoCaida, #unipodal, #dependencia').select2({
+    $('#comuna, #sector, #ficha_familiar').select2({
         theme: "classic",
         width: '100%',
     });

@@ -8,12 +8,14 @@
                         <th>Rut</th>
                         <th>Nombre Completo</th>
                         <th>Nº Ficha Clinica</th>
-                        <th>Ficha familiar</th>
+                        <th>F.Nacimiento</th>
                         <th>Edad</th>
                         <th>Sexo</th>
+                        <th>E.Civil</th>
                         <th>Sector</th>
                         <th>Jefe Hogar</th>
-                        <th>Eliminar integrante</th>
+                        <th>Parentesco</th>
+                        <th>Elim. integrante</th>
                     </tr>
                 </thead>
             <tbody>
@@ -22,9 +24,10 @@
                     <td nowrap="">{{ $paciente->rut }}</td>
                     <td class="text-uppercase">{{ $paciente->fullName() }}</td>
                     <td>{{ $paciente->ficha }}</td>
-                    <td class="text-uppercase">{{ $paciente->familia->sector ?? " " }}{{ $paciente->familia->ficha_familiar ?? " " }}</td>
+                    <td>{{ $paciente->fecha_nacimiento }}</td>
                     <td>{{ $paciente->edad() }}</td>
                     <td>{{ $paciente->sexo }}</td>
+                    <td>{{ $paciente->e_civil }}</td>
                     @if($paciente->sector == 'celeste')
                         <td><span class="mr-2">
                     <i class="fas fa-square text-primary"></i></span> Celeste
@@ -37,9 +40,10 @@
                     <td>
                         <i class="fas {{ $paciente->jefe_hogar == 1 ? 'fa-key' : ""}}"></i>
                     </td>
-                    <td>{{ Form::open(['action' => 'PacienteController@eliminarInt', 'method' => 'POST', 'class' => 'col-sm-3 float-right confirm']) }}
-                        
-                        {!! Form::button('<i class="fas fa-trash"> Eliminar </i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm float-right', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => 'Eliminar'] ) !!}
+                    <td>{{ $paciente->parentesco }}</td>
+                    <td>{{ Form::open(['action' => 'PacienteController@update', 'method' => 'POST', 'route' => ['elimina', $paciente->id], 'class' => 'col-sm-3 float-right']) }}
+                        @csrf
+                        {!! Form::button('<i class="fas fa-minus-circle"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm float-right', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => 'Eliminar'] ) !!}
                     {{ Form::close() }}</td>
                 </tr>
                     @endforeach
