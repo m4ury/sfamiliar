@@ -17,7 +17,7 @@ class FamiliaController extends Controller
      */
     public function index()
     {
-        $familias = Familia::with('pacientes')->get();
+        $familias = Familia::with('pacientes')->get()->lazy();
 
         return view('familias.index', compact('familias'));
     }

@@ -21,7 +21,7 @@
             <tbody>
                     @foreach($pacientes as $paciente)
                 <tr>
-                    <td nowrap="">{{ $paciente->rut }}</td>
+                    <td nowrap=""><a href="{{ route('pacientes.edit', $paciente->id) }}" target="_blank">{{ $paciente->rut }}</a></td>
                     <td class="text-uppercase">{{ $paciente->fullName() }}</td>
                     <td>{{ $paciente->ficha }}</td>
                     <td>{{ $paciente->fecha_nacimiento }}</td>

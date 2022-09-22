@@ -25,7 +25,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($pacientes as $paciente)
+            @foreach($pacientes->lazy() as $paciente)
                 <tr>
                     <td nowrap=""><a href="{{ route('pacientes.show', $paciente->id) }}">{{ $paciente->rut }}</a></td>
                     <td class="text-uppercase">{{ $paciente->fullName() }}</td>

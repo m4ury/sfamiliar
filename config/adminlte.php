@@ -15,7 +15,7 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => 'Inscritos | ',
+    'title_prefix' => 'Salud Familiar | ',
     'title_postfix' => '',
 
     /*
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Inscritos </b>IV',
+    'logo' => '<b>Salud Familiar</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-info',
     'usermenu_image' => true,
     'usermenu_desc' => true,
@@ -87,8 +87,7 @@ return [
     'layout_boxed' => false,
     'layout_fixed_sidebar' => false,
     'layout_fixed_navbar' => false,
-    'layout_fixed_footer' => false,
-    'layout_dark_mode' => false,
+    'layout_fixed_footer' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -146,7 +145,7 @@ return [
     */
 
     'sidebar_mini' => 'lg',
-    'sidebar_collapse' => false,
+    'sidebar_collapse' => true,
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,
@@ -226,7 +225,7 @@ return [
 
     'menu' => [
         // Navbar items:
-        /*[
+        /* [
             'type'         => 'navbar-search',
             'text'         => 'search',
             'topnav_right' => true,
@@ -234,77 +233,27 @@ return [
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
-        ],*/
+        ], */
 
         // Sidebar items:
-        /*[
+        /* [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],*/
+        ], */
         ['header' => 'PACIENTES'],
         [
             'text' => 'Pacientes',
-            'route'  => 'pacientes.index',
+            'route' => 'pacientes.index',
             'icon' => 'fas fa-fw fa-user',
-            'label_color' => 'success'
+            'icon_color' => 'success',
         ],
-        /*[
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],*/
         ['header' => 'FAMILIAS'],
         [
-            'text'       => 'Familias',
+            'text' => 'Familias',
+            'route' => 'familias.index',
             'icon' => 'fas fa-fw fa-users',
             'icon_color' => 'red',
-            'route'        => 'familias.index',
-        ],
+        ]
     ],
 
     /*
@@ -348,92 +297,17 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '../node_modules/datatables.net/js/jquery.dataTables.min.js',
+                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '../node_modules/datatables.net-dt/js/dataTables.dataTables.min.js',
+                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => false,
-                    'location' => '../node_modules/datatables.net-dt/css/jquery.dataTables.min.css',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-buttons/js/dataTables.buttons.min.js',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-buttons/js/buttons.flash.min.js'
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/datatables-plugins/jszip/jszip.min.js',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/datatables-plugins/pdfmake/pdfmake.min.js',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => 'vendor/datatables-plugins/pdfmake/vfs_fonts.js',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-buttons/js/buttons.html5.min.js'
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-buttons/js/buttons.print.min.js'
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-autofill/js/dataTables.autoFill.min.js',
-                ],
-                [
-                    'type' => 'css',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-autofill-dt/css/autoFill.dataTables.min.css',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-autofill-dt/js/autoFill.dataTables.min.js'
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-buttons/js/buttons.colVis.min.js'
-                ],
-                [
-                    'type' => 'css',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-buttons-dt/css/buttons.dataTables.min.css',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-buttons-dt/js/buttons.dataTables.min.js',
-                ],
-                [
-                    'type' => 'css',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-datetime/dist/dataTables.dateTime.min.css',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '../node_modules/datatables.net-datetime/dist/dataTables.dateTime.min.js',
+                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
             ],
         ],
@@ -442,34 +316,24 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/select2/js/select2.min.js',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => true,
-                    'location' => 'vendor/select2/css/select2.min.css',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
                 ],
             ],
         ],
         'Chartjs' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/chart.js/Chart.bundle.min.js',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
                 ],
-                [
-                    'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/chart.js/Chart.min.js',
-                ],
-                [
-                    'type' => 'css',
-                    'asset' => true,
-                    'location' => 'vendor/chart.js/Chart.min.css',
-                ]
             ],
         ],
         'Sweetalert2' => [
@@ -478,17 +342,17 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/sweetalert2/sweetalert2.all.js',
+                    'location' => 'vendor/sweetalert2/sweetalert2.all.min.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => 'vendor/sweetalert2/sweetalert2.css',
+                    'location' => 'vendor/sweetalert2/sweetalert2.min.css',
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/sweetalert2/sweetalert2.js',
+                    'location' => 'vendor/sweetalert2/sweetalert2.min.js',
                 ]
             ],
         ],
@@ -497,13 +361,13 @@ return [
             'files' => [
                 [
                     'type' => 'css',
-                    'asset' => true,
-                    'location' => 'vendor/pace-progress/themes/black/pace-theme-loading-bar.css',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-circle.css',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor/pace-progress/pace.min.js',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 ],
             ],
         ],

@@ -64,8 +64,6 @@
                                     <strong><i class="fas fa-phone-alt mr-1"></i> Telefono</strong>
                                     <p class="text-muted">{{ $paciente->telefono ? : 'Sin datos...'}}</p>
                                     <hr>
-                                    
-                                    <hr>
                                     <strong><i class="fas fa-disease mr-1"></i>Enfermedad Cronica</strong>
                                     <br>
                                     <p class="btn badge-pill bg-gradient-info">{{ $paciente->enf_cronica ? : 'No se encontraron

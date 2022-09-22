@@ -35,16 +35,22 @@ class HomeController extends Controller
 
         //x sexo
         $totalMasculino = $all->where('sexo', '=', 'Masculino')->count();
-        $masculino2064 = $all->where('sexo', '=', 'Masculino')->get()->whereBetween('grupo', [20, 64])->count();
-        $masculino65mas = $all->where('sexo', '=', 'Masculino')->get()->where('grupo', '>=', 65)->count();
+       // $masculino2064 = $all->where('sexo', '=', 'Masculino')->get()->whereBetween('grupo', [20, 64])->count();
+        //$masculino65mas = $all->where('sexo', '=', 'Masculino')->get()->where('grupo', '>=', 65)->count();
 
         $totalFemenino = $all->where('sexo', '=', 'Femenino')->count();
-        $femenino2064 = $all->where('sexo', '=', 'Femenino')->get()->whereBetween('grupo', [20, 64])->count();
-        $femenino65mas = $all->where('sexo', '=', 'Femenino')->get()->where('grupo', '>=', 65)->count();
+        //$femenino2064 = $all->where('sexo', '=', 'Femenino')->get()->whereBetween('grupo', [20, 64])->count();
+        //$femenino65mas = $all->where('sexo', '=', 'Femenino')->get()->where('grupo', '>=', 65)->count();
 
         //x sector
         $totalCeleste = $fam->where('sector', '=', 'SA')->count();
         $totalNaranjo = $fam->where('sector', '=', 'SB')->count();
+
+        $totalpCeleste = $all->where('sector', '=', 'celeste')->count();
+        $totalpNaranjo = $all->where('sector', '=', 'naranjo')->count();
+        $totalpBlanco = $all->where('sector', '=', 'blanco')->count();
+
+        $sinFamilia = $all->where('familia_id', '=', null)->count();
 
         return view('home', compact(
             'totalPacientes',
@@ -52,7 +58,11 @@ class HomeController extends Controller
             'totalFemenino',
             'totalCeleste',
             'totalNaranjo',
-            'totalFamilias'
+            'totalFamilias',
+            'totalpCeleste',
+            'totalpNaranjo',
+            'totalpBlanco',
+            'sinFamilia'
         ));
     }
 }
