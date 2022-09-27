@@ -66,7 +66,7 @@
                                     <hr>
                                     <strong><i class="fas fa-disease mr-1"></i>Enfermedad Cronica</strong>
                                     <br>
-                                    <p class="btn badge-pill bg-gradient-info">{{ $paciente->enf_cronica ? : 'No se encontraron
+                                    <p class="btn badge-pill bg-gradient-info">{{ str_replace(["[","]", '"']," ",\DB::connection('censo')->table('patologias')->select('patologias.nombre_patologia')->join('paciente_patologia', 'patologias.id', 'paciente_patologia.patologia_id')->join('pacientes', 'pacientes.id', 'paciente_patologia.paciente_id')->where('pacientes.rut', 'LIKE', '%'.$paciente->rut.'%')->pluck('nombre_patologia')) ?? 'No se encontraron
                                         datos...' }}</p>
                                 </div>
                             </div>
