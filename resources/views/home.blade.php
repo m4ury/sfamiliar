@@ -119,7 +119,7 @@
             <div class="small-box bg-white">
                 <div class="inner">
                     <h3>{{ $totalpBlanco }}</h3>
-                    <p>Pacientes sin Sector</p>
+                    <p>Pacientes Sector Blanco</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-users"></i>
@@ -142,5 +142,115 @@
             </div>
         </div>
     </div>
+
+    <div class="row align-self-center">
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-blue">
+                <div class="inner">
+                    <h3>{{ $masculino9 }}</h3>
+                    <p>Hombres menores de 9 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-mars"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-blue">
+                <div class="inner">
+                    <h3>{{ $masculino1019 }}</h3>
+                    <p>Hombres entre 10 y 19 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-mars"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-blue">
+                <div class="inner">
+                    <h3>{{ $masculino2064 }}</h3>
+                    <p>Hombres entre 20 y 64 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-mars"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-blue">
+                <div class="inner">
+                    <h3>{{ $masculino65mas }}</h3>
+                    <p>Hombres de 65 años y mas</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-mars"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row align-self-center">
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-pink">
+                <div class="inner">
+                    <h3>{{ $femenino9 }}</h3>
+                    <p>Mujeres menores de 9 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-venus"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-pink">
+                <div class="inner">
+                    <h3>{{ $femenino1019 }}</h3>
+                    <p>Mujeres entre 10 y 19 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-venus"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-pink">
+                <div class="inner">
+                    <h3>{{ $femenino2064 }}</h3>
+                    <p>Mujeres entre 20 y 64 años</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-venus"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-pink">
+                <div class="inner">
+                    <h3>{{ $femenino65mas }}</h3>
+                    <p>Mujeres de 65 años y mas</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-venus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </div>
 @endsection

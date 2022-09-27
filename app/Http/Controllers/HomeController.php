@@ -35,12 +35,16 @@ class HomeController extends Controller
 
         //x sexo
         $totalMasculino = $all->where('sexo', '=', 'Masculino')->count();
-       // $masculino2064 = $all->where('sexo', '=', 'Masculino')->get()->whereBetween('grupo', [20, 64])->count();
-        //$masculino65mas = $all->where('sexo', '=', 'Masculino')->get()->where('grupo', '>=', 65)->count();
+        $masculino9 = $all->where('sexo', '=', 'Masculino')->get()->where('grupo', '<', 10)->count();
+        $masculino1019 = $all->where('sexo', '=', 'Masculino')->get()->whereBetween('grupo', [10, 19])->count();
+        $masculino2064 = $all->where('sexo', '=', 'Masculino')->get()->whereBetween('grupo', [20, 64])->count();
+        $masculino65mas = $all->where('sexo', '=', 'Masculino')->get()->where('grupo', '>=', 65)->count();
 
         $totalFemenino = $all->where('sexo', '=', 'Femenino')->count();
-        //$femenino2064 = $all->where('sexo', '=', 'Femenino')->get()->whereBetween('grupo', [20, 64])->count();
-        //$femenino65mas = $all->where('sexo', '=', 'Femenino')->get()->where('grupo', '>=', 65)->count();
+        $femenino9 = $all->where('sexo', '=', 'Femenino')->get()->where('grupo', '<', 10)->count();
+        $femenino1019 = $all->where('sexo', '=', 'Femenino')->get()->whereBetween('grupo', [10, 19])->count();
+        $femenino2064 = $all->where('sexo', '=', 'Femenino')->get()->whereBetween('grupo', [20, 64])->count();
+        $femenino65mas = $all->where('sexo', '=', 'Femenino')->get()->where('grupo', '>=', 65)->count();
 
         //x sector
         $totalCeleste = $fam->where('sector', '=', 'SA')->count();
@@ -62,7 +66,15 @@ class HomeController extends Controller
             'totalpCeleste',
             'totalpNaranjo',
             'totalpBlanco',
-            'sinFamilia'
+            'sinFamilia',
+            'masculino9',
+            'masculino1019',
+            'masculino2064',
+            'masculino65mas',
+            'femenino9',
+            'femenino1019',
+            'femenino2064',
+            'femenino65mas'
         ));
     }
 }

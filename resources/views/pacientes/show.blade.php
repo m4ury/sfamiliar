@@ -25,8 +25,10 @@
                         <span class="badge badge-pill bg-gradient-light badge mx-3 py-2">Sector: @if($paciente->sector
                             == 'celeste')
                             <i class="fas fa-square text-primary"></i> Celeste
-                            @else($paciente->sector == 'naranjo')
+                            @elseif($paciente->sector == 'naranjo')
                             <i class="fas fa-square text-orange"></i> Naranjo
+                            @else
+                            <i class="fas fa-square text-white"></i> Blanco
                             @endif </span>
                     <div class="col-sm text-right">
                         <a class="btn bg-gradient-primary btn-sm" title="Editar"

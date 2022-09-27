@@ -37,9 +37,13 @@
                         <td><span class="mr-2">
                     <i class="fas fa-square text-primary"></i></span> Celeste
                         </td>
-                    @else($paciente->sector == 'naranjo')
+                    @elseif($paciente->sector == 'naranjo')
                         <td><span class="mr-2">
                     <i class="fas fa-square text-orange"></i></span> Naranjo
+                        </td>
+                        @else
+                        <td>
+                            <i class="fas fa-square text-white"></i> Blanco
                         </td>
                     @endif
                     <td>
