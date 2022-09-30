@@ -17,6 +17,7 @@
                 <th>Rut</th>
                 <th>Nombre Completo</th>
                 <th>Nº Ficha Clinica</th>
+                <th>Fallecido</th>
                 <th>Ficha familiar</th>
                 <th>Edad</th>
                 <th>Sexo</th>
@@ -29,7 +30,11 @@
                 <tr>
                     <td nowrap=""><a href="{{ route('pacientes.show', $paciente->id) }}">{{ $paciente->rut }}</a></td>
                     <td class="text-uppercase">{{ $paciente->fullName() }}</td>
-                    <td>{{ $paciente->ficha }} @if($paciente->fallecido == 1) <span class="text-warning mx-2"><i class= 'fa fa-cross'></i> {{ Carbon\Carbon::parse($paciente->fecha_fallecido)->format("d-m-Y") }}</span></td> @endif
+                    <td>{{ $paciente->ficha }}</td>
+                    <td> @if ($paciente->fallecido == 1)
+                            <i class="fa fa-cross text-orange mx-3"></i> {{ Carbon\Carbon::parse($paciente->fecha_fallecido)->format('d-m-Y') }}
+                         @endif
+                    </td>
                     <td class="text-uppercase"><a href="{{ route('familias.show', $paciente->familia->id ?? '') }}">{{ $paciente->familia->sector ?? " " }}{{ $paciente->familia->ficha_familiar ?? " " }}</td>
                     <td>{{ $paciente->edad() }}</td>
                     <td>{{ $paciente->sexo }}</td>

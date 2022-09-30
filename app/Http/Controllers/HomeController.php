@@ -30,7 +30,7 @@ class HomeController extends Controller
         //todos
         $all = new Paciente;
         $fam = new Familia;
-        $totalPacientes = $all->count();
+        $totalPacientes = $all->where('fallecido', '=', 0)->count();
         $totalFamilias = $fam->count();
 
         //x sexo
