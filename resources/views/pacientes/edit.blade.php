@@ -119,20 +119,20 @@
                             form-control-sm', 'placeholder' => 'Seleccione Sector', 'id' => 'sector']) !!}
                         </div>
                     </div>
-
-                    {{-- <div class="form-group row">
-                        <div class="col-sm-5">
-                            {!! Form::label('pueblo_originario_label', 'Originario', ['class' => 'col-sm
+<hr>
+                    <div class="form-group row">
+                            {!! Form::label('fellecido_label', 'Fallecido?', ['class' => 'col-sm-2
                             col-form-label']) !!}
-                            {!! Form::checkbox('pueblo_originario', 1, old('pueblo_originario',
-                            $paciente->pueblo_originario) ,['class' => 'form-control form-control']) !!}
-                        </div>
-                        <div class="col-sm-5">
-                            {!! Form::label('migrante_label', 'Pob. Migrante', ['class' => 'col-sm col-form-label']) !!}
-                            {!! Form::checkbox('migrante', 1, old('migrante', $paciente->migrante),['class' =>
-                            'form-control form-control']) !!}
-                        </div>
-                    </div> --}}
+                            <div class="col-sm-4">
+                                {!! Form::checkbox('fallecido', 1, old('fallecido', $paciente->fallecido) ,['class' => 'form-control form-control col-sm fallecido']) !!}
+                            </div>
+                            <div class="form-group row fecha_f">
+                                {!! Form::label('fecha_fellecido_label', 'Fecha', ['class' => 'col-sm col-form-label']) !!}
+                                <div class="col">
+                                    {!! Form::date('fecha_fallecido',$paciente->fecha_fallecido, ['class' => 'form-control form-control col-sm']) !!}
+                                </div>
+                            </div>
+                    </div>
                     <hr>
                     {{-- <div class="form-group row">
                         {!! Form::label('ficha_familiar_label', 'Ficha famliar', ['class' => 'col-sm-3
@@ -173,7 +173,13 @@
         width: '100%',
     });
 
-    $("#maltrato, #actFisica").removeAttr("checked");
+    $("#fallecido").removeAttr("checked");
+
+    $('.fecha_f').hide();
+
+    $('.fallecido').click(function () {
+        $('.fecha_f').fadeIn()[this.checked ? "show" : "hide"]();
+    });
 
     $('input.actFisica').on('change', function() {
         $('input.actFisica').not(this).prop('checked', false);

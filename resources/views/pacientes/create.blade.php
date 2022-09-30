@@ -22,8 +22,6 @@
         width: '100%',
     });
 
-    $("#maltrato, #actFisica").removeAttr("checked");
-
     $('input.actFisica').on('change', function() {
         $('input.actFisica').not(this).prop('checked', false);
     });

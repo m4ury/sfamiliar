@@ -29,7 +29,7 @@
                 <tr>
                     <td nowrap=""><a href="{{ route('pacientes.show', $paciente->id) }}">{{ $paciente->rut }}</a></td>
                     <td class="text-uppercase">{{ $paciente->fullName() }}</td>
-                    <td>{{ $paciente->ficha }}</td>
+                    <td>{{ $paciente->ficha }} @if($paciente->fallecido == 1) <span class="text-warning mx-2"><i class= 'fa fa-cross'></i> {{ Carbon\Carbon::parse($paciente->fecha_fallecido)->format("d-m-Y") }}</span></td> @endif
                     <td class="text-uppercase"><a href="{{ route('familias.show', $paciente->familia->id ?? '') }}">{{ $paciente->familia->sector ?? " " }}{{ $paciente->familia->ficha_familiar ?? " " }}</td>
                     <td>{{ $paciente->edad() }}</td>
                     <td>{{ $paciente->sexo }}</td>
