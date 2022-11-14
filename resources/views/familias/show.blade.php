@@ -57,7 +57,7 @@
                                     </p>
                                     <hr>
                                     <strong><i class="fas fa-phone-alt mr-1"></i> Telefono</strong>
-                                    <p class="text-muted">{{ $familia->telefono ? : 'Sin datos...'}}</p>
+                                    <p class="text-muted">{{ $familia->fono ? : 'Sin datos...'}}</p>
                                     <hr>
                                     <strong><i class="fas fa-users-cog"></i> Tipo Familia</strong>
                                     <p class="text-muted text-uppercase">

@@ -1,64 +1,70 @@
-{{ Form::open(['action' => 'PacienteController@store', 'method' => 'POST', 'class' => 'form-horizontal']) }}
-<div class="form-group row">
-    {!! Form::label('rut', 'Rut', ['class' => 'col-sm-2 col-form-label']) !!}
-    <div class="col-sm-5">
-        {!! Form::text('rut', null, ['class' => 'form-control form-control-sm'.($errors->has('rut') ? ' is-invalid' : ''), 'placeholder' =>
-        'Ej.: 16000000-K']) !!}
-        @if ($errors->has('rut'))
-            <span class="invalid-feedback">
-               <strong>{{ $errors->first('rut') }}</strong>
-            </span>
-        @endif
+<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <hr>
+    {{ Form::open(['action' => 'PacienteController@store', 'method' => 'POST', 'class' => 'form-horizontal']) }}
+    <div class="form-group row">
+        {!! Form::label('rut', 'Rut', ['class' => 'col-sm-2 col-form-label']) !!}
+        <div class="col-sm-5">
+            {!! Form::text('rut', null, ['class' => 'form-control form-control-sm'.($errors->has('rut') ? ' is-invalid' : ''), 'placeholder' =>
+            'Ej.: 16000000-K']) !!}
+            @if ($errors->has('rut'))
+                <span class="invalid-feedback">
+                <strong>{{ $errors->first('rut') }}</strong>
+                </span>
+            @endif
+        </div>
+        <div class="col-sm-5">
+            {!! Form::number('ficha',null, ['class' => 'form-control form-control-sm'.($errors->has('ficha') ? '
+            is-invalid' : ''), 'placeholder' => 'Nº Ficha']) !!}
+            @if ($errors->has('ficha'))
+                <span class="invalid-feedback">
+                <strong>{{ $errors->first('ficha') }}</strong>
+                </span>
+            @endif
+        </div>
     </div>
-    <div class="col-sm-5">
-        {!! Form::number('ficha',null, ['class' => 'form-control form-control-sm'.($errors->has('ficha') ? '
-        is-invalid' : ''), 'placeholder' => 'Nº Ficha']) !!}
-        @if ($errors->has('ficha'))
-            <span class="invalid-feedback">
-               <strong>{{ $errors->first('ficha') }}</strong>
-            </span>
-        @endif
+    <div class="form-group row">
+        {!! Form::label('nombres', 'Nombres', ['class' => 'col-sm-2 col-form-label']) !!}
+        <div class="col-sm-10">
+            {!! Form::text('nombres', null, ['class' => 'form-control form-control-sm'.($errors->has('nombres') ? ' is-invalid' : ''),
+        'placeholder' => 'Ingrese Nombres']) !!}
+            @if ($errors->has('nombres'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('nombres') }}</strong>
+                </span>
+            @endif
+        </div>
     </div>
-</div>
-<div class="form-group row">
-    {!! Form::label('nombres', 'Nombres', ['class' => 'col-sm-2 col-form-label']) !!}
-    <div class="col-sm-10">
-        {!! Form::text('nombres', null, ['class' => 'form-control form-control-sm'.($errors->has('nombres') ? ' is-invalid' : ''),
-    'placeholder' => 'Ingrese Nombres']) !!}
-        @if ($errors->has('nombres'))
-            <span class="invalid-feedback">
-                <strong>{{ $errors->first('nombres') }}</strong>
-            </span>
-        @endif
+
+    <div class="form-group row">
+        {!! Form::label('apellidos', 'Apellidos', ['class' => 'col-sm-2 col-form-label']) !!}
+        <div class="col-sm-5">
+            {!! Form::text('apellidoP',null, ['class' => 'form-control form-control-sm'.($errors->has('apellidoP') ? '
+            is-invalid' : ''), 'placeholder' => 'Apellido Paterno']) !!}
+            @if ($errors->has('apellidoP'))
+                <span class="invalid-feedback">
+                            <strong>{{ $errors->first('apellidoP') }}</strong>
+                            </span>
+            @endif
+        </div>
+        <div class="col-sm-5">
+            {!! Form::text('apellidoM',null, ['class' => 'form-control form-control-sm'.($errors->has('apellidoM') ? '
+            is-invalid' : ''), 'placeholder' => 'Apellido Materno']) !!}
+        </div>
+    </div>
+
+    <div class="form-group row">
+        {!! Form::label('fecha_nacimiento', 'Fecha Nac.', ['class' => 'col-sm-2 col-form-label']) !!}
+        <div class="col-sm-5">
+            {!! Form::date('fecha_nacimiento',null, ['class' => 'form-control form-control-sm']) !!}
+        </div>
+        <div class="col-sm-5">
+            {!! Form::select('sexo', ['Femenino' => 'Femenino', 'Masculino' => 'Masculino', 'Otro' => 'otro'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione Sexo', 'id' => 'sexo']) !!}
+        </div>
     </div>
 </div>
 
-<div class="form-group row">
-    {!! Form::label('apellidos', 'Apellidos', ['class' => 'col-sm-2 col-form-label']) !!}
-    <div class="col-sm-5">
-        {!! Form::text('apellidoP',null, ['class' => 'form-control form-control-sm'.($errors->has('apellidoP') ? '
-        is-invalid' : ''), 'placeholder' => 'Apellido Paterno']) !!}
-        @if ($errors->has('apellidoP'))
-            <span class="invalid-feedback">
-                          <strong>{{ $errors->first('apellidoP') }}</strong>
-                        </span>
-        @endif
-    </div>
-    <div class="col-sm-5">
-        {!! Form::text('apellidoM',null, ['class' => 'form-control form-control-sm'.($errors->has('apellidoM') ? '
-        is-invalid' : ''), 'placeholder' => 'Apellido Materno']) !!}
-    </div>
-</div>
-
-<div class="form-group row">
-    {!! Form::label('fecha_nacimiento', 'Fecha Nac.', ['class' => 'col-sm-2 col-form-label']) !!}
-    <div class="col-sm-5">
-        {!! Form::date('fecha_nacimiento',null, ['class' => 'form-control form-control-sm']) !!}
-    </div>
-    <div class="col-sm-5">
-        {!! Form::select('sexo', ['Femenino' => 'Femenino', 'Masculino' => 'Masculino', 'Otro' => 'otro'], null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione Sexo', 'id' => 'sexo']) !!}
-    </div>
-</div>
+<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <hr>
 <div class="form-group row">
     {!! Form::label('direccion', 'Direcciôn', ['class' => 'col-sm-2 col-form-label']) !!}
     <div class="col-sm-5">
@@ -109,6 +115,7 @@
             {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block'] ) }}
         </a>
     </div>
+</div>
 </div>
 {{ Form::close() }}
 

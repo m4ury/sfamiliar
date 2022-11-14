@@ -52,7 +52,7 @@ class PacienteController extends Controller
             'rut' => 'cl_rut',
             'nombres' => 'string|min:3',
             'apellidoP' => 'string|min:3',
-            'fecha_fallecido' => 'date|before_or_equal:'.Carbon::now()
+            //'fecha_fallecido' => 'date|required_if:fallecido,1|before_or_equal:'.Carbon::now()
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
