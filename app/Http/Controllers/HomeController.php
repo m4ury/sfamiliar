@@ -30,7 +30,8 @@ class HomeController extends Controller
         //todos
         $all = new Paciente;
         $fam = new Familia;
-        $totalPacientes = $all->where('fallecido', '=', 0)->count();
+        $totalPacientes = $all->whereFallecido(0)->count();
+        $fallecidos = $all->whereFallecido(1)->count();
         $totalFamilias = $fam->count();
 
         //x sexo
@@ -54,7 +55,7 @@ class HomeController extends Controller
         $totalpNaranjo = $all->where('sector', '=', 'naranjo')->where('fallecido', '=', 0)->count();
         $totalpBlanco = $all->where('sector', '=', 'blanco')->where('fallecido', '=', 0)->count();
 
-        $sinFamilia = $all->where('familia_id', '=', null)->count();
+        $sinFamilia = $all->whereNull('familia_id')->whereFallecido(0)->count();
 
         return view('home', compact(
             'totalPacientes',
@@ -74,7 +75,8 @@ class HomeController extends Controller
             'femenino9',
             'femenino1019',
             'femenino2064',
-            'femenino65mas'
+            'femenino65mas',
+            'fallecidos'
         ));
     }
 }

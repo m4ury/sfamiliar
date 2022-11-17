@@ -2,6 +2,8 @@
 
 namespace app;
 
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use illuminate\contracts\auth\mustverifyemail;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -10,10 +12,14 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 //use illuminate\foundation\auth\user as authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use illuminate\notifications\notifiable;
+use Illuminate\Support\Facades\App;
+
+
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
     use Authenticatable, CanResetPassword;
+    //use Notifiable;
 
     /**
      * the attributes that are mass assignable.

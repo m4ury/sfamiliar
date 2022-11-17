@@ -141,6 +141,19 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-4 col-4">
+            <!-- small box -->
+            <div class="small-box bg-">
+                <div class="inner">
+                    <h3>{{ $fallecidos }}</h3>
+                    <p>Pacientes fallecidos</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-cross"></i>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row align-self-center">
@@ -251,6 +264,6 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 @endsection
