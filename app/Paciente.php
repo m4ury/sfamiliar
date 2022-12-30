@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class Paciente extends Model
 {
+
+    protected $casts = [
+    'fecha_fallecido' => 'date',
+    ];
+
+
     protected $guarded = ['id'];
 
     /*protected $fillable = ['rut', 'ficha', 'nombres', 'apellidoP', 'apellidoM', 'sexo', 'telefono', 'direccion', 'fecha_nacimiento', 'comuna', 'migrante', 'pueblo_originario', 'compensado', 'riesgo_cv', 'erc', 'racVigente', 'vfgVigente', 'fondoOjoVigente', 'ecgVigente', 'ldlVigente'];*/

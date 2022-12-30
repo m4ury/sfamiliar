@@ -86,7 +86,7 @@ class FamiliaController extends Controller
         //dd($request->all());
         $validator = Validator::make($request->all(), [
             'familia' => 'string|min:4',
-            'ficha_familiar' => 'numeric|min:1',
+            'ficha_familiar' => 'numeric|min:1'
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();

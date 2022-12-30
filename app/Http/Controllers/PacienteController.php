@@ -14,7 +14,7 @@ class PacienteController extends Controller
 {
     public function index()
     {
-        $pacientes = Paciente::with('familia')->latest('familia_id', 'desc')
+        $pacientes = Paciente::with('familia')->select('pacientes.fallecido','pacientes.familia_id','pacientes.sexo','pacientes.id','pacientes.nombres', 'pacientes.apellidoP','pacientes.apellidoM', 'pacientes.rut', 'pacientes.ficha', 'pacientes.sector', 'pacientes.fecha_nacimiento', 'pacientes.fecha_fallecido')->latest('pacientes.familia_id', 'desc')
             ->get();
 
         return view('pacientes.index', compact('pacientes'));
@@ -28,8 +28,8 @@ class PacienteController extends Controller
     public function store(PacienteRequest $request)
     {
         Paciente::create($request->all());
-        Alert::success('Nuevo Paciente ha sido cread@ con exito');
-        return redirect('pacientes')->withSuccess('Paciente Creado con exito!');
+        //Alert::success('Nuevo Paciente ha sido cread@ con exito');
+        return redirect('pacientes')->withSuccess('Paciente Cread@ con exito!');
     }
 
     public function show($id)

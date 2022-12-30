@@ -32,7 +32,7 @@
                     <td class="text-uppercase">{{ $paciente->fullName() }}</td>
                     <td>{{ $paciente->ficha }}</td>
                     <td> @if ($paciente->fallecido == 1)
-                            <i class="fa fa-cross text-orange mx-3"></i> {{ Carbon\Carbon::parse($paciente->fecha_fallecido)->format('d-m-Y') }}
+                            <i class="fa fa-cross text-orange mx-3"></i> {{ $paciente->fecha_fallecido->format('d-m-Y') }}
                          @endif
                     </td>
                     <td class="text-uppercase"><a href="{{ route('familias.show', $paciente->familia->id ?? '') }}">{{ $paciente->familia->sector ?? " " }}{{ $paciente->familia->ficha_familiar ?? " " }}</td>
