@@ -20,7 +20,7 @@ class CreateFamiliasTable extends Migration
             $table->string('ficha_familiar')->unique();
             $table->string('fono')->nullable();
             $table->unsignedInteger('num_integrantes')->nullable();
-            $table->enum('sector', ['b'=>'Naranjo', 'a'=>'Celeste', 'ss'=>'Blanco'])->default('Blanco');
+            $table->enum('sector', ['SB', 'SA', 'Blanco'])->default('Blanco');
             $table->timestamps();
         });
     }
