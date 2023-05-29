@@ -14,7 +14,7 @@ class PacienteController extends Controller
 {
     public function index()
     {
-        $pacientes = Paciente::with('familia')->select('pacientes.fallecido','pacientes.familia_id','pacientes.sexo','pacientes.id','pacientes.nombres', 'pacientes.apellidoP','pacientes.apellidoM', 'pacientes.rut', 'pacientes.ficha', 'pacientes.sector', 'pacientes.fecha_nacimiento', 'pacientes.fecha_fallecido')->latest('pacientes.familia_id', 'desc')
+        $pacientes = Paciente::with('familia')->select('pacientes.fallecido', 'pacientes.familia_id', 'pacientes.sexo', 'pacientes.id', 'pacientes.nombres', 'pacientes.apellidoP', 'pacientes.apellidoM', 'pacientes.rut', 'pacientes.ficha', 'pacientes.sector', 'pacientes.fecha_nacimiento', 'pacientes.fecha_fallecido')->latest('pacientes.familia_id', 'desc')
             ->get();
 
         return view('pacientes.index', compact('pacientes'));
@@ -77,5 +77,16 @@ class PacienteController extends Controller
     {
         Paciente::destroy($id);
         return response(['data' => null], 204);
+    }
+
+    public function fallecidos()
+    {
+        $pacientes = Paciente::with('familia')
+            ->select('pacientes.fallecido', 'pacientes.familia_id', 'pacientes.sexo', 'pacientes.id', 'pacientes.nombres', 'pacientes.apellidoP', 'pacientes.apellidoM', 'pacientes.rut', 'pacientes.ficha', 'pacientes.sector', 'pacientes.fecha_nacimiento', 'pacientes.fecha_fallecido')
+            ->whereNotNull('fecha_fallecido')
+            ->latest('pacientes.apellidoP', 'desc')
+            ->get();
+
+        return view('pacientes.fallecidos', compact('pacientes'));
     }
 }

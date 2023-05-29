@@ -95,7 +95,7 @@ class FamiliaController extends Controller
         $familia->update($request->all());
 
         //$reunion->users()->sync($request->users);
-        if(isset($request->paciente_id)){
+        if (isset($request->paciente_id)) {
             $paciente = Paciente::findOrFail($request->paciente_id);
             $paciente->update(['familia_id' => $familia->id]);
         }

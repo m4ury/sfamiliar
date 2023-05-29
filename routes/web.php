@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::resource('pacientes', 'PacienteController');
+    Route::get('pacientes.fallecidos', 'PacienteController@fallecidos')->name('pacientes.fallecidos');
     /*Route::resource('patologias', 'PatologiaController')->except('[index, create]');
     Route::get('patologias/{paciente?}', 'PatologiaController@index')->name('patologias');
     Route::get('patologias/create/{paciente?}', 'PatologiaController@create')->name('patologias.crear');*/
