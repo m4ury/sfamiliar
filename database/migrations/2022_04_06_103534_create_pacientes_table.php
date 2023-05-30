@@ -30,7 +30,7 @@ class CreatePacientesTable extends Migration
             $table->boolean('migrante')->default(0);
             $table->boolean('pueblo_originario')->default(0);
             $table->enum('e_civil', ['Soltera (o)', 'Casada (o)', 'Divorciada (o)', 'Viuda (o)'])->default('Soltera (o)');
-            $table->enum('parentesco', ['Esposa (o)', 'Pareja', 'Papá', 'Mamá', 'Hermana (o)', 'Hija (o)', 'Abuela (o)', 'Tia (o)', 'Prima (o)', 'Suegra (o)', 'Nuera', 'Yerno', 'Cuñada (o)', 'Sobrina (o)', 'Nieta (o)', 'Bisnieta (o)', 'Hijastra (o)', 'Conyuge', 'Conviviente', 'Otros', 'padrastro_madrastra', 'nuera_yerno'])->default('Otros')->nullable();
+            $table->enum('parentesco', ['Esposa (o)', 'Pareja', 'Papá', 'Mamá', 'Hermana (o)', 'Hija (o)', 'Abuela (o)', 'Tia (o)', 'Prima (o)', 'Suegra (o)', 'Nuera', 'Yerno', 'Cuñada (o)', 'Sobrina (o)', 'Nieta (o)', 'Bisnieta (o)', 'Hijastra (o)', 'Conyuge', 'Conviviente', 'Otros', 'padrastro_madrastra', 'nuera_yerno', 'jefe_hogar'])->default('Otros')->nullable();
             $table->boolean('ingreso')->default(0);
             $table->enum('prevision', ['Fonasa', 'Isapre', 'Dipreca', 'PRAIS', 'PRAIS-ISAPRE', 'Sin prevision'])->default('Sin prevision');
             $table->enum('escolaridad', ['Basica Completa', 'Basica Incompleta', 'Media Completa', 'Media Incompleta', 'Superior Completa', 'Superior Incompleta', 'Pre-Escolar', 'sin Pre-Escolar', 'Tec-Superior Completa', 'Tec-Superior Incompleta', 'Universitaria', 'no informado', 'Sin Escolaridad', 'Especial Completa', 'Especial Incompleta', 'Instituto Profesional', 'Academias', 'no asiste'])->default('Sin Escolaridad');

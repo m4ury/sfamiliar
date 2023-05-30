@@ -12,7 +12,6 @@
                         <th>Sexo</th>
                         <th>E.Civil</th>
                         <th>Sector</th>
-                        <th>Jefe Hogar</th>
                         <th>Parentesco</th>
                         <th>Elim. integrante</th>
                     </tr>
@@ -34,19 +33,18 @@
                             <td>{{ $paciente->edad() }}</td>
                             <td>{{ $paciente->sexo }}</td>
                             <td>{{ $paciente->e_civil }}</td>
-                            @if ($paciente->sector == 'celeste')
-                                <td><span class="mr-2">
-                                        <i class="fas fa-square text-primary"></i></span> Celeste
-                                </td>
-                            @else($paciente->sector == 'naranjo')
-                                <td><span class="mr-2">
-                                        <i class="fas fa-square text-orange"></i></span> Naranjo
-                                </td>
-                            @endif
                             <td>
-                                <i class="fas {{ $paciente->jefe_hogar == 1 ? 'fa-key' : '' }}"></i>
+                                @if ($paciente->sector == 'celeste')
+                                    <i class="fas fa-square text-primary"> </i> Celeste
+                                @else($paciente->sector == 'naranjo')
+                                    <i class="fas fa-square text-orange"> </i> Naranjo
+                                @endif
                             </td>
-                            <td>{{ $paciente->parentesco }}</td>
+                            <td>{{ $paciente->parentesco }}
+                                @if ($paciente->jefe_hogar == 1)
+                                    <i class="fas fa-key"></i>
+                                @endif
+                            </td>
                             <td>{{ Form::open(['action' => 'PacienteController@update', 'method' => 'POST', 'route' => ['elimina', $paciente->id], 'class' => 'col-sm-3 float-right']) }}
                                 @csrf
                                 {!! Form::button('<i class="fas fa-minus-circle"></i>', [

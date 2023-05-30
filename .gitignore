@@ -14,3 +14,4 @@ yarn-error.log
 artisan
 composer.json
 composer.lock
+package-lock.json

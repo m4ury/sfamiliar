@@ -10,13 +10,13 @@ class Paciente extends Model
 {
 
     protected $casts = [
-    'fecha_fallecido' => 'date',
+        'fecha_fallecido' => 'date',
     ];
 
 
     protected $guarded = ['id'];
 
-    /*protected $fillable = ['rut', 'ficha', 'nombres', 'apellidoP', 'apellidoM', 'sexo', 'telefono', 'direccion', 'fecha_nacimiento', 'comuna', 'migrante', 'pueblo_originario', 'compensado', 'riesgo_cv', 'erc', 'racVigente', 'vfgVigente', 'fondoOjoVigente', 'ecgVigente', 'ldlVigente'];*/
+    /* protected $fillable = ['rut', 'ficha', 'nombres', 'apellidoP', 'apellidoM', 'sexo', 'telefono', 'direccion', 'fecha_nacimiento', 'comuna', 'migrante', 'e_civil', 'escolaridad', 'sector', 'parentesco', 'profesion', 'ingreso', 'prevision', 'fallecido', 'fecha_fallecido']; */
 
     public function fullName()
     {

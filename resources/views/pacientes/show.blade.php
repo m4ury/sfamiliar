@@ -6,7 +6,7 @@
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <h3 class="card-title">
-                    <a class= "btn bg-gradient-info btn-sm mr-3" title="Volver" href="{{ route('pacientes.index') }}">
+                    <a class="btn bg-gradient-info btn-sm mr-3" title="Volver" href="{{ route('pacientes.index') }}">
                         <i class="fas fa-arrow-alt-circle-left"></i> Volver
                     </a>
                     <i class="fas fa-users-cog"></i>
@@ -15,21 +15,19 @@
             </div>
             <div class="card-body">
                 <div class="form-group row nowrap">
-                        <span class="badge badge-pill bg-gradient-warning badge mx-3 py-2">{{
-                            $paciente->fullName() }}
-                        </span>
-                        <span class="badge badge-pill bg-gradient-warning badge mx-3 py-2">RUT.: {{ $paciente->rut
-                            }}</span>
-                        <span class="badge badge-pill bg-gradient-warning badge mx-3 py-2">Nº Ficha: {{ $paciente->ficha
-                            }}</span>
-                        <span class="badge badge-pill bg-gradient-light badge mx-3 py-2">Sector: @if($paciente->sector
-                            == 'celeste')
+                    <span class="badge badge-pill bg-gradient-warning badge mx-3 py-2">{{ $paciente->fullName() }}
+                    </span>
+                    <span class="badge badge-pill bg-gradient-warning badge mx-3 py-2">RUT.: {{ $paciente->rut }}</span>
+                    <span class="badge badge-pill bg-gradient-warning badge mx-3 py-2">Nº Ficha:
+                        {{ $paciente->ficha }}</span>
+                    <span class="badge badge-pill bg-gradient-light badge mx-3 py-2">Sector: @if ($paciente->sector == 'celeste')
                             <i class="fas fa-square text-primary"></i> Celeste
-                            @elseif($paciente->sector == 'naranjo')
+                        @elseif($paciente->sector == 'naranjo')
                             <i class="fas fa-square text-orange"></i> Naranjo
-                            @else
+                        @else
                             <i class="fas fa-square text-white"></i> Blanco
-                            @endif </span>
+                        @endif
+                    </span>
                     <div class="col-sm text-right">
                         <a class="btn bg-gradient-primary btn-sm" title="Editar"
                             href="{{ route('pacientes.edit', $paciente->id) }}"> Editar Paciente <i
@@ -60,19 +58,22 @@
                                 <div class="card-body">
                                     <strong><i class="fas fa-map-marker-alt"></i> Dirección</strong>
                                     <p class="text-muted">
-                                        {{ $paciente->direccion }}, {{ $paciente->comuna ? : 'Hualañe' }}
+                                        {{ $paciente->direccion }}, {{ $paciente->comuna ?: 'Hualañe' }}
                                     </p>
                                     <hr>
                                     <strong><i class="fas fa-phone-alt mr-1"></i> Telefono</strong>
-                                    <p class="text-muted">{{ $paciente->telefono ? : 'Sin datos...'}}</p>
+                                    <p class="text-muted">{{ $paciente->telefono ?: 'Sin datos...' }}</p>
                                     <hr>
                                     <strong><i class="fas fa-disease mr-1"></i>Enfermedad Cronica</strong>
                                     <br>
-                                    <p class="btn badge-pill bg-gradient-info">{{ $paciente->enf_cronica ? : 'No se encontraron
-                                        datos...' }}</p>
+                                    <p class="btn badge-pill bg-gradient-info">
+                                        {{ $paciente->enf_cronica ?:
+                                            'No se encontraron
+                                                                                                                        datos...' }}
+                                    </p>
                                 </div>
                             </div>
-                             <div class="tab-pane fade" id="vert-tabs-controles" role="tabpanel"
+                            <div class="tab-pane fade" id="vert-tabs-controles" role="tabpanel"
                                 aria-labelledby="vert-tabs-controles-tab">
                             </div>
                             <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"

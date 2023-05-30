@@ -5,9 +5,8 @@
     <div class="col">
         <div class="card card-primary card-outline">
             <div class="card-header">
-
                 <h3 class="card-title">
-                    <a class="btn bg-gradient-warning btn-sm mr-3" title="Volver" href="{{ route('familias.index') }}">
+                    <a class="btn bg-gradient-primary btn-sm mr-3" title="Volver" href="{{ route('familias.index') }}">
                         <i class="fas fa-arrow-alt-circle-left"></i>
                         Volver
                     </a>
@@ -17,12 +16,16 @@
             </div>
             <div class="card-body">
                 <div class="form-group row nowrap">
-                        <span class="badge badge-pill bg-gradient-{{$familia->sector == 'SB'?'warning':'info' }} badge mx-3 py-2"> FAMILIA: {{ $familia->familia
-                            }}</span>
-                            <span class="badge badge-pill bg-gradient-{{$familia->sector == 'SB'?'warning':'info' }} badge mx-3 py-2"> FICHA FAMILIAR: {{
-                             $familia->fichaFamiliar() }}
-                        </span>
-
+                    <span
+                        class="badge badge-pill bg-gradient-{{ $familia->sector == 'SB' ? 'warning' : 'info' }} badge mx-3 py-2">
+                        FAMILIA: {{ $familia->familia }}</span>
+                    <span
+                        class="badge badge-pill bg-gradient-{{ $familia->sector == 'SA' ? 'info' : 'warning' }} badge mx-3 py-2">
+                        FICHA FAMILIAR: {{ $familia->fichaFamiliar() }}
+                    </span>
+                    <span class="text-muted text-bold">
+                        Actualizado el: {{ $familia->updated_at->format('d-m-Y') }}
+                    </span>
                     <div class="col-sm text-right">
                         <a class="btn bg-gradient-success btn-sm" title="Editar"
                             href="{{ route('familias.edit', $familia->id) }}"> Editar Familia <i
@@ -53,20 +56,20 @@
                                 <div class="card-body">
                                     <strong><i class="fas fa-map-marker-alt"></i> Dirección</strong>
                                     <p class="text-muted">
-                                        {{ $familia->domicilio }}, {{ $familia->comuna ? : 'Hualañe' }}
+                                        {{ $familia->domicilio }}, {{ $familia->comuna ?: 'Hualañe' }}
                                     </p>
                                     <hr>
                                     <strong><i class="fas fa-phone-alt mr-1"></i> Telefono</strong>
-                                    <p class="text-muted">{{ $familia->fono ? : 'Sin datos...'}}</p>
+                                    <p class="text-muted">{{ $familia->fono ?: 'Sin datos...' }}</p>
                                     <hr>
                                     <strong><i class="fas fa-users-cog"></i> Tipo Familia</strong>
                                     <p class="text-muted text-uppercase">
-                                        {{ $familia->tipo_familia ?? ''}}
+                                        {{ $familia->tipo_familia ?? '' }}
                                     </p>
                                     <hr>
                                     <strong><i class="fa fa-chart-bar"></i> Etapa ciclo Vital</strong>
                                     <p class="text-muted text-uppercase">
-                                        {{ str_replace('_', ' ', $familia->etapa_cicloVital ?? '' )}}
+                                        {{ str_replace('_', ' ', $familia->etapa_cicloVital ?? '') }}
                                     </p>
                                 </div>
                             </div>

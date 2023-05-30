@@ -19,4 +19,14 @@ class Familia extends Model
         return $this->sector.''.$this->ficha_familiar;
     }
 
+    public function vivienda()
+    {
+        return $this->hasOne(Vivienda::class);
+    }
+
+    public function factors()
+    {
+        return $this->hasMany(Factor::class);
+    }
+
 }
