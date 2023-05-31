@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'crear-pacientes')
+@section('title', 'crear-familia')
 
 @section('content')
     <div class="container">
@@ -16,19 +16,19 @@
     </div>
 @endsection
 @section('js')
-<script>
-    $('#sector, #comuna').select2({
-        theme: "classic",
-        width: '100%',
-    });
+    <script>
+        $('#sector, #comuna, #tipo_familia, #etapa_cicloVital').select2({
+            theme: "classic",
+            width: '100%',
+        });
 
-    $("#maltrato, #actFisica").removeAttr("checked");
+        $("#maltrato, #actFisica").removeAttr("checked");
 
-    $('input.actFisica').on('change', function() {
-        $('input.actFisica').not(this).prop('checked', false);
-    });
-    $('input.maltrato').on('change', function() {
-        $('input.maltrato').not(this).prop('checked', false);
-    });
-</script>
+        $('input.actFisica').on('change', function() {
+            $('input.actFisica').not(this).prop('checked', false);
+        });
+        $('input.maltrato').on('change', function() {
+            $('input.maltrato').not(this).prop('checked', false);
+        });
+    </script>
 @endsection

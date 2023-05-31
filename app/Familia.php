@@ -16,7 +16,7 @@ class Familia extends Model
 
     public function fichaFamiliar()
     {
-        return $this->sector.''.$this->ficha_familiar;
+        return $this->sector . '' . $this->ficha_familiar;
     }
 
     public function vivienda()
@@ -24,9 +24,8 @@ class Familia extends Model
         return $this->hasOne(Vivienda::class);
     }
 
-    public function factors()
+    public function evaluacions()
     {
-        return $this->hasMany(Factor::class);
+        return $this->hasMany(Evaluacion::class);
     }
-
 }

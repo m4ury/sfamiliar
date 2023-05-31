@@ -40,10 +40,8 @@
                                     <i class="fas fa-square text-orange"> </i> Naranjo
                                 @endif
                             </td>
-                            <td>{{ $paciente->parentesco }}
-                                @if ($paciente->jefe_hogar == 1)
-                                    <i class="fas fa-key"></i>
-                                @endif
+                            <td>
+                                {{ $paciente->parentesco == 'jefe_hogar' ? 'Jefe Hogar' : $paciente->parentesco }}
                             </td>
                             <td>{{ Form::open(['action' => 'PacienteController@update', 'method' => 'POST', 'route' => ['elimina', $paciente->id], 'class' => 'col-sm-3 float-right']) }}
                                 @csrf
