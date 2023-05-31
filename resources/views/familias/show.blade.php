@@ -47,6 +47,9 @@
                             <a class="nav-link" id="vert-tabs-patologias-tab" data-toggle="pill"
                                 href="#vert-tabs-patologias" role="tab" aria-controls="vert-tabs-patologias"
                                 aria-selected="false">Genograma</a>
+                            <a class="nav-link" id="vert-tabs-vivienda-tab" data-toggle="pill"
+                                href="#vert-tabs-vivienda" role="tab" aria-controls="vert-tabs-vivienda"
+                                aria-selected="false">Vivienda</a>
                         </div>
                     </div>
                     <div class="col-7 col-sm-9">
@@ -80,6 +83,28 @@
                             </div>
                             <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"
                                 aria-labelledby="vert-tabs-patologias-tab">
+                            </div>
+                            <div class="tab-pane fade" id="vert-tabs-vivienda" role="tabpanel"
+                                aria-labelledby="vert-tabs-vivienda-tab">
+                                <div class="card-body">
+                                    <strong><i class="fas fa-home"></i> Tipo vivienda: </strong>
+                                    <p class="text-muted">
+                                        {{ $familia->vivienda->descripcion ?? '' }}
+                                    </p>
+                                    <hr>
+                                    <strong><i class="fas fa-phone-alt mr-1"></i> Telefono</strong>
+                                    <p class="text-muted">{{ $familia->fono ?: 'Sin datos...' }}</p>
+                                    <hr>
+                                    <strong><i class="fas fa-users-cog"></i> Tipo Familia</strong>
+                                    <p class="text-muted text-uppercase">
+                                        {{ $familia->tipo_familia ?? '' }}
+                                    </p>
+                                    <hr>
+                                    <strong><i class="fa fa-chart-bar"></i> Etapa ciclo Vital</strong>
+                                    <p class="text-muted text-uppercase">
+                                        {{ str_replace('_', ' ', $familia->etapa_cicloVital ?? '') }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
