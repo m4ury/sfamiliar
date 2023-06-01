@@ -9,9 +9,9 @@ class Evaluacion extends Model
 {
     use HasFactory;
 
-    public function factors()
+    public function factor()
     {
-        return $this->hasMany(Factor::class);
+        return $this->hasOne(Factor::class);
     }
 
     public function familia()

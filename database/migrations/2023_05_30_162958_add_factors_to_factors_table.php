@@ -18,6 +18,7 @@ return new class extends Migration
             $table->double('fBajo_2')->nullable()->default(0);
             $table->double('fBajo_3')->nullable()->default(0);
             $table->double('fBajo_4')->nullable()->default(0);
+            $table->string('fBajo_observacion')->nullable();
             $table->double('fBajo_puntaje', 15, 8)->nullable()->default(0);
 
             $table->double('fIntermedio_1')->nullable()->default(0);
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->double('fIntermedio_9')->nullable()->default(0);
             $table->double('fIntermedio_10')->nullable()->default(0);
             $table->double('fIntermedio_11')->nullable()->default(0);
+            $table->string('fIntermedio_observacion')->nullable();
             $table->double('fIntermedio_puntaje', 15, 8)->nullable()->default(0);
 
             $table->double('fAlto_1')->nullable()->default(0);
@@ -44,6 +46,7 @@ return new class extends Migration
             $table->double('fAlto_9')->nullable()->default(0);
             $table->double('fAlto_10')->nullable()->default(0);
             $table->double('fAlto_11')->nullable()->default(0);
+            $table->string('fAlto_observacion')->nullable();
             $table->double('fAlto_puntaje', 15, 8)->nullable()->default(0);
 
             $table->double('fProtect_1')->nullable()->default(0);
@@ -57,7 +60,11 @@ return new class extends Migration
             $table->double('fProtect_9')->nullable()->default(0);
             $table->double('fProtect_10')->nullable()->default(0);
             $table->double('fProtect_11')->nullable()->default(0);
+            $table->string('fProtect_observacion')->nullable();
             $table->double('fProtect_puntaje', 15, 8)->nullable()->default(0);
+
+            $table->foreignId('evaluacion_id')->nullable();
+            $table->foreign('evaluacion_id')->references('id')->on('evaluacions')->onDelete('cascade');
         });
     }
 

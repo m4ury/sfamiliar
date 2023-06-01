@@ -87,13 +87,29 @@
                             <div class="tab-pane fade" id="vert-tabs-vivienda" role="tabpanel"
                                 aria-labelledby="vert-tabs-vivienda-tab">
                                 <div class="card-body">
-                                    <strong><i class="fas fa-home"></i> Tipo vivienda: </strong>
-                                    <p class="text-muted">
-                                        {{ $familia->vivienda->descripcion ?? '' }}
-                                    </p>
+                                    <div class="row">
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-home"></i> Tipo vivienda:
+                                            </strong>
+                                            <p class="text-muted">
+                                                {{ $familia->vivienda->tipo_vivienda ?? '' }}
+                                            </p>
+                                        </div>
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-home"></i> Tenencia Casa:
+                                            </strong>
+                                            <p class="text-muted">
+                                                {{ $familia->vivienda->tenencia ?? '' }}
+                                            </p>
+                                        </div>
+                                    </div>
+
                                     <hr>
-                                    <strong><i class="fas fa-phone-alt mr-1"></i> Telefono</strong>
-                                    <p class="text-muted">{{ $familia->fono ?: 'Sin datos...' }}</p>
+                                    <strong><i class="fas fa-mountain mr-1"></i> Tenencia Sitio: </strong>
+                                    <p class="text-muted">{{ $familia->vivienda->tenencia_sitio ?? 'Sin datos...' }}
+                                    </p>
                                     <hr>
                                     <strong><i class="fas fa-users-cog"></i> Tipo Familia</strong>
                                     <p class="text-muted text-uppercase">

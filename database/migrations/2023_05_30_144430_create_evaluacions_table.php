@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('evaluacions', function (Blueprint $table) {
             $table->id();
+            $table->date('fecha_evaluacion')->nullable();
+            $table->enum('resultado_evaluacion', ['Bajo', 'Medio', 'Alto'])->nullable();
+            $table->string('observacion', 100)->nullable();
+            $table->foreignId('familia_id')->nullable();
+            $table->foreign('familia_id')->references('id')->on('familias')->onDelete('cascade');
             $table->timestamps();
         });
     }
