@@ -26,11 +26,19 @@
                     <span class="text-muted text-bold">
                         Actualizado el: {{ $familia->updated_at->format('d-m-Y') }}
                     </span>
-                    <div class="col-sm text-right">
-                        <a class="btn bg-gradient-success btn-sm" title="Editar"
-                            href="{{ route('familias.edit', $familia->id) }}"> Editar Familia <i
-                                class="fas fa-pen mx-2"></i>
-                        </a>
+                    <div class="col col-sm">
+                        <div class="float-right px-2">
+                            <a class="btn bg-gradient-success btn-sm" title="Vivienda"
+                                href="{{ route('viviendas.create', $familia->id) }}">Vivienda
+                                <i class="fas fa-home"></i>
+                            </a>
+                        </div>
+                        <div class="float-right px-2">
+                            <a class="btn bg-gradient-success btn-sm" title="Editar"
+                                href="{{ route('familias.edit', $familia->id) }}"> Editar Familia <i
+                                    class="fas fa-pen mx-2"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <hr>
@@ -44,9 +52,9 @@
                             <a class="nav-link" id="vert-tabs-controles-tab" data-toggle="pill"
                                 href="#vert-tabs-controles" role="tab" aria-controls="vert-tabs-presupuestos"
                                 aria-selected="false">Identificacion del Grupo Familiar</a>
-                            <a class="nav-link" id="vert-tabs-patologias-tab" data-toggle="pill"
+                            {{-- <a class="nav-link" id="vert-tabs-patologias-tab" data-toggle="pill"
                                 href="#vert-tabs-patologias" role="tab" aria-controls="vert-tabs-patologias"
-                                aria-selected="false">Genograma</a>
+                                aria-selected="false">Genograma</a> --}}
                             <a class="nav-link" id="vert-tabs-vivienda-tab" data-toggle="pill"
                                 href="#vert-tabs-vivienda" role="tab" aria-controls="vert-tabs-vivienda"
                                 aria-selected="false">Vivienda</a>
@@ -81,9 +89,9 @@
                                 @include('integrantes.list_controles')
 
                             </div>
-                            <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"
+                            {{-- <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"
                                 aria-labelledby="vert-tabs-patologias-tab">
-                            </div>
+                            </div> --}}
                             <div class="tab-pane fade" id="vert-tabs-vivienda" role="tabpanel"
                                 aria-labelledby="vert-tabs-vivienda-tab">
                                 <div class="card-body">
