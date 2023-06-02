@@ -22,6 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware('auth')->group(function () {
     Route::resource('pacientes', 'PacienteController');
     Route::get('pacientes.fallecidos', 'PacienteController@fallecidos')->name('pacientes.fallecidos');
+    Route::get('pacientes.blancos', 'PacienteController@blancos')->name('pacientes.blancos');
+    Route::get('pacientes.sin_familia', 'PacienteController@sinFamilia')->name('pacientes.sin_familia');
     Route::post('familias/elimina/{paciente?}', 'PacienteController@eliminarInt')->name('elimina');
 
     //rutas para familias

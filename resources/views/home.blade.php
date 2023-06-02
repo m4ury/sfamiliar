@@ -124,6 +124,9 @@
                     <div class="icon">
                         <i class="fas fa-users"></i>
                     </div>
+                    <a href="{{ route('pacientes.blancos') }}" class="small-box-footer" target="_blank">More info <i
+                            class="fas fa-arrow-circle-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -139,12 +142,15 @@
                     <div class="icon">
                         <i class="fas fa-question"></i>
                     </div>
+                    <a href="{{ route('pacientes.sin_familia') }}" class="small-box-footer" target="_blank">More info <i
+                            class="fas fa-arrow-circle-right"></i>
+                    </a>
                 </div>
             </div>
 
             <div class="col-lg-4 col-4">
                 <!-- small box -->
-                <div class="small-box bg-">
+                <div class="small-box bg-white">
                     <div class="inner">
                         <h3>{{ $fallecidos }}</h3>
                         <p>Pacientes fallecidos</p>

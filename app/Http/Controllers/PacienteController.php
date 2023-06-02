@@ -89,4 +89,26 @@ class PacienteController extends Controller
 
         return view('pacientes.fallecidos', compact('pacientes'));
     }
+
+    public function blancos()
+    {
+        $pacientes = Paciente::select('fallecido', 'sexo', 'id', 'nombres', 'apellidoP', 'apellidoM', 'rut', 'ficha', 'sector', 'fecha_nacimiento')
+            ->where('sector', 'blanco')
+            ->whereFallecido(0)
+            ->latest('apellidoP', 'desc')
+            ->get();
+
+        return view('pacientes.blancos', compact('pacientes'));
+    }
+
+    public function sinFamilia()
+    {
+        $pacientes = Paciente::select('fallecido', 'sexo', 'id', 'nombres', 'apellidoP', 'apellidoM', 'rut', 'ficha', 'sector', 'fecha_nacimiento')
+            ->whereNull('familia_id')
+            ->whereFallecido(0)
+            ->latest('apellidoP', 'desc')
+            ->get();
+
+        return view('pacientes.sin_familia', compact('pacientes'));
+    }
 }
