@@ -101,7 +101,7 @@
                                                 <i class="fas fa-home"></i> Tipo vivienda:
                                             </strong>
                                             <p class="text-muted">
-                                                {{ $familia->vivienda->tipo_vivienda ?? '' }}
+                                                {{ $familia->vivienda->tipo_vivienda ?? 'Sin datos...' }}
                                             </p>
                                         </div>
                                         <div class="col col-sm">
@@ -109,25 +109,78 @@
                                                 <i class="fas fa-home"></i> Tenencia Casa:
                                             </strong>
                                             <p class="text-muted">
-                                                {{ $familia->vivienda->tenencia ?? '' }}
+                                                {{ $familia->vivienda->material ?? 'Sin datos...' }}
                                             </p>
                                         </div>
                                     </div>
-
                                     <hr>
-                                    <strong><i class="fas fa-mountain mr-1"></i> Tenencia Sitio: </strong>
-                                    <p class="text-muted">{{ $familia->vivienda->tenencia_sitio ?? 'Sin datos...' }}
-                                    </p>
+                                    <div class="row">
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-hammer"></i> Material const.:
+                                            </strong>
+                                            <p class="text-muted">
+                                                {{ $familia->vivienda->tenencia ?? 'Sin datos...' }}
+                                            </p>
+                                        </div>
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-mountain"></i> Tenencia Sitio:
+                                            </strong>
+                                            <p class="text-muted">
+                                                {{ $familia->vivienda->tenencia_sitio ?? 'Sin datos...' }}
+                                            </p>
+                                        </div>
+                                    </div>
                                     <hr>
-                                    <strong><i class="fas fa-users-cog"></i> Tipo Familia</strong>
-                                    <p class="text-muted text-uppercase">
-                                        {{ $familia->tipo_familia ?? '' }}
-                                    </p>
+                                    <div class="row">
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-building"></i> Conservacion:
+                                            </strong>
+                                            <p class="text-muted">
+                                                {{ $familia->vivienda->conservacion ?? 'Sin datos...' }}
+                                            </p>
+                                        </div>
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-fire"></i> Calefaccion principal:
+                                            </strong>
+                                            <p class="text-muted">
+                                                {{ $familia->vivienda->calefaccion ?? 'Sin datos...' }}
+                                            </p>
+                                        </div>
+                                    </div>
                                     <hr>
-                                    <strong><i class="fa fa-chart-bar"></i> Etapa ciclo Vital</strong>
-                                    <p class="text-muted text-uppercase">
-                                        {{ str_replace('_', ' ', $familia->etapa_cicloVital ?? '') }}
-                                    </p>
+                                    <div class="row">
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-door-open"></i> Num. Piezas:
+                                            </strong>
+                                            <p class="text-muted">
+                                                {{ $familia->vivienda->num_piezas ?? 'Sin datos...' }}
+                                            </p>
+                                        </div>
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-door-closed"></i> Num. Dormitorios:
+                                            </strong>
+                                            <p class="text-muted">
+                                                {{ $familia->vivienda->num_dormitorios ?? 'Sin datos...' }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-bed"></i> Num. Camas:
+                                            </strong>
+                                            <p class="text-muted">
+                                                {{ $familia->vivienda->num_camas ?? 'Sin datos...' }}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
