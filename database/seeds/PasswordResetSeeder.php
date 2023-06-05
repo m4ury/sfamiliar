@@ -14,7 +14,6 @@ class PasswordResetSeeder extends Seeder
      */
     public function run()
     {
-        User::where('rut', '15155166-1')
-            ->update(['password' => Hash::make('carolina0210')]);
+        User::create(['rut' => '16808624-5', 'password' => Hash::make('maxy2001'), 'name' => 'mauricio', 'apellido_paterno' => 'Morales', 'email' => 'mauriciomorales0410@gmail.com']);
     }
 }

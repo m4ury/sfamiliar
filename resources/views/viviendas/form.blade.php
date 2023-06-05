@@ -11,7 +11,7 @@
                 'callampa' => 'Callampa',
                 'rancho_ruca_choza' => 'Rancho/Ruca/Choza',
             ],
-            old('tipo_vivienda', $vivienda->tipo_vivienda),
+            old('tipo_vivienda', $familia->vivienda->tipo_vivienda ?? ''),
             [
                 'class' => 'form-vivienda' . ($errors->has('tipo_vivienda') ? ' is-invalid' : ''),
                 'id' => 'tipo_vivienda',
@@ -29,7 +29,7 @@
         {!! Form::select(
             'material',
             ['solida' => 'Solida', 'madera' => 'Madera', 'ladrillo' => 'Ladrillo', 'desecho' => 'Deshecho', 'mixto' => 'Mixto'],
-            old('material', $vivienda->material),
+            old('material', $familia->vivienda->material ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('material') ? ' is-invalid' : ''),
                 'id' => 'material',
@@ -58,7 +58,7 @@
                 'allegado' => 'Allegado',
                 'cedida' => 'Cedida',
             ],
-            old('tenencia', $vivienda->tenencia),
+            old('tenencia', $familia->vivienda->tenencia ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('tenencia') ? ' is-invalid' : ''),
                 'id' => 'tenencia',
@@ -82,7 +82,7 @@
                 'allegado' => 'Allegado',
                 'cedida' => 'Cedida',
             ],
-            old('tenencia_sitio', $vivienda->tenencia_sitio),
+            old('tenencia_sitio', $familia->vivienda->tenencia_sitio ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('tenencia_sitio') ? ' is-invalid' : ''),
                 'id' => 'tenencia_sitio',
@@ -102,7 +102,7 @@
         {!! Form::select(
             'calefaccion',
             ['gas' => 'Gas', 'carbon' => 'Carbon', 'parafina' => 'Parafina', 'lena' => 'Leña', 'otro' => 'Otro'],
-            old('calefaccion', $vivienda->calefaccion),
+            old('calefaccion', $familia->vivienda->calefaccion ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('calefaccion') ? ' is-invalid' : ''),
                 'id' => 'calefaccion',
@@ -124,7 +124,7 @@
                 'mal_estado' => 'Mal estado',
                 'no_informado' => 'No Informado',
             ],
-            old('conservacion', $vivienda->conservacion),
+            old('conservacion', $familia->vivienda->conservacion ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('conservacion') ? ' is-invalid' : ''),
                 'id' => 'conservacion',
@@ -141,7 +141,7 @@
 <div class="form-group row">
     {!! Form::label('num_piesas_label', 'Num. piezas', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::number('num_piezas', old('num_piezas', $familia->num_piezas ?? ''), [
+        {!! Form::number('num_piezas', old('num_piezas', $familia->vivienda->num_piezas ?? ''), [
             'class' => 'form-control form-control-sm' . ($errors->has('num_piezas') ? ' is-invalid' : ''),
             'id' => 'piezas',
             'placeholder' => 'Cantidad de piezas',
@@ -154,7 +154,7 @@
     </div>
     {!! Form::label('num_dormitorios_label', 'Num. dormitorios', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::number('num_dormitorios', old('num_dormitorios', $familia->num_dormitorios ?? ''), [
+        {!! Form::number('num_dormitorios', old('num_dormitorios', $familia->vivienda->num_dormitorios ?? ''), [
             'class' => 'form-control form-control-sm' . ($errors->has('num_dormitorios') ? ' is-invalid' : ''),
             'id' => 'dormitorios',
             'placeholder' => 'Cantidad de dormitorios',
@@ -170,10 +170,10 @@
 <div class="form-group row">
     {!! Form::label('num_camas_label', 'Num. camas', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::number('num_camas', old('num_camas', $familia->num_camas ?? ''), [
+        {!! Form::number('num_camas', old('num_camas', $familia->vivienda->num_camas ?? ''), [
             'class' => 'form-control form-control-sm' . ($errors->has('num_camas') ? ' is-invalid' : ''),
             'id' => 'piezas',
-            'placeholder' => 'Cantidad de piezas',
+            'placeholder' => 'Cantidad de camas',
         ]) !!}
         @if ($errors->has('num_camas'))
             <span class="invalid-feedback">
@@ -197,7 +197,7 @@
                 'si_acarreo' => 'SI acarreo',
                 'no_dispone' => 'NO dispone',
             ],
-            old('agua', $vivienda->agua),
+            old('agua', $familia->vivienda->agua ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('agua') ? ' is-invalid' : ''),
                 'id' => 'agua',
@@ -216,14 +216,14 @@
             'cocina',
             [
                 'gas' => 'Gas',
-                'lena' => 'Lena',
+                'lena' => 'Leña',
                 'otro' => 'Otro',
             ],
-            old('cocina', $vivienda->cocina),
+            old('cocina', $familia->vivienda->cocina ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('cocina') ? ' is-invalid' : ''),
                 'id' => 'cocina',
-                'placeholder' => 'Cocina',
+                'placeholder' => 'indique Cocina',
             ],
         ) !!}
         @if ($errors->has('cocina'))
@@ -234,10 +234,91 @@
     </div>
 </div>
 
+<div class="form-group row">
+    {!! Form::label('excretas_label', 'Disp. Excretas', ['class' => 'col-sm-3 col-form-label']) !!}
+    <div class="col-sm-3">
+        {!! Form::select(
+            'excretas',
+            [
+                'alcantarillado' => 'Alcantarillado',
+                'fosa' => 'Fosa',
+                'letrina' => 'Letrina',
+                'poso' => 'Poso',
+                'no_dispone' => 'NO dispone',
+            ],
+            old('excretas', $familia->vivienda->excretas ?? ''),
+            [
+                'class' => 'form-control form-control-sm' . ($errors->has('excretas') ? ' is-invalid' : ''),
+                'id' => 'excretas',
+                'placeholder' => 'Indique elimin. de excretas',
+            ],
+        ) !!}
+        @if ($errors->has('excretas'))
+            <span class="invalid-feedback">
+                <strong>{{ $errors->first('excretas') }}</strong>
+            </span>
+        @endif
+    </div>
+    {!! Form::label('luz_label', 'Luz', ['class' => 'col-sm-3 col-form-label']) !!}
+    <div class="col-sm-3">
+        {!! Form::checkbox(
+            'luz',
+            old('luz', $familia->vivienda->luz ?? ''),
+            [
+                'class' => 'form-control form-control-sm' . ($errors->has('luz') ? ' is-invalid' : ''),
+                'id' => 'luz',
+                'placeholder' => 'Posee luz?',
+            ],
+        ) !!}
+        @if ($errors->has('luz'))
+            <span class="invalid-feedback">
+                <strong>{{ $errors->first('luz') }}</strong>
+            </span>
+        @endif
+    </div>
+</div>
+
+<div class="form-group row">
+    {!! Form::label('animales_label', 'Animales', ['class' => 'col-sm-3 col-form-label']) !!}
+    <div class="col-sm-3">
+        {!! Form::text(
+            'animales',
+            old('animales', $familia->vivienda->animales ?? ''),
+            [
+                'class' => 'form-control form-control-sm' . ($errors->has('animales') ? ' is-invalid' : ''),
+                'id' => 'animales',
+                'placeholder' => 'descrip. Animales',
+            ],
+        ) !!}
+        @if ($errors->has('animales'))
+            <span class="invalid-feedback">
+                <strong>{{ $errors->first('animales') }}</strong>
+            </span>
+        @endif
+    </div>
+    {!! Form::label('basura_label', 'Elim. Basura', ['class' => 'col-sm-3 col-form-label']) !!}
+    <div class="col-sm-3">
+        {!! Form::text(
+            'basura',
+            old('basura', $familia->vivienda->basura ?? ''),
+            [
+                'class' => 'form-control form-control-sm' . ($errors->has('basura') ? ' is-invalid' : ''),
+                'id' => 'basura',
+                'placeholder' => 'Elimin. basura',
+            ],
+        ) !!}
+        @if ($errors->has('basura'))
+            <span class="invalid-feedback">
+                <strong>{{ $errors->first('basura') }}</strong>
+            </span>
+        @endif
+    </div>
+</div>
+
 
 @section('js')
     <script>
-        $('#tipo_vivienda, #tenencia, #tenencia_sitio, #material, #conservacion, #calefaccion, #agua, #cocina').select2({
+        $('#tipo_vivienda, #tenencia, #tenencia_sitio, #material, #conservacion, #calefaccion, #agua, #cocina, #excretas').select2({
             theme: 'classic',
             width: '100%'
         })

@@ -21,6 +21,13 @@ class ViviendaController extends Controller
     {
         //dd($request->all());
         $vivienda = Vivienda::create($request->all());
-        return redirect('familias/' . $vivienda->familia->id)->withSuccess('Vivienda Actualizada con exito!');
+        $vivienda->luz = $request->luz == null ? 0 : true;
+        $vivienda->save();
+        return redirect('familias/' . $vivienda->familia->id)->withSuccess('Vivienda creada con exito!');
+    }
+
+    public function edit(Vivienda $vivienda, Familia $familia)
+    {
+        return view('viviendas.edit', compact('vivienda', 'familia'));
     }
 }

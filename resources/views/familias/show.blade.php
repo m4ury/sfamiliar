@@ -28,11 +28,19 @@
                     </span>
                     <div class="col col-sm">
                         <div class="float-right px-2">
-                            <a class="btn bg-gradient-success btn-sm" title="Vivienda"
+                            @if ($familia->vivienda)
+                            <a class="btn bg-gradient-primary btn-sm" title="editar Vivienda"
+                                href="{{ route('viviendas.edit', $familia->vivienda->id) }}">editar Vivienda
+                                <i class="fas fa-home"></i>
+                            </a>
+                            @else
+                            <a class="btn bg-gradient-success btn-sm" title="nueva Vivienda"
                                 href="{{ route('viviendas.create', $familia->id) }}">Vivienda
                                 <i class="fas fa-home"></i>
                             </a>
+                            @endif
                         </div>
+
                         <div class="float-right px-2">
                             <a class="btn bg-gradient-success btn-sm" title="Editar"
                                 href="{{ route('familias.edit', $familia->id) }}"> Editar Familia <i
@@ -52,12 +60,12 @@
                             <a class="nav-link" id="vert-tabs-controles-tab" data-toggle="pill"
                                 href="#vert-tabs-controles" role="tab" aria-controls="vert-tabs-presupuestos"
                                 aria-selected="false">Identificacion del Grupo Familiar</a>
-                            {{-- <a class="nav-link" id="vert-tabs-patologias-tab" data-toggle="pill"
-                                href="#vert-tabs-patologias" role="tab" aria-controls="vert-tabs-patologias"
-                                aria-selected="false">Genograma</a> --}}
                             <a class="nav-link" id="vert-tabs-vivienda-tab" data-toggle="pill"
                                 href="#vert-tabs-vivienda" role="tab" aria-controls="vert-tabs-vivienda"
                                 aria-selected="false">Vivienda</a>
+                            <a class="nav-link" id="vert-tabs-sanitarias-tab" data-toggle="pill"
+                                href="#vert-tabs-sanitarias" role="tab" aria-controls="vert-tabs-sanitarias"
+                                aria-selected="false">Cond. Sanitarias</a>
                         </div>
                     </div>
                     <div class="col-7 col-sm-9">
@@ -100,7 +108,7 @@
                                             <strong>
                                                 <i class="fas fa-home"></i> Tipo vivienda:
                                             </strong>
-                                            <p class="text-muted">
+                                            <p class="text-muted text-uppercase">
                                                 {{ $familia->vivienda->tipo_vivienda ?? 'Sin datos...' }}
                                             </p>
                                         </div>
@@ -108,7 +116,7 @@
                                             <strong>
                                                 <i class="fas fa-home"></i> Tenencia Casa:
                                             </strong>
-                                            <p class="text-muted">
+                                            <p class="text-muted text-uppercase">
                                                 {{ $familia->vivienda->material ?? 'Sin datos...' }}
                                             </p>
                                         </div>
@@ -119,7 +127,7 @@
                                             <strong>
                                                 <i class="fas fa-hammer"></i> Material const.:
                                             </strong>
-                                            <p class="text-muted">
+                                            <p class="text-muted text-uppercase">
                                                 {{ $familia->vivienda->tenencia ?? 'Sin datos...' }}
                                             </p>
                                         </div>
@@ -127,7 +135,7 @@
                                             <strong>
                                                 <i class="fas fa-mountain"></i> Tenencia Sitio:
                                             </strong>
-                                            <p class="text-muted">
+                                            <p class="text-muted text-uppercase">
                                                 {{ $familia->vivienda->tenencia_sitio ?? 'Sin datos...' }}
                                             </p>
                                         </div>
@@ -138,7 +146,7 @@
                                             <strong>
                                                 <i class="fas fa-building"></i> Conservacion:
                                             </strong>
-                                            <p class="text-muted">
+                                            <p class="text-muted text-uppercase">
                                                 {{ $familia->vivienda->conservacion ?? 'Sin datos...' }}
                                             </p>
                                         </div>
@@ -146,7 +154,7 @@
                                             <strong>
                                                 <i class="fas fa-fire"></i> Calefaccion principal:
                                             </strong>
-                                            <p class="text-muted">
+                                            <p class="text-muted text-uppercase">
                                                 {{ $familia->vivienda->calefaccion ?? 'Sin datos...' }}
                                             </p>
                                         </div>
@@ -157,7 +165,7 @@
                                             <strong>
                                                 <i class="fas fa-door-open"></i> Num. Piezas:
                                             </strong>
-                                            <p class="text-muted">
+                                            <p class="text-muted text-uppercase">
                                                 {{ $familia->vivienda->num_piezas ?? 'Sin datos...' }}
                                             </p>
                                         </div>
@@ -165,7 +173,7 @@
                                             <strong>
                                                 <i class="fas fa-door-closed"></i> Num. Dormitorios:
                                             </strong>
-                                            <p class="text-muted">
+                                            <p class="text-muted text-uppercase">
                                                 {{ $familia->vivienda->num_dormitorios ?? 'Sin datos...' }}
                                             </p>
                                         </div>
@@ -176,12 +184,69 @@
                                             <strong>
                                                 <i class="fas fa-bed"></i> Num. Camas:
                                             </strong>
-                                            <p class="text-muted">
+                                            <p class="text-muted text-uppercase">
                                                 {{ $familia->vivienda->num_camas ?? 'Sin datos...' }}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="tab-pane fade" id="vert-tabs-sanitarias" role="tabpanel"
+                                aria-labelledby="vert-tabs-sanitarias-tab">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-tint"></i> Agua:
+                                            </strong>
+                                            <p class="text-muted text-uppercase">
+                                                {{ $familia->vivienda->agua ?? 'Sin datos...' }}
+                                            </p>
+                                        </div>
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-lightbulb"></i> Luz:
+                                            </strong>
+                                            <p class="text-muted text-uppercase">
+                                                @if ($familia->vivienda->luz ?? '')
+                                                    <i class="fas fa-lightbulb text-warning mx-3"> SI</i>
+                                                @else
+                                                    <i class="fas fa-lightbulb mx-3"> NO</i>
+                                                @endif
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-toilet"></i> Disp. excretas:
+                                            </strong>
+                                            <p class="text-muted text-uppercase">
+                                                {{ $familia->vivienda->excretas ?? 'Sin datos...' }}
+                                            </p>
+                                        </div>
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-paw"></i> Animales:
+                                            </strong>
+                                            <p class="text-muted text-uppercase">
+                                                {{ $familia->vivienda->animales ?? 'Sin datos...' }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col col-sm">
+                                            <strong>
+                                                <i class="fas fa-trash"></i> Basura:
+                                            </strong>
+                                            <p class="text-muted text-uppercase">
+                                                {{ $familia->vivienda->basura ?? 'Sin datos...' }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                        </div>
                             </div>
                         </div>
                     </div>

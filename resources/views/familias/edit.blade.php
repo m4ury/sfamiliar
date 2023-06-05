@@ -8,9 +8,8 @@
                 <div class="card card card-success card-outline">
                     <div class="card-header"><i class="fas fa-users mr-1"></i>Editando Familia {{ $familia->familia }}</div>
                     <div class="card-body">
-                        {{ Form::open(['action' => 'FamiliaController@update', 'method' => 'POST', 'url' => 'familias/' . $familia->id, 'class' => 'form-horizontal']) }}
+                        {{ Form::model($familia, ['route' => ['familias.update', $familia], 'class' => 'form-horizontal']) }}
                         @method('PUT')
-
                         <div class="form-group row">
                             {!! Form::label('integrantes_label', 'Agregar integrante(s)', ['class' => 'col-sm-2 col-form-label']) !!}
                             <div class="col-sm-5">
