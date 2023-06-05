@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PacienteRequest;
-use App\Paciente;
 use App\Familia;
+use App\Paciente;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use App\Http\Requests\PacienteRequest;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
 
 class PacienteController extends Controller
 {
@@ -52,7 +53,7 @@ class PacienteController extends Controller
             'rut' => 'cl_rut',
             'nombres' => 'string|min:3',
             'apellidoP' => 'string|min:3',
-            //'fecha_fallecido' => 'date|required_if:fallecido,1|before_or_equal:'.Carbon::now()
+            'fecha_fallecido' => Rule::requiredIf($request->fallecido == 1),
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();

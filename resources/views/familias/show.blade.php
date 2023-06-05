@@ -29,15 +29,15 @@
                     <div class="col col-sm">
                         <div class="float-right px-2">
                             @if ($familia->vivienda)
-                            <a class="btn bg-gradient-primary btn-sm" title="editar Vivienda"
-                                href="{{ route('viviendas.edit', $familia->vivienda->id) }}">editar Vivienda
-                                <i class="fas fa-home"></i>
-                            </a>
+                                <a class="btn bg-gradient-primary btn-sm" title="editar Vivienda"
+                                    href="{{ route('viviendas.edit', $familia->vivienda->id) }}">editar Vivienda
+                                    <i class="fas fa-home"></i>
+                                </a>
                             @else
-                            <a class="btn bg-gradient-success btn-sm" title="nueva Vivienda"
-                                href="{{ route('viviendas.create', $familia->id) }}">Vivienda
-                                <i class="fas fa-home"></i>
-                            </a>
+                                <a class="btn bg-gradient-success btn-sm" title="nueva Vivienda"
+                                    href="{{ route('viviendas.crea', $familia->id) }}">nueva Vivienda
+                                    <i class="fas fa-home"></i>
+                                </a>
                             @endif
                         </div>
 
@@ -246,7 +246,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                        </div>
+                                </div>
                             </div>
                         </div>
                     </div>

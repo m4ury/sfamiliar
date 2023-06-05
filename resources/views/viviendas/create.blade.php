@@ -7,7 +7,9 @@
                 <div class="card card-success card-outline">
                     <div class="card-header">
                         <label for="vivienda">Nueva Vivienda</label>
-                        <input type="text" name="vivienda" value="{{ $familia->familia }} - {{ $familia->fichaFamiliar() ?? '' }}" class="form-control text-uppercase text-bold text-center" disabled>
+                        <input type="text" name="vivienda"
+                            value="{{ $familia->familia ?? '' }} - {{ $familia->fichaFamiliar() ?? '' }}"
+                            class="form-control text-uppercase text-bold text-center" disabled>
                     </div>
                     <div class="card-body">
                         {{ Form::open(['action' => 'ViviendaController@store', 'method' => 'POST', 'class' => 'form-horizontal']) }}

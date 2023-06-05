@@ -326,9 +326,16 @@
                 <div class="form-group row fecha_f">
                     {!! Form::label('fecha_fellecido_label', 'Fecha', ['class' => 'col-sm col-form-label']) !!}
                     <div class="col">
-                        {!! Form::date('fecha_fallecido', $paciente->fecha_fallecido, ['class' => 'form-control form-control col-sm']) !!}
+                        {!! Form::date('fecha_fallecido', $paciente->fecha_fallecido, [
+                            'class' => 'form-control form-control-sm' . ($errors->has('fecha_fallecido') ? ' is-invalid' : ''),
+                        ]) !!}
                     </div>
                 </div>
+                @if ($errors->has('fecha_fallecido'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('fecha_fallecido') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
