@@ -26,7 +26,7 @@ class FamiliaRequest extends FormRequest
         return [
             'familia' => 'required|min:4|string',
             'domicilio' => 'required|string|min:3',
-            //'ficha_familiar' => 'required|number'
+            //'ficha_familiar' => 'unique:familias,ficha_familiar,except,'.$request->sector
             'sector' => 'required'
         ];
     }

@@ -193,10 +193,10 @@
         {!! Form::select(
             'agua',
             [
-                'si_dentro' => 'SI dentro',
-                'si_sitio' => 'SI sitio',
-                'si_acarreo' => 'SI acarreo',
-                'no_dispone' => 'NO dispone',
+                'potable' => 'Potable',
+                'camion_algibe' => 'Camion Algibe',
+                'noria' => 'Noria',
+                'cedida' => 'Cedida',
             ],
             old('agua', $vivienda->agua ?? ''),
             [
@@ -262,11 +262,20 @@
     </div>
     {!! Form::label('luz_label', 'Luz', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::checkbox('luz', 1, null, [
-            'class' => 'form-control form-control-sm' . ($errors->has('luz') ? ' is-invalid' : ''),
-            'id' => 'luz',
-            'placeholder' => 'Posee luz?',
-        ]) !!}
+        {!! Form::select(
+            'luz',
+            [
+                'electrica' => 'Electrica',
+                'generador' => 'Generador',
+                'cedida' => 'Cedida',
+            ],
+            old('excretas', $vivienda->luz ?? ''),
+            [
+                'class' => 'form-control form-control-sm' . ($errors->has('luz') ? ' is-invalid' : ''),
+                'id' => 'luz',
+                'placeholder' => 'Posee luz?',
+            ],
+        ) !!}
         @if ($errors->has('luz'))
             <span class="invalid-feedback">
                 <strong>{{ $errors->first('luz') }}</strong>
@@ -307,7 +316,7 @@
 
 @section('js')
     <script>
-        $('#tipo_vivienda, #tenencia, #tenencia_sitio, #material, #conservacion, #calefaccion, #agua, #cocina, #excretas')
+        $('#tipo_vivienda, #tenencia, #tenencia_sitio, #material, #conservacion, #calefaccion, #agua, #cocina, #excretas, #luz')
             .select2({
                 theme: 'classic',
                 width: '100%'

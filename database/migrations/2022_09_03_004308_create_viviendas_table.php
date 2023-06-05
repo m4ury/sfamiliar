@@ -15,23 +15,21 @@ class CreateViviendasTable extends Migration
     {
         Schema::create('viviendas', function (Blueprint $table) {
             $table->id();
-            $table->enum('tipo_vivienda', ['casa', 'departamento', 'mejora_mediagua', 'conventillo_cite', 'callampa', 'rancho_ruca_choza'])->nullable();
-            $table->enum('material', ['solida', 'madera', 'ladrillo', 'desecho', 'mixto']);
-            $table->enum('tenencia', ['propia', 'dividendo', 'arriendo', 'allegado', 'cedida']);
-            $table->enum('tenencia_sitio', ['propia', 'dividendo', 'arriendo', 'allegado', 'cedida']);
-            $table->enum('calefaccion', ['gas', 'carbon', 'parafina', 'lena', 'otro']);
-            $table->enum('conservacion', ['buen_estado', 'mal_estado', 'no_informado']);
+            $table->enum('tipo_vivienda', ['casa', 'departamento', 'mejora_mediagua', 'choza'])->nullable();
+            $table->enum('material', ['solida', 'madera', 'ladrillo', 'mixto'])->nullable();
+            $table->enum('tenencia', ['propia', 'dividendo', 'arriendo', 'allegado', 'cedida'])->nullable();
+            $table->enum('tenencia_sitio', ['propia', 'dividendo', 'arriendo', 'allegado', 'cedida'])->nullable();
+            $table->enum('calefaccion', ['gas', 'carbon', 'parafina', 'lena', 'otro'])->nullable();
+            $table->enum('conservacion', ['buen_estado', 'mal_estado', 'no_informado'])->nullable();
             $table->integer('num_piezas')->default(0);
             $table->integer('num_dormitorios')->default(0);
             $table->integer('num_camas')->default(0);
-            $table->enum('cocina', ['gas', 'lena', 'otro']);
-            //$table->tinyInteger('piso_tierra')->default(0);
-            $table->tinyInteger('luz')->default(0);
+            $table->enum('cocina', ['gas', 'lena', 'otro'])->nullable();
+            $table->enum('luz', ['electrica', 'generador', 'cedida'])->nullable();
             $table->string('basura')->nullable();
             $table->string('animales')->nullable();
-            $table->enum('agua', ['si_dentro', 'si_sitio', 'si_acarreo', 'no_dispone']);
-            $table->enum('excretas', ['alcantarillado', 'fosa', 'letrina', 'poso', 'no_dispone']);
-            //$table->enum('ingreso', ['0_1 im', '1_2 im', '2_3 im', '3_4 im', '4 im']);
+            $table->enum('agua', ['potable', 'camion_algibe', 'noria', 'cedida'])->nullable();
+            $table->enum('excretas', ['alcantarillado', 'fosa', 'poso', 'no_dispone'])->nullable();
             $table->timestamps();
         });
     }

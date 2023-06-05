@@ -26,7 +26,6 @@ Route::middleware('auth')->group(function () {
     Route::post('familias/elimina/{paciente?}', 'PacienteController@eliminarInt')->name('elimina');
     Route::resource('pacientes', 'PacienteController');
 
-
     //rutas para familias
     Route::resource('familias', 'FamiliaController');
 
