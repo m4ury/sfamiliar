@@ -273,7 +273,7 @@
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('luz') ? ' is-invalid' : ''),
                 'id' => 'luz',
-                'placeholder' => 'Posee luz?',
+                'placeholder' => 'Indique luz',
             ],
         ) !!}
         @if ($errors->has('luz'))

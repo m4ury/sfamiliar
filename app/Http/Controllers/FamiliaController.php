@@ -42,6 +42,7 @@ class FamiliaController extends Controller
      */
     public function store(FamiliaRequest $request)
     {
+
         $familia = Familia::create($request->all());
         return redirect('familias')->withSuccess('Familia Creada con exito!');
     }
@@ -67,7 +68,7 @@ class FamiliaController extends Controller
      */
     public function edit(Familia $familia)
     {
-        $pacientes = Paciente::select(\DB::raw('CONCAT(nombres, " ", apellidoP, " - ", rut) AS full_name, id'))->where('familia_id', '=', null)->pluck('full_name', 'id')->lazy();
+        $pacientes = Paciente::select(\DB::raw('CONCAT(nombres, " ", apellidoP, " - ", rut) AS full_name, id'))->whereNull('familia_id')->pluck('full_name', 'id')->lazy();
 
         return view('familias.edit', compact('familia', 'pacientes'));
     }

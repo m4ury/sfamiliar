@@ -208,11 +208,7 @@
                                                 <i class="fas fa-lightbulb"></i> Luz:
                                             </strong>
                                             <p class="text-muted text-uppercase">
-                                                @if ($familia->vivienda->luz ?? '')
-                                                    <i class="fas fa-lightbulb text-warning mx-3"> SI</i>
-                                                @else
-                                                    <i class="fas fa-lightbulb mx-3"> NO</i>
-                                                @endif
+                                                {{ $familia->vivienda->luz ?? 'Sin datos...' }}
                                             </p>
                                         </div>
                                     </div>

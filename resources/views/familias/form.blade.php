@@ -90,8 +90,11 @@
             'sector',
             ['SB' => 'Naranjo (SB)', 'SA' => 'Celeste (SA)'],
             old('sector', $familia->sector ?? ''),
-            ['class' => 'form-control form-control-sm' . ($errors->has('sector') ? 'is-invalid' : ''),
-            'placeholder' => 'Seleccione Sector', 'id' => 'sector']
+            [
+                'class' => 'form-control form-control-sm' . ($errors->has('sector') ? 'is-invalid' : ''),
+                'placeholder' => 'Seleccione Sector',
+                'id' => 'sector',
+            ],
         ) !!}
         @if ($errors->has('sector'))
             <span class="invalid-feedback">
@@ -125,7 +128,11 @@
                 'reconstituida' => 'Reconstituida',
             ],
             old('tipo_familia', $familia->tipo_familia ?? ''),
-            ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione Tipo familia', 'id' => 'tipo_familia'],
+            [
+                'class' => 'form-control form-control-sm' . ($errors->has('tipo_familia') ? 'is-invalid' : ''),
+                'placeholder' => 'Seleccione Tipo familia',
+                'id' => 'tipo_familia',
+            ],
         ) !!}
         @if ($errors->has('tipo_familia'))
             <span class="invalid-feedback">
