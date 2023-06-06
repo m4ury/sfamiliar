@@ -23,11 +23,17 @@ class FamiliaRequest extends FormRequest
      */
     public function rules()
     {
+        $ficha_familiar = \Request::get('ficha_familiar');
+        $sector = \Request::get('sector');
+//dd($sector);
         return [
             'familia' => 'required|min:4|string',
             'domicilio' => 'required|string|min:3',
-            //'ficha_familiar' => 'unique:familias,ficha_familiar,except,'.$request->sector
-            'sector' => 'required'
+            //'user_id' => 'unique:service_details,user_id,NULL,id,service_id,' . $service_id,
+            //'service_id' => 'unique:service_details,service_id,NULL,id,user_id,' . $user_id,
+            'ficha_familiar' => 'unique:familias,ficha_familiar,NULL,id,sector,'.$sector,
+            'sector' => 'unique:familias,sector,NULL,id,ficha_familiar,'.$ficha_familiar
+            //'sector' => 'required'
         ];
     }
 }

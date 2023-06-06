@@ -42,7 +42,6 @@ class FamiliaController extends Controller
      */
     public function store(FamiliaRequest $request)
     {
-        //dd($request->all());
         $familia = Familia::create($request->all());
         return redirect('familias')->withSuccess('Familia Creada con exito!');
     }

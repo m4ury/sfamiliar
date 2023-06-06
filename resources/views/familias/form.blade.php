@@ -13,7 +13,6 @@
         @endif
     </div>
 </div>
-
 <div class="form-group row">
     {!! Form::label('domicilio_label', 'Domicilio', ['class' => 'col-sm-2 col-form-label']) !!}
     <div class="col-sm-5">
@@ -91,7 +90,8 @@
             'sector',
             ['SB' => 'Naranjo (SB)', 'SA' => 'Celeste (SA)'],
             old('sector', $familia->sector ?? ''),
-            ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione Sector', 'id' => 'sector'],
+            ['class' => 'form-control form-control-sm' . ($errors->has('sector') ? 'is-invalid' : ''),
+            'placeholder' => 'Seleccione Sector', 'id' => 'sector']
         ) !!}
         @if ($errors->has('sector'))
             <span class="invalid-feedback">
