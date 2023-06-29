@@ -53,7 +53,7 @@ class PacienteController extends Controller
             'rut' => 'cl_rut',
             'nombres' => 'string|min:3',
             'apellidoP' => 'string|min:3',
-            'fecha_fallecido' => Rule::requiredIf($request->fallecido == 1),
+            'fecha_fallecido' => 'required_with:fallecido'
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();

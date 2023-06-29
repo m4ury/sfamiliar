@@ -32,7 +32,7 @@ class FamiliaRequest extends FormRequest
             //'user_id' => 'unique:service_details,user_id,NULL,id,service_id,' . $service_id,
             //'service_id' => 'unique:service_details,service_id,NULL,id,user_id,' . $user_id,
             'ficha_familiar' => 'required|unique:familias,ficha_familiar,NULL,id,sector,' . $sector,
-            'sector' => 'required|unique:familias,sector,NULL,id,ficha_familiar,' . $ficha_familiar
+            //'sector' => 'required|unique:familias,sector,NULL,id,ficha_familiar,' . $ficha_familiar
         ];
     }
 
