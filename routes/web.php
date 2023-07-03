@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
 
     //rutas para familias
     Route::resource('familias', 'FamiliaController');
+    Route::get('familias.sin_integrantes', 'FamiliaController@sinIntegrantes')->name('familias.sin_integrantes');
 
     //rutas para perfil
     Route::get('/perfil', 'UserController@profile')->name('perfil');

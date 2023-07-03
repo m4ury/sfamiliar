@@ -86,7 +86,7 @@ class FamiliaController extends Controller
         $validator = Validator::make($request->all(), [
             'familia' => 'string|min:4',
             'ficha_familiar' => 'numeric|min:1',
-            //'ficha_familiar' => 'required|unique:familias,ficha_familiar,NULL,id,sector,' . $request->sector,
+            'ficha_familiar' => 'required|unique:familias,ficha_familiar,' . $familia->id . ',id,sector,' . $request->sector,
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -101,6 +101,16 @@ class FamiliaController extends Controller
         }
 
         return redirect('familias/' . $familia->id)->withSuccess('Actualizado con exito!');
+    }
+
+    public function sinIntegrantes()
+    {
+        $familias = Familia::doesntHave('pacientes')
+            ->select('familias.id', 'familias.familia', 'familias.ficha_familiar', 'familias.sector', 'familias.domicilio')
+            ->latest('familias.familia', 'desc')
+            ->get();
+
+        return view('familias.sin_integrantes', compact('familias'));
     }
 
     /**

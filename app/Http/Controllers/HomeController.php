@@ -56,6 +56,8 @@ class HomeController extends Controller
         $totalpBlanco = $all->where('sector', '=', 'blanco')->where('fallecido', '=', 0)->count();
 
         $sinFamilia = $all->whereNull('familia_id')->whereFallecido(0)->count();
+        $sinIntegrantes = $fam->doesntHave('pacientes')->count();
+        // dd($sinFamilia);
 
         return view('home', compact(
             'totalPacientes',
@@ -68,6 +70,7 @@ class HomeController extends Controller
             'totalpNaranjo',
             'totalpBlanco',
             'sinFamilia',
+            'sinIntegrantes',
             'masculino9',
             'masculino1019',
             'masculino2064',

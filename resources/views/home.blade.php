@@ -150,6 +150,22 @@
 
             <div class="col-lg-4 col-4">
                 <!-- small box -->
+                <div class="small-box bg-gray">
+                    <div class="inner">
+                        <h3>{{ $sinIntegrantes }}</h3>
+                        <p>Famlias sin Integrantes</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <a href="{{ route('familias.sin_integrantes') }}" class="small-box-footer" target="_blank">More info <i
+                            class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-4">
+                <!-- small box -->
                 <div class="small-box bg-white">
                     <div class="inner">
                         <h3>{{ $fallecidos }}</h3>
