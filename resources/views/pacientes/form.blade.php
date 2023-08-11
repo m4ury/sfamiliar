@@ -228,8 +228,6 @@
                     'Tia (o)' => 'Tia (o)',
                     'Prima (o)' => 'Prima (o)',
                     'Suegra (o)' => 'Suegra (o)',
-                    'Nuera' => 'Nuera',
-                    'Yerno' => 'Yerno',
                     'Cuñada (o)' => 'Cuñada (o)',
                     'Sobrina (o)' => 'Sobrina (o)',
                     'Nieta (o)' => 'Nieta (o)',
