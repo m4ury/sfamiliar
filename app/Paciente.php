@@ -48,7 +48,16 @@ class Paciente extends Model
         if ($q) return $query->where('sexo', 'LIKE', "%$q%")->orWhere('sector', 'LIKE', "%$q%");
     }
 
-    public function sinFamilia(){
+    public function sinFamilia()
+    {
         return $this->whereNull('familia_id')->whereFallecido(0);
+    }
+
+    public function ultFicha()
+    {
+        return $this->select('ficha')
+            ->whereNotNull('ficha')
+            ->orderBy('created_at', 'asc')
+            ->get();
     }
 }

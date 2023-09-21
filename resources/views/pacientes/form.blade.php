@@ -17,7 +17,7 @@
         <div class="col-sm-3">
             {!! Form::number('ficha', old('ficha') ?: $paciente->ficha, [
                 'class' => 'form-control form-control-sm' . ($errors->has('ficha') ? 'is-invalid' : ''),
-                'placeholder' => 'Nº Ficha',
+                'placeholder' => 'Nº ultima ficha creada ' . Str::replace(['{', '}', '"ficha"'], '', $paciente->ultFicha()->last()),
             ]) !!}
             @if ($errors->has('ficha'))
                 <span class="invalid-feedback">
