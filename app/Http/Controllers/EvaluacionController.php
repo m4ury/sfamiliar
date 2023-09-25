@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Evaluacion;
+use App\Familia;
 use Illuminate\Http\Request;
 
 class EvaluacionController extends Controller
@@ -22,9 +23,12 @@ class EvaluacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function crea($id)
     {
-        //
+        $familia = Familia::findOrFail($id);
+        $eval = new Evaluacion;
+
+        return view('evaluaciones.create', compact('familia','eval'));
     }
 
     /**
@@ -35,7 +39,11 @@ class EvaluacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $eval = new Evaluacion($request->all());
+        $eval->familia->save();
+
+        return redirect('familias/' . $eval->familia->id)->withSuccess('Evaluacion creada con exito!');
     }
 
     /**

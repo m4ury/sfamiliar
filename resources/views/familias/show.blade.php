@@ -28,6 +28,21 @@
                     </span>
                     <div class="col col-sm">
                         <div class="float-right px-2">
+
+                            <div class="float-right px-2">
+                                @if ($familia->evaluacion)
+                                    <a class="btn bg-gradient-primary btn-sm" title="editar Evaluacion"
+                                        href="{{ route('evaluaciones.edit', $familia->evaluacion->id) }}">editar Evaluacion
+                                        <i class="fas fa-home"></i>
+                                    </a>
+                                @else
+                                    <a class="btn bg-gradient-success btn-sm" title="nueva evaluacion"
+                                        href="{{ route('evaluaciones.crea', $familia->id) }}">Nueva evaluacion
+                                        <i class="fas fa-home"></i>
+                                    </a>
+                                @endif
+                            </div>
+
                             @if ($familia->vivienda)
                                 <a class="btn bg-gradient-primary btn-sm" title="editar Vivienda"
                                     href="{{ route('viviendas.edit', $familia->vivienda->id) }}">editar Vivienda

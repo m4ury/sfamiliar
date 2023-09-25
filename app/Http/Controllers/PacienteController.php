@@ -28,7 +28,13 @@ class PacienteController extends Controller
 
     public function store(PacienteRequest $request)
     {
-        Paciente::create($request->all());
+        $paciente = new Paciente($request->all());
+        $paciente->ingreso = $request->ingreso ?? 0;
+        $paciente->prevision = $request->prevision ?? 'Fonasa';
+        $paciente->profesion = $request->profesion ?? 'No infomado';
+        //$paciente = Paciente::updateOrCreate($request->except('_token'));
+        $paciente->save();
+
         return redirect('pacientes')->withSuccess('Paciente Cread@ con exito!');
     }
 

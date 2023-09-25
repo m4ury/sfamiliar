@@ -36,7 +36,11 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('viviendas', 'ViviendaController')->except('[index, create]');
     Route::get('viviendas/crea/{familia?}', 'ViviendaController@crea')->name('viviendas.crea');
-    Route::get('viviendas/{vivenda?}/edita', 'ViviendaController@edita')->name('viviendas.edita');
+    //Route::get('viviendas/{vivenda?}/edita', 'ViviendaController@edita')->name('viviendas.edita');
+
+    Route::resource('evaluaciones', 'EvaluacionController')->except('[index, create]');
+    Route::get('evaluaciones/crea/{familia?}', 'EvaluacionController@crea')->name('evaluaciones.crea');
+    //Route::get('evaluaciones/{eval?}/edita', 'EvaluacionController@edita')->name('evaluaciones.edita');
 
     //ruta para exportar a excel
     /*Route::get('exports/pacientes', 'PacienteController@export')->name('exports.pacientes');*/
