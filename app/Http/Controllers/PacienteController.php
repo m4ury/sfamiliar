@@ -15,8 +15,10 @@ class PacienteController extends Controller
 {
     public function index()
     {
-        $pacientes = Paciente::with('familia')->select('pacientes.fallecido', 'pacientes.familia_id', 'pacientes.sexo', 'pacientes.id', 'pacientes.nombres', 'pacientes.apellidoP', 'pacientes.apellidoM', 'pacientes.rut', 'pacientes.ficha', 'pacientes.sector', 'pacientes.fecha_nacimiento', 'pacientes.fecha_fallecido')->latest('pacientes.familia_id', 'desc')
-            ->get();
+        $pacientes = cache()->remember('index-pacientes', 30, function () {
+            return Paciente::with('familia')->select('pacientes.fallecido', 'pacientes.familia_id', 'pacientes.sexo', 'pacientes.id', 'pacientes.nombres', 'pacientes.apellidoP', 'pacientes.apellidoM', 'pacientes.rut', 'pacientes.ficha', 'pacientes.sector', 'pacientes.fecha_nacimiento', 'pacientes.fecha_fallecido')->latest('pacientes.familia_id', 'desc')
+                ->get()->lazy();
+        });
 
         return view('pacientes.index', compact('pacientes'));
     }

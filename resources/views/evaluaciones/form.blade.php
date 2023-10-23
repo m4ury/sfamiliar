@@ -1,8 +1,8 @@
 <div class="form-group row">
-    {!! Form::label('tipo_evaluacion_label', 'Tipo evaluacion', ['class' => 'col-sm-3 col-form-label']) !!}
+    {!! Form::label('tipo_eval_label', 'Tipo eval', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
         {!! Form::select(
-            'tipo_evaluacion',
+            'tipo_eval',
             [
                 'casa' => 'Casa',
                 'departamento' => 'Departamento',
@@ -11,16 +11,16 @@
                 'callampa' => 'Callampa',
                 'rancho_ruca_choza' => 'Rancho/Ruca/Choza',
             ],
-            old('tipo_evaluacion', $evaluacion->tipo_evaluacion),
+            old('tipo_eval', $eval->tipo_eval),
             [
-                'class' => 'form-control' . ($errors->has('tipo_evaluacion') ? ' is-invalid' : ''),
-                'id' => 'tipo_evaluacion',
-                'placeholder' => 'Seleccione evaluacion',
+                'class' => 'form-control' . ($errors->has('tipo_eval') ? ' is-invalid' : ''),
+                'id' => 'tipo_eval',
+                'placeholder' => 'Seleccione eval',
             ],
         ) !!}
-        @if ($errors->has('tipo_evaluacion'))
+        @if ($errors->has('tipo_eval'))
             <span class="invalid-feedback">
-                <strong>{{ $errors->first('tipo_evaluacion') }}</strong>
+                <strong>{{ $errors->first('tipo_eval') }}</strong>
             </span>
         @endif
     </div>
@@ -32,7 +32,7 @@
         {!! Form::select(
             'material',
             ['solida' => 'Solida', 'madera' => 'Madera', 'ladrillo' => 'Ladrillo', 'desecho' => 'Deshecho', 'mixto' => 'Mixto'],
-            old('material', $evaluacion->material),
+            old('material', $eval->material),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('material') ? ' is-invalid' : ''),
                 'id' => 'material',
@@ -59,7 +59,7 @@
                 'allegado' => 'Allegado',
                 'cedida' => 'Cedida',
             ],
-            old('tenencia', $evaluacion->tenencia),
+            old('tenencia', $eval->tenencia),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('tenencia') ? ' is-invalid' : ''),
                 'id' => 'tenencia',
@@ -83,7 +83,7 @@
                 'allegado' => 'Allegado',
                 'cedida' => 'Cedida',
             ],
-            old('tenencia_sitio', $evaluacion->tenencia_sitio ?? ''),
+            old('tenencia_sitio', $eval->tenencia_sitio ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('tenencia_sitio') ? ' is-invalid' : ''),
                 'id' => 'tenencia_sitio',
@@ -103,7 +103,7 @@
         {!! Form::select(
             'calefaccion',
             ['gas' => 'Gas', 'carbon' => 'Carbon', 'parafina' => 'Parafina', 'lena' => 'Leña', 'otro' => 'Otro'],
-            old('calefaccion', $evaluacion->calefaccion ?? ''),
+            old('calefaccion', $eval->calefaccion ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('calefaccion') ? ' is-invalid' : ''),
                 'id' => 'calefaccion',
@@ -125,7 +125,7 @@
                 'mal_estado' => 'Mal estado',
                 'no_informado' => 'No Informado',
             ],
-            old('conservacion', $evaluacion->conservacion ?? ''),
+            old('conservacion', $eval->conservacion ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('conservacion') ? ' is-invalid' : ''),
                 'id' => 'conservacion',
@@ -142,7 +142,7 @@
 <div class="form-group row">
     {!! Form::label('num_piesas_label', 'Num. piezas', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::number('num_piezas', old('num_piezas', $evaluacion->num_piezas ?? ''), [
+        {!! Form::number('num_piezas', old('num_piezas', $eval->num_piezas ?? ''), [
             'class' => 'form-control form-control-sm' . ($errors->has('num_piezas') ? ' is-invalid' : ''),
             'id' => 'piezas',
             'placeholder' => 'Cantidad de piezas',
@@ -155,7 +155,7 @@
     </div>
     {!! Form::label('num_dormitorios_label', 'Num. dormitorios', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::number('num_dormitorios', old('num_dormitorios', $evaluacion->num_dormitorios ?? ''), [
+        {!! Form::number('num_dormitorios', old('num_dormitorios', $eval->num_dormitorios ?? ''), [
             'class' => 'form-control form-control-sm' . ($errors->has('num_dormitorios') ? ' is-invalid' : ''),
             'id' => 'dormitorios',
             'placeholder' => 'Cantidad de dormitorios',
@@ -171,7 +171,7 @@
 <div class="form-group row">
     {!! Form::label('num_camas_label', 'Num. camas', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::number('num_camas', old('num_camas', $evaluacion->num_camas ?? ''), [
+        {!! Form::number('num_camas', old('num_camas', $eval->num_camas ?? ''), [
             'class' => 'form-control form-control-sm' . ($errors->has('num_camas') ? ' is-invalid' : ''),
             'id' => 'piezas',
             'placeholder' => 'Cantidad de camas',
@@ -198,7 +198,7 @@
                 'noria' => 'Noria',
                 'cedida' => 'Cedida',
             ],
-            old('agua', $evaluacion->agua ?? ''),
+            old('agua', $eval->agua ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('agua') ? ' is-invalid' : ''),
                 'id' => 'agua',
@@ -220,7 +220,7 @@
                 'lena' => 'Leña',
                 'otro' => 'Otro',
             ],
-            old('cocina', $evaluacion->cocina ?? ''),
+            old('cocina', $eval->cocina ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('cocina') ? ' is-invalid' : ''),
                 'id' => 'cocina',
@@ -247,7 +247,7 @@
                 'poso' => 'Poso',
                 'no_dispone' => 'NO dispone',
             ],
-            old('excretas', $evaluacion->excretas ?? ''),
+            old('excretas', $eval->excretas ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('excretas') ? ' is-invalid' : ''),
                 'id' => 'excretas',
@@ -269,7 +269,7 @@
                 'generador' => 'Generador',
                 'cedida' => 'Cedida',
             ],
-            old('excretas', $evaluacion->luz ?? ''),
+            old('excretas', $eval->luz ?? ''),
             [
                 'class' => 'form-control form-control-sm' . ($errors->has('luz') ? ' is-invalid' : ''),
                 'id' => 'luz',
@@ -287,7 +287,7 @@
 <div class="form-group row">
     {!! Form::label('animales_label', 'Animales', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::text('animales', old('animales', $evaluacion->animales ?? ''), [
+        {!! Form::text('animales', old('animales', $eval->animales ?? ''), [
             'class' => 'form-control form-control-sm' . ($errors->has('animales') ? ' is-invalid' : ''),
             'id' => 'animales',
             'placeholder' => 'descrip. Animales',
@@ -300,7 +300,7 @@
     </div>
     {!! Form::label('basura_label', 'Elim. Basura', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">
-        {!! Form::text('basura', old('basura', $evaluacion->basura ?? ''), [
+        {!! Form::text('basura', old('basura', $eval->basura ?? ''), [
             'class' => 'form-control form-control-sm' . ($errors->has('basura') ? ' is-invalid' : ''),
             'id' => 'basura',
             'placeholder' => 'Elimin. basura',
@@ -316,7 +316,7 @@
 
 @section('js')
     <script>
-        $('#tipo_evaluacion, #tenencia, #tenencia_sitio, #material, #conservacion, #calefaccion, #agua, #cocina, #excretas, #luz')
+        $('#tipo_eval, #tenencia, #tenencia_sitio, #material, #conservacion, #calefaccion, #agua, #cocina, #excretas, #luz')
             .select2({
                 theme: 'classic',
                 width: '100%'
