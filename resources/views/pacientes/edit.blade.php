@@ -5,7 +5,28 @@
         <div class="row justify-content-left">
             <div class="col-sx-12 col-sm-12 col-lg">
                 <div class="card card-success card-outline mt-3">
-                    <div class="card-header"><i class="fas fa-user-edit mr-1"></i>Editando Paciente</div>
+                    <div class="card-header">
+                        <i class="fas fa-user-edit mr-1">
+                        </i>Editando Paciente
+                        @if ($paciente->familia && $paciente->familia->exists())
+                            <span
+                                class="badge badge-pill bg-gradient-{{ $paciente->familia->sector == 'SB' ? 'warning' : 'info' }} badge mx-3 py-2">
+                                Familia: {{ $paciente->familia->familia }}</span>
+                            <span
+                                class="badge badge-pill bg-gradient-{{ $paciente->familia->sector == 'SA' ? 'info' : 'warning' }} badge mx-3 py-2">
+                                Ficha familiar: {{ $paciente->familia->fichaFamiliar() }}
+                            </span>
+                        @elseif (
+                            !\App\Familia::where('id', $paciente->familia_id)->exists() &&
+                                !\App\Familia::where('id', $paciente->familia_id)->exists()
+                            )
+                            <span class="mx-3 py-2 text-bold text-danger"> Familia no existe, desea corregir familia?</span>
+                            {!! Form::open(['route' => ['corregir.familia', $paciente->id], 'method' => 'post']) !!}
+                            {!! Form::submit('Corregir Familia', ['class' => 'btn btn-xs btn-warning']) !!}
+                            {!! Form::close() !!}
+                        @endif
+                    </div>
+
                     <div class="card-body">
                         {{ Form::open(['action' => 'PacienteController@update', 'method' => 'POST', 'url' => 'pacientes/' . $paciente->id, 'class' => 'form-horizontal']) }}
                         @method('PUT')
@@ -20,17 +41,6 @@
                         <div class="tab-content" id="nav-tabContent">
                             @include('pacientes.form')
                         </div>
-                        {{-- <div class="row">
-                            <div class="col">
-                                {{ Form::submit('Actualizar', ['class' => 'btn bg-gradient-primary btn-sm btn-block']) }}
-                            </div>
-                            <div class="col">
-                                <a href="{{ url('pacientes', $paciente->id) }}" style="text-decoration:none">
-                                    {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block'] ) }}
-                                </a>
-                            </div>
-                        </div>
-                                {{ Form::close() }} --}}
                     </div>
                 </div>
             </div>

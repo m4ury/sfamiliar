@@ -10,6 +10,7 @@ use Illuminate\Validation\Rule;
 use App\Http\Requests\PacienteRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Artisan;
 
 class PacienteController extends Controller
 {
@@ -119,5 +120,15 @@ class PacienteController extends Controller
             ->get();
 
         return view('pacientes.sin_familia', compact('pacientes'));
+    }
+
+    public function corregirFamilia($identificador)
+    {
+        // Ejecutar el command de Artisan
+        Artisan::call('paciente:corregir-familia', [
+            'identificador' => $identificador
+        ]);
+
+        return redirect('pacientes/' . $identificador)->withSuccess('Corregido exito!');
     }
 }

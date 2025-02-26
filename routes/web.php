@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PacienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,9 @@ Route::middleware('auth')->group(function () {
     Route::get('pacientes.blancos', 'PacienteController@blancos')->name('pacientes.blancos');
     Route::get('pacientes.sin_familia', 'PacienteController@sinFamilia')->name('pacientes.sin_familia');
     Route::post('familias/elimina/{paciente?}', 'PacienteController@eliminarInt')->name('elimina');
+    Route::post('pacientes/corregir-familia', 'PacienteController@corregirFamilia')->name('corregir-familia');
+    Route::post('/corregir-familia/{identificador}', [PacienteController::class, 'corregirFamilia'])->name('corregir.familia');
+
     Route::resource('pacientes', 'PacienteController');
 
     //rutas para familias
@@ -34,14 +38,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/perfil', 'UserController@profile')->name('perfil');
     Route::put('perfil', 'UserController@updateProfile');
 
-    Route::resource('viviendas', 'ViviendaController')->except('[index, create]');
+    Route::resource('viviendas', 'ViviendaController')->except(['index', 'create']);
     Route::get('viviendas/crea/{familia?}', 'ViviendaController@crea')->name('viviendas.crea');
     //Route::get('viviendas/{vivenda?}/edita', 'ViviendaController@edita')->name('viviendas.edita');
 
-    Route::resource('evaluaciones', 'EvaluacionController')->except('[index, create]');
+    Route::resource('evaluaciones', 'EvaluacionController')->except(['index', 'create']);
     Route::get('evaluaciones/crea/{familia?}', 'EvaluacionController@crea')->name('evaluaciones.crea');
     //Route::get('evaluaciones/{eval?}/edita', 'EvaluacionController@edita')->name('evaluaciones.edita');
 
-    //ruta para exportar a excel
-    /*Route::get('exports/pacientes', 'PacienteController@export')->name('exports.pacientes');*/
 });
