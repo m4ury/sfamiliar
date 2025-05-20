@@ -16,14 +16,14 @@
                                 class="badge badge-pill bg-gradient-{{ $paciente->familia->sector == 'SA' ? 'info' : 'warning' }} badge mx-3 py-2">
                                 Ficha familiar: {{ $paciente->familia->fichaFamiliar() }}
                             </span>
-                        @elseif (
+                            {{-- @elseif (
                             !\App\Familia::where('id', $paciente->familia_id)->exists() &&
                                 !\App\Familia::where('id', $paciente->familia_id)->exists()
                             )
                             <span class="mx-3 py-2 text-bold text-danger"> Familia no existe, desea corregir familia?</span>
                             {!! Form::open(['route' => ['corregir.familia', $paciente->id], 'method' => 'post']) !!}
                             {!! Form::submit('Corregir Familia', ['class' => 'btn btn-xs btn-warning']) !!}
-                            {!! Form::close() !!}
+                            {!! Form::close() !!} --}}
                         @endif
                     </div>
 

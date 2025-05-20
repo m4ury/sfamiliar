@@ -64,6 +64,9 @@
                                 return `<i class="fa fa-cross text-orange mx-3"></i> ${formatoCorto}`;
                             }
                             return ''; // Si no está fallecido o no hay fecha, retorna vacío
+                        },
+                        createdCell: function(td) {
+                            $(td).css('white-space', 'nowrap'); // Aplica nowrap a la celda
                         }
                     },
                     {
@@ -72,7 +75,8 @@
                         render: function(data, type, row) {
                             if (row.familiaId) {
                                 return `<a href="{{ route('familias.show', ':id') }}"
-                                        title="Ver información de la familia">${data}</a>`.replace(':id', row.familiaId);
+                                        title="Ver información de la familia">${data}</a>`.replace(':id', row
+                                    .familiaId);
                             }
                             return data;
                         }

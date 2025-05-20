@@ -1,3 +1,4 @@
+<div class="tab-pane fade" id="nav-bajo" role="tabpanel" aria-labelledby="nav-bajo-tab">
 <div class="form-group row">
     {!! Form::label('tipo_eval_label', 'Tipo eval', ['class' => 'col-sm-3 col-form-label']) !!}
     <div class="col-sm-3">

@@ -38,9 +38,6 @@ class ViviendaController extends Controller
         $vivienda = Vivienda::findOrFail($id);
         $familia = Familia::findOrFail($vivienda->familia_id);
         $vivienda->update($request->all());
-        //$control->pa_menor_140_90 = $request->pa_menor_140_90 ?? 2;
-        //$control->pa_menor_150_90 = $request->pa_menor_150_90 ?? 2;
-        //$control->pa_mayor_160_100 = $request->pa_mayor_160_100 ?? 2;
         $vivienda->save();
 
         return redirect('familias/' . $request->familia_id)->withSuccess('Familia actualizado con exito!');

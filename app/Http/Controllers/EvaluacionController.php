@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Evaluacion;
 use App\Familia;
+use App\Factor;
 use Illuminate\Http\Request;
 
 class EvaluacionController extends Controller
@@ -27,6 +28,7 @@ class EvaluacionController extends Controller
     {
         $familia = Familia::findOrFail($id);
         $eval = new Evaluacion;
+        $factor = new Factor;
 
         return view('evaluaciones.create', compact('familia','eval'));
     }
@@ -41,7 +43,9 @@ class EvaluacionController extends Controller
     {
         //dd($request->all());
         $eval = new Evaluacion($request->all());
+        $eval->factor = new Factor($request->all());
         $eval->familia->save();
+        $eval->factor->save();
 
         return redirect('familias/' . $eval->familia->id)->withSuccess('Evaluacion creada con exito!');
     }
