@@ -40,7 +40,8 @@
                         data: 'rut',
                         name: 'rut',
                         render: function(data, type, row) {
-                            return `<a href="/pacientes/${row.id}" title="Ver información del paciente">${data}</a>`;
+                            return `<a href="{{ route('pacientes.show', ':id') }}"
+                                     title="Ver información del paciente">${data}</a>`.replace(':id', row.id);
                         }
                     },
                     {
@@ -70,7 +71,8 @@
                         name: 'fichaFamiliar',
                         render: function(data, type, row) {
                             if (row.familiaId) {
-                                return `<a href="/familias/${row.familiaId}" title="Ver información de la familia">${data}</a>`;
+                                return `<a href="{{ route('familias.show', ':id') }}"
+                                        title="Ver información de la familia">${data}</a>`.replace(':id', row.familiaId);
                             }
                             return data;
                         }
