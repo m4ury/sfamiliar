@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Familia;
 use App\Paciente;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use App\Http\Requests\PacienteRequest;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Artisan;
 
@@ -16,12 +12,68 @@ class PacienteController extends Controller
 {
     public function index()
     {
-        $pacientes = cache()->remember('index-pacientes', 30, function () {
-            return Paciente::with('familia')->select('pacientes.fallecido', 'pacientes.familia_id', 'pacientes.sexo', 'pacientes.id', 'pacientes.nombres', 'pacientes.apellidoP', 'pacientes.apellidoM', 'pacientes.rut', 'pacientes.ficha', 'pacientes.sector', 'pacientes.fecha_nacimiento', 'pacientes.fecha_fallecido')->latest('pacientes.familia_id', 'desc')
-                ->get()->lazy();
-        });
+        return view('pacientes.index');
+    }
 
-        return view('pacientes.index', compact('pacientes'));
+    public function getPacientesData()
+    {
+        return datatables()->of(
+            Paciente::with('familia')
+                ->select('pacientes.id', 'pacientes.rut', 'pacientes.nombres', 'pacientes.apellidoP', 'pacientes.apellidoM', 'pacientes.ficha', 'pacientes.fallecido', 'pacientes.fecha_fallecido', 'pacientes.sector', 'pacientes.sexo', 'pacientes.familia_id', 'pacientes.fecha_nacimiento')
+        )
+            ->addColumn('fullName', function ($paciente) {
+                return strtoupper($paciente->nombres . ' ' . $paciente->apellidoP . ' ' . $paciente->apellidoM);
+            })
+            ->addColumn('edad', function ($paciente) {
+                return $paciente->edad();
+            })
+            ->addColumn('grupoEtareo', function ($paciente) {
+                $edad = $paciente->edad();
+                switch (true) {
+                    case $edad < 15:
+                        return 'Menor de 15';
+                    case $edad >= 15 && $edad <= 19:
+                        return 'Entre 15 y 19';
+                    case $edad >= 20 && $edad <= 24:
+                        return 'Entre 20 y 24';
+                    case $edad >= 25 && $edad <= 29:
+                        return 'Entre 25 y 29';
+                    case $edad >= 30 && $edad <= 34:
+                        return 'Entre 30 y 34';
+                    case $edad >= 35 && $edad <= 39:
+                        return 'Entre 35 y 39';
+                    case $edad >= 40 && $edad <= 44:
+                        return 'Entre 40 y 44';
+                    case $edad >= 45 && $edad <= 49:
+                        return 'Entre 45 y 49';
+                    case $edad >= 50 && $edad <= 54:
+                        return 'Entre 50 y 54';
+                    case $edad >= 55 && $edad <= 59:
+                        return 'Entre 55 y 59';
+                    case $edad >= 60 && $edad <= 64:
+                        return 'Entre 60 y 64';
+                    case $edad >= 65 && $edad <= 69:
+                        return 'Entre 65 y 69';
+                    case $edad >= 70 && $edad <= 74:
+                        return 'Entre 70 y 74';
+                    case $edad >= 75 && $edad <= 79:
+                        return 'Entre 75 y 79';
+                    default:
+                        return '80 y Más';
+                }
+            })
+            ->addColumn('fichaFamiliar', function ($paciente) {
+                if ($paciente->familia) {
+                    $sector = ucfirst($paciente->familia->sector); // Capitaliza el sector
+                    $fichaFamiliar = $paciente->familia->ficha_familiar;
+                    return "{$sector} - {$fichaFamiliar}";
+                }
+                return ''; // Si no tiene familia
+            })
+            ->addColumn('familiaId', function ($paciente) {
+                return $paciente->familia ? $paciente->familia->id : null; // Devuelve el ID de la familia o null
+            })
+            ->make(true);
     }
 
     public function create(Paciente $paciente)
