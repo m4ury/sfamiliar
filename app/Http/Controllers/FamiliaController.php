@@ -52,13 +52,13 @@ class FamiliaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Familia
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Familia $familia)
+    public function show($id)
     {
-        $familia = Familia::findOrFail($familia->id);
-        $pacientes = $familia->pacientes;
+        $familia = Familia::with('ultimaEvaluacion')->findOrFail($id);
+        $pacientes = Paciente::where('familia_id', $id)->get();
         return view('familias.show', compact('familia', 'pacientes'));
     }
 

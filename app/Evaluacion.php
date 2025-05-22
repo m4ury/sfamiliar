@@ -9,6 +9,9 @@ class Evaluacion extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
+
     public function factor()
     {
         return $this->hasOne(Factor::class);

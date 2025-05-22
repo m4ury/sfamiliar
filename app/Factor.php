@@ -9,6 +9,9 @@ class Factor extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
+
     public function evaluacion()
     {
         return $this->BelongsTo(Evaluacion::class);

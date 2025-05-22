@@ -24,8 +24,19 @@ class Familia extends Model
         return $this->hasOne(Vivienda::class);
     }
 
-    public function evaluacion()
+    /* public function evaluacion()
     {
         return $this->hasOne(Evaluacion::class);
+    } */
+
+    public function evaluaciones()
+    {
+        return $this->hasMany(Evaluacion::class);
+    }
+
+    // Para obtener la última evaluación:
+    public function ultimaEvaluacion()
+    {
+        return $this->hasOne(Evaluacion::class)->latestOfMany();
     }
 }

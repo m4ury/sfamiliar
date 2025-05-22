@@ -29,20 +29,25 @@
                     <div class="col col-sm">
                         <div class="float-right px-2">
 
-                            <div class="float-right px-2">
-                                @if ($familia->evaluacion)
+                            @if ($familia->evaluaciones)
+                                <div class="float-right px-2">
                                     <a class="btn bg-gradient-primary btn-sm" title="editar Evaluacion"
-                                        href="{{ route('evaluaciones.edit', $familia->evaluacion->id) }}">editar
+                                        href="{{ route('evaluaciones.edit', $familia->ultimaEvaluacion->id) }}">editar
                                         Evaluacion
                                         <i class="fas fa-envelope"></i>
                                     </a>
-                                @else
-                                    <a class="btn bg-gradient-success btn-sm" title="nueva evaluacion"
-                                        href="{{ route('evaluaciones.crea', $familia->id) }}">Nueva evaluacion
+
+                                    <a class="btn bg-gradient-success btn-sm" title="Evaluacion de Ingreso"
+                                        href="{{ route('evaluaciones.crea', $familia->id) }}">Nueva Evaluacion
                                         <i class="fas fa-envelope"></i>
                                     </a>
-                                @endif
-                            </div>
+                                </div>
+                            @else
+                                <a class="btn bg-gradient-success btn-sm" title="Evaluacion de Ingreso"
+                                    href="{{ route('evaluaciones.crea', $familia->id) }}">Nueva Evaluacion
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            @endif
 
                             @if ($familia->vivienda)
                                 <a class="btn bg-gradient-primary btn-sm" title="editar Vivienda"
@@ -50,8 +55,8 @@
                                     <i class="fas fa-home"></i>
                                 </a>
                             @else
-                                <a class="btn bg-gradient-success btn-sm" title="nueva Vivienda"
-                                    href="{{ route('viviendas.crea', $familia->id) }}">nueva Vivienda
+                                <a class="btn bg-gradient-success btn-sm" title="Vivienda"
+                                    href="{{ route('viviendas.crea', $familia->id) }}">Vivienda
                                     <i class="fas fa-home"></i>
                                 </a>
                             @endif
@@ -82,6 +87,9 @@
                             <a class="nav-link" id="vert-tabs-sanitarias-tab" data-toggle="pill"
                                 href="#vert-tabs-sanitarias" role="tab" aria-controls="vert-tabs-sanitarias"
                                 aria-selected="false">Cond. Sanitarias</a>
+                            <a class="nav-link" id="vert-tabs-evaluacion-tab" data-toggle="pill"
+                                href="#vert-tabs-evaluacion" role="tab" aria-controls="vert-tabs-evaluacion"
+                                aria-selected="false">Evaluacion Riesgo</a>
                         </div>
                     </div>
                     <div class="col-7 col-sm-9">
@@ -260,6 +268,68 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="tab-pane fade" id="vert-tabs-evaluacion" role="tabpanel"
+                                aria-labelledby="vert-tabs-evaluacion-tab">
+                                <div class="card-body">
+                                    <div class="row pt-3">
+                                        <div class="col-md-6 table-responsive mx-auto style="width:auto;">
+                                            <h4 class="text-center pt-3">CALIFICACION DE RIESGO BIOPSICOSOCIAL</h4>
+                                            <table class="table table-md-responsive table-bordered ">
+                                                <thead>
+                                                    <tr>
+                                                        <th nowrap="">FECHA EVALUACION</th>
+                                                        <td class="text-center">
+                                                            {{ $familia->ultimaEvaluacion?->fecha_evaluacion ?? '--' }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th nowrap="">FACTS. BAJO</th>
+                                                        <td class="text-center">
+                                                            {{ $familia->ultimaEvaluacion?->factor?->fBajo_puntaje ?? 0 }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th nowrap="">FACTS. INTERMEDIO</th>
+                                                        <td class="text-center">
+                                                            {{ $familia->ultimaEvaluacion?->factor?->fIntermedio_puntaje ?? 0 }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th nowrap="">FACTS. ALTO</th>
+                                                        <td class="text-center">
+                                                            {{ $familia->ultimaEvaluacion?->factor?->fAlto_puntaje ?? 0 }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th nowrap="">PUNTAJE TOTAL / RIESGO</th>
+                                                        <td class="text-center text-bold text-uppercase">
+                                                            @if ($familia->ultimaEvaluacion && $familia->ultimaEvaluacion->factor)
+                                                                {{ $familia->ultimaEvaluacion->factor->puntaje }} /
+                                                                {{ $familia->ultimaEvaluacion->resultado_evaluacion }}
+                                                            @else
+                                                                0
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                            <div class="row text-muted small">
+                                                <p class="col-sm-4">
+                                                    <span class="text-bold">BAJO: </span> De 0 a 9 ptos.
+                                                </p>
+                                                <p class="col-sm-4">
+                                                    <span class="text-bold">MEDIO: </span> De 10 a 19 ptos.
+                                                </p>
+                                                <p class="col-sm-4">
+                                                    <span class="text-bold">ALTO: </span> Sobre 20 ptos.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
