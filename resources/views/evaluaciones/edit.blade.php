@@ -28,23 +28,26 @@
                                 </li>
                             </ul>
                         </nav>
-                        {{ Form::model($evaluacion, ['url' => ['evaluaciones.edit', $familia->ultimaEvaluacion->id], 'class' => 'form-horizontal']) }}
-                        @method('PUT')
+                        {!! Form::model($evaluacion, [
+                            'route'  => ['evaluaciones.update', $evaluacion->id],
+                            'method' => 'PUT',
+                            'class'  => 'form-horizontal'
+                        ]) !!}
 
                         <div class="tab-content" id="nav-tabContent">
                             @include('evaluaciones.form')
                         </div>
                         <div class="row">
                             <div class="col">
-                                {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-success btn-sm btn-block']) }}
+                                {!! Form::submit('Guardar', ['class' => 'btn bg-gradient-success btn-sm btn-block']) !!}
                             </div>
                             <div class="col">
-                                <a href="{{ url('familias/' . $familia->id) }}" style="text-decoration:none">
-                                    {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block']) }}
+                                <a href="{{ url('familias/' . $evaluacion->familia->id) }}" class="btn bg-gradient-secondary btn-sm btn-block">
+                                    Cancelar
                                 </a>
                             </div>
                         </div>
-                        {{ Form::close() }}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

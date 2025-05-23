@@ -11,7 +11,6 @@ class Evaluacion extends Model
 
     protected $guarded = ['id'];
 
-
     public function factor()
     {
         return $this->hasOne(Factor::class);

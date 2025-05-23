@@ -15,7 +15,9 @@
             {{ Form::textarea('observacion', old('observacion', $evaluacion->observacion ?? ''), ['class' => 'form-control']) }}
         </div>
     </div>
-    {{ Form::hidden('familia_id', $familia->id) }}
+    {!! Form::hidden('familia_id', $familia->id) !!}
+    {!! Form::hidden('evaluacion_id', $evaluacion->id) !!}
+    {!! Form::hidden('factor_id', $factor->id) !!}
 </div>
 
 <div class="tab-pane fade" id="nav-bajo" role="tabpanel" aria-labelledby="nav-bajo-tab">
@@ -25,7 +27,7 @@
             {{ Form::label('fBajo1_label', 'Patología crónica de cualquier miembro de la familia', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fBajo_1', old('fBajo_1', $factor->fBajo_1 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fBajo_1', 1, old('fBajo_1', $factor->fBajo_1 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -33,7 +35,7 @@
             {{ Form::label('fBajo2_label', 'Mala calidad de la viviena', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fBajo_2', old('fBajo_2', $factor->fBajo_2 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fBajo_2', 1, old('fBajo_2', $factor->fBajo_2 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -41,7 +43,7 @@
             {{ Form::label('fBajo3_label', 'Condiciones sanitarias inadecuadas', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fBajo_3', old('fBajo_3', $factor->fBajo_3 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fBajo_3', 1, old('fBajo_3', $factor->fBajo_3 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -49,7 +51,7 @@
             {{ Form::label('fBajo4_label', 'Contaminación ambiental y/o intradomiciliaria', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fBajo_4', old('fBajo_4', $factor->fBajo_4 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fBajo_4', 1, old('fBajo_4', $factor->fBajo_4 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
 </div>
@@ -61,7 +63,7 @@
             {{ Form::label('fIntermedio1_label', 'Hacinamiento', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fIntermedio_1', old('fIntermedio_1', $factor->fIntermedio_1 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fIntermedio_1', 1, old('fIntermedio_1', $factor->fIntermedio_1 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -69,7 +71,7 @@
             {{ Form::label('fIntermedio2_label', 'Analfabetismo de Padre o Madre', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fIntermedio_2', old('fIntermedio_2', $factor->fIntermedio_2 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fIntermedio_2', 1, old('fIntermedio_2', $factor->fIntermedio_2 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -77,7 +79,7 @@
             {{ Form::label('fIntermedio3_label', 'Ausencia del Padre o Madre', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fIntermedio_3', old('fIntermedio_3', $factor->fIntermedio_3 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fIntermedio_3', 1, old('fIntermedio_3', $factor->fIntermedio_3 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -85,7 +87,7 @@
             {{ Form::label('fIntermedio4_label', 'Duelo reciente', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fIntermedio_4', old('fIntermedio_4', $factor->fIntermedio_4 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fIntermedio_4', 1, old('fIntermedio_4', $factor->fIntermedio_4 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -93,7 +95,7 @@
             {{ Form::label('fIntermedio5_label', 'Perdida del trabajo', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fIntermedio_5', old('fIntermedio_5', $factor->fIntermedio_5 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fIntermedio_5', 1, old('fIntermedio_5', $factor->fIntermedio_5 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -101,7 +103,7 @@
             {{ Form::label('fIntermedio6_label', 'Crisis economica reciente', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fIntermedio_6', old('fIntermedio_6', $factor->fIntermedio_6 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fIntermedio_6', 1, old('fIntermedio_6', $factor->fIntermedio_6 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -109,7 +111,7 @@
             {{ Form::label('fIntermedio7_label', 'Enfermedad grave Padre o Madre', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fIntermedio_7', old('fIntermedio_7', $factor->fIntermedio_7 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fIntermedio_7', 1, old('fIntermedio_7', $factor->fIntermedio_7 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -117,7 +119,7 @@
             {{ Form::label('fIntermedio8_label', 'Embarazo no deseado', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fIntermedio_8', old('fIntermedio_8', $factor->fIntermedio_8 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fIntermedio_8', 1, old('fIntermedio_8', $factor->fIntermedio_8 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -125,7 +127,7 @@
             {{ Form::label('fIntermedio9_label', 'Embarazo en adolescente', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fIntermedio_9', old('fIntermedio_9', $factor->fIntermedio_9 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fIntermedio_9', 1, old('fIntermedio_9', $factor->fIntermedio_9 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -133,7 +135,7 @@
             {{ Form::label('fIntermedio10_label', 'Recien nacido mal formado o con daños geneticos', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fIntermedio_10', old('fIntermedio_10', $factor->fIntermedio_10 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fIntermedio_10', 1, old('fIntermedio_10', $factor->fIntermedio_10 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -141,7 +143,7 @@
             {{ Form::label('fIntermedio11_label', 'Alcoholismode otro miembro de la familia', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fIntermedio_11', old('fIntermedio_11', $factor->fIntermedio_11 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fIntermedio_11', 1, old('fIntermedio_11', $factor->fIntermedio_11 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
 </div>
@@ -153,7 +155,7 @@
             {{ Form::label('fAlto1_label', 'Padre o Madre bebedor problema o excesivo', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fAlto_1', old('fAlto_1', $factor->fAlto_1 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fAlto_1', 1, old('fAlto_1', $factor->fAlto_1 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -161,7 +163,7 @@
             {{ Form::label('fAlto2_label', 'Patologia psiquiatrica grave de algun integrante', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fAlto_2', old('fAlto_2', $factor->fAlto_2 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fAlto_2', 1, old('fAlto_2', $factor->fAlto_2 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -169,7 +171,7 @@
             {{ Form::label('fAlto3_label', 'Enfermedad invalidante de Padre o Madre', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fAlto_3', old('fAlto_3', $factor->fAlto_3 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fAlto_3', 1, old('fAlto_3', $factor->fAlto_3 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -177,7 +179,7 @@
             {{ Form::label('fAlto4_label', 'Extrema pobreza', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fAlto_4', old('fAlto_4', $factor->fAlto_4 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fAlto_4', 1, old('fAlto_4', $factor->fAlto_4 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -185,7 +187,7 @@
             {{ Form::label('fAlto5_label', 'Cesantia prolongada', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fAlto_5', old('fAlto_5', $factor->fAlto_5 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fAlto_5', 1, old('fAlto_5', $factor->fAlto_5 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -193,7 +195,7 @@
             {{ Form::label('fAlto6_label', 'Promiscuidad', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fAlto_6', old('fAlto_6', $factor->fAlto_6 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fAlto_6', 1, old('fAlto_6', $factor->fAlto_6 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -201,7 +203,7 @@
             {{ Form::label('fAlto7_label', 'Baja integracion a grupos de la comunidad, deficiencia de redes de apoyo', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fAlto_7', old('fAlto_7', $factor->fAlto_7 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fAlto_7', 1, old('fAlto_7', $factor->fAlto_7 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -209,7 +211,7 @@
             {{ Form::label('fAlto8_label', 'Ausencia de Padre o Madre', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fAlto_8', old('fAlto_8', $factor->fAlto_8 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fAlto_8', 1, old('fAlto_8', $factor->fAlto_8 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -217,7 +219,7 @@
             {{ Form::label('fAlto9_label', 'Conflictos Cronicos de pareja', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fAlto_9', old('fAlto_9', $factor->fAlto_9 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fAlto_9', 1, old('fAlto_9', $factor->fAlto_9 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -225,7 +227,7 @@
             {{ Form::label('fAlto10_label', 'Infidelidad', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fAlto_10', old('fAlto_10', $factor->fAlto_10 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fAlto_10', 1, old('fAlto_10', $factor->fAlto_10 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="form-group row pt-3">
@@ -233,7 +235,7 @@
             {{ Form::label('fAlto11_label', 'Consumo de drogas', ['class' => 'col-form-label']) }}
         </div>
         <div class="col-sm">
-            {{ Form::checkbox('fAlto_11', old('fAlto_11', $factor->fIntermedio_11 ?? ''), null, ['class' => 'form-control']) }}
+            {{ Form::checkbox('fAlto_11', 1, old('fAlto_11', $factor->fIntermedio_11 ?? false), ['class' => 'form-control']) }}
         </div>
     </div>
 </div>

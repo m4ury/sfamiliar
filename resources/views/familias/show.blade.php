@@ -29,22 +29,21 @@
                     <div class="col col-sm">
                         <div class="float-right px-2">
 
-                            @if ($familia->evaluaciones)
+                            @if ($familia->evaluaciones->count() > 0)
                                 <div class="float-right px-2">
                                     <a class="btn bg-gradient-primary btn-sm" title="editar Evaluacion"
                                         href="{{ route('evaluaciones.edit', $familia->ultimaEvaluacion->id) }}">editar
                                         Evaluacion
                                         <i class="fas fa-envelope"></i>
                                     </a>
-
-                                    <a class="btn bg-gradient-success btn-sm" title="Evaluacion de Ingreso"
+                                    <a class="btn bg-gradient-success btn-sm" title="Nueva Evaluacion"
                                         href="{{ route('evaluaciones.crea', $familia->id) }}">Nueva Evaluacion
                                         <i class="fas fa-envelope"></i>
                                     </a>
                                 </div>
                             @else
                                 <a class="btn bg-gradient-success btn-sm" title="Evaluacion de Ingreso"
-                                    href="{{ route('evaluaciones.crea', $familia->id) }}">Nueva Evaluacion
+                                    href="{{ route('evaluaciones.crea', $familia->id) }}">Evaluacion de Ingreso
                                     <i class="fas fa-envelope"></i>
                                 </a>
                             @endif
@@ -273,14 +272,17 @@
                                 aria-labelledby="vert-tabs-evaluacion-tab">
                                 <div class="card-body">
                                     <div class="row pt-3">
-                                        <div class="col-md-6 table-responsive mx-auto style="width:auto;">
+                                        <div class="col-md table-responsive mx-auto style="width:auto;">
                                             <h4 class="text-center pt-3">CALIFICACION DE RIESGO BIOPSICOSOCIAL</h4>
                                             <table class="table table-md-responsive table-bordered ">
                                                 <thead>
                                                     <tr>
-                                                        <th nowrap="">FECHA EVALUACION</th>
-                                                        <td class="text-center">
+                                                        <th class="text-nowrap">FECHA EVALUACION</th>
+                                                        <td class="text-center text-nowrap">
                                                             {{ $familia->ultimaEvaluacion?->fecha_evaluacion ?? '--' }}
+                                                        </td>
+                                                        <td class="text-center text-nowrap">
+                                                            {{ $familia->ultimaEvaluacion?->observacion ?? '--' }}
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -288,11 +290,17 @@
                                                         <td class="text-center">
                                                             {{ $familia->ultimaEvaluacion?->factor?->fBajo_puntaje ?? 0 }}
                                                         </td>
+                                                        <td>
+                                                            {{ $familia->ultimaEvaluacion?->factor?->fBajo_observacion ?? '--' }}
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th nowrap="">FACTS. INTERMEDIO</th>
                                                         <td class="text-center">
                                                             {{ $familia->ultimaEvaluacion?->factor?->fIntermedio_puntaje ?? 0 }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $familia->ultimaEvaluacion?->factor?->fIntermedio_observacion ?? '--' }}
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -300,15 +308,24 @@
                                                         <td class="text-center">
                                                             {{ $familia->ultimaEvaluacion?->factor?->fAlto_puntaje ?? 0 }}
                                                         </td>
+                                                        <td>
+                                                            {{ $familia->ultimaEvaluacion?->factor?->fAlto_observacion ?? '--' }}
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th nowrap="">PUNTAJE TOTAL / RIESGO</th>
                                                         <td class="text-center text-bold text-uppercase">
                                                             @if ($familia->ultimaEvaluacion && $familia->ultimaEvaluacion->factor)
-                                                                {{ $familia->ultimaEvaluacion->factor->puntaje }} /
-                                                                {{ $familia->ultimaEvaluacion->resultado_evaluacion }}
+                                                                {{ $familia->ultimaEvaluacion->factor->puntaje }}
                                                             @else
                                                                 0
+                                                            @endif
+                                                        </td>
+                                                        <td class="text-center text-bold text-uppercase">
+                                                            @if ($familia->ultimaEvaluacion && $familia->ultimaEvaluacion->factor)
+                                                                {{ $familia->ultimaEvaluacion->resultado_evaluacion }}
+                                                            @else
+                                                                Sin datos...
                                                             @endif
                                                         </td>
                                                     </tr>
