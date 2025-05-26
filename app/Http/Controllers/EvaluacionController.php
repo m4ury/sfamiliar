@@ -43,7 +43,7 @@ class EvaluacionController extends Controller
     public function store(Request $request)
 {
     $request->validate([
-        'fecha_evaluacion' => 'required|date|after_or_equal:today',
+        'fecha_evaluacion' => 'required|date|before_or_equal:today',
     ]);
 
     $eval = new Evaluacion([
