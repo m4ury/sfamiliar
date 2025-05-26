@@ -35,6 +35,7 @@ class CreatePacientesTable extends Migration
             $table->enum('prevision', ['Fonasa', 'Isapre', 'Dipreca', 'PRAIS', 'PRAIS-ISAPRE', 'Sin prevision'])->default('Sin prevision');
             $table->enum('escolaridad', ['Basica Completa', 'Basica Incompleta', 'Media Completa', 'Media Incompleta', 'Superior Completa', 'Superior Incompleta', 'Pre-Escolar', 'sin Pre-Escolar', 'Tec-Superior Completa', 'Tec-Superior Incompleta', 'Universitaria', 'no informado', 'Sin Escolaridad', 'Especial Completa', 'Especial Incompleta', 'Instituto Profesional', 'Academias', 'no asiste'])->default('Sin Escolaridad');
             $table->string('profesion')->nullable();
+            $table->boolean('jefe_hogar')->nullable(); // Eliminar este campo si no es necesario, es solo para cargar datos anteriores
             $table->timestamps();
         });
 

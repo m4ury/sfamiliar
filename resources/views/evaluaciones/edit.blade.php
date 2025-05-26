@@ -26,12 +26,17 @@
                                     <a class="nav-link" id="nav-alto-tab" data-toggle="tab" href="#nav-alto" role="tab"
                                         aria-controls="nav-alto" aria-selected="false">Riesgo Alto</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="nav-fprotect-tab" data-toggle="tab" href="#nav-fprotect"
+                                        role="tab" aria-controls="nav-fprotect" aria-selected="false">Factores
+                                        Protectores</a>
+                                </li>
                             </ul>
                         </nav>
                         {!! Form::model($evaluacion, [
-                            'route'  => ['evaluaciones.update', $evaluacion->id],
+                            'route' => ['evaluaciones.update', $evaluacion->id],
                             'method' => 'PUT',
-                            'class'  => 'form-horizontal'
+                            'class' => 'form-horizontal',
                         ]) !!}
 
                         <div class="tab-content" id="nav-tabContent">
@@ -42,7 +47,8 @@
                                 {!! Form::submit('Guardar', ['class' => 'btn bg-gradient-success btn-sm btn-block']) !!}
                             </div>
                             <div class="col">
-                                <a href="{{ url('familias/' . $evaluacion->familia->id) }}" class="btn bg-gradient-secondary btn-sm btn-block">
+                                <a href="{{ url('familias/' . $evaluacion->familia->id) }}"
+                                    class="btn bg-gradient-secondary btn-sm btn-block">
                                     Cancelar
                                 </a>
                             </div>

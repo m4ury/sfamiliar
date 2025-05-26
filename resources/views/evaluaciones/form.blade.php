@@ -239,3 +239,95 @@
         </div>
     </div>
 </div>
+
+<div class="tab-pane fade" id="nav-fprotect" role="tabpanel" aria-labelledby="nav-fprotect-tab">
+    <h3 class="text-bold text-center py-3">Factores Protectores</h3>
+    <div class="form-group row pt-3">
+        <div class="col-sm">
+            {{ Form::label('fProtect1_label', 'Percepción de suficiencia económica.', ['class' => 'col-form-label']) }}
+        </div>
+        <div class="col-sm">
+            {{ Form::checkbox('fProtect_1', 1, old('fProtect_1', $factor->fProtect_1 ?? false), ['class' => 'form-control']) }}
+        </div>
+    </div>
+    <div class="form-group row pt-3">
+        <div class="col-sm">
+            {{ Form::label('fProtect2_label', 'Escolaridad mayor a 8vo básico de los Padres.', ['class' => 'col-form-label']) }}
+        </div>
+        <div class="col-sm">
+            {{ Form::checkbox('fProtect_2', 1, old('fProtect_2', $factor->fProtect_2 ?? false), ['class' => 'form-control']) }}
+        </div>
+    </div>
+    <div class="form-group row pt-3">
+        <div class="col-sm">
+            {{ Form::label('fProtect3_label', 'Vivienda y saneamiento adecuados.', ['class' => 'col-form-label']) }}
+        </div>
+        <div class="col-sm">
+            {{ Form::checkbox('fProtect_3', 1, old('fProtect_3', $factor->fProtect_3 ?? false), ['class' => 'form-control']) }}
+        </div>
+    </div>
+    <div class="form-group row pt-3">
+        <div class="col-sm">
+            {{ Form::label('fProtect4_label', 'Conexión a subsistemas mayores.', ['class' => 'col-form-label']) }}
+        </div>
+        <div class="col-sm">
+            {{ Form::checkbox('fProtect_4', 1, old('fProtect_4', $factor->fProtect_4 ?? false), ['class' => 'form-control']) }}
+        </div>
+    </div>
+    <div class="form-group row pt-3">
+        <div class="col-sm">
+            {{ Form::label('fProtect5_label', 'Funcionalidad adecuada: expresión de afecto, normas claras y flexibles, comunicación directa, ritos familiares.', ['class' => 'col-form-label']) }}
+        </div>
+        <div class="col-sm">
+            {{ Form::checkbox('fProtect_5', 1, old('fProtect_5', $factor->fProtect_5 ?? false), ['class' => 'form-control']) }}
+        </div>
+    </div>
+    <div class="form-group row pt-3">
+        <div class="col-sm">
+            {{ Form::label('fProtect6_label', 'Existencia de figura adulta con autoridad moral.', ['class' => 'col-form-label']) }}
+        </div>
+        <div class="col-sm">
+            {{ Form::checkbox('fProtect_6', 1, old('fProtect_6', $factor->fProtect_6 ?? false), ['class' => 'form-control']) }}
+        </div>
+    </div>
+    <div class="form-group row pt-3">
+        <div class="col-sm">
+            {{ Form::label('fProtect7_label', 'Familias de origen cercanas y apoyadoras.', ['class' => 'col-form-label']) }}
+        </div>
+        <div class="col-sm">
+            {{ Form::checkbox('fProtect_7', 1, old('fProtect_7', $factor->fProtect_7 ?? false), ['class' => 'form-control']) }}
+        </div>
+    </div>
+    <div class="form-group row pt-3">
+        <div class="col-sm">
+            {{ Form::label('fProtect8_label', 'Existencia de redes de apoyo comunitarias.', ['class' => 'col-form-label']) }}
+        </div>
+        <div class="col-sm">
+            {{ Form::checkbox('fProtect_8', 1, old('fProtect_8', $factor->fProtect_8 ?? false), ['class' => 'form-control']) }}
+        </div>
+    </div>
+    <div class="form-group row pt-3">
+        <div class="col-sm">
+            {{ Form::label('fProtect9_label', 'Participación en grupos religiosos.', ['class' => 'col-form-label']) }}
+        </div>
+        <div class="col-sm">
+            {{ Form::checkbox('fProtect_9', 1, old('fProtect_9', $factor->fProtect_9 ?? false), ['class' => 'form-control']) }}
+        </div>
+    </div>
+    <div class="form-group row pt-3">
+        <div class="col-sm">
+            {{ Form::label('fProtect10_label', 'Activiad deportiva sistemática.', ['class' => 'col-form-label']) }}
+        </div>
+        <div class="col-sm">
+            {{ Form::checkbox('fProtect_10', 1, old('fProtect_10', $factor->fProtect_10 ?? false), ['class' => 'form-control']) }}
+        </div>
+    </div>
+    <div class="form-group row pt-3">
+        <div class="col-sm">
+            {{ Form::label('fProtect11_label', 'Otros.', ['class' => 'col-form-label']) }}
+        </div>
+        <div class="col-sm">
+            {{ Form::checkbox('fProtect_11', 1, old('fProtect_11', $factor->fProtect_11 ?? false), ['class' => 'form-control']) }}
+        </div>
+    </div>
+</div>

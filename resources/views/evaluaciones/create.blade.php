@@ -26,6 +26,12 @@
                                     <a class="nav-link" id="nav-alto-tab" data-toggle="tab" href="#nav-alto" role="tab"
                                         aria-controls="nav-alto" aria-selected="false">Riesgo Alto</a>
                                 </li>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="nav-fprotect-tab" data-toggle="tab" href="#nav-fprotect"
+                                        role="tab" aria-controls="nav-fprotect" aria-selected="false">Factores
+                                        Protectores</a>
+                                </li>
                             </ul>
                         </nav>
                         {{ Form::open(['action' => 'EvaluacionController@store', 'method' => 'POST', 'class' => 'form-horizontal']) }}

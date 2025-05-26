@@ -22,6 +22,7 @@ class CreateFamiliasTable extends Migration
             $table->unsignedInteger('num_integrantes')->nullable();
             $table->enum('sector', ['SB', 'SA', 'Blanco'])->default('Blanco');
             $table->timestamps();
+            $table->integer('vivienda_id')->nullable(); // Elimniar este campo si no es necesario, es solo para cargar datos anteriores
         });
     }
 

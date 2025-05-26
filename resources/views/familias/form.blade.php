@@ -164,16 +164,53 @@
         @endif
     </div>
 </div>
-<hr>
+@if (Route::is('familias.edit'))
+    <hr>
+    <div class="form-group row">
+        {!! Form::label('planIntervencion_label', 'Familia con Plan de Intervención', [
+            'class' => 'col col-sm-3 col-form-label',
+        ]) !!}
+        <div class="col col-sm-2">
+            {!! Form::checkbox('plan_intervencion', 1, old('plan_intervencion', $familia->plan_intervencion ?? false), [
+                'class' => 'form-control form-control plan_intervencion',
+            ]) !!}
+        </div>
+        <div class="form-group col col-sm-6 fecha_plan_intervencion">
+            <div class="row align-items-center">
+                <div class="col-auto">
+                    {!! Form::label('fecha_plan_intervencion_label', 'Fecha Plan: ', ['class' => 'col-form-label mb-0']) !!}
+                </div>
+                <div class="col">
+                    {!! Form::date('plan_intervencion_fecha', $familia->plan_intervencion_fecha, [
+                        'class' => 'form-control form-control-sm',
+                    ]) !!}
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="row">
-    <div class="col">
-        {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-primary btn-sm btn-block']) }}
+    <div class="row">
+        <div class="col">
+            {{ Form::submit('Actualizar', ['class' => 'btn bg-gradient-primary btn-sm btn-block']) }}
+        </div>
+        <div class="col">
+            <a href="{{ url('familias', $familia->id) }}" style="text-decoration:none">
+                {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block']) }}
+            </a>
+        </div>
     </div>
-    <div class="col">
-        <a href="{{ url('familias') }}" style="text-decoration:none">
-            {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block']) }}
-        </a>
+    {{ Form::close() }}
+@else
+    <div class="row">
+        <div class="col">
+            {{ Form::submit('Guardar', ['class' => 'btn bg-gradient-success btn-sm btn-block']) }}
+        </div>
+        <div class="col">
+            <a href="{{ url('familias') }}" style="text-decoration:none">
+                {{ Form::button('Cancelar', ['class' => 'btn bg-gradient-secondary btn-sm btn-block']) }}
+            </a>
+        </div>
     </div>
-</div>
-{{ Form::close() }}
+    </div>
+    {{ Form::close() }}
+@endif
