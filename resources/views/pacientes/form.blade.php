@@ -336,6 +336,30 @@
                 @endif
             </div>
         </div>
+        <div class="form-group row">
+            {!! Form::label('planIntervencion_label', 'Familia con Plan de Intervención', [
+                'class' => 'col col-sm-4 col-form-label',
+            ]) !!}
+            <div class="col col-sm-3">
+                {!! Form::hidden('plan_intervencion', 0) !!}
+                {!! Form::checkbox('plan_intervencion', 1, old('plan_intervencion', $familia->plan_intervencion ?? false), [
+                    'class' => 'form-control form-control-sm',
+                    'id' => 'plan_intervencion_checkbox',
+                ]) !!}
+            </div>
+            <div class="form-group col col-sm plan_intervencion_fecha">
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        {!! Form::label('fecha_plan_intervencion_label', 'Fecha Plan: ', ['class' => 'col-form-label mb-0']) !!}
+                    </div>
+                    <div class="col">
+                        {!! Form::date('plan_intervencion_fecha', $familia->plan_intervencion_fecha, [
+                            'class' => 'form-control form-control-sm',
+                        ]) !!}
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col">
