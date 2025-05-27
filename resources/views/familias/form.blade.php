@@ -103,7 +103,7 @@
         @endif
     </div>
     {!! Form::label('ficha_label', 'Num. Ficha familiar: ', ['class' => 'col-sm col-form-label']) !!}
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         {!! Form::number('ficha_familiar', old('ficha_familiar', $familia->ficha_familiar ?? ''), [
             'class' => 'form-control form-control-sm' . ($errors->has('ficha_familiar') ? 'is-invalid' : ''),
             'placeholder' => 'Nº Ficha Familiar',
@@ -168,14 +168,16 @@
     <hr>
     <div class="form-group row">
         {!! Form::label('planIntervencion_label', 'Familia con Plan de Intervención', [
-            'class' => 'col col-sm-3 col-form-label',
+            'class' => 'col col-sm-4 col-form-label',
         ]) !!}
-        <div class="col col-sm-2">
+        <div class="col col-sm-3">
+            {!! Form::hidden('plan_intervencion', 0) !!}
             {!! Form::checkbox('plan_intervencion', 1, old('plan_intervencion', $familia->plan_intervencion ?? false), [
-                'class' => 'form-control form-control plan_intervencion',
+                'class' => 'form-control form-control-sm',
+                'id' => 'plan_intervencion_checkbox',
             ]) !!}
         </div>
-        <div class="form-group col col-sm-6 fecha_plan_intervencion">
+        <div class="form-group col col-sm plan_intervencion_fecha">
             <div class="row align-items-center">
                 <div class="col-auto">
                     {!! Form::label('fecha_plan_intervencion_label', 'Fecha Plan: ', ['class' => 'col-form-label mb-0']) !!}
@@ -186,6 +188,26 @@
                     ]) !!}
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="form-group row plan_intervencion_descripcion">
+        {!! Form::label('planIntervencionDescrip_label', 'Descripcion: ', ['class' => 'col-sm col-form-label']) !!}
+        <div class="col-sm">
+            {!! Form::select(
+                'plan_intervencion_descripcion',
+                [
+                    'Familiar postrado' => 'Familiar postrado',
+                    'Estudio de familia' => 'Estudio de familia',
+                    'Familiar con cuidados paliativos' => 'Familiar con cuidados paliativos',
+                    'Otros' => 'Otros',
+                ],
+                old('plan_intervencion_descripcion', $familia->plan_intervencion_descripcion ?? ''),
+                [
+                    'class' => 'form-control form-control-sm',
+                    'placeholder' => 'Seleccione descripcion',
+                    'id' => 'plan_intervencionDescripcion'
+                ],
+            ) !!}
         </div>
     </div>
 

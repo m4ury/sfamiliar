@@ -27,7 +27,6 @@
                         </div>
                         <hr>
                         @include('familias.form')
-
                     </div>
                 </div>
             </div>
@@ -36,9 +35,25 @@
 @endsection
 @section('js')
     <script>
-        $('#sector, #comuna, #pacientes, #tipo_familia, #etapa_cicloVital').select2({
+        $('#sector, #comuna, #pacientes, #tipo_familia, #etapa_cicloVital, #plan_intervencionDescripcion').select2({
             theme: "classic",
             width: '100%'
+        });
+
+        // Mostrar/ocultar según el estado inicial
+        if ($('#plan_intervencion_checkbox').is(':checked')) {
+            $('.plan_intervencion_fecha, .plan_intervencion_descripcion').show();
+        } else {
+            $('.plan_intervencion_fecha, .plan_intervencion_descripcion').hide();
+        }
+
+        // Al hacer click, mostrar/ocultar
+        $('#plan_intervencion_checkbox').on('change', function() {
+            if (this.checked) {
+                $('.plan_intervencion_fecha, .plan_intervencion_descripcion').fadeIn();
+            } else {
+                $('.plan_intervencion_fecha, .plan_intervencion_descripcion').fadeOut();
+            }
         });
     </script>
 @endsection

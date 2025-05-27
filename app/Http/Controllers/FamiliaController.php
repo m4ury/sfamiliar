@@ -93,6 +93,14 @@ class FamiliaController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
+
+        if (!$request->plan_intervencion) {
+        $request->merge([
+            'plan_intervencion_fecha' => null,
+            'plan_intervencion_descripcion' => null,
+        ]);
+    }
+
         $familia = Familia::findOrFail($familia->id);
         $familia->update($request->all());
 

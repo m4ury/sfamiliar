@@ -113,6 +113,11 @@
                                         <p class="text-muted text-uppercase">
                                             {{ str_replace('_', ' ', $familia->etapa_cicloVital ?? '') }}
                                         </p>
+                                        <hr>
+                                        <strong><i class="fas fa-clipboard-list"></i> Con Plan de Intervención</strong>
+                                        <p class="text-muted text-uppercase">
+                                            {{ $familia->plan_intervencion_descripcion ?? 'No existe Información' }} {{  $familia->plan_intervencion_fecha ? ' - Fecha: ' . \Carbon\Carbon::parse($familia->plan_intervencion_fecha)->format('d-m-Y') : '' }}
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="vert-tabs-controles" role="tabpanel"
