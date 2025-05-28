@@ -44,7 +44,6 @@ class FamiliaController extends Controller
      */
     public function store(FamiliaRequest $request)
     {
-
         $familia = Familia::create($request->all());
         return redirect('familias')->withSuccess('Familia Creada con exito!');
     }
@@ -87,19 +86,16 @@ class FamiliaController extends Controller
         //dd($request->all());
         $validator = Validator::make($request->all(), [
             'familia' => 'string|min:4',
-            'ficha_familiar' => 'numeric|min:1',
-            'ficha_familiar' => 'required|unique:familias,ficha_familiar,' . $familia->id . ',id,sector,' . $request->sector,
+            'ficha_familiar' => [
+                'required',
+                'numeric',
+                'digits_between:2,10',
+                'unique:familias,ficha_familiar,' . ($familia->id ?? 'NULL') . ',id,sector,' . ($request->sector ?? $this->get('sector')),
+            ],
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-
-        if (!$request->plan_intervencion) {
-        $request->merge([
-            'plan_intervencion_fecha' => null,
-            'plan_intervencion_descripcion' => null,
-        ]);
-    }
 
         $familia = Familia::findOrFail($familia->id);
         $familia->update($request->all());

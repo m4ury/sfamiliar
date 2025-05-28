@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('observacion_plan')->nullable()->comment('Observaciones del plan');
             $table->date('fecha_ingreso')->nullable()->comment('Fecha de ingreso plan');
             $table->enum('tipo_plan', [
-                'Integrante dela familia postrado',
+                'Integrante de la familia postrado',
                 'Integrante de la familia con cuidados paliativos',
                 'Estudio de Familia',
                 'Otros'
@@ -32,7 +32,8 @@ return new class extends Migration
                 'Abandono' => 'Por abandono',
             ])->nullable()->comment('Motivo de egreso del plan');
             $table->date('fecha_egreso')->nullable()->comment('Fecha de egreso del plan');
-            $table->foreignId('familia_id')->constrained()->onDelete('cascade')->comment('ID de la familia asociada al plan');
+            $table->foreignId('familia_id')->comment('ID de la familia asociada al plan');
+            $table->foreign('familia_id')->references('id')->on('familias')->onDelete('cascade')->comment('ID de la familia asociada al plan');
             $table->timestamps();
         });
     }

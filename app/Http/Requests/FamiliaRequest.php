@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Request; // Import Request facade
 
 class FamiliaRequest extends FormRequest
 {
@@ -23,25 +24,30 @@ class FamiliaRequest extends FormRequest
      */
     public function rules()
     {
-        $ficha_familiar = \Request::get('ficha_familiar');
-        $sector = \Request::get('sector');
-        //dd($sector);
+        // Obtiene el ID de la familia si es edición, sino null (para crear)
+        $id = $this->route('familia') ? $this->route('familia')->id : 'NULL';
+        $sector = $this->get('sector');
+
         return [
             'familia' => 'required|min:4|string',
             'domicilio' => 'required|string|min:3',
-            //'user_id' => 'unique:service_details,user_id,NULL,id,service_id,' . $service_id,
-            //'service_id' => 'unique:service_details,service_id,NULL,id,user_id,' . $user_id,
-            'ficha_familiar' => 'required|unique:familias,ficha_familiar,NULL,id,sector,' . $sector,
-            //'sector' => 'required|unique:familias,sector,NULL,id,ficha_familiar,' . $ficha_familiar
+            'ficha_familiar' => [
+                'required',
+                'numeric',
+                'digits_between:2,10',
+                'unique:familias,ficha_familiar,' . $id . ',id,sector,' . $sector,
+            ],
+            'tipo_familia' => 'required',
+            'etapa_cicloVital' => 'required',
         ];
     }
 
     public function messages()
     {
 
-        $sector = \Request::get('sector');
-        return[
-            'ficha_familiar.unique' => 'Numero de ficha familiar ya se encuentra en uso para este sector'.$sector,
+        $sector = request()->get('sector');
+        return [
+            'ficha_familiar.unique' => 'Numero de ficha familiar ya se encuentra en uso para este sector' . $sector,
         ];
     }
 }

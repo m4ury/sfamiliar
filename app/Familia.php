@@ -24,10 +24,10 @@ class Familia extends Model
         return $this->hasOne(Vivienda::class);
     }
 
-    /* public function evaluacion()
+    public function plans()
     {
-        return $this->hasOne(Evaluacion::class);
-    } */
+        return $this->hasMany(Plan::class);
+    }
 
     public function evaluaciones()
     {

@@ -102,20 +102,22 @@
             </span>
         @endif
     </div>
+    {{-- Ficha Familiar --}}
     {!! Form::label('ficha_label', 'Num. Ficha familiar: ', ['class' => 'col-sm col-form-label']) !!}
-    <div class="col-sm-2">
+    <div class="col-sm">
         {!! Form::number('ficha_familiar', old('ficha_familiar', $familia->ficha_familiar ?? ''), [
-            'class' => 'form-control form-control-sm' . ($errors->has('ficha_familiar') ? 'is-invalid' : ''),
+            'class' => 'form-control form-control-sm' . ($errors->has('ficha_familiar') ? ' is-invalid' : ''),
             'placeholder' => 'Nº Ficha Familiar',
         ]) !!}
         @if ($errors->has('ficha_familiar'))
-            <span class="invalid-feedback">
+            <span class="invalid-feedback d-block">
                 <strong>{{ $errors->first('ficha_familiar') }}</strong>
             </span>
         @endif
     </div>
 </div>
 <div class="form-group row">
+    {{-- Tipo Familia --}}
     {!! Form::label('tipo_familia_label', 'Tipo Familia', ['class' => 'col-sm-2 col-form-label']) !!}
     <div class="col-sm-5">
         {!! Form::select(
@@ -129,17 +131,18 @@
             ],
             old('tipo_familia', $familia->tipo_familia ?? ''),
             [
-                'class' => 'form-control form-control-sm' . ($errors->has('tipo_familia') ? 'is-invalid' : ''),
+                'class' => 'form-control form-control-sm' . ($errors->has('tipo_familia') ? ' is-invalid' : ''),
                 'placeholder' => 'Seleccione Tipo familia',
                 'id' => 'tipo_familia',
             ],
         ) !!}
         @if ($errors->has('tipo_familia'))
-            <span class="invalid-feedback">
+            <span class="invalid-feedback d-block">
                 <strong>{{ $errors->first('tipo_familia') }}</strong>
             </span>
         @endif
     </div>
+    {{-- Etapa ciclo vital --}}
     {!! Form::label('etapa_cicloVital_label', 'Etapa ciclo vital: ', ['class' => 'col-sm col-form-label']) !!}
     <div class="col-sm-3">
         {!! Form::select(
@@ -155,62 +158,22 @@
                 'adulto_mayor' => 'Adulto mayor',
             ],
             old('etapa_cicloVital', $familia->etapa_cicloVital ?? ''),
-            ['class' => 'form-control form-control-sm', 'placeholder' => 'Seleccione Etapa', 'id' => 'etapa_cicloVital'],
+            [
+                'class' => 'form-control form-control-sm' . ($errors->has('etapa_cicloVital') ? ' is-invalid' : ''),
+                'placeholder' => 'Seleccione Etapa',
+                'id' => 'etapa_cicloVital',
+            ],
         ) !!}
         @if ($errors->has('etapa_cicloVital'))
-            <span class="invalid-feedback">
+            <span class="invalid-feedback d-block">
                 <strong>{{ $errors->first('etapa_cicloVital') }}</strong>
             </span>
         @endif
     </div>
 </div>
+
 @if (Route::is('familias.edit'))
     <hr>
-    <div class="form-group row">
-        {!! Form::label('planIntervencion_label', 'Familia con Plan de Intervención', [
-            'class' => 'col col-sm-4 col-form-label',
-        ]) !!}
-        <div class="col col-sm-3">
-            {!! Form::hidden('plan_intervencion', 0) !!}
-            {!! Form::checkbox('plan_intervencion', 1, old('plan_intervencion', $familia->plan_intervencion ?? false), [
-                'class' => 'form-control form-control-sm',
-                'id' => 'plan_intervencion_checkbox',
-            ]) !!}
-        </div>
-        <div class="form-group col col-sm plan_intervencion_fecha">
-            <div class="row align-items-center">
-                <div class="col-auto">
-                    {!! Form::label('fecha_plan_intervencion_label', 'Fecha Plan: ', ['class' => 'col-form-label mb-0']) !!}
-                </div>
-                <div class="col">
-                    {!! Form::date('plan_intervencion_fecha', $familia->plan_intervencion_fecha, [
-                        'class' => 'form-control form-control-sm',
-                    ]) !!}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="form-group row plan_intervencion_descripcion">
-        {!! Form::label('planIntervencionDescrip_label', 'Descripcion: ', ['class' => 'col-sm col-form-label']) !!}
-        <div class="col-sm">
-            {!! Form::select(
-                'plan_intervencion_descripcion',
-                [
-                    'Familiar postrado' => 'Familiar postrado',
-                    'Estudio de familia' => 'Estudio de familia',
-                    'Familiar con cuidados paliativos' => 'Familiar con cuidados paliativos',
-                    'Otros' => 'Otros',
-                ],
-                old('plan_intervencion_descripcion', $familia->plan_intervencion_descripcion ?? ''),
-                [
-                    'class' => 'form-control form-control-sm',
-                    'placeholder' => 'Seleccione descripcion',
-                    'id' => 'plan_intervencionDescripcion'
-                ],
-            ) !!}
-        </div>
-    </div>
-
     <div class="row">
         <div class="col">
             {{ Form::submit('Actualizar', ['class' => 'btn bg-gradient-primary btn-sm btn-block']) }}

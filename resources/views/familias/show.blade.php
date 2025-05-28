@@ -17,56 +17,51 @@
                 <div class="card-body">
                     <div class="form-group row nowrap">
                         <span
-                            class="badge badge-pill bg-gradient-{{ $familia->sector == 'SB' ? 'warning' : 'info' }} badge mx-3 py-2">
+                            class="badge badge-pill bg-gradient-{{ $familia->sector == 'SB' ? 'warning' : 'info' }} badge mx-2 p-3">
                             FAMILIA: {{ $familia->familia }}</span>
                         <span
-                            class="badge badge-pill bg-gradient-{{ $familia->sector == 'SA' ? 'info' : 'warning' }} badge mx-3 py-2">
+                            class="badge badge-pill bg-gradient-{{ $familia->sector == 'SA' ? 'info' : 'warning' }} badge mx-2 p-3">
                             FICHA FAMILIAR: {{ $familia->fichaFamiliar() }}
                         </span>
-                        <span class="text-muted text-bold">
+                        <span class="text-muted text-bold px-2 py-2">
                             Actualizado el: {{ $familia->updated_at->format('d-m-Y') }}
                         </span>
-                        <div class="col col-sm">
-                            <div class="float-right px-2">
-
-                                @if ($familia->evaluaciones->count() > 0)
-                                    <div class="float-right px-2">
-                                        <a class="btn bg-gradient-primary btn-sm" title="editar Evaluacion"
-                                            href="{{ route('evaluaciones.edit', $familia->ultimaEvaluacion->id) }}">editar
-                                            Evaluacion
-                                            <i class="fas fa-envelope"></i>
+                        <div class="col col-sm px-2">
+                            {{-- Dropdown de acciones para familia --}}
+                            <div class="dropdown float-right mb-3">
+                                <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="accionesDropdown"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Acciones
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accionesDropdown">
+                                    <a class="dropdown-item" href="{{ route('familias.edit', $familia->id) }}">
+                                        <i class="fas fa-pen mr-2"></i> Editar Familia
+                                    </a>
+                                    @if ($familia->vivienda)
+                                        <a class="dropdown-item"
+                                            href="{{ route('viviendas.edit', $familia->vivienda->id) }}">
+                                            <i class="fas fa-home mr-2"></i> Editar Vivienda
                                         </a>
-                                        <a class="btn bg-gradient-success btn-sm" title="Nueva Evaluacion"
-                                            href="{{ route('evaluaciones.crea', $familia->id) }}">Nueva Evaluacion
-                                            <i class="fas fa-envelope"></i>
+                                    @else
+                                        <a class="dropdown-item" href="{{ route('viviendas.crea', $familia->id) }}">
+                                            <i class="fas fa-home mr-2"></i> Crear Vivienda
                                         </a>
-                                    </div>
-                                @else
-                                    <a class="btn bg-gradient-success btn-sm" title="Evaluacion de Ingreso"
-                                        href="{{ route('evaluaciones.crea', $familia->id) }}">Evaluacion de Ingreso
-                                        <i class="fas fa-envelope"></i>
+                                    @endif
+                                    @if ($familia->ultimaEvaluacion)
+                                        <a class="dropdown-item"
+                                            href="{{ route('evaluaciones.edit', $familia->ultimaEvaluacion->id) }}">
+                                            <i class="fas fa-envelope mr-2"></i> Editar Evaluación
+                                        </a>
+                                    @endif
+                                    <a class="dropdown-item" href="{{ route('evaluaciones.crea', $familia->id) }}">
+                                        <i class="fas fa-plus mr-2"></i> Nueva Evaluación
                                     </a>
-                                @endif
-
-                                @if ($familia->vivienda)
-                                    <a class="btn bg-gradient-primary btn-sm" title="editar Vivienda"
-                                        href="{{ route('viviendas.edit', $familia->vivienda->id) }}">editar Vivienda
-                                        <i class="fas fa-home"></i>
+                                    <a class="dropdown-item" href="{{ route('planes.crea', $familia->id) }}">
+                                        <i class="fas fa-clipboard-list mr-2"></i> Crear Plan de Intervención
                                     </a>
-                                @else
-                                    <a class="btn bg-gradient-success btn-sm" title="Vivienda"
-                                        href="{{ route('viviendas.crea', $familia->id) }}">Vivienda
-                                        <i class="fas fa-home"></i>
-                                    </a>
-                                @endif
+                                </div>
                             </div>
-
-                            <div class="float-right px-2">
-                                <a class="btn bg-gradient-success btn-sm" title="Editar"
-                                    href="{{ route('familias.edit', $familia->id) }}"> Editar Familia <i
-                                        class="fas fa-pen mx-2"></i>
-                                </a>
-                            </div>
+                            {{-- Fin Dropdown --}}
                         </div>
                     </div>
                     <hr>
@@ -116,7 +111,8 @@
                                         <hr>
                                         <strong><i class="fas fa-clipboard-list"></i> Con Plan de Intervención</strong>
                                         <p class="text-muted text-uppercase">
-                                            {{ $familia->plan_intervencion_descripcion ?? 'No existe Información' }} {{  $familia->plan_intervencion_fecha ? ' - Fecha: ' . \Carbon\Carbon::parse($familia->plan_intervencion_fecha)->format('d-m-Y') : '' }}
+                                            {{ $familia->plan_intervencion_descripcion ?? 'No existe Información' }}
+                                            {{ $familia->plan_intervencion_fecha ? ' - Fecha: ' . \Carbon\Carbon::parse($familia->plan_intervencion_fecha)->format('d-m-Y') : '' }}
                                         </p>
                                     </div>
                                 </div>

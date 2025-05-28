@@ -23,9 +23,12 @@ class PlanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function crea($id)
     {
-        //
+        $familia = \App\Familia::findOrFail($id);
+        $plan = new Plan();
+
+        return view('planes.create', compact('plan', 'familia'));
     }
 
     /**
@@ -36,7 +39,17 @@ class PlanController extends Controller
      */
     public function store(StorePlanRequest $request)
     {
-        //
+        $plan = Plan::create($request->validated());
+        $plan->familia()->associate($request->input('familia_id'));
+        $plan->ingreso_plan = $request->ingreso_plan ? true : false;
+        if ($request->egreso_plan && $request->egreso_plan == '1') {
+            $plan->egreso_plan = true;
+            $plan->ingreso_plan = null;
+            $plan->tipo_plan = null;
+        }
+        $plan->save();
+
+        return redirect('familias/' . $plan->familia_id)->withSuccess('Plan creado con exito!');
     }
 
     /**
@@ -58,7 +71,9 @@ class PlanController extends Controller
      */
     public function edit(Plan $plan)
     {
-        //
+        $familia = $plan->familia;
+
+        return view('planes.edit', compact('plan', 'familia'));
     }
 
     /**
