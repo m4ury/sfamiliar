@@ -109,12 +109,11 @@ class PacienteController extends Controller
 
     public function update(Request $request, $id)
     {
-        //dd($request->all());
         $validator = Validator::make($request->all(), [
             'rut' => 'cl_rut',
             'nombres' => 'string|min:3',
             'apellidoP' => 'string|min:3',
-            'fecha_fallecido' => 'required_with:fallecido'
+            'fecha_fallecido' => 'required_if:fallecido,1,true'
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
