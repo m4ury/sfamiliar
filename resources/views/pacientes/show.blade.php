@@ -28,10 +28,15 @@
                             <i class="fas fa-square text-white"></i> Blanco
                         @endif
                     </span>
+                    @if ($paciente->pasivo == 1)
+                        <span class="badge badge-pill bg-gradient-info badge mx-3 py-2">
+                            {{ $paciente->pasivo ? 'Paciente Pasivo' : '' }}
+                        </span>
+                    @endif
+
                     <div class="col-sm text-right">
                         <a class="btn bg-gradient-primary btn-sm" title="Editar"
-                            href="{{ route('pacientes.edit', $paciente->id) }}"> Editar Paciente <i
-                                class="fas fa-pen mx-2"></i>
+                            href="{{ route('pacientes.edit', $paciente->id) }}"> Editar Paciente <i class="fas fa-pen mx-2"></i>
                         </a>
                     </div>
                 </div>
@@ -43,12 +48,6 @@
                             <a class="nav-link active" id="vert-tabs-paciente-tab" data-toggle="pill"
                                 href="#vert-tabs-paciente" role="tab" aria-controls="vert-tabs-paciente"
                                 aria-selected="true">Informacion del Paciente</a>
-                            <a class="nav-link" id="vert-tabs-controles-tab" data-toggle="pill"
-                                href="#vert-tabs-controles" role="tab" aria-controls="vert-tabs-presupuestos"
-                                aria-selected="false">Controles</a>
-                            <a class="nav-link" id="vert-tabs-patologias-tab" data-toggle="pill"
-                                href="#vert-tabs-patologias" role="tab" aria-controls="vert-tabs-patologias"
-                                aria-selected="false">Diagnosticos</a>
                         </div>
                     </div>
                     <div class="col-7 col-sm-9">
@@ -72,12 +71,6 @@
                                                                                                                         datos...' }}
                                     </p>
                                 </div>
-                            </div>
-                            <div class="tab-pane fade" id="vert-tabs-controles" role="tabpanel"
-                                aria-labelledby="vert-tabs-controles-tab">
-                            </div>
-                            <div class="tab-pane fade" id="vert-tabs-patologias" role="tabpanel"
-                                aria-labelledby="vert-tabs-patologias-tab">
                             </div>
                         </div>
                     </div>

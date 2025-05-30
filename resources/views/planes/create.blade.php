@@ -6,7 +6,11 @@
             <div class="col-sx-12 col-sm-12 col">
                 <div class="card card-success card-outline">
                     <div class="card-body">
-                        {{ Form::open(['action' => 'PlanController@store', 'method' => 'POST', 'class' => 'form-horizontal']) }}
+                        {!! Form::model($plan, [
+                            'route' => ['familias.planes.store', $familia],
+                            'method' => 'POST',
+                            'class' => 'form-horizontal',
+                        ]) !!}
 
                         <div class="tab-content" id="nav-tabContent">
                             @include('planes.form')

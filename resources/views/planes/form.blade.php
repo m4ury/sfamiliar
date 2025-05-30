@@ -20,9 +20,6 @@
             {{ Form::textarea('observacion_plan', old('observacion_plan', $plan->observacion_plan ?? ''), ['class' => 'form-control']) }}
         </div>
     </div>
-    {!! Form::hidden('familia_id', $familia->id) !!}
-    {!! Form::hidden('plan_id', $plan->id) !!}
-    {!! Form::hidden('ingreso_plan', 1) !!}
 </div>
 
 <div class="row py-3">
@@ -80,10 +77,10 @@
         {!! Form::select(
             'motivo_egreso',
             [
-                'Fallecimiento' => 'Fallecimiento',
-                'Alta' => 'Alta',
-                'Cambio de domicilio' => 'Cambio de domicilio',
-                'Otros' => 'Otros',
+                'Alta por cumplir plan de intervencion' => 'Alta por cumplir plan de intervencion',
+                'Derivacion por complegidad del caso' => 'Derivacion por complegidad del caso',
+                'Traslado de establecimiento' => 'Traslado de establecimiento',
+                'Por abandono' => 'Por abandono',
             ],
             old('motivo_egreso') ?: $plan->motivo_egreso,
             [

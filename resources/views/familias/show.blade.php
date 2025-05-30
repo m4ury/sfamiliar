@@ -56,9 +56,20 @@
                                     <a class="dropdown-item" href="{{ route('evaluaciones.crea', $familia->id) }}">
                                         <i class="fas fa-plus mr-2"></i> Nueva Evaluación
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('planes.crea', $familia->id) }}">
-                                        <i class="fas fa-clipboard-list mr-2"></i> Crear Plan de Intervención
+                                    @if ($familia->planes->pluck('ingreso_plan')->count()== 0)
+                                    <a class="dropdown-item" href="{{ route('familias.planes.create', $familia) }}">
+                                        <i class="fas fa-plus mr-2"></i> Crear Plan de Intervención
                                     </a>
+                                    @else
+                                        @php
+                                            $plan = $familia->planes->sortByDesc('fecha_ingreso')->first();
+                                        @endphp
+                                        @if ($plan)
+                                            <a class="dropdown-item" href="{{ route('familias.planes.edit', [$familia, $plan]) }}">
+                                                <i class="fas fa-pen mr-2"></i> Editar Plan de Intervención
+                                            </a>
+                                        @endif
+                                    @endif
                                 </div>
                             </div>
                             {{-- Fin Dropdown --}}
@@ -111,8 +122,22 @@
                                         <hr>
                                         <strong><i class="fas fa-clipboard-list"></i> Con Plan de Intervención</strong>
                                         <p class="text-muted text-uppercase">
-                                            {{ $familia->plan_intervencion_descripcion ?? 'No existe Información' }}
-                                            {{ $familia->plan_intervencion_fecha ? ' - Fecha: ' . \Carbon\Carbon::parse($familia->plan_intervencion_fecha)->format('d-m-Y') : '' }}
+                                            @php
+                                                $plan = $familia->planes?->sortByDesc('fecha_ingreso')->first();
+                                            @endphp
+                                            {{ $plan ? $plan->tipo_plan : 'No existe Información' }}
+                                            {{ $plan?->fecha_ingreso ? ' - Fecha: ' . \Carbon\Carbon::parse($plan->fecha_ingreso)->format('d-m-Y') : '' }}
+                                        </p>
+
+                                        <strong><i class="fas fa-clipboard-list"></i> Egreso Plan</strong>
+                                        <p class="text-muted text-uppercase">
+                                            @if ($plan->egreso_plan ?? false === 1)
+                                                {{-- Si el plan fue egresado --}}
+                                                <span class="text-success">
+                                                    {{ $plan->motivo_egreso ? $plan->motivo_egreso : 'No existe Información' }}
+                                                    {{ $plan->fecha_egreso ? ' - Fecha: ' . \Carbon\Carbon::parse($plan->fecha_egreso)->format('d-m-Y') : '' }}
+                                                </span>
+                                            @endif
                                         </p>
                                     </div>
                                 </div>

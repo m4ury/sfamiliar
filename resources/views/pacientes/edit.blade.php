@@ -50,19 +50,29 @@
 @endsection
 @section('js')
     <script>
-        $('#comuna, #sector, #ficha_familiar, #sexo, #e_civil, #escolaridad, #parentesco, #prevision').select2({
+        $('#comuna, #sector, #ficha_familiar, #sexo, #e_civil, #escolaridad, #parentesco, #prevision, .motivo_pasivo').select2({
             theme: "classic",
             width: '100%',
         });
 
         $("#fallecido").removeAttr("checked");
 
-        $('.fecha_f').hide();
+        $('.fecha_f, .fecha_p').hide();
 
         $('.fallecido').click(function() {
             $('.fecha_f').fadeIn()[this.checked ? "show" : "hide"]();
         });
+        $('.pasivo').click(function() {
+            $('.fecha_p').fadeIn()[this.checked ? "show" : "hide"]();
+        });
 
+        // Si el checkbox viene chequeado desde BD, muestra el campo correspondiente
+    if ($('.fallecido').is(':checked')) {
+        $('.fecha_f').show();
+    }
+    if ($('.pasivo').is(':checked')) {
+        $('.fecha_p').show();
+    }
         $('input.pueblo_originario').on('change', function() {
             $('input.pueblo_originario').not(this).prop('checked', false);
         });

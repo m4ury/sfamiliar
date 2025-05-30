@@ -121,6 +121,9 @@ class PacienteController extends Controller
         }
         $paciente = Paciente::findOrFail($id);
         $paciente->update($request->all());
+        $paciente->pasivo = $request->pasivo ?? 0;
+        $paciente->fallecido = $request->fallecido ?? 0;
+        $paciente->save();
 
         return redirect('pacientes/' . $id)->withSuccess('Paciente Actualizado con exito!');
     }

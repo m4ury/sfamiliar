@@ -20,7 +20,7 @@ return new class extends Migration
                 'Otro establecimiento',
                 'Otro'
             ])->nullable()->default(null)->after('pasivo')->comment('Motivo por el cual el paciente se volvió inactivo');
-            $table->dateTime('fecha_pasivo')->nullable()->after('motivo_pasivo')->comment('Fecha en la que el paciente se volvió inactivo');
+            $table->date('fecha_pasivo')->nullable()->after('motivo_pasivo')->comment('Fecha en la que el paciente se volvió inactivo');
         });
     }
 

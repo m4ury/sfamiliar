@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::get('evaluaciones/crea/{familia?}', 'EvaluacionController@crea')->name('evaluaciones.crea');
     //Route::get('evaluaciones/{eval?}/edita', 'EvaluacionController@edita')->name('evaluaciones.edita');
 
-    Route::resource('planes', 'PlanController')->except(['index', 'create']);
-    Route::get('planes/crea/{familia?}', 'PlanController@crea')->name('planes.crea');
+    Route::resource('familias.planes', 'PlanController');
+    //Route::get('planes/crea/{familia?}', 'PlanController@crea')->name('planes.crea');
 
 });

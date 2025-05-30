@@ -301,65 +301,74 @@
         <div class="col">
             {!! Form::label('pueblo_originario_label', 'Originario', ['class' => 'col-sm col-form-label']) !!}
             {!! Form::checkbox('pueblo_originario', 1, old('pueblo_originario') ?: $paciente->pueblo_originario, [
-                'class' => 'form-control form-control',
+                'class' => 'form-control',
             ]) !!}
         </div>
         <div class="col">
             {!! Form::label('migrante_label', 'Pob. Migrante', ['class' => 'col-sm col-form-label']) !!}
             {!! Form::checkbox('migrante', 1, old('migrante') ?: $paciente->migrante, [
-                'class' => 'form-control form-control',
+                'class' => 'form-control',
             ]) !!}
         </div>
     </div>
     @if (Route::is('pacientes.edit'))
         <hr>
-        <div class="form-group row">
-            <div class="col">
-                {!! Form::label('fellecido_label', 'Fallecido?', ['class' => 'col-sm col-form-label']) !!}
-                <div class="col-sm-6">
-                    {!! Form::checkbox('fallecido', 1, old('fallecido', $paciente->fallecido), [
-                        'class' => 'form-control form-control fallecido',
-                    ]) !!}
-                </div>
-                <div class="form-group row fecha_f">
-                    {!! Form::label('fecha_fellecido_label', 'Fecha', ['class' => 'col-sm col-form-label']) !!}
-                    <div class="col">
-                        {!! Form::date('fecha_fallecido', $paciente->fecha_fallecido, [
-                            'class' => 'form-control form-control-sm' . ($errors->has('fecha_fallecido') ? ' is-invalid' : ''),
-                        ]) !!}
-                    </div>
-                </div>
-                @if ($errors->has('fecha_fallecido'))
-                    <span class="invalid-feedback">
-                        <strong>{{ $errors->first('fecha_fallecido') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div>
-        <div class="form-group row">
-            {!! Form::label('planIntervencion_label', 'Familia con Plan de Intervención', [
-                'class' => 'col col-sm-4 col-form-label',
+    <div class="form-group row">
+        <div class="col">
+            {!! Form::label('fallecido', 'Fallecido?', ['class' => 'col-sm col-form-label']) !!}
+            {!! Form::hidden('fallecido', 0) !!}
+            {!! Form::checkbox('fallecido', 1, old('fallecido', $paciente->fallecido ?? false), [
+                'class' => 'form-control fallecido',
             ]) !!}
-            <div class="col col-sm-3">
-                {!! Form::hidden('plan_intervencion', 0) !!}
-                {!! Form::checkbox('plan_intervencion', 1, old('plan_intervencion', $familia->plan_intervencion ?? false), [
-                    'class' => 'form-control form-control-sm',
-                    'id' => 'plan_intervencion_checkbox',
-                ]) !!}
-            </div>
-            <div class="form-group col col-sm plan_intervencion_fecha">
-                <div class="row align-items-center">
-                    <div class="col-auto">
-                        {!! Form::label('fecha_plan_intervencion_label', 'Fecha Plan: ', ['class' => 'col-form-label mb-0']) !!}
-                    </div>
-                    <div class="col">
-                        {!! Form::date('plan_intervencion_fecha', $familia->plan_intervencion_fecha, [
-                            'class' => 'form-control form-control-sm',
-                        ]) !!}
-                    </div>
-                </div>
-            </div>
         </div>
+        <div class="col">
+        {!! Form::label('pasivo_checkbox', 'Paciente pasivo', ['class' => 'col-form-label']) !!}
+        {!! Form::hidden('pasivo', 0) !!}
+        {!! Form::checkbox('pasivo', 1, old('pasivo', $paciente->pasivo ?? false), [
+            'class' => 'form-control pasivo',
+            'id' => 'pasivo_checkbox'
+        ]) !!}
+        </div>
+    </div>
+    <div class="row form-group fecha_f" style="{{ $paciente->fallecido ? '' : 'display:none' }}">
+        <div class="col-sm-6">
+            {!! Form::label('fecha_fallecido_label', 'Fecha Fallecimiento', ['class' => 'col-sm col-form-label']) !!}
+            {!! Form::date('fecha_fallecido', old('fecha_fallecido',$paciente->fecha_fallecido), [
+                'class' => 'form-control form-control-sm' . ($errors->has('fecha_fallecido') ? ' is-invalid' : ''),
+            ]) !!}
+            @if ($errors->has('fecha_fallecido'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('fecha_fallecido') }}</strong>
+                </span>
+            @endif
+        </div>
+    </div>
+    <div class="row form-group fecha_p" style="{{ $paciente->pasivo ? '' : 'display:none' }}">
+        <div class="col">
+            {!! Form::label('fecha_pasivo_label', 'Fecha Pasivo', ['class' => 'col-sm col-form-label']) !!}
+            {!! Form::date('fecha_pasivo', old('fecha_pasivo', $paciente->fecha_pasivo), [
+                'class' => 'form-control form-control-sm' . ($errors->has('fecha_pasivo') ? ' is-invalid' : ''),
+            ]) !!}
+            @if ($errors->has('fecha_pasivo'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('fecha_pasivo') }}</strong>
+                </span>
+            @endif
+        </div>
+        <div class="col">
+            {!! Form::label('motivo_pasivo_label', 'Motivo Pasivo', ['class' => 'col-sm col-form-label']) !!}
+            {!! Form::select(
+                'motivo_pasivo',
+                [
+                    'Cambio de domicilio' => 'Cambio de domicilio',
+                    'Otro establecimiento' => 'Otro establecimiento',
+                    'Otro' => 'Otro',
+                ],
+                old('motivo_pasivo') ?: $paciente->motivo_pasivo,
+                ['class' => 'form-control form-control-sm motivo_pasivo', 'placeholder' => 'Seleccione motivo pasivo'],
+            ) !!}
+        </div>
+    </div>
 
         <div class="row">
             <div class="col">
