@@ -39,10 +39,11 @@ class PlanController extends Controller
      */
     public function store(StorePlanRequest $request, Familia $familia)
     {
-        $plan = Plan::create($request->validated());
-        $plan->familia()->associate($request->input('familia_id'));
-        $plan->ingreso_plan = $request->ingreso_plan ? true : false;
-        $plan->save();
+        $data = $request->validated();
+        $data['familia_id'] = $familia->id;
+        $data['ingreso_plan'] = $request->ingreso_plan ? true : false;
+
+        Plan::create($data);
 
         return redirect()->route('familias.show', $familia->id)->withSuccess('Plan creado con éxito!');
     }

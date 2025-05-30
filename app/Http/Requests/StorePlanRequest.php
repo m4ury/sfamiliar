@@ -23,17 +23,14 @@ class StorePlanRequest extends FormRequest
      */
     public function rules()
     {
-        //dd($this->all());
         return [
             'ingreso_plan' => 'nullable|boolean',
             'observacion_plan' => 'nullable|string|max:255',
             'fecha_ingreso' => 'required|date',
-            'tipo_plan' => 'required|required_without:egreso_plan',
-            'egreso_plan' => 'nullable|boolean',
-            'motivo_egreso' => 'nullable|required_with:egreso_plan',
-            'fecha_egreso' => 'nullable|date|required_when:egreso_plan,1',
-            'motivo_egreso' => 'nullable|string|required_when:egreso_plan,1',
-            'familia_id' => 'required|exists:familias,id'
+            'tipo_plan' => 'required',
+            'motivo_egreso' => 'nullable|required_if:egreso_plan, 1',
+            'fecha_egreso' => 'nullable|date|required_if:egreso_plan,1',
+            'motivo_egreso' => 'nullable|string|required_if:egreso_plan,1',
         ];
     }
 }
