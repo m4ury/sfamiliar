@@ -17,10 +17,38 @@ class PacienteController extends Controller
 
     public function getPacientesData()
     {
-        return datatables()->of(
-            Paciente::with('familia')
-                ->select('pacientes.id', 'pacientes.rut', 'pacientes.nombres', 'pacientes.apellidoP', 'pacientes.apellidoM', 'pacientes.ficha', 'pacientes.fallecido', 'pacientes.fecha_fallecido', 'pacientes.sector', 'pacientes.sexo', 'pacientes.familia_id', 'pacientes.fecha_nacimiento')
-        )
+        $query = Paciente::with('familia')
+            ->select(
+                'pacientes.id',
+                'pacientes.rut',
+                'pacientes.nombres',
+                'pacientes.apellidoP',
+                'pacientes.apellidoM',
+                'pacientes.ficha',
+                'pacientes.direccion', // <-- asegúrate de tener este campo
+                'pacientes.fallecido',
+                'pacientes.fecha_fallecido',
+                'pacientes.sector',
+                'pacientes.sexo',
+                'pacientes.familia_id',
+                'pacientes.fecha_nacimiento'
+            );
+
+        return datatables()->of($query)
+            ->filter(function ($query) {
+                if (request()->has('search') && $search = request('search')['value']) {
+                    $query->where(function ($q) use ($search) {
+                        $q->where('pacientes.rut', 'like', "%{$search}%")
+                            ->orWhere('pacientes.nombres', 'like', "%{$search}%")
+                            ->orWhere('pacientes.apellidoP', 'like', "%{$search}%")
+                            ->orWhere('pacientes.apellidoM', 'like', "%{$search}%")
+                            ->orWhere('pacientes.ficha', 'like', "%{$search}%")
+                            ->orWhere('pacientes.direccion', 'like', "%{$search}%")
+                            // Búsqueda en nombres y apellidos concatenados
+                            ->orWhereRaw("CONCAT(pacientes.nombres, ' ', pacientes.apellidoP, ' ', pacientes.apellidoM) LIKE ?", ["%{$search}%"]);
+                    });
+                }
+            })
             ->addColumn('fullName', function ($paciente) {
                 return strtoupper($paciente->nombres . ' ' . $paciente->apellidoP . ' ' . $paciente->apellidoM);
             })
