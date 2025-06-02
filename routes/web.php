@@ -41,13 +41,14 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('viviendas', 'ViviendaController')->except(['index', 'create']);
     Route::get('viviendas/crea/{familia?}', 'ViviendaController@crea')->name('viviendas.crea');
-    //Route::get('viviendas/{vivenda?}/edita', 'ViviendaController@edita')->name('viviendas.edita');
 
     Route::resource('evaluaciones', 'EvaluacionController')->except(['index', 'create']);
     Route::get('evaluaciones/crea/{familia?}', 'EvaluacionController@crea')->name('evaluaciones.crea');
-    //Route::get('evaluaciones/{eval?}/edita', 'EvaluacionController@edita')->name('evaluaciones.edita');
 
     Route::resource('familias.planes', 'PlanController');
-    //Route::get('planes/crea/{familia?}', 'PlanController@crea')->name('planes.crea');
+
+    Route::get('estadisticas', 'EstadisticaController@index')->name('estadisticas.index');
+    Route::get('estadisticas/seccionA1', 'EstadisticaController@seccionA1')->name('estadisticas.seccionA1');
+    Route::get('estadisticas/seccionB', 'EstadisticaController@seccionB')->name('estadisticas.seccionB');
 
 });

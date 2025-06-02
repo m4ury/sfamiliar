@@ -225,21 +225,7 @@ return [
 
     'menu' => [
         // Navbar items:
-        /* [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
-        ], */
 
-        // Sidebar items:
-        /* [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ], */
         ['header' => 'PACIENTES'],
         [
             'text' => 'Pacientes',
@@ -253,6 +239,13 @@ return [
             'route' => 'familias.index',
             'icon' => 'fas fa-fw fa-users',
             'icon_color' => 'red',
+        ],
+        ['header' => 'ESTADISTICAS'],
+        [
+            'text' => 'Estadisticas',
+            'route' => 'estadisticas.index',
+            'icon' => 'fas fa-fw fa-chart-area',
+            'icon_color' => 'yellow',
         ]
     ],
 

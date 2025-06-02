@@ -41,7 +41,7 @@ class PlanController extends Controller
     {
         $data = $request->validated();
         $data['familia_id'] = $familia->id;
-        $data['ingreso_plan'] = $request->ingreso_plan ? true : false;
+        $data['ingreso_plan'] = 1;
 
         Plan::create($data);
 
