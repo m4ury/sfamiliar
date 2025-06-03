@@ -18,14 +18,20 @@ class EstadisticaController extends Controller
     {
         $familias = Familia::with('pacientes')->get();
 
-        // Familias con plan de intervención activo (sin egreso)
-        $familiasConPlan = Familia::with('ultimaEvaluacion')
-            ->whereHas('planes', function ($q) {
-                $q->where('fecha_egreso');
+        $familiasConEvaluacion = Familia::with('ultimaEvaluacion')
+            ->whereHas('ultimaEvaluacion', function ($q) {
+                $q->whereNotNull('fecha_evaluacion');
             })
             ->get();
 
-        // Familias con plan de intervención egresado (con fecha de egreso)
+        // Familias con plan de intervención activo
+        $familiasConPlan = Familia::with('planes')
+            ->whereHas('planes', function ($q) {
+                $q->whereNotNull('fecha_ingreso');
+            })
+            ->get();
+
+        // Familias con plan de intervención egresado
         $familiasConEgreso = Familia::with(['planes' => function ($q) {
             $q->whereNotNull('fecha_egreso');
         }])
@@ -37,7 +43,7 @@ class EstadisticaController extends Controller
         // Familias sin plan de intervención activo pero con evaluación
         $familiasSinPlanConEvaluacion = Familia::with('ultimaEvaluacion')
             ->whereDoesntHave('planes', function ($q) {
-                $q->whereNull('fecha_egreso');
+                $q->whereNull('fecha_ingreso');
             })
             ->whereHas('ultimaEvaluacion')
             ->get();
@@ -46,7 +52,8 @@ class EstadisticaController extends Controller
             'familiasConPlan',
             'familiasSinPlanConEvaluacion',
             'familiasConEgreso',
-            'familias'
+            'familias',
+            'familiasConEvaluacion'
         ));
     }
 }

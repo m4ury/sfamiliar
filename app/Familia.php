@@ -37,6 +37,6 @@ class Familia extends Model
     // Para obtener la última evaluación:
     public function ultimaEvaluacion()
     {
-        return $this->hasOne(Evaluacion::class)->latestOfMany();
+        return $this->hasOne(Evaluacion::class)->latestOfMany('fecha_evaluacion');
     }
 }

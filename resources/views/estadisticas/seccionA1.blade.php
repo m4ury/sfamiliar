@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'seccion A.1')
+@section('title', 'seccion A.1 - B')
 
 @section('content')
     <div class="card card-primary card-outline">
@@ -11,7 +11,7 @@
                 </h4>
                 <div class="table-responsive">
                     <table class="table table-bordered">
-                        <thead>
+                        <thead class="text-nowrap">
                             <tr>
                                 <th class="text-bold">Clasificación de las familias por sector</th>
                                 <th>TOTAL</th>
@@ -40,12 +40,12 @@
                             </tr>
                             <tr>
                                 <td>N° Familias evaluadas con cartola/encuesta familiar</td>
-                                <td>{{ $familias->whereNotNull('ultimaEvaluacion.resultado_evaluacion')->count() }}
+                                <td>{{ $familiasConEvaluacion->count() }}
                                 </td> {{-- Total familias con evaluacion vigente --}}
-                                <td>{{ $familias->where('sector', 'SA')->whereNotNull('ultimaEvaluacion.resultado_evaluacion')->count() }}
+                                <td>{{ $familiasConEvaluacion->where('sector', 'SA')->count() }}
                                 </td>
                                 {{-- Sector 1 --}}
-                                <td>{{ $familias->where('sector', 'SB')->whereNotNull('ultimaEvaluacion.resultado_evaluacion')->count() }}
+                                <td>{{ $familiasConEvaluacion->where('sector', 'SB')->count() }}
                                 </td>
                                 {{-- Sector 2 --}}
                                 <td></td>
