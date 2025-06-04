@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 use App\Familia;
 use App\Paciente;
-use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
@@ -27,37 +24,44 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //todos
-        $all = new Paciente;
-        $fam = new Familia;
-        $totalPacientes = $all->whereFallecido(0)->count();
-        $fallecidos = $all->whereFallecido(1)->count();
-        $totalFamilias = $fam->count();
+        // Pacientes vivos y fallecidos (solo activos)
+        $totalPacientes = Paciente::where('fallecido', 0)->where('pasivo', 0)->count();
+        $fallecidos = Paciente::where('fallecido', 1)->where('pasivo', 0)->count();
 
-        //x sexo
-        $totalMasculino = $all->where('sexo', '=', 'Masculino')->where('fallecido', '=', 0)->count();
-        $masculino9 = $all->where('sexo', '=', 'Masculino')->where('fallecido', '=', 0)->get()->where('grupo', '<', 10)->count();
-        $masculino1019 = $all->where('sexo', '=', 'Masculino')->where('fallecido', '=', 0)->get()->whereBetween('grupo', [10, 19])->count();
-        $masculino2064 = $all->where('sexo', '=', 'Masculino')->where('fallecido', '=', 0)->get()->whereBetween('grupo', [20, 64])->count();
-        $masculino65mas = $all->where('sexo', '=', 'Masculino')->where('fallecido', '=', 0)->get()->where('grupo', '>=', 65)->count();
+        // Familias
+        $totalFamilias = Familia::with('pacientes')->count();
 
-        $totalFemenino = $all->where('sexo', '=', 'Femenino')->where('fallecido', '=', 0)->count();
-        $femenino9 = $all->where('sexo', '=', 'Femenino')->where('fallecido', '=', 0)->get()->where('grupo', '<', 10)->count();
-        $femenino1019 = $all->where('sexo', '=', 'Femenino')->where('fallecido', '=', 0)->get()->whereBetween('grupo', [10, 19])->count();
-        $femenino2064 = $all->where('sexo', '=', 'Femenino')->where('fallecido', '=', 0)->get()->whereBetween('grupo', [20, 64])->count();
-        $femenino65mas = $all->where('sexo', '=', 'Femenino')->where('fallecido', '=', 0)->get()->where('grupo', '>=', 65)->count();
+        // Por sexo y grupo etario (solo activos)
+        $totalMasculino = Paciente::where('sexo', 'Masculino')->where('fallecido', 0)->where('pasivo', 0)->count();
+        $masculino9 = Paciente::where('sexo', 'Masculino')->where('fallecido', 0)->where('pasivo', 0)
+            ->whereRaw('TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) < 10')->count();
+        $masculino1019 = Paciente::where('sexo', 'Masculino')->where('fallecido', 0)->where('pasivo', 0)
+            ->whereRaw('TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 10 AND 19')->count();
+        $masculino2064 = Paciente::where('sexo', 'Masculino')->where('fallecido', 0)->where('pasivo', 0)
+            ->whereRaw('TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 20 AND 64')->count();
+        $masculino65mas = Paciente::where('sexo', 'Masculino')->where('fallecido', 0)->where('pasivo', 0)
+            ->whereRaw('TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) >= 65')->count();
 
-        //x sector
-        $totalCeleste = $fam->where('sector', '=', 'SA')->count();
-        $totalNaranjo = $fam->where('sector', '=', 'SB')->count();
+        $totalFemenino = Paciente::where('sexo', 'Femenino')->where('fallecido', 0)->where('pasivo', 0)->count();
+        $femenino9 = Paciente::where('sexo', 'Femenino')->where('fallecido', 0)->where('pasivo', 0)
+            ->whereRaw('TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) < 10')->count();
+        $femenino1019 = Paciente::where('sexo', 'Femenino')->where('fallecido', 0)->where('pasivo', 0)
+            ->whereRaw('TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 10 AND 19')->count();
+        $femenino2064 = Paciente::where('sexo', 'Femenino')->where('fallecido', 0)->where('pasivo', 0)
+            ->whereRaw('TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 20 AND 64')->count();
+        $femenino65mas = Paciente::where('sexo', 'Femenino')->where('fallecido', 0)->where('pasivo', 0)
+            ->whereRaw('TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) >= 65')->count();
 
-        $totalpCeleste = $all->where('sector', '=', 'celeste')->where('fallecido', '=', 0)->count();
-        $totalpNaranjo = $all->where('sector', '=', 'naranjo')->where('fallecido', '=', 0)->count();
-        $totalpBlanco = $all->where('sector', '=', 'blanco')->where('fallecido', '=', 0)->count();
+        // Por sector (solo activos)
+        $totalCeleste = Familia::where('sector', 'SA')->count();
+        $totalNaranjo = Familia::where('sector', 'SB')->count();
 
-        $sinFamilia = $all->whereNull('familia_id')->whereFallecido(0)->count();
-        $sinIntegrantes = $fam->doesntHave('pacientes')->count();
-        // dd($sinFamilia);
+        $totalpCeleste = Paciente::where('sector', 'celeste')->where('fallecido', 0)->where('pasivo', 0)->count();
+        $totalpNaranjo = Paciente::where('sector', 'naranjo')->where('fallecido', 0)->where('pasivo', 0)->count();
+        $totalpBlanco = Paciente::where('sector', 'blanco')->where('fallecido', 0)->where('pasivo', 0)->count();
+
+        $sinFamilia = Paciente::whereNull('familia_id')->where('fallecido', 0)->where('pasivo', 0)->count();
+        $sinIntegrantes = Familia::doesntHave('pacientes')->count();
 
         return view('home', compact(
             'totalPacientes',
