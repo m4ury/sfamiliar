@@ -213,4 +213,128 @@ class PacienteController extends Controller
 
         return redirect('pacientes/' . $identificador)->withSuccess('Corregido exito!');
     }
+
+    public function exportarExcel()
+    {
+        $pacientes = Paciente::with('familia')
+            ->select(
+                'pacientes.id',
+                'pacientes.rut',
+                'pacientes.nombres',
+                'pacientes.apellidoP',
+                'pacientes.apellidoM',
+                'pacientes.ficha',
+                'pacientes.fallecido',
+                'pacientes.fecha_fallecido',
+                'pacientes.sector',
+                'pacientes.sexo',
+                'pacientes.familia_id',
+                'pacientes.fecha_nacimiento',
+                'pacientes.pasivo'
+            )
+            ->where('pacientes.fallecido', 0)
+            ->where('pacientes.pasivo', 0)
+            ->get();
+
+        $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setTitle('Pacientes');
+
+        // Encabezados
+        $headers = ['Rut', 'Nombre Completo', 'Nº Ficha Clínica', 'Ficha Familiar', 'Edad', 'Sexo', 'Sector', 'Grupo Etareo'];
+        $sheet->fromArray([$headers], null, 'A1');
+
+        // Aplicar estilos a los encabezados
+        $headerStyle = [
+            'font' => ['bold' => true, 'color' => ['rgb' => 'FFFFFF']],
+            'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['rgb' => '4472C4']],
+            'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER],
+        ];
+
+        foreach (range('A', 'H') as $col) {
+            $sheet->getStyle($col . '1')->applyFromArray($headerStyle);
+        }
+
+        // Datos
+        $row = 2;
+        foreach ($pacientes as $paciente) {
+            $edad = $paciente->edad();
+            $grupoEtareo = $this->obtenerGrupoEtareo($edad);
+            $fichaFamiliar = $paciente->familia ? 
+                ucfirst($paciente->familia->sector) . ' - ' . $paciente->familia->ficha_familiar : '';
+            $sector = ucfirst($paciente->sector);
+
+            $sheet->fromArray([
+                [
+                    $paciente->rut,
+                    strtoupper($paciente->nombres . ' ' . $paciente->apellidoP . ' ' . $paciente->apellidoM),
+                    $paciente->ficha,
+                    $fichaFamiliar,
+                    $edad,
+                    $paciente->sexo,
+                    $sector,
+                    $grupoEtareo
+                ]
+            ], null, 'A' . $row);
+            
+            $row++;
+        }
+
+        // Ajustar ancho de columnas
+        $sheet->getColumnDimension('A')->setWidth(15);
+        $sheet->getColumnDimension('B')->setWidth(35);
+        $sheet->getColumnDimension('C')->setWidth(15);
+        $sheet->getColumnDimension('D')->setWidth(25);
+        $sheet->getColumnDimension('E')->setWidth(10);
+        $sheet->getColumnDimension('F')->setWidth(10);
+        $sheet->getColumnDimension('G')->setWidth(15);
+        $sheet->getColumnDimension('H')->setWidth(20);
+
+        // Generar archivo
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+        $filename = 'Pacientes_' . date('Y-m-d_H-i-s') . '.xlsx';
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save('php://output');
+        exit;
+    }
+
+    private function obtenerGrupoEtareo($edad)
+    {
+        switch (true) {
+            case $edad < 15:
+                return 'Menor de 15';
+            case $edad >= 15 && $edad <= 19:
+                return 'Entre 15 y 19';
+            case $edad >= 20 && $edad <= 24:
+                return 'Entre 20 y 24';
+            case $edad >= 25 && $edad <= 29:
+                return 'Entre 25 y 29';
+            case $edad >= 30 && $edad <= 34:
+                return 'Entre 30 y 34';
+            case $edad >= 35 && $edad <= 39:
+                return 'Entre 35 y 39';
+            case $edad >= 40 && $edad <= 44:
+                return 'Entre 40 y 44';
+            case $edad >= 45 && $edad <= 49:
+                return 'Entre 45 y 49';
+            case $edad >= 50 && $edad <= 54:
+                return 'Entre 50 y 54';
+            case $edad >= 55 && $edad <= 59:
+                return 'Entre 55 y 59';
+            case $edad >= 60 && $edad <= 64:
+                return 'Entre 60 y 64';
+            case $edad >= 65 && $edad <= 69:
+                return 'Entre 65 y 69';
+            case $edad >= 70 && $edad <= 74:
+                return 'Entre 70 y 74';
+            case $edad >= 75 && $edad <= 79:
+                return 'Entre 75 y 79';
+            default:
+                return '80 y Más';
+        }
+    }
 }

@@ -33,6 +33,18 @@
     <script>
         $(document).ready(function() {
             $('#pacientes').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'colvis',
+                    {
+                        text: 'Excel',
+                        action: function(e, dt, node, config) {
+                            window.location.href = "{{ route('pacientes.exportar-excel') }}";
+                        }
+                    },
+                    'pdf',
+                    'print',
+                ],
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('pacientes.data') }}",

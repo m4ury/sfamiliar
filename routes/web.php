@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::post('pacientes/corregir-familia', 'PacienteController@corregirFamilia')->name('corregir-familia');
     Route::post('/corregir-familia/{identificador}', [PacienteController::class, 'corregirFamilia'])->name('corregir.familia');
     Route::get('pacientes/data', [PacienteController::class, 'getPacientesData'])->name('pacientes.data');
+    Route::get('pacientes/exportar-excel', [PacienteController::class, 'exportarExcel'])->name('pacientes.exportar-excel');
 
     Route::resource('pacientes', 'PacienteController');
 
